@@ -1,0 +1,14 @@
+img{
+    padding-top: 10px;
+    height: 95px;
+    width: 83px;
+};
+.astric{
+    color: red;
+}
+.error {
+    color: red;
+}
+.success {
+    color: green;
+} 
