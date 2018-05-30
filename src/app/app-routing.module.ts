@@ -33,45 +33,48 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    // canActivate: [AuthenticateGuard],
+    canActivate: [AuthenticateGuard],
   },
   {
     path: 'category',
     component: CategoryComponent,
+    canActivate: [AuthenticateGuard],
   },
   {
     path: 'product',
     component: ProductComponent,
-
+    canActivate: [AuthenticateGuard],
   },
   {
     path: 'hochiki/:action',
     component: AddCompanyComponent,
-    // canActivate: [AuthenticateGuard],
+    canActivate: [AuthenticateGuard],
   },
   {
     path: 'hochiki/:action/:id',
     component: AddCompanyComponent,
-    // canActivate: [AuthenticateGuard],
+    canActivate: [AuthenticateGuard],
   },
   {
     path: 'hochiki',
     component: CompanyManagementComponent,
-    // canActivate: [AuthenticateGuard],
+    canActivate: [AuthenticateGuard],
   },
   {
     path: 'product/:action',
     component: AddProductComponent,
+    canActivate: [AuthenticateGuard],
   },
   {
     path: 'product/:action/:id',
     component: AddProductComponent,
+    canActivate: [AuthenticateGuard],
   },
 
   {
     path: 'supression/:action/:id',
     component: SupressionEditComponent,
-    // canActivate: [AuthenticateGuard],
+    canActivate: [AuthenticateGuard],
   },
   {
     path: 'supression',
@@ -86,21 +89,22 @@ const routes: Routes = [
   {
     path: 'ves',
     component: VesComponent,
+    canActivate: [AuthenticateGuard],
   },
   {
     path: 'user/:action',
     component: AddUserComponent,
-    // canActivate: [AuthenticateGuard],
+    canActivate: [AuthenticateGuard],
   },
   {
     path: 'user/:action/:id',
     component: AddUserComponent,
-    // canActivate: [AuthenticateGuard],
+    canActivate: [AuthenticateGuard],
   },
   {
     path: 'user',
     component: UserManagementComponent,
-    // canActivate: [AuthenticateGuard],
+    canActivate: [AuthenticateGuard],
   },
 
 
