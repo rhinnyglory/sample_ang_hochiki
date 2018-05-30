@@ -143,8 +143,8 @@ export class AddProductComponent implements OnInit {
       this.productService.updateProduct(userId, info).then(users => {
         this.showLoader = false;
         $('.alert').css('z-index', '9999');
-        $('#updated-alert').fadeTo(2000, 500).slideUp(500, function () {
-          $('#updated-alert').slideUp(500);
+        $('#error-alert-user').fadeTo(2000, 500).slideUp(500, function(){
+          $('#error-alert-user').slideUp(500);
           $('.alert').css('z-index', '-1000');
         });
         this.router.navigate(['/product']);

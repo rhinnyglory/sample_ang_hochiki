@@ -41,6 +41,7 @@ import { CategoryService} from './component/category/category.service';
 import { SupressionComponent } from './component/supression/supression.component';
 import { VesComponent } from './component/ves/ves.component';
 import { VesService} from './component/ves/ves.service';
+import { UserService} from './component/user-management/user.service';
 
 import { SupressionService} from './component/supression/supression.service';
 import { SupressionEditComponent } from './component/supression/supression-edit.component';
@@ -52,6 +53,7 @@ import { BootstrapGrowlModule} from './component/supression/bootstrap-growl.modu
 import { VesEditComponent } from './component/ves/ves-edit.component';
 import { UserManagementComponent } from './component/user-management/user-management.component';
 import { AddUserComponent } from './component/user-management/add-user.component';
+import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 
 
 
@@ -77,7 +79,8 @@ import { AddUserComponent } from './component/user-management/add-user.component
     FileValidator,
     VesEditComponent,
     UserManagementComponent,
-    AddUserComponent
+    AddUserComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -111,6 +114,7 @@ import { AddUserComponent } from './component/user-management/add-user.component
     CategoryService,
     SupressionService,
     VesService,
+    UserService,
     // BootstrapGrowlService
     // {provide: ToastOptions, useClass: AddProductComponent},
    ],

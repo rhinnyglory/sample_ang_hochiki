@@ -17,6 +17,7 @@ import { SupressionEditComponent } from './component/supression/supression-edit.
 import { VesEditComponent } from './component/ves/ves-edit.component';
 import { UserManagementComponent } from './component/user-management/user-management.component';
 import { AddUserComponent } from './component/user-management/add-user.component';
+import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,10 @@ const routes: Routes = [
     path: 'login',
     component: LoginPageComponent,
   },
-
+  {
+    path: 'forgotPassword',
+    component: ForgotPasswordComponent,
+  },
   {
     path: 'dashboard',
     component: DashboardComponent,

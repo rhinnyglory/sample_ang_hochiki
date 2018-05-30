@@ -10,7 +10,7 @@
               <a [routerLink]="['add']" class="btn btn-primary" style="float:right;">Add User</a>
           </div>
       </div>
-      <h4>Total {{count}} products are available.</h4>
+      <h4>Total {{count}} users are available.</h4>
 
 
   </section>
@@ -42,9 +42,7 @@
                   <td width="11%">
                       {{x.id}}
                   </td>
-                 
-
-                  <td>{{x.productName}}</td>
+                  <td>{{x.userName}}</td>
                   <td>{{x.category.name}}</td>
                   <td class="text-center">
                       <div *ngIf="x.isActive === true">Active</div>

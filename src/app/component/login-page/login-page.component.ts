@@ -9,27 +9,61 @@ import { AuthenticationService } from './login.service';
     templateUrl: './login-page.component.html',
     styleUrls: ['./login-page.component.css']
 })
+// export class LoginPageComponent {
+//     model: Login = {
+//         email: '',
+//         password: ''
+//     };
+//     private loading = false;
+//     returnUrl: string;
+
+//     constructor(  private router: Router, private zone: NgZone, private route: ActivatedRoute,  private authenticationService: AuthenticationService) {
+
+//     }
+
+//     login(model) {
+//             if (model.email === 'superadmin@credencys.com' && model.password === '123456') {
+//                 this.router.navigate(['/dashboard']);
+//             }else {
+//                 this.router.navigate(['/login']);
+//             }
+
+
+
+//     }
+
+// }
 export class LoginPageComponent {
     model: Login = {
         email: '',
         password: ''
     };
+    authenticated: boolean;
     private loading = false;
+    public userRights: any;
     returnUrl: string;
 
-    constructor(  private router: Router, private zone: NgZone, private route: ActivatedRoute,  private authenticationService: AuthenticationService) {
-
+    constructor(
+        private loginServices: AuthenticationService,
+        private router: Router) {
+        if (localStorage.getItem('auth')) {
+            this.router.navigate(['dashboard']);
+        }
     }
 
-    login(model) {
-            if (model.email === 'superadmin@credencys.com' && model.password === '123456') {
-                this.router.navigate(['/dashboard']);
-            }else {
-                this.router.navigate(['/login']);
+    login() {
+        this.loginServices.login(this.model).subscribe((token: HttpResponse<any>) => {
+            const xToken = token.headers.get('x-access-token');
+            localStorage.setItem('auth', xToken);
+            this.authenticated = true;
+            if (token.body.success) {
+                this.router.navigate(['dashboard']);
             }
 
-
-
+        }, err => {
+            this.loading = false;
+            console.log('error');
+        });
     }
 
 }

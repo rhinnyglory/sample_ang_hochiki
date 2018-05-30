@@ -2,7 +2,7 @@
   
 
 
-      <div class="login-box"*ngIf="!forgotpwd || !register">
+      <div class="login-box"*ngIf="!forgotpwd">
           <div class="login-logo">
               <img src="assets/images/login_logo.png">
             </div>
@@ -42,7 +42,7 @@
                 <div class="checkbox icheck">
                   <label class="">
                     <a href="javascript:void(0)" (click)='forgotpwd = !forgotpwd'>I forgot my password</a><br>
-                    <a href="javascript:void(0)" (click)='register = !register'>Register a new membership</a>
+                    <!-- <a href="javascript:void(0)" (click)='register = !register'>Register a new membership</a> -->
                   </label>
                 </div>
               </div>
@@ -53,6 +53,7 @@
               <!-- /.col -->
             </div>
           </form>
+      
       </div>
         <!-- /.login-box-body -->
       </div>
@@ -60,9 +61,8 @@
 
 <!-- Forgot Password HTML ends -->
 <div class="login-box" *ngIf="forgotpwd">
-  <div class="login-cont">
   <div class="login-logo">
-    <a href="javascript:void(0)"><b>Forgot</b>Password</a>
+    <img src="assets/images/login_logo.png">
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -93,14 +93,13 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4 text-center">
-          <button type="submit" class="btn btn-primary btn-block btn-flat" (click)="login()">Send In</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat" (click)="sentEmail()">Send In</button>
         </div>
         <!-- /.col -->
       </div>
     </form>
 </div>
   <!-- /.login-box-body -->
-</div>
 </div>
 <!-- </div>  -->
 <div class="login-box"*ngIf="register">
@@ -112,68 +111,51 @@
   <div class="login-box-body">
     <p class="login-box-msg" ><b>Register</b></p>
     <div class="has-error" [hidden]="!errMessage">{{errMessage}}</div>
-    <form action="" method="" novalidate>
-      <div class="form-group has-feedback" [ngClass]="{'has-error': email.invalid && (email.dirty || email.touched),'has-success': email.valid && (email.dirty || email.touched) }">
-        <input type="email" class="form-control" id="email" placeholder="Enter Email" required name="email" [(ngModel)]="model.email" #email="ngModel"
-        pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$">
-        <div *ngIf="email.errors && (email.dirty || email.touched)" class="has-error">
-        <div [hidden]="!email.errors.required">
-          Email is required!
+    <div class="register-box-body">
+      <p class="login-box-msg">Register a new membership</p>
+  
+      <form action="../../index.html" method="post">
+        <div class="form-group has-feedback">
+          <input type="text" class="form-control" placeholder="First name">
+          <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
-        <div [hidden]="!email.errors.pattern">
-          Please enter a valid email!
+        <div class="form-group has-feedback">
+          <input type="text" class="form-control" placeholder="Last name">
+          <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
-      </div>
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-      </div>
-      <div class="form-group" ng-class="{ 'has-error': form.firstName.$dirty && form.firstName.$error.required }">
-          <label for="username">First name</label>
-          <input type="text" name="firstName" id="firstName" class="form-control" ng-model="user.first_name" required />
-          <span ng-show="form.firstName.$dirty && form.firstName.$error.required" class="help-block">First name is required</span>
-      </div>
-      <div class="form-group" ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }">
-          <label for="username">Last name</label>
-          <input type="text" name="lastName" id="Text1" class="form-control" ng-model="user.last_name" required />
-          <span ng-show="form.lastName.$dirty && form.lastName.$error.required" class="help-block">Last name is required</span>
-      </div>
-       <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
-          <label for="username">Mobile</label>
-          <input type="number" name="mobile" id="Text1" class="form-control" ng-model="user.mobile" required />
-          <span ng-show="form.mobile.$dirty && form.mobile.$error.required" class="help-block">Mobile number is required</span>
-      </div>
-      <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-          <label for="username">Username</label>
-          <input type="text" name="username" id="username" class="form-control" ng-model="user.email" required />
-          <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
-      </div>
-      <div class="form-group has-feedback" [ngClass]="{'has-error': pwd.invalid && (pwd.dirty || pwd.touched),'has-success': pwd.valid && (pwd.dirty || pwd.touched) }">
-        <input class="form-control" minlength="6"  type="password" placeholder="Password" id="pwd"  required name="pwd" [(ngModel)]="model.password" #pwd="ngModel" />
-        <div *ngIf="pwd.errors && (pwd.dirty || pwd.touched)" class="has-error">
-          <div [hidden]="!pwd.errors.required">
-            Password is required!
+        <div class="form-group has-feedback">
+          <input type="email" class="form-control" placeholder="Email">
+          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="email" class="form-control" placeholder="Mobile number">
+          <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="email" class="form-control" placeholder="State">
+          <span class="glyphicon glyphicon-home form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="email" class="form-control" placeholder="City">
+          <span class="glyphicon glyphicon-home form-control-feedback"></span>
+        </div>
+        <div class="row">
+          <div class="col-xs-8">
+            <div class="checkbox icheck">
+              <label class="">
+                <!-- <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Remember Me -->
+                <a href="javascript:void(0)"(click)='register = !register'>Already I have account</a><br>
+              </label>
+            </div>
           </div>
-          <div [hidden]="!pwd.errors.minlength">
-            Please enter a valid password!
+          <!-- /.col -->
+          <div class="col-xs-4 text-center">
+            <button type="submit" class="btn btn-primary btn-block btn-flat" (click)="login()">Send In</button>
           </div>
+          <!-- /.col -->
         </div>
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label class="">
-              <a href="javascript:void(0)" (click)='forgotpwd = !forgotpwd'>I forgot my password</a><br>
-              <a href="javascript:void(0)" (click)='register = !register'>Register a new membership</a>
-            </label>
-          </div>
-        </div>
-        <!-- /.col -->
-        <div class="col-xs-4 text-center">
-          <button type="submit" class="btn btn-primary btn-block btn-flat" (click)="login(model)">Sign In</button>
-        </div>
-        <!-- /.col -->
-      </div>
-    </form>
+      </form>
+    </div>
 </div>
   <!-- /.login-box-body -->
 </div>
