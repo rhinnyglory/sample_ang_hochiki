@@ -56,8 +56,8 @@ export class AddUserComponent implements OnInit {
     this.userService.getCountries().then(data => {
       this.countries = data.result;
     });
+    this.getRoles();
     if (this.userId) {
-      this.getRoles();
       this.showpreviewafterEdit = true;
       this.title = 'Edit Product';
       this.buttonTitle = 'Update';
@@ -72,7 +72,6 @@ export class AddUserComponent implements OnInit {
       this.user = res.result;
       this.user.countryId = res.result.countryId;
       this.userService.getStates(res.result.countryId).then(res1 => {
-        console.log(res1, '123');
         this.states = res1.result;
       });
       this.userService.getCities(res.result.stateId).then(res2 => {
@@ -136,14 +135,11 @@ export class AddUserComponent implements OnInit {
   }
 
   saveUserDetails(form: NgForm, user) {
-    console.log(user, '324');
     this.isValidFormSubmitted = false;
     this.isValidFormSubmitted = true;
     this.showLoader = true;
     if (this.userId) {
-      console.log(this.user, '456');
-      this.userService.updateUser(user).then(users => {
-        // this.loaderService.display(false);
+      this.userService.updateUser(user, this.userId).then(users => {
         if (users.success = true) {
           this.showLoader = false;
           $('.alert').css('z-index', '9999');

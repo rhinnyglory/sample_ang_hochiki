@@ -41,8 +41,8 @@ export class UserService {
     return this.httpcaller.httpcall(ConstantApi.user + '/' + id, 'delete', {});
   }
 
-  updateUser(user: object) {
-    return this.httpcaller.httpcall(ConstantApi.userUpdate, 'put', user);
+  updateUser(user: object, id: number) {
+    return this.httpcaller.httpcall(ConstantApi.userUpdate + '/' + id, 'put', user);
   }
 
   getUserDetails(id: number) {

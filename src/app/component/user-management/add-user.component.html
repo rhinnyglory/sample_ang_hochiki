@@ -18,18 +18,18 @@
         <div class="box-body">
           <div class="form-group">
             <label for="exampleInputEmail1">First name<span class="astric">*</span></label>
-            <input type="text" id="name" name="userfirstName" [(ngModel)]="user.firstName" class="form-control" name="name" #pname="ngModel"
+            <input type="text" id="name" name="userfirstName" [(ngModel)]="user.firstName" class="form-control" name="firstName" #firstName="ngModel"
               required/>
-            <div *ngIf="pname.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+            <div *ngIf="firstName.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
               First name required.
             </div>
           </div>
 
           <div class="form-group">
             <label for="exampleInputEmail1">Last name<span class="astric">*</span></label>
-            <input type="text" id="name" name="userlastName" [(ngModel)]="user.lastName" class="form-control" name="name" #pname="ngModel"
+            <input type="text" id="lastName" name="userlastName" [(ngModel)]="user.lastName" class="form-control" name="name" #lastName="ngModel"
               required/>
-            <div *ngIf="pname.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+            <div *ngIf="lastName.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
               Last name required.
             </div>
           </div>
@@ -52,7 +52,7 @@
             <label for="exampleInputEmail1">Phone Number<span class="astric">*</span></label>
 
             <input type="text" (blur)="onBlur(user.mobile)" class="form_fields form-control" id="mobilenumber" required [(ngModel)]="user.mobile"
-              name="mobilenumber" pattern="'^[0-9]*$'" minlength="10" maxlength="10" #phone="ngModel" (keypress)="keyPress($event)">
+              name="mobilenumber" pattern="'^[0-9]*$'" minlength="10" maxlength="10" #mobile="ngModel" (keypress)="keyPress($event)">
             <div *ngIf="showSelected" class="alert alert-danger">
               <span [hidden]="!showSelected">Contact number should be 10 digit</span>
               <div [hidden]="!phoneempty">Contact number is required</div>
