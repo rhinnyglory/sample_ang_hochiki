@@ -149,7 +149,7 @@ export class AddUserComponent implements OnInit {
           });
           this.router.navigate(['/user']);
         } else {
-      this.router.navigate(['/user']);
+          this.router.navigate(['/user']);
         }
       });
     } else {
