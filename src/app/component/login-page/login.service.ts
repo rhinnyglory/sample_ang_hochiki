@@ -19,9 +19,9 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient, private router: Router, private httpcaller: HttpService) { }
 
-  private tokenUrl = Constant.url + 'login';
+  private tokenUrl = Constant.url + 'admin-login';
   private forget = 'forget-password';
-  
+
   private headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 
   login(login: Login): Observable<any> {
@@ -36,5 +36,5 @@ export class AuthenticationService {
     // remove user from local storage to log user out
     localStorage.removeItem('auth');
     this.router.navigate(['/login']);
-}
+  }
 }

@@ -1,15 +1,15 @@
 export interface UserGroupModel {
     firstName: string;
-	email: string;
-	lastName: string;
-	mobile: string;
+    email: string;
+    lastName: string;
+    mobile: string;
     countryId: number;
-	stateId: number;
-	cityId: number;
-	country: Country;
-	state: State;
-	city: City;
-
+    stateId: number;
+    cityId: number;
+    country: Country;
+    state: State;
+    city: City;
+    roleId: number;
 }
 export interface Country {
     id: number;

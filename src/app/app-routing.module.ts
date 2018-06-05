@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticateGuard } from './gaurds/authenticate.guard';
@@ -18,6 +17,8 @@ import { VesEditComponent } from './component/ves/ves-edit.component';
 import { UserManagementComponent } from './component/user-management/user-management.component';
 import { AddUserComponent } from './component/user-management/add-user.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
+import { RolesComponent } from './component/roles/roles.component';
+import { AddRoleComponent } from './component/roles/add-role/add-role.component';
 
 
 const routes: Routes = [
@@ -106,8 +107,21 @@ const routes: Routes = [
     component: UserManagementComponent,
     canActivate: [AuthenticateGuard],
   },
-
-
+  {
+    path: 'roles',
+    component: RolesComponent,
+    canActivate: [AuthenticateGuard],
+  },
+  {
+    path: 'roles/:action',
+    component: AddRoleComponent,
+    canActivate: [AuthenticateGuard],
+  },
+  {
+    path: 'roles/:action/:id',
+    component: AddRoleComponent,
+    canActivate: [AuthenticateGuard],
+  }
 ];
 
 @NgModule({
@@ -116,4 +130,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule {
 
- }
+}

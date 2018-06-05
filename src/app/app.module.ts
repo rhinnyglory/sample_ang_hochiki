@@ -1,8 +1,9 @@
-import { BrowserModule  } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import {environment} from '../environments/environment';
+import { environment } from '../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgModule, AfterViewInit, ElementRef} from '@angular/core';
+import { NgModule, AfterViewInit, ElementRef } from '@angular/core';
+import { UiSwitchModule } from 'ngx-toggle-switch';
 // import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,9 +19,9 @@ import { MyDateRangePickerModule } from 'mydaterangepicker';
 import { LoginPageComponent } from './component/login-page/login-page.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HttpService } from './http.service';
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 import { MyDatePickerModule } from 'mydatepicker';
-import {DataTableModule} from 'angular2-datatable';
+import { DataTableModule } from 'angular2-datatable';
 import { ProfileComponent } from './component/profile/profile.component';
 import { ModalModule } from 'ngx-modialog';
 import { ProfileService } from './component/profile/profile.service';
@@ -37,23 +38,27 @@ import { ProductComponent } from './component/product/product.component';
 import { CategoryComponent } from './component/category/category.component';
 import { AddProductComponent } from './component/product/add-product.component';
 import { ProductService } from './component/product/product.service';
-import { CategoryService} from './component/category/category.service';
+import { CategoryService } from './component/category/category.service';
 import { SupressionComponent } from './component/supression/supression.component';
 import { VesComponent } from './component/ves/ves.component';
-import { VesService} from './component/ves/ves.service';
-import { UserService} from './component/user-management/user.service';
+import { VesService } from './component/ves/ves.service';
+import { UserService } from './component/user-management/user.service';
 
-import { SupressionService} from './component/supression/supression.service';
+import { SupressionService } from './component/supression/supression.service';
 import { SupressionEditComponent } from './component/supression/supression-edit.component';
-import {FileValueAccessor} from './component/product/file-control-value-accessor';
-import {FileValidator} from './component/product/file.validator';
+import { FileValueAccessor } from './component/product/file-control-value-accessor';
+import { FileValidator } from './component/product/file.validator';
 // import {BootstrapGrowlComponent, BootstrapGrowlService} from 'ngx-bootstrap-growl';
 
-import { BootstrapGrowlModule} from './component/supression/bootstrap-growl.module';
+import { BootstrapGrowlModule } from './component/supression/bootstrap-growl.module';
 import { VesEditComponent } from './component/ves/ves-edit.component';
 import { UserManagementComponent } from './component/user-management/user-management.component';
 import { AddUserComponent } from './component/user-management/add-user.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
+import { RolesComponent } from './component/roles/roles.component';
+import { RoleInfoService } from './component/roles/role-info.service';
+import { AddRoleComponent } from './component/roles/add-role/add-role.component';
+import { FeedbackComponent } from './component/feedback/feedback.component';
 
 
 
@@ -80,7 +85,10 @@ import { ForgotPasswordComponent } from './component/forgot-password/forgot-pass
     VesEditComponent,
     UserManagementComponent,
     AddUserComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    RolesComponent,
+    AddRoleComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
@@ -99,6 +107,7 @@ import { ForgotPasswordComponent } from './component/forgot-password/forgot-pass
     // BootstrapGrowlComponent,
     // ToastModule.forRoot(),
     // RouterModule.forRoot(routes, { useHash: true }),
+    UiSwitchModule
   ],
 
 
@@ -115,14 +124,15 @@ import { ForgotPasswordComponent } from './component/forgot-password/forgot-pass
     SupressionService,
     VesService,
     UserService,
+    RoleInfoService
     // BootstrapGrowlService
     // {provide: ToastOptions, useClass: AddProductComponent},
-   ],
+  ],
 
   bootstrap: [AppComponent],
-//   schemas: [
-//     CUSTOM_ELEMENTS_SCHEMA
-// ]
+  //   schemas: [
+  //     CUSTOM_ELEMENTS_SCHEMA
+  // ]
 })
 export class AppModule {
 
