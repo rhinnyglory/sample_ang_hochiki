@@ -12,6 +12,8 @@ export const ConstantApi = {
     roles: 'roles-list',
     roleDropdown: 'roles-dropdown',
     addroles: 'roles',
-    userProfile: 'get-profile'
+    userProfile: 'get-profile',
+    feedsList: 'feedback-list',
+    feeDetail: 'feedback-details/'
 };
 

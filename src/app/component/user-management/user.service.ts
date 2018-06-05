@@ -45,7 +45,7 @@ export class UserService {
     return this.httpcaller.httpcall(ConstantApi.userUpdate, 'put', user);
   }
 
-  getUserDetails() {
-    return this.httpcaller.httpcall(ConstantApi.userProfile, 'get', {});
+  getUserDetails(id: number) {
+    return this.httpcaller.httpcall(ConstantApi.userProfile + '/' + id, 'get', {});
   }
 }

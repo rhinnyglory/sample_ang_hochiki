@@ -19,6 +19,8 @@ import { AddUserComponent } from './component/user-management/add-user.component
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { RolesComponent } from './component/roles/roles.component';
 import { AddRoleComponent } from './component/roles/add-role/add-role.component';
+import { FeedbackComponent } from './component/feedback/feedback.component';
+import { FeedbackDetailComponent } from './component/feedback/feedback-detail/feedback-detail.component';
 
 
 const routes: Routes = [
@@ -121,7 +123,18 @@ const routes: Routes = [
     path: 'roles/:action/:id',
     component: AddRoleComponent,
     canActivate: [AuthenticateGuard],
+  },
+  {
+    path: 'feedback',
+    component: FeedbackComponent,
+    canActivate: [AuthenticateGuard],
+  },
+  {
+    path: 'feedback/:action/:id',
+    component: FeedbackDetailComponent,
+    canActivate: [AuthenticateGuard],
   }
+
 ];
 
 @NgModule({

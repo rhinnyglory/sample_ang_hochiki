@@ -3,7 +3,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule, AfterViewInit, ElementRef } from '@angular/core';
-import { UiSwitchModule } from 'ngx-toggle-switch';
 // import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -59,7 +58,8 @@ import { RolesComponent } from './component/roles/roles.component';
 import { RoleInfoService } from './component/roles/role-info.service';
 import { AddRoleComponent } from './component/roles/add-role/add-role.component';
 import { FeedbackComponent } from './component/feedback/feedback.component';
-
+import { FeedbackDetailComponent } from './component/feedback/feedback-detail/feedback-detail.component';
+import { FeedbckService } from './component/feedback/feedbck.service';
 
 
 @NgModule({
@@ -88,7 +88,8 @@ import { FeedbackComponent } from './component/feedback/feedback.component';
     ForgotPasswordComponent,
     RolesComponent,
     AddRoleComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    FeedbackDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -106,8 +107,7 @@ import { FeedbackComponent } from './component/feedback/feedback.component';
     NgxDeleteConfirmModule.forRoot(),
     // BootstrapGrowlComponent,
     // ToastModule.forRoot(),
-    // RouterModule.forRoot(routes, { useHash: true }),
-    UiSwitchModule
+    // RouterModule.forRoot(routes, { useHash: true })
   ],
 
 
@@ -124,7 +124,8 @@ import { FeedbackComponent } from './component/feedback/feedback.component';
     SupressionService,
     VesService,
     UserService,
-    RoleInfoService
+    RoleInfoService,
+    FeedbckService
     // BootstrapGrowlService
     // {provide: ToastOptions, useClass: AddProductComponent},
   ],

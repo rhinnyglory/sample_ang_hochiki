@@ -32,7 +32,7 @@ export class UserManagementComponent implements OnInit {
   }
 
   onChange(event: any, id: number) {
-    this.user.statusChange(event, id).then(data => {
+    this.user.statusChange(event.target.checked, id).then(data => {
       this.showLoader = false;
       $('.alert').css('z-index', '9999');
       $('#success-alert-status').fadeTo(2000, 500).slideUp(500, function () {

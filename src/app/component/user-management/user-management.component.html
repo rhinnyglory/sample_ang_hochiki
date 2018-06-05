@@ -50,7 +50,11 @@
                     <td>{{x.email}}</td>
                     <td>{{x.mobile}}</td>
                     <td class="text-center">
-                        <ui-switch [(ngModel)]="x.isActive" defaultBgColor="red" (change)="onChange($event, x.id)"></ui-switch>
+                        <label class="switch">
+                            <input type="checkbox"  [(ngModel)]="x.isActive" checked="x.isActive" (change)="onChange($event, x.id)">
+                            <span class="slider round"></span>
+                        </label>
+                        <!-- <ui-switch [(ngModel)]="x.isActive" defaultBgColor="red" (change)="onChange($event, x.id)"></ui-switch> -->
                         <a title="Edit" [routerLink]="['edit', x.id]">
                             <i class="fa fa-pencil" style="font-size:20px; color:black"></i>
                         </a>

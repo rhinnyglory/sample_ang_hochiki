@@ -14,7 +14,7 @@
       <!-- /.box-header -->
       <!-- form start -->
 
-      <form #userForm="ngForm" (ngSubmit)="saveUserDetails(userForm)">
+      <form #userForm="ngForm" (ngSubmit)="saveUserDetails(userForm, user)">
         <div class="box-body">
           <div class="form-group">
             <label for="exampleInputEmail1">First name<span class="astric">*</span></label>
@@ -59,46 +59,45 @@
             </div>
           </div>
           <div class="form-group">
-              <label for="exampleInputEmail1">Role<span class="astric">*</span></label>
-              <select class="form-control" name="selectedRoles" [(ngModel)]="user.roleId" id="role" required
-                #selectedRoles="ngModel">
+            <label for="exampleInputEmail1">Role<span class="astric">*</span></label>
+            <select class="form-control" name="selectedRoles" [(ngModel)]="user.roleId" id="role" required #selectedRoles="ngModel">
                           <option value="">Select Role</option>
-                          <option *ngFor="let role of roles" [disabled]="role.name == 'admin'" [value]="role.id" [selected]="role.id">{{role.name}}</option>
+                          <option *ngFor="let role of roles" [disabled]="role.name == 'admin'" [value]="role.id">{{role.name}}</option>
                         </select>
-            </div>
+          </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Country<span class="astric">*</span></label>
-            <select class="form-control" name="selectedTechs" [(ngModel)]="user.countryId" id="name" (change)="CountrySelected();" required
-              #selectedTechs="ngModel">
+            <select class="form-control" name="countryId" [(ngModel)]="user.countryId" id="country" (change)="getStatesList();" required
+              #countryId="ngModel">
                         <option value="">Select Country</option>
-                        <option *ngFor="let user of countries" [value]="user.id" [selected]="user.id">{{user.name}}</option>
+                        <option *ngFor="let country of countries" [value]="country.id">{{country.name}}</option>
                       </select>
-            <!-- <div *ngIf="selectedTechs.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'"> 
-                        Country required. 
-                       </div> -->
+            <div *ngIf="countryId.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+              Country required.
+            </div>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">State<span class="astric">*</span></label>
-            <select class="form-control" name="selectedTechs" [(ngModel)]="user.stateId" id="name" (change)="CitySelected(user.stateId);"
-              required #selectedTechs="ngModel">
+            <select class="form-control" name="stateId" [(ngModel)]="user.stateId" id="state" (change)="getCitiesList();" required
+              #stateId="ngModel">
                         <option value="">Select State</option>
-                        <option *ngFor="let role of states" [value]="role.id" >{{role.name}}
+                        <option *ngFor="let state of states" [value]="state.id">{{state.name}}
         
                         </option>
                       </select>
-            <div *ngIf="selectedTechs.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+            <div *ngIf="stateId.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
               State required.
             </div>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">City<span class="astric">*</span></label>
-            <select class="form-control" name="selectedTechs" [(ngModel)]="user.cityId" id="name" (change)="selectName();" required #selectedTechs="ngModel">
+            <select class="form-control" name="cityId" [(ngModel)]="user.cityId" id="city" required #cityId="ngModel">
                         <option value="">Select City</option>
                         <option *ngFor="let role of cities" [value]="role.id" >{{role.name}}
         
                         </option>
                       </select>
-            <div *ngIf="selectedTechs.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+            <div *ngIf="cityId.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
               City required.
             </div>
           </div>

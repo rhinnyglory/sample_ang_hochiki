@@ -43,14 +43,9 @@ export class AddUserComponent implements OnInit {
   constructor(private router: Router,
     private userService: UserService, private route: ActivatedRoute, private formBuilder: FormBuilder) {
     this.user = {
-      firstName: '',
-      email: '',
-      lastName: '',
-      mobile: '',
-      roleId: 0,
-      countryId: {},
-      stateId: {},
-      cityId: {},
+      country: {},
+      state: {},
+      city: {},
     } as UserGroupModel;
   }
   userId: number;
@@ -58,49 +53,41 @@ export class AddUserComponent implements OnInit {
   ngOnInit() {
     document.title = 'Add User - Hochiki';
     this.userId = this.route.snapshot.params['id'];
+    this.userService.getCountries().then(data => {
+      this.countries = data.result;
+    });
     if (this.userId) {
+      this.getRoles();
       this.showpreviewafterEdit = true;
       this.title = 'Edit Product';
       this.buttonTitle = 'Update';
-      this.userService.getUserDetails().then(res => {
-        this.user = res.result;
-      });
+      this.getUserDetails(this.userId);
     } else {
       this.buttonTitle = 'Save';
     }
-    this.CountrySelected();
-    this.getRoles();
+  }
+
+  getUserDetails(userId) {
+    this.userService.getUserDetails(this.userId).then(res => {
+      this.user = res.result;
+      this.user.countryId = res.result.countryId;
+      this.userService.getStates(res.result.countryId).then(res1 => {
+        console.log(res1, '123');
+        this.states = res1.result;
+      });
+      this.userService.getCities(res.result.stateId).then(res2 => {
+        this.cities = res2.result;
+      });
+    });
   }
 
   public getRoles() {
     return this.userService.getUserRoles().then(response => {
       this.roles = response.result;
-      this.user.roleId = response.result[0].roleId;
-    });
-  }
-
-  public CountrySelected() {
-    return this.userService.getCountries().then(response => {
-      this.countries = response.result;
-      this.user.countryId = response.result[0].id;
-      this.StateSelected(response.result[0].id);
-
-    });
-  }
-  public StateSelected(countryId) {
-    return this.userService.getStates(countryId).then(response => {
-      this.states = response.result;
-
-    });
-  }
-  public CitySelected(stateId) {
-    return this.userService.getCities(stateId).then(response => {
-      this.cities = response.result;
     });
   }
 
   public onBlur(mobile) {
-
     if (mobile !== undefined && mobile !== '') {
       if (mobile.length < 10) {
         this.showSelected = true;
@@ -111,6 +98,35 @@ export class AddUserComponent implements OnInit {
     }
   }
 
+  /**
+	* Method for Get the states based on country
+	*
+	* @method getStatesList
+	* @param {String} Country ID
+	* @return {Object} Available States
+	*/
+  getStatesList() {
+    this.userService.getStates(this.user.countryId).then(data => {
+      this.states = data.result;
+    });
+    this.cities = [];
+    this.user.stateId = null;
+    this.user.cityId = null;
+  }
+  /**
+	* Method for Get the cities based on state
+	*
+	* @method getCitiesList
+	* @param {String} State ID
+	* @return {Object} Available Cities
+	*/
+  getCitiesList() {
+    this.userService.getCities(this.user.stateId).then(data => {
+      this.cities = data.result;
+    });
+  }
+
+
   public keyPress(event: any) {
     const pattern = /[0-9\+\-\ ]/;
     const inputChar = String.fromCharCode(event.charCode);
@@ -119,12 +135,14 @@ export class AddUserComponent implements OnInit {
     }
   }
 
-  saveUserDetails(form: NgForm) {
+  saveUserDetails(form: NgForm, user) {
+    console.log(user, '324');
     this.isValidFormSubmitted = false;
     this.isValidFormSubmitted = true;
     this.showLoader = true;
     if (this.userId) {
-      this.userService.updateUser(this.user).then(users => {
+      console.log(this.user, '456');
+      this.userService.updateUser(user).then(users => {
         // this.loaderService.display(false);
         if (users.success = true) {
           this.showLoader = false;
@@ -135,11 +153,11 @@ export class AddUserComponent implements OnInit {
           });
           this.router.navigate(['/user']);
         } else {
+      this.router.navigate(['/user']);
         }
       });
     } else {
       this.userService.addUser(this.user).then(users => {
-        // this.loaderService.display(false);
         if (users.success = true) {
           this.showLoader = false;
           $('.alert').css('z-index', '9999');
@@ -149,6 +167,7 @@ export class AddUserComponent implements OnInit {
           });
           this.router.navigate(['/user']);
         } else {
+          this.router.navigate(['/user']);
         }
       });
     }
