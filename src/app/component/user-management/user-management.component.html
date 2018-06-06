@@ -24,7 +24,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Action</th>
+                    <th class="text-center">Action</th>
                 </tr>
                 <tr>
                     <th width="11%">
@@ -49,15 +49,15 @@
                     <td>{{x.firstName}}&nbsp;{{x.lastName}}</td>
                     <td>{{x.email}}</td>
                     <td>{{x.mobile}}</td>
-                    <td>
+                    <td class="action-btn">
                         <label class="switch">
                             <input type="checkbox"  [(ngModel)]="x.isActive" checked="x.isActive" (change)="onChange($event, x.id)">
                             <span class="slider round"></span>
                         </label>
-                        <a title="Edit" [routerLink]="['edit', x.id]">
-                            <i class="fa fa-pencil" style="font-size:20px; color:black"></i>
+                        <a title="Edit" [routerLink]="['edit', x.id]" class="btn btn-xs btn-primary">
+                            <i class="fa fa-pencil"></i>
                         </a>
-                        <span>
+                        <span class="btn btn-xs btn-danger">
                             <delete-confirm title="Delete" [question]="'Are you sure you want to delete?'" (onConfirm)="sendDelete($event,x)" (onCancel)="sendCancel($event)"></delete-confirm>
                         </span>
                     </td>

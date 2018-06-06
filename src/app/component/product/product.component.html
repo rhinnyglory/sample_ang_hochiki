@@ -56,12 +56,12 @@
                         <div *ngIf="x.isActive === true">Active</div>
                         <div *ngIf="x.isActive === false">Inactive</div>
                     </td>
-                    <td class="text-center action">
-                        <a title="Edit" [routerLink]="['edit', x.id]">
-                            <i class="fa fa-pencil" style="font-size:20px; color:black"></i>
+                    <td class="action-btn">
+                        <a title="Edit" [routerLink]="['edit', x.id]" class="btn btn-xs btn-primary">
+                            <i class="fa fa-pencil"></i>
                         </a>
                         <!-- <a title="Delete" class="ml10" (click)="delUser(x.id)" ><i class="fa fa-trash-o" style="font-size:24px; color:black"></i></a> -->
-                        <span>
+                        <span class="btn btn-xs btn-danger">
                             <delete-confirm title="Delete" [question]="'Are you sure you want to delete?'" (onConfirm)="sendDelete($event,x.id)" (onCancel)="sendCancel($event)"></delete-confirm>
                         </span>
                     </td>

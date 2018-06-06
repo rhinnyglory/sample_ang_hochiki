@@ -21,7 +21,7 @@
                     <th>Name</th>
                     <th>Customer Email</th>
                     <th>Customer Name</th>
-                    <th>Action</th>
+                    <th class="text-center">Action</th>
                 </tr>
                 <tr>
                     <th width="11%">
@@ -46,9 +46,9 @@
                     <td>{{x.name}}</td>
                     <td>{{x.customerEmail}}</td>
                     <td>{{x.customerName}}</td>
-                    <td class="text-center">
-                        <a title="Edit" [routerLink]="['view', x.id]">
-                            <i class="fa fa-eye" style="font-size:20px; color:black"></i>
+                    <td class="action-btn">
+                        <a title="View" [routerLink]="['view', x.id]" class="btn btn-xs btn-info">
+                            <i class="fa fa-eye"></i>
                         </a>
                         <!-- <span>
                             <delete-confirm title="Delete" [question]="'Are you sure you want to delete?'" (onConfirm)="sendDelete($event,x)" (onCancel)="sendCancel($event)"></delete-confirm>
