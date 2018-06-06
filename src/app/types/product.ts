@@ -6,6 +6,7 @@ export interface ProductAddModel {
     image: any;
     documentName: any;
     category: Category;
+    videoUrl: string;
 }
 
 export interface Category {

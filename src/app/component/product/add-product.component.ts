@@ -39,9 +39,6 @@ export class AddProductComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute,
     private productService: ProductService, private formBuilder: FormBuilder) {
     this.product = {
-      productName: '',
-      productCode: '',
-      image: '',
       categoryId: {},
       documentName: {},
       category: {},
@@ -66,17 +63,17 @@ export class AddProductComponent implements OnInit {
   }
 
   uploadImage(file) {
-      if (file.target.files.length > 0) {
+    if (file.target.files.length > 0) {
       this.product.image = file.target.files[0];
     }
     if (file.target.files && file.target.files[0]) {
       const reader = new FileReader();
-    reader.onload = (event: any) => {
+      reader.onload = (event: any) => {
         this.images = event.target.result;
         this.showpreview = true;
         this.showpreviewafterEdit = false;
       };
-     reader.readAsDataURL(file.target.files[0]);
+      reader.readAsDataURL(file.target.files[0]);
     }
   }
   fileChange(event) {
@@ -129,6 +126,12 @@ export class AddProductComponent implements OnInit {
           $('.alert').css('z-index', '-1000');
         });
         this.router.navigate(['/product']);
+      }).catch(err => {
+        $('.alert').css('z-index', '9999');
+        $('#error-alert-user').fadeTo(2000, 500).slideUp(500, function () {
+          $('#error-alert-user').slideUp(500);
+          $('.alert').css('z-index', '-1000');
+        });
       });
     } else {
       if (typeof this.product.category === 'object') {
@@ -143,11 +146,17 @@ export class AddProductComponent implements OnInit {
       this.productService.updateProduct(userId, info).then(users => {
         this.showLoader = false;
         $('.alert').css('z-index', '9999');
-        $('#error-alert-user').fadeTo(2000, 500).slideUp(500, function(){
-          $('#error-alert-user').slideUp(500);
+        $('#success-alert').fadeTo(2000, 500).slideUp(500, function () {
+          $('#success-alert').slideUp(500);
           $('.alert').css('z-index', '-1000');
         });
         this.router.navigate(['/product']);
+      }).catch(err => {
+        $('.alert').css('z-index', '9999');
+        $('#error-alert-user').fadeTo(2000, 500).slideUp(500, function () {
+          $('#error-alert-user').slideUp(500);
+          $('.alert').css('z-index', '-1000');
+        });
       });
     }
   }
