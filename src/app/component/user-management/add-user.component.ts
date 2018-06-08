@@ -154,6 +154,13 @@ export class AddUserComponent implements OnInit {
         } else {
           this.router.navigate(['/user']);
         }
+      }).catch(err => {
+        $('.alert').css('z-index', '9999');
+        $('#error-alert-user').fadeTo(2000, 500).slideUp(500, function () {
+          $('#error-alert-user').slideUp(500);
+          $('.alert').css('z-index', '-1000');
+        });
+        this.showLoader = false;
       });
     } else {
       this.userService.addUser(this.user).then(users => {
@@ -168,6 +175,13 @@ export class AddUserComponent implements OnInit {
         } else {
           this.router.navigate(['/user']);
         }
+      }).catch(err => {
+        $('.alert').css('z-index', '9999');
+        $('#error-alert-user').fadeTo(2000, 500).slideUp(500, function () {
+          $('#error-alert-user').slideUp(500);
+          $('.alert').css('z-index', '-1000');
+        });
+        this.showLoader = false;
       });
     }
   }

@@ -3296,6 +3296,13 @@ var AddUserComponent = /** @class */ (function () {
                 else {
                     _this.router.navigate(['/user']);
                 }
+            }).catch(function (err) {
+                __WEBPACK_IMPORTED_MODULE_4_jquery__('.alert').css('z-index', '9999');
+                __WEBPACK_IMPORTED_MODULE_4_jquery__('#error-alert-user').fadeTo(2000, 500).slideUp(500, function () {
+                    __WEBPACK_IMPORTED_MODULE_4_jquery__('#error-alert-user').slideUp(500);
+                    __WEBPACK_IMPORTED_MODULE_4_jquery__('.alert').css('z-index', '-1000');
+                });
+                _this.showLoader = false;
             });
         }
         else {
@@ -3312,6 +3319,13 @@ var AddUserComponent = /** @class */ (function () {
                 else {
                     _this.router.navigate(['/user']);
                 }
+            }).catch(function (err) {
+                __WEBPACK_IMPORTED_MODULE_4_jquery__('.alert').css('z-index', '9999');
+                __WEBPACK_IMPORTED_MODULE_4_jquery__('#error-alert-user').fadeTo(2000, 500).slideUp(500, function () {
+                    __WEBPACK_IMPORTED_MODULE_4_jquery__('#error-alert-user').slideUp(500);
+                    __WEBPACK_IMPORTED_MODULE_4_jquery__('.alert').css('z-index', '-1000');
+                });
+                _this.showLoader = false;
             });
         }
     };
