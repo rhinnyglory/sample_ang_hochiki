@@ -12,9 +12,9 @@ import { Subject } from 'rxjs/Subject';
 })
 export class ProductComponent implements OnInit {
   response = [];
-  private body= '';
-  private name= '';
-  private count= {};
+  private body = '';
+  private name = '';
+  private count = {};
   p = 1;
   showLoader = false;
   private product: any = [];
@@ -26,49 +26,51 @@ export class ProductComponent implements OnInit {
   //   this.key = key;
   //   this.reverse = !this.reverse;
   // }
-  constructor(  private router: Router,
+  constructor(private router: Router,
     private productService: ProductService) {
 
-     }
+  }
 
-    ngOnInit() {
-      document.title = 'View Product - Hochiki';
-        this.showLoader = true;
-      this.getProduct();
+  ngOnInit() {
+    document.title = 'View Product - Hochiki';
+    this.showLoader = true;
+    this.getProduct();
   }
 
   getProduct() {
-   return this.productService.getProductList().then(response => {
-    this.showLoader = false;
-    this.product = response.result;
-    this.count = response.count;
-    this.storeproduct = JSON.parse(JSON.stringify(response.result));
-       });
+    return this.productService.getProductList().then(response => {
+      this.showLoader = false;
+      this.product = response.result;
+      this.count = response.count;
+      this.storeproduct = JSON.parse(JSON.stringify(response.result));
+    });
   }
   delUser(i) {
-}
+  }
 
-searchTerm(type) {
-  this.product = this.storeproduct;
-  this.product = this.product.filter(response => {
-    return (response.category.name.toLowerCase().indexOf(type.toLowerCase()) !== -1) || (response.productName.toLowerCase().indexOf(type.toLowerCase()) !== -1) || (JSON.stringify(response.id).indexOf(type.toLowerCase()) !== -1);
-  });
- }
-private sendDelete($event: any, i): void {
-  const index = this.response.indexOf(i);
-  const body = { isDelete: true };
-  this.productService.deleteProduct(i, body.isDelete).then(response => {
+  searchTerm(type) {
+    this.product = this.storeproduct;
+    this.product = this.product.filter(response => {
+      return (response.category.name.toLowerCase().indexOf(type.toLowerCase()) !== -1)
+        || (response.productName.toLowerCase().indexOf(type.toLowerCase()) !== -1)
+        || (JSON.stringify(response.id).indexOf(type.toLowerCase()) !== -1);
+    });
+  }
+  private sendDelete($event: any, i): void {
+    const index = this.response.indexOf(i);
+    const body = { isDelete: true };
+    this.productService.deleteProduct(i, body.isDelete).then(response => {
       this.product.splice(index, 1);
       console.log(i, 'index');
-  });
-  $('.alert').css('z-index', '9999');
-  $('#error-alert').fadeTo(2000, 500).slideUp(500, function(){
-    $('#error-alert').slideUp(500);
-    $('.alert').css('z-index', '-1000');
-  });
-  this.getProduct();
-}
-private sendCancel($event: any): void {
-}
+    });
+    $('.alert').css('z-index', '9999');
+    $('#error-alert').fadeTo(2000, 500).slideUp(500, function () {
+      $('#error-alert').slideUp(500);
+      $('.alert').css('z-index', '-1000');
+    });
+    this.getProduct();
+  }
+  private sendCancel($event: any): void {
+  }
 
 }

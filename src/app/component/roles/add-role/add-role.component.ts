@@ -43,8 +43,8 @@ export class AddRoleComponent implements OnInit {
         if (res.success = true) {
           this.showLoader = false;
           $('.alert').css('z-index', '9999');
-          $('#success-alert-user').fadeTo(2000, 500).slideUp(500, function () {
-            $('#success-alert-user').slideUp(500);
+          $('#updated-alert-role').fadeTo(2000, 500).slideUp(500, function () {
+            $('#updated-alert-role').slideUp(500);
             $('.alert').css('z-index', '-1000');
           });
           this.router.navigate(['/roles']);
@@ -57,8 +57,8 @@ export class AddRoleComponent implements OnInit {
         if (res.success = true) {
           this.showLoader = false;
           $('.alert').css('z-index', '9999');
-          $('#success-alert-user').fadeTo(2000, 500).slideUp(500, function () {
-            $('#success-alert-user').slideUp(500);
+          $('#success-alert-role').fadeTo(2000, 500).slideUp(500, function () {
+            $('#success-alert-role').slideUp(500);
             $('.alert').css('z-index', '-1000');
           });
           this.router.navigate(['/roles']);

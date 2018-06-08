@@ -1,23 +1,23 @@
 <header class="main-header">
   <!-- Logo -->
-  <a  class="logo">
+  <a class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini" ><img src=" assets/images/favicon-32x32.png"></span>
-   
+    <span class="logo-mini"><img src=" assets/images/favicon-32x32.png"></span>
+
     <!-- logo for regular state and mobile devices -->
     <span class="logo-lg"><img src="assets/images/logo_dashborad.png" class="logologo"></span>
-  
+
   </a>
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top">
     <!-- Sidebar toggle button-->
     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"> <span class="sr-only">Toggle navigation</span> </a>
-   
+
 
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
-      
-       
+
+
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -30,15 +30,15 @@
               <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
               <p style="color:black">
-                 Admin
-               
+                Admin
+
               </p>
             </li>
             <!-- Menu Body -->
-           
+
             <!-- Menu Footer-->
             <li class="user-footer">
-            
+
               <div class="pull-right">
                 <a href="javascript:void(0)" (click)="logOut()" class="btn btn-default btn-flat">Sign out</a>
               </div>
@@ -46,31 +46,75 @@
           </ul>
         </li>
         <!-- Control Sidebar Toggle Button -->
-       
+
       </ul>
-      
+
     </div>
   </nav>
- 
+
 
 </header>
-<div class="alert alert-success" id="success-alert" style=" opacity: 0;
-display: block;
-position: absolute;
-right: 10px;
-top: 10px;">
-  <button type="button" class="close" data-dismiss="alert">x</button>
-  <strong>Success! </strong>
-  Product have added to your successfully.
-</div>
+<!-- user's messages -->
 <div class="alert alert-success" id="success-alert-user" style=" opacity: 0;
 display: block;
 position: absolute;
 right: 10px;
 top: 10px;">
   <button type="button" class="close" data-dismiss="alert">x</button>
-  <strong>Success! </strong>
-  User have added to your successfully.
+  <strong>Success! </strong> User has been added successfully.
+</div>
+<div class="alert alert-success" id="success-alert-user-updated" style=" opacity: 0;
+display: block;
+position: absolute;
+right: 10px;
+top: 10px;">
+  <button type="button" class="close" data-dismiss="alert">x</button>
+  <strong>Success! </strong> User's detail has been updated.
+</div>
+<div class="alert alert-success" id="success-alert-status" style=" opacity: 0;
+display: block;
+position: absolute;
+right: 10px;
+top: 10px;">
+  <button type="button" class="close" data-dismiss="alert">x</button>
+  <strong>Success! </strong> User's status has been updated.
+</div>
+<div class="alert alert-error" id="error-alert-user-delete" style=" opacity: 0;
+display: block;
+position: fixed;
+right: 10px;
+
+top: 10px;">
+  <button type="button" class="close" data-dismiss="alert">x</button>
+  <strong>Deleted!</strong> User has been deleted.
+</div>
+<div class="alert alert-error" id="error-alert-user" style=" opacity: 0;
+display: block;
+position: fixed;
+right: 10px;
+
+top: 10px;">
+  <button type="button" class="close" data-dismiss="alert">x</button>
+  <strong>Error!</strong> User already exist.
+</div>
+
+<!-- product message -->
+<div class="alert alert-success" id="success-alert-prod" style=" opacity: 0;
+display: block;
+position: absolute;
+right: 10px;
+top: 10px;">
+  <button type="button" class="close" data-dismiss="alert">x</button>
+  <strong>Success! </strong> Product has been added successfully.
+</div>
+<div class="alert alert-error" id="error-alert-prod" style=" opacity: 0;
+display: block;
+position: fixed;
+right: 10px;
+
+top: 10px;">
+  <button type="button" class="close" data-dismiss="alert">x</button>
+  <strong>Error!</strong> Product already exist.
 </div>
 <div class="alert alert-success" id="updated-alert" style=" opacity: 0;
 display: block;
@@ -79,8 +123,7 @@ right: 10px;
 
 top: 10px;">
   <button type="button" class="close" data-dismiss="alert">x</button>
-  <strong>Success!</strong>
-  Product has been updated successfully.
+  <strong>Success!</strong> Product has been updated successfully.
 </div>
 <div class="alert alert-error" id="error-alert" style=" opacity: 0;
 display: block;
@@ -89,27 +132,26 @@ right: 10px;
 
 top: 10px;">
   <button type="button" class="close" data-dismiss="alert">x</button>
-  <strong>Deleted!</strong>
-  Product has been deleted.
+  <strong>Deleted!</strong> Product has been deleted.
 </div>
-<div class="alert alert-error" id="error-alert-user" style=" opacity: 0;
-display: block;
-position: fixed;
-right: 10px;
 
-top: 10px;">
-  <button type="button" class="close" data-dismiss="alert">x</button>
-  <strong>Error!</strong>
-  User already exist.
-</div>
-<div class="alert alert-success" id="success-alert-status" style=" opacity: 0;
+<!-- role messages -->
+<div class="alert alert-success" id="success-alert-role" style=" opacity: 0;
 display: block;
 position: absolute;
 right: 10px;
 top: 10px;">
   <button type="button" class="close" data-dismiss="alert">x</button>
-  <strong>Success! </strong>
-  User's status has been updated.
+  <strong>Success! </strong> Role has been added successfully.
+</div>
+<div class="alert alert-success" id="updated-alert-role" style=" opacity: 0;
+display: block;
+position: absolute;
+right: 10px;
+
+top: 10px;">
+  <button type="button" class="close" data-dismiss="alert">x</button>
+  <strong>Success!</strong> Role has been updated successfully.
 </div>
 <div class="alert alert-error" id="error-alert-role" style=" opacity: 0;
 display: block;
@@ -118,22 +160,5 @@ right: 10px;
 
 top: 10px;">
   <button type="button" class="close" data-dismiss="alert">x</button>
-  <strong>Deleted!</strong>
-  Role has been deleted.
+  <strong>Deleted!</strong> Role has been deleted.
 </div>
-<div class="alert alert-error" id="error-alert-user" style=" opacity: 0;
-display: block;
-position: fixed;
-right: 10px;
-
-top: 10px;">
-  <button type="button" class="close" data-dismiss="alert">x</button>
-  <strong>Deleted!</strong>
-  User has been deleted.
-</div>
-
-
-
-
-
-

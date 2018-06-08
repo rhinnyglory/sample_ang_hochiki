@@ -67,8 +67,8 @@ export class UserManagementComponent implements OnInit {
       this.users.splice(index, 1);
     });
     $('.alert').css('z-index', '9999');
-    $('#error-alert-user').fadeTo(2000, 500).slideUp(500, function () {
-      $('#error-alert-user').slideUp(500);
+    $('#error-alert-user-delete').fadeTo(2000, 500).slideUp(500, function () {
+      $('#error-alert-user-delete').slideUp(500);
       $('.alert').css('z-index', '-1000');
     });
   }

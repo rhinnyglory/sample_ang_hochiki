@@ -40,6 +40,7 @@ export class AddUserComponent implements OnInit {
   private cities: any = [];
   private roles: any = [];
   private user: UserGroupModel;
+  editEmail = true;
   constructor(private router: Router,
     private userService: UserService, private route: ActivatedRoute, private formBuilder: FormBuilder) {
     this.user = {
@@ -58,11 +59,13 @@ export class AddUserComponent implements OnInit {
     });
     this.getRoles();
     if (this.userId) {
+      this.editEmail = false;
       this.showpreviewafterEdit = true;
       this.title = 'Edit Product';
       this.buttonTitle = 'Update';
       this.getUserDetails(this.userId);
     } else {
+      this.editEmail = true;
       this.buttonTitle = 'Save';
     }
   }
@@ -143,8 +146,8 @@ export class AddUserComponent implements OnInit {
         if (users.success = true) {
           this.showLoader = false;
           $('.alert').css('z-index', '9999');
-          $('#success-alert-user').fadeTo(2000, 500).slideUp(500, function () {
-            $('#success-alert-user').slideUp(500);
+          $('#success-alert-user-updated').fadeTo(2000, 500).slideUp(500, function () {
+            $('#success-alert-user-updated').slideUp(500);
             $('.alert').css('z-index', '-1000');
           });
           this.router.navigate(['/user']);

@@ -121,15 +121,15 @@ export class AddProductComponent implements OnInit {
         this.showLoader = false;
         this.productService.getProductList();
         $('.alert').css('z-index', '9999');
-        $('#success-alert').fadeTo(2000, 500).slideUp(500, function () {
-          $('#success-alert').slideUp(500);
+        $('#success-alert-prod').fadeTo(2000, 500).slideUp(500, function () {
+          $('#success-alert-prod').slideUp(500);
           $('.alert').css('z-index', '-1000');
         });
         this.router.navigate(['/product']);
       }).catch(err => {
         $('.alert').css('z-index', '9999');
-        $('#error-alert-user').fadeTo(2000, 500).slideUp(500, function () {
-          $('#error-alert-user').slideUp(500);
+        $('#error-alert-prod').fadeTo(2000, 500).slideUp(500, function () {
+          $('#error-alert-prod').slideUp(500);
           $('.alert').css('z-index', '-1000');
         });
       });
@@ -146,15 +146,15 @@ export class AddProductComponent implements OnInit {
       this.productService.updateProduct(userId, info).then(users => {
         this.showLoader = false;
         $('.alert').css('z-index', '9999');
-        $('#success-alert').fadeTo(2000, 500).slideUp(500, function () {
-          $('#success-alert').slideUp(500);
+        $('#updated-alert').fadeTo(2000, 500).slideUp(500, function () {
+          $('#updated-alert').slideUp(500);
           $('.alert').css('z-index', '-1000');
         });
         this.router.navigate(['/product']);
       }).catch(err => {
         $('.alert').css('z-index', '9999');
-        $('#error-alert-user').fadeTo(2000, 500).slideUp(500, function () {
-          $('#error-alert-user').slideUp(500);
+        $('#error-alert-prod').fadeTo(2000, 500).slideUp(500, function () {
+          $('#error-alert-prod').slideUp(500);
           $('.alert').css('z-index', '-1000');
         });
       });
