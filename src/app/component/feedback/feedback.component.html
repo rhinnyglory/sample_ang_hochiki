@@ -43,7 +43,7 @@
                     <td>{{x.name}}</td>
                     <td>{{x.customerEmail}}</td>
                     <td>{{x.customerName}}</td>
-                    <td>{{x.createdOn | date}}</td>
+                    <td>{{x.createdOn | date: 'medium'}}</td>
                     <td class="action-btn">
                         <a title="View" [routerLink]="['view', x.id]" class="btn btn-xs btn-info">
                             <i class="fa fa-eye"></i>
