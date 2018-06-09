@@ -31,7 +31,8 @@ export class FeedbackComponent implements OnInit {
       return (response.name.toLowerCase().indexOf(type.toLowerCase()) !== -1)
         || (response.customerName.toLowerCase().indexOf(type.toLowerCase()) !== -1)
         || (response.customerEmail.toLowerCase().indexOf(type.toLowerCase()) !== -1)
-        || (JSON.stringify(response.id).indexOf(type.toLowerCase()) !== -1);
+        || (JSON.stringify(response.id).indexOf(type.toLowerCase()) !== -1)
+        || (response.createdOn.toLowerCase().indexOf(type.toLowerCase()) !== -1);
     });
   }
 }

@@ -7,7 +7,7 @@
                 <h3 style="margin-top:0;">Feedback</h3>
             </div>
         </div>
-        <h4>Total {{count}} feedbacks are available.</h4>
+        <h4>Total {{count}} feedbacks.</h4>
 
 
     </section>
@@ -17,16 +17,13 @@
         <div class="box table-responsive">
             <table class="table table-bordered">
                 <tr>
-                    <th (click)="sort('id')" width="11%">ID</th>
                     <th>Name</th>
                     <th>Customer Email</th>
                     <th>Customer Name</th>
+                    <th>Created On</th>
                     <th class="text-center">Action</th>
                 </tr>
                 <tr>
-                    <th width="11%">
-                        <input [(ngModel)]="id" placeholder="search id" class="form-control" (keyup)="searchTerm(id)">
-                    </th>
                     <th>
                         <input [(ngModel)]="userName" placeholder="search name..." class="form-control" (keyup)="searchTerm(userName)">
                     </th>
@@ -36,16 +33,17 @@
                     <th>
                         <input [(ngModel)]="mobile" placeholder="search customer name..." class="form-control" (keyup)="searchTerm(mobile)">
                     </th>
+                    <th>
+                        <input [(ngModel)]="createdOn" placeholder="search date..." class="form-control" (keyup)="searchTerm(createdOn)">
+                    </th>
                     <th></th>
                 </tr>
 
                 <tr *ngFor="let x of feedList | filter:filter ; let i = index">
-                    <td width="11%">
-                        {{x.id}}
-                    </td>
                     <td>{{x.name}}</td>
                     <td>{{x.customerEmail}}</td>
                     <td>{{x.customerName}}</td>
+                    <td>{{x.createdOn | date}}</td>
                     <td class="action-btn">
                         <a title="View" [routerLink]="['view', x.id]" class="btn btn-xs btn-info">
                             <i class="fa fa-eye"></i>
