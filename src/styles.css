@@ -301,3 +301,7 @@ bootstrap-growl{
       color: #ffffff;
       font-size: 16px;
   }
+
+  .lables .col-sm-2{
+    width: 12%;
+  }

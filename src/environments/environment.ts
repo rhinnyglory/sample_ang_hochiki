@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  url: 'http://192.168.1.201:3002/'
+  url: 'http://dev.credencys.com:3038/'
 };

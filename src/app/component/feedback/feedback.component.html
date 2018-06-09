@@ -17,6 +17,7 @@
         <div class="box table-responsive">
             <table class="table table-bordered">
                 <tr>
+                    <th style="width: 11%">Id</th>
                     <th>Name</th>
                     <th>Customer Email</th>
                     <th>Customer Name</th>
@@ -24,6 +25,9 @@
                     <th class="text-center">Action</th>
                 </tr>
                 <tr>
+                    <th style="width: 11%">
+                        <input [(ngModel)]="id" placeholder="search id" class="form-control" (keyup)="searchTerm(id)">
+                    </th>
                     <th>
                         <input [(ngModel)]="userName" placeholder="search name..." class="form-control" (keyup)="searchTerm(userName)">
                     </th>
@@ -40,6 +44,7 @@
                 </tr>
 
                 <tr *ngFor="let x of feedList | filter:filter ; let i = index">
+                    <td style="width: 11%">{{x.id}}</td>
                     <td>{{x.name}}</td>
                     <td>{{x.customerEmail}}</td>
                     <td>{{x.customerName}}</td>
