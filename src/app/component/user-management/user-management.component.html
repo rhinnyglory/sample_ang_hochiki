@@ -50,14 +50,14 @@
                     <td>{{x.email}}</td>
                     <td>{{x.mobile}}</td>
                     <td class="action-btn">
-                        <label class="switch">
+                        <label class="switch" *ngIf="x.email !== 'superadmin@gmail.com'">
                             <input type="checkbox"  [(ngModel)]="x.isActive" checked="x.isActive" (change)="onChange($event, x.id)">
                             <span class="slider round"></span>
                         </label>
                         <a title="Edit" [routerLink]="['edit', x.id]" class="btn btn-xs btn-primary">
                             <i class="fa fa-pencil"></i>
                         </a>
-                        <span class="btn btn-xs btn-danger">
+                        <span class="btn btn-xs btn-danger" *ngIf="x.email !== 'superadmin@gmail.com'">
                             <delete-confirm title="Delete" [question]="'Are you sure you want to delete?'" (onConfirm)="sendDelete($event,x)" (onCancel)="sendCancel($event)"></delete-confirm>
                         </span>
                     </td>
