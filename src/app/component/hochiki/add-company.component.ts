@@ -23,9 +23,6 @@ export class AddCompanyComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute,
     private companyService: CompanyService) {
     this.company = {
-      productName: '',
-      productCode: '',
-      image: '',
       categoryId: {},
       documentName: {},
       category: {},

@@ -20,9 +20,6 @@ export class VesEditComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute,
     private vesService: VesService) {
     this.company = {
-      productName: '',
-      productCode: '',
-      image: '',
       categoryId: {},
       documentName: {},
       category: {},

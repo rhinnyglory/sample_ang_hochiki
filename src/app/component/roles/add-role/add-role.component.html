@@ -18,7 +18,7 @@
         <div class="box-body">
           <div class="form-group">
             <label for="exampleInputEmail1">Role Name<span class="astric">*</span></label>
-            <input type="text" id="name" name="rolefirstName" [(ngModel)]="role.name" class="form-control" name="name" #name="ngModel"
+            <input type="text" id="name" [disabled]="role.name == 'admin' || role.name == 'Admin'" name="rolefirstName" [(ngModel)]="role.name" class="form-control" name="name" #name="ngModel"
               required/>
             <div *ngIf="name.errors?.required && roleForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
               Role Name is required.

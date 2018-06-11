@@ -59,7 +59,7 @@
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Role<span class="astric">*</span></label>
-            <select class="form-control" name="selectedRoles" [(ngModel)]="user.roleId" id="role" required #selectedRoles="ngModel">
+            <select class="form-control" name="selectedRoles" [disabled]="user.email == 'superadmin@gmail.com'" [(ngModel)]="user.roleId" id="role" required #selectedRoles="ngModel">
                           <option value="">Select Role</option>
                           <option *ngFor="let role of roles" [disabled]="role.name == 'admin'" [value]="role.id">{{role.name}}</option>
                         </select>

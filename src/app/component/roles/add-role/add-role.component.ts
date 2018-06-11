@@ -50,6 +50,13 @@ export class AddRoleComponent implements OnInit {
           this.router.navigate(['/roles']);
         } else {
         }
+      }).catch(err => {
+        $('.alert').css('z-index', '9999');
+        $('#error-alert-role-state').fadeTo(2000, 500).slideUp(500, function () {
+          $('#error-alert-role-state').slideUp(500);
+          $('.alert').css('z-index', '-1000');
+        });
+        this.showLoader = false;
       });
     } else {
       this.roleServe.addRole(this.role).then(res => {
@@ -64,6 +71,13 @@ export class AddRoleComponent implements OnInit {
           this.router.navigate(['/roles']);
         } else {
         }
+      }).catch(err => {
+        $('.alert').css('z-index', '9999');
+        $('#error-alert-role-state').fadeTo(2000, 500).slideUp(500, function () {
+          $('#error-alert-role-state').slideUp(500);
+          $('.alert').css('z-index', '-1000');
+        });
+        this.showLoader = false;
       });
     }
   }

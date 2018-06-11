@@ -25,9 +25,6 @@ export class SupressionEditComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute,
     private supressionService: SupressionService, private bootstrapGrowlService: BootstrapGrowlService) {
     this.company = {
-      productName: '',
-      productCode: '',
-      image: '',
       categoryId: {},
       documentName: {},
       category: {},
