@@ -1,0 +1,52 @@
+<div class="content-wrapper">
+  <!-- Small boxes (Stat box) -->
+  <section class="content-header">
+
+      <div class="row">
+          <div class="col-md-6">
+              <h3 style="margin-top:0;">User Explorer</h3>
+          </div>
+          <div class="col-md-6">
+            <form #myForm="ngForm" novalidate>
+                <my-date-range-picker [options]="myDateRangePickerOptions" placeholder="Select date range" (dateRangeChanged)="onDateRangeChanged($event)" 
+                  (dateSelected)="onDateSelected($event)" date-format="dd MMM yyyy"
+                  selDateRange={{selectedIntialDates}}></my-date-range-picker>                
+            </form>
+         </div>
+      </div>
+
+
+  </section>
+
+  <section class="content">
+
+      <div class="box table-responsive">
+          <table class="table table-bordered">
+              <tr>
+                  <th (click)="sort('id')">ID</th>
+                  <th>Sessions</th>
+                  <th>Avg. Session Duration</th>
+                  <th>Bounce Rate</th>
+                  <th>Revenue</th>
+                  <th>Transactions</th>
+                  <th>Goal Conversion Rate</th>
+              </tr>
+              <tr>
+                <td> <a routerLink="/userExplorerId"> 1. 1002362972.1528992003</a>
+                 
+                </td>
+                <td>1 (0.18%)</td>
+                <td>00:00:00</td>
+                <td>100.00%</td>
+                <td>$0.00 (0.00%)</td>
+                <td>0 (0.00%)</td>
+                <td>(0.00%)</td>
+            </tr>
+
+          </table>
+      </div>
+      <div *ngIf="showLoader" class="fa fa-spinner fa-spin" style="font-size:50px;text-align: center;
+    position: absolute;top: 50%;left: 50%;"></div>
+  </section>
+  <!-- /.row (main row) -->
+</div>

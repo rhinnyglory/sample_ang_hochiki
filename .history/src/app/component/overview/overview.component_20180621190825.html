@@ -1,0 +1,123 @@
+
+
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+        Hochiki(Audience Overview)
+   
+    </h1>
+    <h4>http://www.hochikieurope.com/</h4>
+    <!-- <ul class="breadcrumbs">
+        <li>Credencys</li>
+      
+      </ul> -->
+   
+ 
+
+  <!-- Main content -->
+  <section class="content">
+      <div class="box box-default trafic ">
+          <div class="box-header with-border">
+            <h3 class="box-title">Traffic Trend</h3>
+  
+           
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <div class="row">
+              <div class="col-md-12">
+                  <div class="col-md-6">
+                    <div class="row">
+                       <div class="col-md-7 pl0">
+                          <form #myForm="ngForm" novalidate>
+                              <my-date-range-picker [options]="myDateRangePickerOptions" placeholder="Select date range" (dateRangeChanged)="onDateRangeChanged($event)" 
+                                (dateSelected)="onDateSelected($event)" date-format="dd MMM yyyy"
+                                selDateRange={{selectedIntialDates}}></my-date-range-picker>                
+                          </form>
+                       </div>
+                       <div class="col-md-5 pl0">
+                          <select class='form-control select-option' required [(ngModel)]='optionSelected' (ngModelChange)='onOptionSelected($event)'>
+                                  <option [value]="" selected="selected">Custom</option>
+                              <option class='option' *ngFor='let option of dropdown' [value]="option">{{option}}</option>
+                          </select>
+                       </div>
+                    </div>
+                      
+                      
+                  </div>
+                  <div class="col-md-6">
+                      <div class="btn-group pull-right" >
+                          <!-- <button type="button" class="btn btn-default"   (click)="showdimension('ga:date');">Day</button>
+                          <button type="button" class="btn btn-default" (click)="showdimension('ga:week');">Week</button>
+                          <button type="button" class="btn btn-default" (click)="showdimension('ga:month');">Month</button> -->
+                          <input type="radio" name="Button" class="ButtonState" checked id="Button1" value="1"/>
+                          <label class="Button" for="Button1" (click)="showdimension('ga:date');" >Day</label>
+                          <input type="radio" name="Button" class="ButtonState" id="Button2" value="2"/>
+                          <!-- <button class="Button" name="Button" class="ButtonState"  [disabled]="buttonDisabled"  id="Button2" value="2">Week</button> -->
+                          <label class="Button" for="Button2"  (click)="showdimension('ga:week');">Week</label>
+                          <input type="radio" name="Button" class="ButtonState" id="Button3" value="3"/>
+                          <label class="Button" for="Button3" (click)="showdimension('ga:month');">Month</label>
+                        
+                      </div>
+                  </div>
+                  
+                  
+              </div>  
+              <div class="col-md-12">
+                  <google-chart [data]="lineChartData"  (chartSelect)="select($event)" options="{'hAxis.gridlines' : false,'hAxis.viewWindow'  : false}"></google-chart>
+                </div>
+              <!-- /.col -->
+              <!-- <div class="col-md-6">
+                  <img src="../app/assets/images/google-charts-output.png">
+                  
+               
+              </div> -->
+              <!-- /.col -->
+            </div>
+            
+            <!-- /.row -->
+          </div>
+          <!-- /.box-body -->
+         
+        </div>
+        <div class="box box-default key">
+            <div class="box-header with-border">
+              <h3 class="box-title">Key Metrics</h3>
+             
+            </div>
+            <!-- /.box-header -->
+         
+            <!-- /.box-body -->
+           
+            <table class="table table-bordered">
+                <tr>
+                    <td>Sessions:<br><b class="textsize">{{sessionTotal}}</b></td>
+                    <td>
+                        Users:<br>
+                        <b class="textsize">{{usersTotal}}</b>
+                        </td>
+                        <td>
+                            Avg.Session Duration:<br>
+                            <b class="textsize">{{totalSessionUsers }} </b>
+                            </td>
+                            <td>Bounce Rate:<br>
+                              <b class="textsize">{{bouncesTotal }}%</b>  </td>
+                      </tr>
+                <tr>
+                    <td>Pageviews: <br>
+                      <b class="textsize">{{pageViewTotal}} </b>  </td>
+                    <td>Pages/Session:<br>
+                      <b class="textsize">{{pagevssessionsTotalRound}}</b>  </td>
+                    <td>% New Sessions:<br>
+                      <b class="textsize">{{persessionsTotal }}%</b>  </td>
+                </tr>
+               
+            </table>
+
+
+
+          </div>
+  </section>
+  <!-- /.content -->
+</div>
