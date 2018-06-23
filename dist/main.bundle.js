@@ -43,12 +43,18 @@ webpackEmptyAsyncContext.id = "./src/$$_gendir lazy recursive";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__component_roles_add_role_add_role_component__ = __webpack_require__("./src/app/component/roles/add-role/add-role.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__component_feedback_feedback_component__ = __webpack_require__("./src/app/component/feedback/feedback.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__component_feedback_feedback_detail_feedback_detail_component__ = __webpack_require__("./src/app/component/feedback/feedback-detail/feedback-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__component_user_explorer_user_explorer_component__ = __webpack_require__("./src/app/component/user-explorer/user-explorer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__component_user_explorer_view_user_explorer_component__ = __webpack_require__("./src/app/component/user-explorer/view-user-explorer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__component_overview_overview_component__ = __webpack_require__("./src/app/component/overview/overview.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -91,8 +97,23 @@ var routes = [
         canActivate: [__WEBPACK_IMPORTED_MODULE_2__gaurds_authenticate_guard__["a" /* AuthenticateGuard */]],
     },
     {
+        path: 'userExplorer',
+        component: __WEBPACK_IMPORTED_MODULE_21__component_user_explorer_user_explorer_component__["a" /* UserExplorerComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_2__gaurds_authenticate_guard__["a" /* AuthenticateGuard */]],
+    },
+    {
+        path: 'userExplorerId',
+        component: __WEBPACK_IMPORTED_MODULE_22__component_user_explorer_view_user_explorer_component__["a" /* ViewUserExplorerComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_2__gaurds_authenticate_guard__["a" /* AuthenticateGuard */]],
+    },
+    {
         path: 'product',
         component: __WEBPACK_IMPORTED_MODULE_7__component_product_product_component__["a" /* ProductComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_2__gaurds_authenticate_guard__["a" /* AuthenticateGuard */]],
+    },
+    {
+        path: 'overview',
+        component: __WEBPACK_IMPORTED_MODULE_23__component_overview_overview_component__["a" /* OverviewComponent */],
         canActivate: [__WEBPACK_IMPORTED_MODULE_2__gaurds_authenticate_guard__["a" /* AuthenticateGuard */]],
     },
     {
@@ -355,62 +376,68 @@ var ConstantApi = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/@angular/common/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__("./node_modules/@angular/http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_routing_module__ = __webpack_require__("./src/app/app-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__("./src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__gaurds_authenticate_guard__ = __webpack_require__("./src/app/gaurds/authenticate.guard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__component_header_header_component__ = __webpack_require__("./src/app/component/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__component_footer_footer_component__ = __webpack_require__("./src/app/component/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__component_sidepanel_sidepanel_component__ = __webpack_require__("./src/app/component/sidepanel/sidepanel.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__component_main_content_main_content_component__ = __webpack_require__("./src/app/component/main-content/main-content.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__component_login_page_login_service__ = __webpack_require__("./src/app/component/login-page/login.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__component_dashboard_dashboard_component__ = __webpack_require__("./src/app/component/dashboard/dashboard.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_mydaterangepicker__ = __webpack_require__("./node_modules/mydaterangepicker/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__component_login_page_login_page_component__ = __webpack_require__("./src/app/component/login-page/login-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_ng2_search_filter__ = __webpack_require__("./node_modules/ng2-search-filter/ng2-search-filter.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__http_service__ = __webpack_require__("./src/app/http.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_mydatepicker__ = __webpack_require__("./node_modules/mydatepicker/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_angular2_datatable__ = __webpack_require__("./node_modules/angular2-datatable/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_angular2_datatable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19_angular2_datatable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__component_profile_profile_component__ = __webpack_require__("./src/app/component/profile/profile.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__component_profile_profile_service__ = __webpack_require__("./src/app/component/profile/profile.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__component_header_header_service__ = __webpack_require__("./src/app/component/header/header.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__component_hochiki_company_management_component__ = __webpack_require__("./src/app/component/hochiki/company-management.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__component_hochiki_company_service__ = __webpack_require__("./src/app/component/hochiki/company.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__component_hochiki_add_company_component__ = __webpack_require__("./src/app/component/hochiki/add-company.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_ng2_order_pipe__ = __webpack_require__("./node_modules/ng2-order-pipe/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_ng2_order_pipe___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26_ng2_order_pipe__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_ngx_delete_confirm__ = __webpack_require__("./node_modules/ngx-delete-confirm/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__component_product_product_component__ = __webpack_require__("./src/app/component/product/product.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__component_category_category_component__ = __webpack_require__("./src/app/component/category/category.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__component_product_add_product_component__ = __webpack_require__("./src/app/component/product/add-product.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__component_product_product_service__ = __webpack_require__("./src/app/component/product/product.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__component_category_category_service__ = __webpack_require__("./src/app/component/category/category.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__component_supression_supression_component__ = __webpack_require__("./src/app/component/supression/supression.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__component_ves_ves_component__ = __webpack_require__("./src/app/component/ves/ves.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__component_ves_ves_service__ = __webpack_require__("./src/app/component/ves/ves.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__component_user_management_user_service__ = __webpack_require__("./src/app/component/user-management/user.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__component_supression_supression_service__ = __webpack_require__("./src/app/component/supression/supression.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__component_supression_supression_edit_component__ = __webpack_require__("./src/app/component/supression/supression-edit.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__component_product_file_control_value_accessor__ = __webpack_require__("./src/app/component/product/file-control-value-accessor.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__component_product_file_validator__ = __webpack_require__("./src/app/component/product/file.validator.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__component_supression_bootstrap_growl_module__ = __webpack_require__("./src/app/component/supression/bootstrap-growl.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__component_ves_ves_edit_component__ = __webpack_require__("./src/app/component/ves/ves-edit.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__component_user_management_user_management_component__ = __webpack_require__("./src/app/component/user-management/user-management.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__component_user_management_add_user_component__ = __webpack_require__("./src/app/component/user-management/add-user.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__component_forgot_password_forgot_password_component__ = __webpack_require__("./src/app/component/forgot-password/forgot-password.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__component_roles_roles_component__ = __webpack_require__("./src/app/component/roles/roles.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__component_roles_role_info_service__ = __webpack_require__("./src/app/component/roles/role-info.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__component_roles_add_role_add_role_component__ = __webpack_require__("./src/app/component/roles/add-role/add-role.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__component_feedback_feedback_component__ = __webpack_require__("./src/app/component/feedback/feedback.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__component_feedback_feedback_detail_feedback_detail_component__ = __webpack_require__("./src/app/component/feedback/feedback-detail/feedback-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__component_feedback_feedbck_service__ = __webpack_require__("./src/app/component/feedback/feedbck.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_google_charts__ = __webpack_require__("./node_modules/ng2-google-charts/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__("./node_modules/@angular/http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routing_module__ = __webpack_require__("./src/app/app-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__("./src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__gaurds_authenticate_guard__ = __webpack_require__("./src/app/gaurds/authenticate.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__component_header_header_component__ = __webpack_require__("./src/app/component/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__component_footer_footer_component__ = __webpack_require__("./src/app/component/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__component_sidepanel_sidepanel_component__ = __webpack_require__("./src/app/component/sidepanel/sidepanel.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__component_main_content_main_content_component__ = __webpack_require__("./src/app/component/main-content/main-content.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__component_login_page_login_service__ = __webpack_require__("./src/app/component/login-page/login.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__component_dashboard_dashboard_component__ = __webpack_require__("./src/app/component/dashboard/dashboard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_mydaterangepicker__ = __webpack_require__("./node_modules/mydaterangepicker/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__component_login_page_login_page_component__ = __webpack_require__("./src/app/component/login-page/login-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ng2_search_filter__ = __webpack_require__("./node_modules/ng2-search-filter/ng2-search-filter.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__http_service__ = __webpack_require__("./src/app/http.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_mydatepicker__ = __webpack_require__("./node_modules/mydatepicker/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_angular2_datatable__ = __webpack_require__("./node_modules/angular2-datatable/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_angular2_datatable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20_angular2_datatable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__component_profile_profile_component__ = __webpack_require__("./src/app/component/profile/profile.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__component_profile_profile_service__ = __webpack_require__("./src/app/component/profile/profile.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__component_header_header_service__ = __webpack_require__("./src/app/component/header/header.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__component_hochiki_company_management_component__ = __webpack_require__("./src/app/component/hochiki/company-management.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__component_hochiki_company_service__ = __webpack_require__("./src/app/component/hochiki/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__component_hochiki_add_company_component__ = __webpack_require__("./src/app/component/hochiki/add-company.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_ng2_order_pipe__ = __webpack_require__("./node_modules/ng2-order-pipe/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_ng2_order_pipe___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27_ng2_order_pipe__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_ngx_delete_confirm__ = __webpack_require__("./node_modules/ngx-delete-confirm/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__component_product_product_component__ = __webpack_require__("./src/app/component/product/product.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__component_category_category_component__ = __webpack_require__("./src/app/component/category/category.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__component_product_add_product_component__ = __webpack_require__("./src/app/component/product/add-product.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__component_product_product_service__ = __webpack_require__("./src/app/component/product/product.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__component_category_category_service__ = __webpack_require__("./src/app/component/category/category.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__component_supression_supression_component__ = __webpack_require__("./src/app/component/supression/supression.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__component_ves_ves_component__ = __webpack_require__("./src/app/component/ves/ves.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__component_ves_ves_service__ = __webpack_require__("./src/app/component/ves/ves.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__component_user_management_user_service__ = __webpack_require__("./src/app/component/user-management/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__component_supression_supression_service__ = __webpack_require__("./src/app/component/supression/supression.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__component_supression_supression_edit_component__ = __webpack_require__("./src/app/component/supression/supression-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__component_product_file_control_value_accessor__ = __webpack_require__("./src/app/component/product/file-control-value-accessor.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__component_product_file_validator__ = __webpack_require__("./src/app/component/product/file.validator.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__component_supression_bootstrap_growl_module__ = __webpack_require__("./src/app/component/supression/bootstrap-growl.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__component_ves_ves_edit_component__ = __webpack_require__("./src/app/component/ves/ves-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__component_user_management_user_management_component__ = __webpack_require__("./src/app/component/user-management/user-management.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__component_user_management_add_user_component__ = __webpack_require__("./src/app/component/user-management/add-user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__component_forgot_password_forgot_password_component__ = __webpack_require__("./src/app/component/forgot-password/forgot-password.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__component_roles_roles_component__ = __webpack_require__("./src/app/component/roles/roles.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__component_roles_role_info_service__ = __webpack_require__("./src/app/component/roles/role-info.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__component_roles_add_role_add_role_component__ = __webpack_require__("./src/app/component/roles/add-role/add-role.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__component_feedback_feedback_component__ = __webpack_require__("./src/app/component/feedback/feedback.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__component_feedback_feedback_detail_feedback_detail_component__ = __webpack_require__("./src/app/component/feedback/feedback-detail/feedback-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__component_feedback_feedbck_service__ = __webpack_require__("./src/app/component/feedback/feedbck.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__component_user_explorer_user_explorer_component__ = __webpack_require__("./src/app/component/user-explorer/user-explorer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__component_user_explorer_view_user_explorer_component__ = __webpack_require__("./src/app/component/user-explorer/view-user-explorer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__component_overview_overview_component__ = __webpack_require__("./src/app/component/overview/overview.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__component_overview_overview_service__ = __webpack_require__("./src/app/component/overview/overview.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -466,72 +493,81 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__component_header_header_component__["a" /* HeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__component_footer_footer_component__["a" /* FooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__component_sidepanel_sidepanel_component__["a" /* SidepanelComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__component_main_content_main_content_component__["a" /* MainContentComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__component_dashboard_dashboard_component__["a" /* DashboardComponent */],
-                __WEBPACK_IMPORTED_MODULE_15__component_login_page_login_page_component__["a" /* LoginPageComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__component_profile_profile_component__["a" /* ProfileComponent */],
-                __WEBPACK_IMPORTED_MODULE_23__component_hochiki_company_management_component__["a" /* CompanyManagementComponent */],
-                __WEBPACK_IMPORTED_MODULE_25__component_hochiki_add_company_component__["a" /* AddCompanyComponent */],
-                __WEBPACK_IMPORTED_MODULE_28__component_product_product_component__["a" /* ProductComponent */],
-                __WEBPACK_IMPORTED_MODULE_29__component_category_category_component__["a" /* CategoryComponent */],
-                __WEBPACK_IMPORTED_MODULE_30__component_product_add_product_component__["a" /* AddProductComponent */],
-                __WEBPACK_IMPORTED_MODULE_33__component_supression_supression_component__["a" /* SupressionComponent */],
-                __WEBPACK_IMPORTED_MODULE_34__component_ves_ves_component__["a" /* VesComponent */],
-                __WEBPACK_IMPORTED_MODULE_38__component_supression_supression_edit_component__["a" /* SupressionEditComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__component_product_file_control_value_accessor__["a" /* FileValueAccessor */],
-                __WEBPACK_IMPORTED_MODULE_40__component_product_file_validator__["a" /* FileValidator */],
-                __WEBPACK_IMPORTED_MODULE_42__component_ves_ves_edit_component__["a" /* VesEditComponent */],
-                __WEBPACK_IMPORTED_MODULE_43__component_user_management_user_management_component__["a" /* UserManagementComponent */],
-                __WEBPACK_IMPORTED_MODULE_44__component_user_management_add_user_component__["a" /* AddUserComponent */],
-                __WEBPACK_IMPORTED_MODULE_45__component_forgot_password_forgot_password_component__["a" /* ForgotPasswordComponent */],
-                __WEBPACK_IMPORTED_MODULE_46__component_roles_roles_component__["a" /* RolesComponent */],
-                __WEBPACK_IMPORTED_MODULE_48__component_roles_add_role_add_role_component__["a" /* AddRoleComponent */],
-                __WEBPACK_IMPORTED_MODULE_49__component_feedback_feedback_component__["a" /* FeedbackComponent */],
-                __WEBPACK_IMPORTED_MODULE_50__component_feedback_feedback_detail_feedback_detail_component__["a" /* FeedbackDetailComponent */]
+                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__component_header_header_component__["a" /* HeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__component_footer_footer_component__["a" /* FooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__component_sidepanel_sidepanel_component__["a" /* SidepanelComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__component_main_content_main_content_component__["a" /* MainContentComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__component_dashboard_dashboard_component__["a" /* DashboardComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__component_login_page_login_page_component__["a" /* LoginPageComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__component_profile_profile_component__["a" /* ProfileComponent */],
+                __WEBPACK_IMPORTED_MODULE_24__component_hochiki_company_management_component__["a" /* CompanyManagementComponent */],
+                __WEBPACK_IMPORTED_MODULE_26__component_hochiki_add_company_component__["a" /* AddCompanyComponent */],
+                __WEBPACK_IMPORTED_MODULE_29__component_product_product_component__["a" /* ProductComponent */],
+                __WEBPACK_IMPORTED_MODULE_30__component_category_category_component__["a" /* CategoryComponent */],
+                __WEBPACK_IMPORTED_MODULE_31__component_product_add_product_component__["a" /* AddProductComponent */],
+                __WEBPACK_IMPORTED_MODULE_34__component_supression_supression_component__["a" /* SupressionComponent */],
+                __WEBPACK_IMPORTED_MODULE_35__component_ves_ves_component__["a" /* VesComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__component_supression_supression_edit_component__["a" /* SupressionEditComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__component_product_file_control_value_accessor__["a" /* FileValueAccessor */],
+                __WEBPACK_IMPORTED_MODULE_41__component_product_file_validator__["a" /* FileValidator */],
+                __WEBPACK_IMPORTED_MODULE_43__component_ves_ves_edit_component__["a" /* VesEditComponent */],
+                __WEBPACK_IMPORTED_MODULE_44__component_user_management_user_management_component__["a" /* UserManagementComponent */],
+                __WEBPACK_IMPORTED_MODULE_45__component_user_management_add_user_component__["a" /* AddUserComponent */],
+                __WEBPACK_IMPORTED_MODULE_46__component_forgot_password_forgot_password_component__["a" /* ForgotPasswordComponent */],
+                __WEBPACK_IMPORTED_MODULE_47__component_roles_roles_component__["a" /* RolesComponent */],
+                __WEBPACK_IMPORTED_MODULE_49__component_roles_add_role_add_role_component__["a" /* AddRoleComponent */],
+                __WEBPACK_IMPORTED_MODULE_50__component_feedback_feedback_component__["a" /* FeedbackComponent */],
+                __WEBPACK_IMPORTED_MODULE_51__component_feedback_feedback_detail_feedback_detail_component__["a" /* FeedbackDetailComponent */],
+                __WEBPACK_IMPORTED_MODULE_53__component_user_explorer_user_explorer_component__["a" /* UserExplorerComponent */],
+                __WEBPACK_IMPORTED_MODULE_54__component_user_explorer_view_user_explorer_component__["a" /* ViewUserExplorerComponent */],
+                __WEBPACK_IMPORTED_MODULE_55__component_overview_overview_component__["a" /* OverviewComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_41__component_supression_bootstrap_growl_module__["a" /* BootstrapGrowlModule */],
+                __WEBPACK_IMPORTED_MODULE_42__component_supression_bootstrap_growl_module__["a" /* BootstrapGrowlModule */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_http__["c" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_5__app_routing_module__["a" /* AppRoutingModule */],
-                __WEBPACK_IMPORTED_MODULE_14_mydaterangepicker__["MyDateRangePickerModule"],
-                __WEBPACK_IMPORTED_MODULE_16_ng2_search_filter__["a" /* Ng2SearchPipeModule */],
-                __WEBPACK_IMPORTED_MODULE_18_mydatepicker__["MyDatePickerModule"],
+                __WEBPACK_IMPORTED_MODULE_5__angular_http__["c" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_4_ng2_google_charts__["a" /* Ng2GoogleChartsModule */],
+                __WEBPACK_IMPORTED_MODULE_6__app_routing_module__["a" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_15_mydaterangepicker__["MyDateRangePickerModule"],
+                __WEBPACK_IMPORTED_MODULE_17_ng2_search_filter__["a" /* Ng2SearchPipeModule */],
+                __WEBPACK_IMPORTED_MODULE_19_mydatepicker__["MyDatePickerModule"],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* ReactiveFormsModule */],
-                __WEBPACK_IMPORTED_MODULE_19_angular2_datatable__["DataTableModule"],
-                __WEBPACK_IMPORTED_MODULE_26_ng2_order_pipe__["Ng2OrderModule"],
-                __WEBPACK_IMPORTED_MODULE_27_ngx_delete_confirm__["a" /* NgxDeleteConfirmModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_20_angular2_datatable__["DataTableModule"],
+                __WEBPACK_IMPORTED_MODULE_27_ng2_order_pipe__["Ng2OrderModule"],
+                __WEBPACK_IMPORTED_MODULE_28_ngx_delete_confirm__["a" /* NgxDeleteConfirmModule */].forRoot(),
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_12__component_login_page_login_service__["a" /* AuthenticationService */],
-                __WEBPACK_IMPORTED_MODULE_7__gaurds_authenticate_guard__["a" /* AuthenticateGuard */],
-                __WEBPACK_IMPORTED_MODULE_21__component_profile_profile_service__["a" /* ProfileService */],
-                __WEBPACK_IMPORTED_MODULE_17__http_service__["a" /* HttpService */],
-                __WEBPACK_IMPORTED_MODULE_22__component_header_header_service__["a" /* HeaderService */],
-                __WEBPACK_IMPORTED_MODULE_24__component_hochiki_company_service__["a" /* CompanyService */],
-                __WEBPACK_IMPORTED_MODULE_31__component_product_product_service__["a" /* ProductService */],
+            providers: [__WEBPACK_IMPORTED_MODULE_13__component_login_page_login_service__["a" /* AuthenticationService */],
+                __WEBPACK_IMPORTED_MODULE_8__gaurds_authenticate_guard__["a" /* AuthenticateGuard */],
+                __WEBPACK_IMPORTED_MODULE_22__component_profile_profile_service__["a" /* ProfileService */],
+                __WEBPACK_IMPORTED_MODULE_18__http_service__["a" /* HttpService */],
+                __WEBPACK_IMPORTED_MODULE_23__component_header_header_service__["a" /* HeaderService */],
+                __WEBPACK_IMPORTED_MODULE_25__component_hochiki_company_service__["a" /* CompanyService */],
+                __WEBPACK_IMPORTED_MODULE_32__component_product_product_service__["a" /* ProductService */],
                 // LoaderService,
-                __WEBPACK_IMPORTED_MODULE_32__component_category_category_service__["a" /* CategoryService */],
-                __WEBPACK_IMPORTED_MODULE_37__component_supression_supression_service__["a" /* SupressionService */],
-                __WEBPACK_IMPORTED_MODULE_35__component_ves_ves_service__["a" /* VesService */],
-                __WEBPACK_IMPORTED_MODULE_36__component_user_management_user_service__["a" /* UserService */],
-                __WEBPACK_IMPORTED_MODULE_47__component_roles_role_info_service__["a" /* RoleInfoService */],
-                __WEBPACK_IMPORTED_MODULE_51__component_feedback_feedbck_service__["a" /* FeedbckService */]
+                __WEBPACK_IMPORTED_MODULE_33__component_category_category_service__["a" /* CategoryService */],
+                __WEBPACK_IMPORTED_MODULE_38__component_supression_supression_service__["a" /* SupressionService */],
+                __WEBPACK_IMPORTED_MODULE_36__component_ves_ves_service__["a" /* VesService */],
+                __WEBPACK_IMPORTED_MODULE_37__component_user_management_user_service__["a" /* UserService */],
+                __WEBPACK_IMPORTED_MODULE_48__component_roles_role_info_service__["a" /* RoleInfoService */],
+                __WEBPACK_IMPORTED_MODULE_52__component_feedback_feedbck_service__["a" /* FeedbckService */],
+                __WEBPACK_IMPORTED_MODULE_56__component_overview_overview_service__["a" /* overviewService */]
                 // BootstrapGrowlService
                 // {provide: ToastOptions, useClass: AddProductComponent},
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]],
         })
     ], AppModule);
     return AppModule;
@@ -1676,6 +1712,538 @@ var MainContentComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/component/overview/overview.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ".box.box-default.trafic {\n    border-top-color: #d2d6de;\n    height: 300px;\n}\n.box.box-default.key {\n    border-top-color: #d2d6de;\n    /* height: 600px; */\n    height:300px;\n}\n.btn-group .pull-right{\n    padding-left: 813px;\n}\n.textsize{\n    font-size: 30px;\n}\n.breadcrumbs{\n    float:right;\n}\n.ButtonState{display:none}\n.Button{padding: 6px; margin: -2px; background:#fff; border:1px solid rgb(179, 174, 174); cursor:pointer;}\n.ButtonState:checked + .Button{background:#CCC;}\ntd{\n    height: 88px;\n    padding: 30px;\n    \n}\n.table > tbody > tr > td, .table > tfoot > tr > td {\n    padding: 33px;\n   \n}\n.pl0 { padding-left: 0; }\n"
+
+/***/ }),
+
+/***/ "./src/app/component/overview/overview.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n\n<div class=\"content-wrapper\">\n  <!-- Content Header (Page header) -->\n  <section class=\"content-header\">\n    <h1>\n        Hochiki(Audience Overview)\n   \n    </h1>\n    <h4>http://www.hochikieurope.com/</h4>\n  \n   \n  </section>\n \n\n  <!-- Main content -->\n  <section class=\"content\">\n      <div class=\"box box-default trafic \">\n          <div class=\"box-header with-border\">\n            <h3 class=\"box-title\">Traffic Trend</h3>\n  \n           \n          </div>\n          <!-- /.box-header -->\n          <div class=\"box-body\">\n            <div class=\"row\">\n              <div class=\"col-md-12\">\n                  <div class=\"col-md-6\">\n                    <div class=\"row\">\n                       <div class=\"col-md-7 pl0\">\n                          <form #myForm=\"ngForm\" novalidate>\n                              <my-date-range-picker [options]=\"myDateRangePickerOptions\" placeholder=\"Select date range\" (dateRangeChanged)=\"onDateRangeChanged($event)\" \n                                (dateSelected)=\"onDateSelected($event)\" date-format=\"dd MMM yyyy\"\n                                selDateRange={{selectedIntialDates}}></my-date-range-picker>                \n                          </form>\n                       </div>\n                     \n                    </div>\n                      \n                      \n                  </div>\n                  <div class=\"col-md-6\">\n                      <div class=\"btn-group pull-right\" >\n                          <!-- <button type=\"button\" class=\"btn btn-default\"   (click)=\"showdimension('ga:date');\">Day</button>\n                          <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:week');\">Week</button>\n                          <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:month');\">Month</button> -->\n                          <input type=\"radio\" name=\"Button\" class=\"ButtonState\" checked id=\"Button1\" value=\"1\"/>\n                          <label class=\"Button\" for=\"Button1\" (click)=\"showdimension('ga:date');\" >Day</label>\n                          <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button2\" value=\"2\"/>\n                          <!-- <button class=\"Button\" name=\"Button\" class=\"ButtonState\"  [disabled]=\"buttonDisabled\"  id=\"Button2\" value=\"2\">Week</button> -->\n                          <label class=\"Button\" for=\"Button2\"  (click)=\"showdimension('ga:week');\">Week</label>\n                          <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button3\" value=\"3\"/>\n                          <label class=\"Button\" for=\"Button3\" (click)=\"showdimension('ga:month');\">Month</label>\n                        \n                      </div>\n                  </div>\n                  \n                  \n              </div>  \n              <div class=\"col-md-12\">\n                  <google-chart [data]=\"lineChartData\"  (chartSelect)=\"select($event)\" options=\"{'hAxis.gridlines' : false,'hAxis.viewWindow'  : false}\"></google-chart>\n                </div>\n              <!-- /.col -->\n              <!-- <div class=\"col-md-6\">\n                  <img src=\"../app/assets/images/google-charts-output.png\">\n                  \n               \n              </div> -->\n              <!-- /.col -->\n            </div>\n            \n            <!-- /.row -->\n          </div>\n          <!-- /.box-body -->\n         \n        </div>\n        <div class=\"box box-default key\">\n            <div class=\"box-header with-border\">\n              <h3 class=\"box-title\">Key Metrics</h3>\n             \n            </div>\n            <!-- /.box-header -->\n         \n            <!-- /.box-body -->\n           \n            <table class=\"table table-bordered\">\n                <tr>\n                    <td>Sessions:<br><b class=\"textsize\">{{sessionTotal}}</b></td>\n                    <td>\n                        Users:<br>\n                        <b class=\"textsize\">{{usersTotal}}</b>\n                        </td>\n                        <td>\n                            Avg.Session Duration:<br>\n                            <b class=\"textsize\">{{totalSessionUsers }} </b>\n                            </td>\n                            <td>Bounce Rate:<br>\n                              <b class=\"textsize\">{{bouncesTotal }}%</b>  </td>\n                      </tr>\n                <tr>\n                    <td>Pageviews: <br>\n                      <b class=\"textsize\">{{pageViewTotal}} </b>  </td>\n                    <td>Pages/Session:<br>\n                      <b class=\"textsize\">{{pagevssessionsTotalRound}}</b>  </td>\n                    <td>% New Sessions:<br>\n                      <b class=\"textsize\">{{persessionsTotal }}%</b>  </td>\n                </tr>\n               \n            </table>\n\n\n\n          </div>\n          <div *ngIf=\"showLoader\" class=\"fa fa-spinner fa-spin\" style=\"font-size:50px;text-align: center;\n          position: absolute;top: 50%;left: 50%;\"></div>\n  </section>\n  <!-- /.content -->\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/component/overview/overview.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OverviewComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__("./node_modules/@angular/common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__overview_service__ = __webpack_require__("./src/app/component/overview/overview.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+// import { IMyDpOptions, IMyDateModel, IMyInputFieldChanged } from 'mydatepicker';
+
+
+var OverviewComponent = /** @class */ (function () {
+    function OverviewComponent(router, cluster1Service, formBuilder) {
+        this.router = router;
+        this.cluster1Service = cluster1Service;
+        this.formBuilder = formBuilder;
+        // public dropdown = [];
+        this.startDate = '';
+        this.endDate = '';
+        this.days = '';
+        this.beginDateFormat = '';
+        this.endDateFormat = '';
+        this.showLoader = false;
+        this.dimensions = 'ga:channelGrouping , ga:date';
+        this.sessionTotal = 0;
+        this.usersTotal = 0;
+        this.durationTotal = 0;
+        this.BounceTotal = 0;
+        this.pageViewTotal = 0;
+        this.pagevssessionsTotal = '';
+        this.pagevssessionsTotalRound = 0;
+        this.persessionsTotal = '';
+        this.bouncesTotal = '';
+        this.newUsers = 0;
+        this.displayBounce = 0;
+        this.bouncesTotalround = 0;
+        this.totalSessionUsersRound = 0;
+        this.totalSessionUsers = '';
+        this.IntialDates = '';
+        this.start = '';
+        this.selectedIntialDates = '';
+        this.end = '';
+        this.dataTable = [];
+        this.day = [];
+        this.previousDays = [];
+        this.metrics = [];
+        this.pmetrics = [];
+        this.lineChartData = {
+            chartType: '',
+            dataTable: [],
+            options: {
+                scales: {
+                    xAxes: [{
+                            gridLines: {
+                                color: 'white',
+                                zeroLineColor: 'white',
+                                zeroLineWidth: 0,
+                                opacity: 0
+                            },
+                            scaleLabel: {
+                                display: false
+                            }
+                        }],
+                },
+            }
+        };
+        this.lineChartDatasessions = {
+            chartType: '',
+            dataTable: [],
+            options: {
+                scales: {
+                    xAxes: [{
+                            gridLines: {
+                                color: 'white',
+                                zeroLineColor: 'white',
+                                zeroLineWidth: 0,
+                                opacity: 0
+                            },
+                            scaleLabel: {
+                                display: false
+                            }
+                        }],
+                },
+            }
+        };
+        this.lineChartDatausers = {
+            chartType: '',
+            dataTable: [],
+            options: {}
+        };
+        this.lineChartDatadurations = {
+            chartType: '',
+            dataTable: [],
+            options: {}
+        };
+        this.lineChartDatabounceRate = {
+            chartType: '',
+            dataTable: [],
+            options: {}
+        };
+        this.lineChartDatapageView = {
+            chartType: '',
+            dataTable: [],
+            options: {}
+        };
+        this.lineChartDataPageVsSessions = {
+            chartType: '',
+            dataTable: [],
+            options: {}
+        };
+        this.lineChartDataPerSessions = {
+            chartType: '',
+            dataTable: [],
+            options: {}
+        };
+        this.myDateRangePickerOptions = {
+            // other options...
+            // dateFormat: 'yyyy-mm-dd',
+            dateFormat: 'dd mmm yyyy',
+            // dateFormat: ' DD YYYY'MMM,
+            disableSince: { year: new Date().getFullYear(), month: (new Date().getMonth() + 1), day: (new Date().getDate() + 1) },
+        };
+        this.model = {
+            beginDate: this.startDate,
+            endDate: this.endDate
+        };
+        this.dropdown = ['Today', 'Yesterday', 'Last week', 'Last Month', 'Last 7 days', 'Last 30 days'];
+        this.buttonDisabled = false;
+        // this.list = ['ga:date', 'ga:week', 'ga:month'];
+    }
+    OverviewComponent.prototype.setDateRange = function () {
+        var date = new Date();
+        this.myForm.patchValue({
+            myDateRange: {
+                beginDate: {
+                    year: date.getFullYear(),
+                    month: date.getMonth() + 1,
+                    day: date.getDate()
+                },
+                endDate: {
+                    year: date.getFullYear(),
+                    month: date.getMonth() + 1,
+                    day: date.getDate()
+                }
+            }
+        });
+    };
+    //    select(item) {
+    //     this.selected = item;
+    // }
+    // isActive(item) {
+    //     return this.selected === item;
+    // }
+    OverviewComponent.prototype.ngOnInit = function () {
+        document.title = 'Audience Overview - Firestrome';
+        //  this.loaderService.display(true);
+        //  this.loaderService.display(false);
+        this.myForm = this.formBuilder.group({
+            myDateRange: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required]
+        });
+        var days = 7;
+        var date = new Date();
+        var last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
+        this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
+        this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate()) < 10 ? '0' : '') + (new Date().getDate());
+        var datePipeS = new __WEBPACK_IMPORTED_MODULE_2__angular_common__["DatePipe"]('en-US');
+        this.startDate = datePipeS.transform(this.startDate, 'dd MMM yyyy');
+        this.endDate = datePipeS.transform(this.endDate, 'dd MMM yyyy');
+        this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
+        this.finalDataToSend();
+    };
+    //  public optionSelected: any;
+    OverviewComponent.prototype.onOptionSelected = function (event) {
+        if (event === 'Last 7 days') {
+            var days = 7;
+            var date = new Date();
+            var last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
+            this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
+            this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate() - 1) < 10 ? '0' : '') + (new Date().getDate() - 1);
+            var datePipeS = new __WEBPACK_IMPORTED_MODULE_2__angular_common__["DatePipe"]('en-US');
+            this.startDate = datePipeS.transform(this.startDate, 'dd MMM yyyy');
+            this.endDate = datePipeS.transform(this.endDate, 'dd MMM yyyy');
+            this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
+        }
+        else if (event === 'Last 30 days') {
+            var days = 30;
+            var date = new Date();
+            var last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
+            this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
+            this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate() - 1) < 10 ? '0' : '') + (new Date().getDate() - 1);
+            var datePipeS = new __WEBPACK_IMPORTED_MODULE_2__angular_common__["DatePipe"]('en-US');
+            this.startDate = datePipeS.transform(this.startDate, 'dd MMM yyyy');
+            this.endDate = datePipeS.transform(this.endDate, 'dd MMM yyyy');
+            this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
+        }
+        else if (event === 'Last Month') {
+            var date = new Date();
+            var firstDay = new Date(date.getFullYear(), date.getMonth() - 1, 1);
+            var lastDay = new Date(date.getFullYear(), date.getMonth(), 0);
+            var datePipeS = new __WEBPACK_IMPORTED_MODULE_2__angular_common__["DatePipe"]('en-US');
+            this.startDate = datePipeS.transform(firstDay, 'dd MMM yyyy');
+            this.endDate = datePipeS.transform(lastDay, 'dd MMM yyyy');
+            this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
+            // alert(firstDay+"==="+lastDay);
+        }
+        else if (event === 'Last week') {
+            var first = new Date().getDate() - new Date().getDay() - 7;
+            var last = first + 6; // last day is the first day + 6
+            var startDateOfWeek = new Date(new Date().setDate(first));
+            var endDateOfWeek = new Date(new Date().setDate(last));
+            var datePipeS = new __WEBPACK_IMPORTED_MODULE_2__angular_common__["DatePipe"]('en-US');
+            this.startDate = datePipeS.transform(startDateOfWeek, 'dd MMM yyyy');
+            this.endDate = datePipeS.transform(endDateOfWeek, 'dd MMM yyyy');
+            this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
+        }
+        else if (event === 'Yesterday') {
+            // this.buttonDisabled = true;
+            var days = 1;
+            var date = new Date();
+            var last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
+            this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
+            this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate() - 1) < 10 ? '0' : '') + (new Date().getDate() - 1);
+            var datePipeS = new __WEBPACK_IMPORTED_MODULE_2__angular_common__["DatePipe"]('en-US');
+            this.startDate = datePipeS.transform(this.startDate, 'dd MMM yyyy');
+            this.endDate = datePipeS.transform(this.endDate, 'dd MMM yyyy');
+            this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
+        }
+        else {
+            // this.buttonDisabled = true;
+            var days = 0;
+            var date = new Date();
+            var last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
+            this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
+            this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate()) < 10 ? '0' : '') + (new Date().getDate());
+            var datePipeS = new __WEBPACK_IMPORTED_MODULE_2__angular_common__["DatePipe"]('en-US');
+            this.startDate = datePipeS.transform(this.startDate, 'dd MMM yyyy');
+            this.endDate = datePipeS.transform(this.endDate, 'dd MMM yyyy');
+            this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
+        }
+        this.finalDataToSend();
+    };
+    OverviewComponent.prototype.clearDateRange = function () {
+        this.startDate = '';
+        this.endDate = '';
+    };
+    OverviewComponent.prototype.gettheDate = function (date) {
+        var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'
+        ];
+        var year = date.substring(0, 4);
+        var month = date.substring(4, 6);
+        var dates = date.substring(6, 8);
+        return dates + '-' + monthNames[month < 10 ? (month.substring(1, 2) - 1) : month - 1];
+    };
+    OverviewComponent.prototype.showdimension = function (dimen) {
+        this.dimensions = dimen;
+        this.finalDataToSend();
+    };
+    OverviewComponent.prototype.onDateRangeChanged = function (event) {
+        // console.log(event, 'tocheckDate');
+        if (event.formatted !== '') {
+            // const datePipe = new DatePipe('en-US');
+            // this.startDate = datePipe.transform(event.beginJsDate, 'dd MMM yyyy');
+            // this.endDate = datePipe.transform(event.endJsDate, 'dd MMM yyyy');
+            var newDate = new Date(this.endDate);
+            if (event.beginJsDate <= newDate && event.endJsDate >= newDate) {
+                this.finalDataToSend();
+            }
+            else {
+                this.onDateSelected(event);
+            }
+        }
+        else {
+        }
+    };
+    OverviewComponent.prototype.onDateSelected = function (dates) {
+        if (dates.type === 1) {
+            this.startDate = dates.formatted;
+        }
+        else {
+            this.endDate = dates.formatted;
+        }
+    };
+    OverviewComponent.prototype.changeTheSecondsToDate = function (seconddata) {
+        var sec_num = parseFloat(seconddata);
+        this.hoursTocal = Math.floor(sec_num / 3600);
+        this.minutesTocal = Math.floor((sec_num - (this.hoursTocal * 3600)) / 60);
+        this.secondsTocal = sec_num - (this.hoursTocal * 3600) - (this.minutesTocal * 60);
+        if (this.hoursTocal < 10) {
+            this.hoursTocal = '0' + this.hoursTocal;
+        }
+        if (this.minutesTocal < 10) {
+            this.minutesTocal = '0' + this.minutesTocal;
+        }
+        if (this.secondsTocal < 10) {
+            this.secondsTocal = '0' + this.secondsTocal;
+        }
+        return this.hoursTocal + ':' + this.minutesTocal + ':' + parseInt(this.secondsTocal, 10);
+    };
+    // getDatesBetween(startDate, endDate) {
+    //   const dateArray = [];
+    //   let currentDateofApp = moment(startDate);
+    //   const stopDate = moment(endDate);
+    //   while (currentDateofApp <= stopDate) {
+    //     dateArray.push(moment(currentDateofApp).format('YYYY-MM-DD'));
+    //     currentDateofApp = moment(currentDateofApp).add(1, 'days');
+    //   }
+    //   return dateArray;
+    // }
+    OverviewComponent.prototype.finalDataToSend = function () {
+        var _this = this;
+        var completeDate = { startDate: '', endDate: '', dimensions: '' };
+        completeDate.startDate = new Date(this.startDate).getFullYear() + '-' + ((new Date(this.startDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.startDate).getMonth() + 1) + '-' + ((new Date(this.startDate).getDate()) < 10 ? '0' : '') + (new Date(this.startDate).getDate());
+        completeDate.endDate = new Date(this.endDate).getFullYear() + '-' + ((new Date(this.endDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.endDate).getMonth() + 1) + '-' + ((new Date(this.endDate).getDate()) < 10 ? '0' : '') + (new Date(this.endDate).getDate());
+        completeDate.dimensions = this.dimensions;
+        this.showLoader = true;
+        if (this.startDate !== '' && this.endDate !== '' && this.dimensions !== '' && completeDate.endDate >= completeDate.startDate) {
+            //  console.log(this.startDate , this.endDate , 'forcjjcjcj', new Date(this.startDate).getMonth() );
+            //  this.loaderService.display(true);
+            this.cluster1Service.createGraph(completeDate)
+                .then(function (response) {
+                _this.showLoader = false;
+                //  this.loaderService.display(false);
+                if (response.data.length === 0) {
+                    // this.getDatesBetween(completeDate.startDate, completeDate.endDate);
+                    // console.log(this.getDatesBetween(completeDate.startDate, completeDate.endDate));
+                    // const table = [];
+                    // this.dataTable.forEach((item, index) => {
+                    //   this.day = item.dimensions;
+                    //   this.metrics = item.metrics;
+                    //   this.sessionTotal += this.metrics[0]['ga:sessions'];
+                    //   this.usersTotal += this.metrics[0]['ga:users'];
+                    //   this.durationTotal += this.metrics[0]['ga:sessionDuration'];
+                    //   this.BounceTotal += this.metrics[0]['ga:bounces'];
+                    //   this.pageViewTotal += this.metrics[0]['ga:pageviews'];
+                    //   this.newUsers += this.metrics[0]['ga:newUsers'];
+                    //   if (this.dimensions === 'ga:date') {
+                    //     table.push([this.gettheDate(this.day[0]['ga:date']), this.metrics[0]['ga:users']]);
+                    //   } else {
+                    //     table.push([this.day[0]['ga:date'], this.metrics[0]['ga:users']]);
+                    //   }
+                    // });
+                }
+                else {
+                    _this.dataTable = response.data;
+                    _this.sessionTotal = 0;
+                    _this.pageViewTotal = 0;
+                    _this.newUsers = 0;
+                    _this.usersTotal = 0;
+                    _this.persessionsTotal = '';
+                    _this.BounceTotal = 0;
+                    _this.bouncesTotal = '';
+                    _this.bouncesTotalround = 0;
+                    _this.totalSessionUsers = '';
+                    _this.totalSessionUsersRound = 0;
+                    _this.pagevssessionsTotalRound = 0;
+                    _this.durationTotal = 0;
+                    var table_1 = [];
+                    var sessions_1 = [];
+                    var users_1 = [];
+                    var durations_1 = [];
+                    var bouncerate_1 = [];
+                    var pageview_1 = [];
+                    var pagevssessions_1 = [];
+                    var persessions_1 = [];
+                    table_1.push(['date', 'users']);
+                    sessions_1.push(['week', 'sessions']);
+                    users_1.push(['week', 'users']);
+                    durations_1.push(['week', 'durations']);
+                    bouncerate_1.push(['week', 'bouncerate']);
+                    pageview_1.push(['week', 'pageview']);
+                    pagevssessions_1.push(['week', 'pagevssessions']);
+                    persessions_1.push(['week', 'persessions']);
+                    _this.dataTable.forEach(function (item, index) {
+                        _this.day = item.dimensions;
+                        _this.metrics = item.metrics;
+                        _this.sessionTotal += _this.metrics[0]['ga:sessions'];
+                        _this.usersTotal += _this.metrics[0]['ga:users'];
+                        _this.durationTotal += _this.metrics[0]['ga:sessionDuration'];
+                        _this.BounceTotal += _this.metrics[0]['ga:bounceRate'];
+                        _this.pageViewTotal += _this.metrics[0]['ga:pageViews'];
+                        _this.newUsers += _this.metrics[0]['ga:newUsers'];
+                        if (_this.dimensions === 'ga:date') {
+                            table_1.push([_this.gettheDate(_this.day[0]['ga:date']), _this.metrics[0]['ga:users']]);
+                        }
+                        else {
+                            table_1.push([_this.day[0]['ga:date'], _this.metrics[0]['ga:users']]);
+                        }
+                        sessions_1.push([_this.day[0][''], _this.metrics[0]['ga:sessions']]);
+                        users_1.push([_this.day[0][''], _this.metrics[0]['ga:users']]);
+                        durations_1.push([_this.day[0][''], _this.metrics[0]['ga:avgSessionDuration']]);
+                        bouncerate_1.push([_this.day[0][''], _this.metrics[0]['ga:bounceRate']]);
+                        pageview_1.push([_this.day[0][''], _this.metrics[0]['ga:pageviews']]);
+                        pagevssessions_1.push([_this.day[0][''], _this.metrics[0]['ga:pageviewsPerSession']]);
+                        persessions_1.push([_this.day[0][''], _this.metrics[0]['ga:percentNewSessions']]);
+                    });
+                    _this.pagevssessionsTotal = ((_this.pageViewTotal / _this.sessionTotal)).toFixed(2);
+                    _this.pagevssessionsTotalRound = parseFloat(_this.pagevssessionsTotal);
+                    _this.persessionsTotal = ((_this.newUsers / _this.sessionTotal) * 100).toFixed(2);
+                    _this.bouncesTotal = ((_this.BounceTotal / _this.sessionTotal) * 100).toFixed(2);
+                    _this.bouncesTotalround = parseInt('this.bouncesTotal', 10);
+                    _this.totalSessionUsers = JSON.stringify((_this.durationTotal / _this.sessionTotal));
+                    _this.totalSessionUsers = _this.changeTheSecondsToDate(_this.totalSessionUsers);
+                    _this.lineChartData = {
+                        chartType: 'AreaChart',
+                        dataTable: table_1,
+                    };
+                    _this.lineChartDatasessions = {
+                        chartType: 'AreaChart',
+                        dataTable: sessions_1,
+                    };
+                    _this.lineChartDatausers = {
+                        chartType: 'AreaChart',
+                        dataTable: users_1,
+                    };
+                    _this.lineChartDatadurations = {
+                        chartType: 'AreaChart',
+                        dataTable: durations_1,
+                    };
+                    _this.lineChartDatabounceRate = {
+                        chartType: 'AreaChart',
+                        dataTable: bouncerate_1,
+                    };
+                    _this.lineChartDatapageView = {
+                        chartType: 'AreaChart',
+                        dataTable: pageview_1,
+                    };
+                    _this.lineChartDataPageVsSessions = {
+                        chartType: 'AreaChart',
+                        dataTable: pagevssessions_1,
+                    };
+                    _this.lineChartDataPerSessions = {
+                        chartType: 'AreaChart',
+                        dataTable: persessions_1,
+                    };
+                }
+            });
+        }
+    };
+    var _a, _b, _c;
+    OverviewComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-overview',
+            template: __webpack_require__("./src/app/component/overview/overview.component.html"),
+            styles: [__webpack_require__("./src/app/component/overview/overview.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__overview_service__["a" /* overviewService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__overview_service__["a" /* overviewService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]) === "function" && _c || Object])
+    ], OverviewComponent);
+    return OverviewComponent;
+}());
+
+//# sourceMappingURL=overview.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/component/overview/overview.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return overviewService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("./node_modules/@angular/http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__http_service__ = __webpack_require__("./src/app/http.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var overviewService = /** @class */ (function () {
+    function overviewService(_http, httpcaller) {
+        this._http = _http;
+        this.httpcaller = httpcaller;
+        this.TrendGraphUrl = 'company-list';
+        this.GoogleAnalytics = 'googleAnalytics/audience-overview';
+        this.GoogleGagsc = 'googleGaGsc';
+    }
+    overviewService.prototype.getCompanyList = function () {
+        return this.httpcaller.httpcall(this.TrendGraphUrl, 'get', {});
+    };
+    overviewService.prototype.createGraph = function (dates) {
+        return this.httpcaller.httpcall(this.GoogleAnalytics, 'post', dates);
+    };
+    overviewService.prototype.createcluster1 = function (dates) {
+        return this.httpcaller.httpcall(this.GoogleGagsc, 'post', dates);
+    };
+    var _a, _b;
+    overviewService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__http_service__["a" /* HttpService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__http_service__["a" /* HttpService */]) === "function" && _b || Object])
+    ], overviewService);
+    return overviewService;
+}());
+
+//# sourceMappingURL=overview.service.js.map
+
+/***/ }),
+
 /***/ "./src/app/component/product/add-product.component.css":
 /***/ (function(module, exports) {
 
@@ -2584,7 +3152,7 @@ module.exports = ".skin-blue .sidebar-menu > li> a{\n    color: #ffffff;\n    ba
 /***/ "./src/app/component/sidepanel/sidepanel.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Left side column. contains the logo and sidebar -->\n<aside class=\"main-sidebar\">\n  <!-- sidebar: style can be found in sidebar.less -->\n  <section class=\"sidebar\">\n    <!-- Sidebar user panel -->\n    <!-- /.search form -->\n    <!-- sidebar menu: : style can be found in sidebar.less -->\n    <ul class=\"sidebar-menu\" data-widget=\"tree\">\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/dashboard\"> <i class=\"fa fa-dashboard\"></i><span class=\"pl10\">Dashboard</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/user\"> <i class=\"fa fa-user\"></i><span class=\"pl10\">User Management</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/roles\"> <i class=\"fa fa-cubes\"></i><span class=\"pl10\"> Role Management</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/product\"> <i class=\"fa fa-archive\"></i><span class=\"pl10\">Product Management</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/category\"><i class=\"fa fa-database\"></i>\n          <span class=\"pl10\">Category</span>\n        </a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/feedback\"> <i class=\"fa fa-comments\"></i><span class=\"pl10\"> Feedback</span></a>\n      </li>\n    </ul>\n  </section>\n  <!-- /.sidebar -->\n</aside>"
+module.exports = "<!-- Left side column. contains the logo and sidebar -->\n<aside class=\"main-sidebar\">\n  <!-- sidebar: style can be found in sidebar.less -->\n  <section class=\"sidebar\">\n    <!-- Sidebar user panel -->\n    <!-- /.search form -->\n    <!-- sidebar menu: : style can be found in sidebar.less -->\n    <ul class=\"sidebar-menu\" data-widget=\"tree\">\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/dashboard\"> <i class=\"fa fa-dashboard\"></i><span class=\"pl10\">Dashboard</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/user\"> <i class=\"fa fa-user\"></i><span class=\"pl10\">User Management</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/userExplorer\"> <i class=\"fa fa-user\"></i><span class=\"pl10\">User Explorer</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/overview\"> <i class=\"fa fa-user\"></i><span class=\"pl10\">Overview</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/roles\"> <i class=\"fa fa-cubes\"></i><span class=\"pl10\"> Role Management</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/product\"> <i class=\"fa fa-archive\"></i><span class=\"pl10\">Product Management</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/category\"><i class=\"fa fa-database\"></i>\n          <span class=\"pl10\">Category</span>\n        </a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/feedback\"> <i class=\"fa fa-comments\"></i><span class=\"pl10\"> Feedback</span></a>\n      </li>\n    </ul>\n  </section>\n  <!-- /.sidebar -->\n</aside>"
 
 /***/ }),
 
@@ -3130,6 +3698,106 @@ var SupressionService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/component/user-explorer/user-explorer.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/component/user-explorer/user-explorer.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"content-wrapper\">\n  <!-- Small boxes (Stat box) -->\n  <section class=\"content-header\">\n\n      <div class=\"row\">\n          <div class=\"col-md-6\">\n              <h3 style=\"margin-top:0;\">User Explorer</h3>\n          </div>\n          <div class=\"col-md-6\">\n            <form #myForm=\"ngForm\" novalidate>\n                <my-date-range-picker [options]=\"myDateRangePickerOptions\" placeholder=\"Select date range\" (dateRangeChanged)=\"onDateRangeChanged($event)\" \n                  (dateSelected)=\"onDateSelected($event)\" date-format=\"dd MMM yyyy\"\n                  selDateRange={{selectedIntialDates}}></my-date-range-picker>                \n            </form>\n         </div>\n      </div>\n\n\n  </section>\n\n  <section class=\"content\">\n\n      <div class=\"box table-responsive\">\n          <table class=\"table table-bordered\">\n              <tr>\n                  <th (click)=\"sort('id')\">ID</th>\n                  <th>Sessions</th>\n                  <th>Avg. Session Duration</th>\n                  <th>Bounce Rate</th>\n                  <th>Revenue</th>\n                  <th>Transactions</th>\n                  <th>Goal Conversion Rate</th>\n              </tr>\n              <tr>\n                <td> <a routerLink=\"/userExplorerId\"> 1. 1002362972.1528992003</a>\n                </td>\n                <td>1 (0.18%)</td>\n                <td>00:00:00</td>\n                <td>100.00%</td>\n                <td>$0.00 (0.00%)</td>\n                <td>0 (0.00%)</td>\n                <td>(0.00%)</td>\n            </tr>\n\n              <!-- <tr *ngFor=\"let x of users | filter:filter ; let i = index\">\n                  <td width=\"11%\">\n                      {{x.id}}\n                  </td>\n                  <td>{{x.firstName}}&nbsp;{{x.lastName}}</td>\n                  <td>{{x.email}}</td>\n                  <td>{{x.mobile}}</td>\n                  <td>{{x.mobile}}</td>\n                  <td>{{x.mobile}}</td>\n                  <td>{{x.mobile}}</td>\n              </tr> -->\n          </table>\n      </div>\n      <div *ngIf=\"showLoader\" class=\"fa fa-spinner fa-spin\" style=\"font-size:50px;text-align: center;\n    position: absolute;top: 50%;left: 50%;\"></div>\n  </section>\n  <!-- /.row (main row) -->\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/component/user-explorer/user-explorer.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserExplorerComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var UserExplorerComponent = /** @class */ (function () {
+    function UserExplorerComponent() {
+    }
+    UserExplorerComponent.prototype.ngOnInit = function () {
+    };
+    UserExplorerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-user-explorer',
+            template: __webpack_require__("./src/app/component/user-explorer/user-explorer.component.html"),
+            styles: [__webpack_require__("./src/app/component/user-explorer/user-explorer.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], UserExplorerComponent);
+    return UserExplorerComponent;
+}());
+
+//# sourceMappingURL=user-explorer.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/component/user-explorer/view-user-explorer.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ".avatar {\n    vertical-align: middle;\n    width: 150px;\n    height: 150px;\n    border-radius: 50%;\n}\n.box.box-default.key {\n    border-top-color: #d2d6de;\n    /* height: 600px; */\n    height:150px;\n}\n.box {\n    position: relative;\n    border-radius: 3px;\n    background: #ffffff;\n}\n.side {\n    background: white;\n}"
+
+/***/ }),
+
+/***/ "./src/app/component/user-explorer/view-user-explorer.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"content-wrapper\">\n  <!-- Small boxes (Stat box) -->\n  <section class=\"content-header\">\n\n      <div class=\"row\">\n          <div class=\"col-md-6\">\n              <h3 style=\"margin-top:0;\">User Report</h3>\n          </div>\n          <div class=\"col-md-6\">\n            <form #myForm=\"ngForm\" novalidate>\n                <my-date-range-picker [options]=\"myDateRangePickerOptions\" placeholder=\"Select date range\" (dateRangeChanged)=\"onDateRangeChanged($event)\" \n                  (dateSelected)=\"onDateSelected($event)\" date-format=\"dd MMM yyyy\"\n                  selDateRange={{selectedIntialDates}}></my-date-range-picker>                \n            </form>\n         </div>\n      </div>\n  </section>\n\n  <section class=\"content\">\n    <div class=\"box-body bg-white\">\n\n        <div class=\"row\">\n            \n      <div class=\"col-md-2\">\n        <img src=\"assets/images/download.jpeg\" class = \"avatar\">\n            <form #userForm=\"ngForm\" (ngSubmit)=\"saveCompanyDetails(userForm)\">\n                <div class=\"box-body\">\n                 \n                    <label for=\"exampleInputEmail1\">Client Id <span class=\"fa fa-question-circle\" style=\"padding:2px;font-size:15px;color:grey\"></span></label><br>\n                    <label for=\"exampleInputEmail1\">BigQuery Client Id <span class=\"fa fa-question-circle\" style=\"padding:2px;font-size:15px;color:grey\"></span></label>\n                    <label for=\"exampleInputFile\">Date Last Seen<span class=\"fa fa-question-circle\" style=\"padding:2px;font-size:15px;color:grey\"></span></label>\n                    <label for=\"exampleInputEmail1\">Device Category <span class=\"fa fa-question-circle\" style=\"padding:2px;font-size:15px;color:grey\"></span></label>\n                    <label for=\"exampleInputEmail1\">device Platform <span class=\"fa fa-question-circle\" style=\"padding:2px;font-size:15px;color:grey\"></span></label>\n                    <label for=\"exampleInputEmail1\">Acquisition</label><br>\n                    <label for=\"exampleInputEmail1\">Date <span class=\"fa fa-question-circle\" style=\"padding:2px;font-size:15px;color:grey\"></span></label><br>\n                    <label for=\"exampleInputEmail1\">Channel <span class=\"fa fa-question-circle\" style=\"padding:2px;font-size:15px;color:grey\"></span></label>\n                    <label for=\"exampleInputEmail1\">Source / Medium <span class=\"fa fa-question-circle\" style=\"padding:2px;font-size:15px;color:grey\"></span></label>\n                    <label for=\"exampleInputEmail1\">Campaign <span class=\"fa fa-question-circle\" style=\"padding:2px;font-size:15px;color:grey\"></span></label>\n        \n                </div>\n                <!-- /.box-body -->\n            </form>\n        </div>\n\n      <div class=\"col-md-10\">\n         <div class=\"box box-default key\">\n          <table  class=\"table table-bordered\">\n              <tr>\n                  <td>Sessions:<br><b class=\"textsize\">{{sessionTotal}}</b></td>\n                  <td>\n                      Users:<br>\n                      <b class=\"textsize\">{{usersTotal}}</b>\n                      </td>\n                      <td>\n                          Avg.Session Duration:<br>\n                          <b class=\"textsize\">{{totalSessionUsers }} </b>\n                          </td>\n                          <td>Bounce Rate:<br>\n                            <b class=\"textsize\">{{bouncesTotal }}%</b>  </td>\n                    </tr>\n            \n             \n          </table>\n        </div>\n        <div class=\"box table-responsive\">\n          <table class=\"table table-bordered\">\n              <tr>\n                  <th (click)=\"sort('id')\">ID</th>\n                  <th>Sessions</th>\n                  <th>Avg. Session Duration</th>\n                  <th>Bounce Rate</th>\n                  <th>Revenue</th>\n                  <th>Transactions</th>\n                  <th>Goal Conversion Rate</th>\n              </tr>\n              <tr>\n                <td>1. 1002362972.1528992003</td>\n                <td>1 (0.18%)</td>\n                <td>00:00:00</td>\n                <td>100.00%</td>\n                <td>$0.00 (0.00%)</td>\n                <td>0 (0.00%)</td>\n                <td>(0.00%)</td>\n            </tr>\n\n          </table>\n      </div>\n      </div>\n      </div>\n    </div>\n  \n      <div *ngIf=\"showLoader\" class=\"fa fa-spinner fa-spin\" style=\"font-size:50px;text-align: center;\n    position: absolute;top: 50%;left: 50%;\"></div>\n  </section>\n  <!-- /.row (main row) -->\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/component/user-explorer/view-user-explorer.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ViewUserExplorerComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ViewUserExplorerComponent = /** @class */ (function () {
+    function ViewUserExplorerComponent() {
+    }
+    ViewUserExplorerComponent.prototype.ngOnInit = function () {
+    };
+    ViewUserExplorerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-view-user-explorer',
+            template: __webpack_require__("./src/app/component/user-explorer/view-user-explorer.component.html"),
+            styles: [__webpack_require__("./src/app/component/user-explorer/view-user-explorer.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ViewUserExplorerComponent);
+    return ViewUserExplorerComponent;
+}());
+
+//# sourceMappingURL=view-user-explorer.component.js.map
+
+/***/ }),
+
 /***/ "./src/app/component/user-management/add-user.component.css":
 /***/ (function(module, exports) {
 
@@ -3413,6 +4081,7 @@ var UserManagementComponent = /** @class */ (function () {
     };
     UserManagementComponent.prototype.onChange = function (event, id) {
         var _this = this;
+        console.log(event, id);
         this.user.statusChange(event.target.checked, id).then(function (data) {
             _this.showLoader = false;
             $('.alert').css('z-index', '9999');
@@ -3975,9 +4644,13 @@ var BootstrapAlert = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
+// The file contents for the current environment will overwrite these during build.
+// The build system defaults to the dev environment which uses `environment.ts`, but if you do
+// `ng build --env=prod` then `environment.prod.ts` will be used instead.
+// The list of which env maps to which file can be found in `.angular-cli.json`.
 var environment = {
     production: false,
-    url: 'http://dev.credencys.com:3038/'
+    url: 'http://192.168.11.71:3002/'
 };
 //# sourceMappingURL=environment.js.map
 
