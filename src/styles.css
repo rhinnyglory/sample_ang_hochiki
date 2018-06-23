@@ -31,6 +31,10 @@ body ng-component {
 header {
 }
 
+.bg-white {
+    background: #ffffff;
+}
+
 /* MAIN STYLES
 --------------------------------------------------------------------- */
 

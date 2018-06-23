@@ -21,6 +21,9 @@ import { RolesComponent } from './component/roles/roles.component';
 import { AddRoleComponent } from './component/roles/add-role/add-role.component';
 import { FeedbackComponent } from './component/feedback/feedback.component';
 import { FeedbackDetailComponent } from './component/feedback/feedback-detail/feedback-detail.component';
+import { UserExplorerComponent } from './component/user-explorer/user-explorer.component';
+import { ViewUserExplorerComponent } from './component/user-explorer/view-user-explorer.component';
+import { OverviewComponent } from './component/overview/overview.component';
 
 
 const routes: Routes = [
@@ -44,8 +47,23 @@ const routes: Routes = [
     canActivate: [AuthenticateGuard],
   },
   {
+    path: 'userExplorer',
+    component: UserExplorerComponent,
+    canActivate: [AuthenticateGuard],
+  },
+  {
+    path: 'userExplorerId',
+    component: ViewUserExplorerComponent,
+    canActivate: [AuthenticateGuard],
+  },
+  {
     path: 'product',
     component: ProductComponent,
+    canActivate: [AuthenticateGuard],
+  },
+  {
+    path: 'overview',
+    component: OverviewComponent,
     canActivate: [AuthenticateGuard],
   },
   {

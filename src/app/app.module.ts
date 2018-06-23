@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule, AfterViewInit, ElementRef } from '@angular/core';
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 // import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -60,7 +61,10 @@ import { AddRoleComponent } from './component/roles/add-role/add-role.component'
 import { FeedbackComponent } from './component/feedback/feedback.component';
 import { FeedbackDetailComponent } from './component/feedback/feedback-detail/feedback-detail.component';
 import { FeedbckService } from './component/feedback/feedbck.service';
-
+import { UserExplorerComponent } from './component/user-explorer/user-explorer.component';
+import { ViewUserExplorerComponent } from './component/user-explorer/view-user-explorer.component';
+import { OverviewComponent } from './component/overview/overview.component';
+import { overviewService} from './component/overview/overview.service';
 
 @NgModule({
   declarations: [
@@ -89,7 +93,10 @@ import { FeedbckService } from './component/feedback/feedbck.service';
     RolesComponent,
     AddRoleComponent,
     FeedbackComponent,
-    FeedbackDetailComponent
+    FeedbackDetailComponent,
+    UserExplorerComponent,
+    ViewUserExplorerComponent,
+    OverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -97,6 +104,7 @@ import { FeedbckService } from './component/feedback/feedbck.service';
     HttpClientModule,
     FormsModule,
     HttpModule,
+    Ng2GoogleChartsModule,
     AppRoutingModule,
     MyDateRangePickerModule,
     Ng2SearchPipeModule,
@@ -125,7 +133,8 @@ import { FeedbckService } from './component/feedback/feedbck.service';
     VesService,
     UserService,
     RoleInfoService,
-    FeedbckService
+    FeedbckService,
+    overviewService
     // BootstrapGrowlService
     // {provide: ToastOptions, useClass: AddProductComponent},
   ],
