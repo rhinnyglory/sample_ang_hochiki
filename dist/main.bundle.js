@@ -1715,14 +1715,14 @@ var MainContentComponent = /** @class */ (function () {
 /***/ "./src/app/component/overview/overview.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".box.box-default.trafic {\n    border-top-color: #d2d6de;\n    height: 300px;\n}\n.box.box-default.key {\n    border-top-color: #d2d6de;\n    /* height: 600px; */\n    height:300px;\n}\n.btn-group .pull-right{\n    padding-left: 813px;\n}\n.textsize{\n    font-size: 30px;\n}\n.breadcrumbs{\n    float:right;\n}\n.ButtonState{display:none}\n.Button{padding: 6px; margin: -2px; background:#fff; border:1px solid rgb(179, 174, 174); cursor:pointer;}\n.ButtonState:checked + .Button{background:#CCC;}\ntd{\n    height: 88px;\n    padding: 30px;\n    \n}\n.table > tbody > tr > td, .table > tfoot > tr > td {\n    padding: 33px;\n   \n}\n.pl0 { padding-left: 798px; }\n.pl2 { padding-left: 0px; }\n.pl3 { padding-left: 20px; }\n"
+module.exports = ".box.box-default.trafic {\n    border-top-color: #d2d6de;\n    height: 300px;\n}\n.box.box-default.key {\n    border-top-color: #d2d6de;\n    /* height: 600px; */\n    height:300px;\n}\n.btn-group .pull-right{\n    padding-left: 813px;\n}\n.textsize{\n    font-size: 30px;\n}\n.breadcrumbs{\n    float:right;\n}\n.ButtonState{display:none}\n.Button{padding: 6px; margin: -2px; background:#fff; border:1px solid rgb(179, 174, 174); cursor:pointer;}\n.ButtonState:checked + .Button{background:#CCC;}\ntd{\n    height: 88px;\n    padding: 30px;\n    \n}\n.table > tbody > tr > td, .table > tfoot > tr > td {\n    padding: 33px;\n   \n}\n.pl0 { padding-left: 798px; }\n.pl2 { padding-left: 0px; }\n.pl3 {  padding-left: 164px; }\n"
 
 /***/ }),
 
 /***/ "./src/app/component/overview/overview.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<div class=\"content-wrapper\">\n  <!-- Content Header (Page header) -->\n  <section class=\"content-header\">\n    <h1>\n        Hochiki(Audience Overview)\n   \n    </h1>\n    <h4>http://www.hochikiamerica.com/</h4>\n  \n   \n  </section>\n \n\n  <!-- Main content -->\n  <section class=\"content\">\n      <div class=\"box box-default trafic \">\n         \n          <!-- /.box-header -->\n          <div class=\"box-body\">\n            <div class=\"row\">\n              <div class=\"col-md-12\">\n                  <div class=\"col-md-6\">\n                    <div class=\"row\">\n                        <div class=\"col-md-5 pl2\">\n                            <!-- <select class='form-control select-option' required [(ngModel)]='optionSelected' (ngModelChange)='onMetricSelected($event)'>\n                                    <option [value]=\"\" selected=\"selected\">select a metrics</option>\n                                <option class='option' *ngFor='let option of dropdown' [value]=\"option\">{{metric}}</option>\n                            </select> -->\n                            <select [(ngModel)]='firstMetric' (ngModelChange)=\"getDetailsfirst($event)\">\n                                <option  *ngFor=\"let metric of matrics\"  [value]=\"metric.id\" >\n                                  {{metric.value}}\n                                </option>\n                              </select> \n                            \n                             Vs\n                         </div>\n                        \n                         <!-- <div class=\"col-md-5 pl3\">\n                  \n                            <select [(ngModel)]='secondMetric' (ngModelChange)=\"getDetailssecond($event)\">\n                                <option  *ngFor=\"let metric of matrics\" [selected]=\"metric === '% new sessions'\" [value]=\"metric\" >\n                                  {{metric}}\n                                </option>\n                              </select> \n                            \n                             \n                         </div> -->\n\n                       <div class=\"col-md-7 pl0\">\n                         \n                          <form #myForm=\"ngForm\" novalidate>\n                              <my-date-range-picker [options]=\"myDateRangePickerOptions\" placeholder=\"Select date range\" (dateRangeChanged)=\"onDateRangeChanged($event)\" \n                                (dateSelected)=\"onDateSelected($event)\" date-format=\"dd MMM yyyy\"\n                                selDateRange={{selectedIntialDates}}></my-date-range-picker>                \n                          </form>\n                       </div>\n                     \n                    </div>\n                      \n                      \n                  </div>\n                  <div class=\"col-md-6\">\n                      <div class=\"btn-group pull-right\" >\n                          <!-- <button type=\"button\" class=\"btn btn-default\"   (click)=\"showdimension('ga:date');\">Day</button>\n                          <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:week');\">Week</button>\n                          <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:month');\">Month</button> -->\n                          <input type=\"radio\" name=\"Button\" class=\"ButtonState\" checked id=\"Button1\" value=\"1\"/>\n                          <label class=\"Button\" for=\"Button1\" (click)=\"showdimension('ga:date');\" >Day</label>\n                          <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button2\" value=\"2\"/>\n                          <!-- <button class=\"Button\" name=\"Button\" class=\"ButtonState\"  [disabled]=\"buttonDisabled\"  id=\"Button2\" value=\"2\">Week</button> -->\n                          <label class=\"Button\" for=\"Button2\"  (click)=\"showdimension('ga:week');\">Week</label>\n                          <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button3\" value=\"3\"/>\n                          <label class=\"Button\" for=\"Button3\" (click)=\"showdimension('ga:month');\">Month</label>\n                        \n                      </div>\n                  </div>\n                  \n                  \n              </div>  \n              <div class=\"col-md-12\">\n                  <google-chart [data]=\"lineChartData\" #cchart\n                    (chartSelect)=\"select($event)\" options=\"{'hAxis.gridlines' : false,'hAxis.viewWindow'  : false}\"></google-chart>\n                </div>\n              <!-- /.col -->\n            \n              <!-- /.col -->\n            </div>\n            \n            <!-- /.row -->\n          </div>\n          <!-- /.box-body -->\n         \n        </div>\n        <div class=\"box box-default key\">\n          \n            <!-- /.box-header -->\n         \n            <!-- /.box-body -->\n           \n            <table class=\"table table-bordered\">\n                <tr>\n                    <td>Sessions:<br><b class=\"textsize\">{{sessionTotal}}</b></td>\n                    <td>\n                        Users:<br>\n                        <b class=\"textsize\">{{usersTotal}}</b>\n                        </td>\n                        <td>\n                            Avg.Session Duration:<br>\n                            <b class=\"textsize\">{{totalSessionUsers }} </b>\n                            </td>\n                            <td>Bounce Rate:<br>\n                              <b class=\"textsize\">{{bouncesTotal }}%</b>  </td>\n                      </tr>\n                <tr>\n                    <td>Pageviews: <br>\n                      <b class=\"textsize\">{{pageViewTotal}} </b>  </td>\n                    <td>Pages/Session:<br>\n                      <b class=\"textsize\">{{pagevssessionsTotalRound}}</b>  </td>\n                    <td>% New Sessions:<br>\n                      <b class=\"textsize\">{{persessionsTotal }}%</b>  </td>\n                </tr>\n               \n            </table>\n\n\n\n          </div>\n          <div *ngIf=\"showLoader\" class=\"fa fa-spinner fa-spin\" style=\"font-size:50px;text-align: center;\n          position: absolute;top: 50%;left: 50%;\"></div>\n  </section>\n  <!-- /.content -->\n</div>"
+module.exports = "\n\n<div class=\"content-wrapper\">\n  <!-- Content Header (Page header) -->\n  <section class=\"content-header\">\n    <h1>\n        Hochiki(Audience Overview)\n   \n    </h1>\n    <h4>http://www.hochikiamerica.com/</h4>\n  \n   \n  </section>\n \n\n  <!-- Main content -->\n  <section class=\"content\">\n      <div class=\"box box-default trafic \">\n         \n          <!-- /.box-header -->\n          <div class=\"box-body\">\n            <div class=\"row\">\n              <div class=\"col-md-12\">\n                  <div class=\"col-md-6\">\n                    <div class=\"row\">\n                        <div class=\"col-md-3\">\n                            <!-- <select class='form-control select-option' required [(ngModel)]='optionSelected' (ngModelChange)='onMetricSelected($event)'>\n                                    <option [value]=\"\" selected=\"selected\">select a metrics</option>\n                                <option class='option' *ngFor='let option of dropdown' [value]=\"option\">{{metric}}</option>\n                            </select> -->\n                            <select [(ngModel)]='currentTab' (ngModelChange)=\"getDetailsfirst($event)\">\n                                <!-- <option [value]=\"undefined\" selected=\"selected\">Select a metrics</option> -->\n                                \n                                <option  *ngFor=\"let metric of matrics\" selected=\"currentTab == metric.id\"  [value]=\"metric.id\" >\n                                  {{metric.value}}\n                                </option>\n                              </select> \n                            \n                            \n                         </div>\n                        \n                         <!-- <div class=\"col-md-5 pl3\">\n                  \n                            <select [(ngModel)]='secondMetric' (ngModelChange)=\"getDetailssecond($event)\">\n                                <option  *ngFor=\"let metric of matrics\" [selected]=\"metric === '% new sessions'\" [value]=\"metric\" >\n                                  {{metric}}\n                                </option>\n                              </select> \n                            \n                             \n                         </div> -->\n\n                       <div class=\"col-md-3 pl3\">\n                         \n                          <form #myForm=\"ngForm\" novalidate>\n                              <my-date-range-picker [options]=\"myDateRangePickerOptions\" placeholder=\"Select date range\" (dateRangeChanged)=\"onDateRangeChanged($event)\" \n                                (dateSelected)=\"onDateSelected($event)\" date-format=\"dd MMM yyyy\"\n                                selDateRange={{selectedIntialDates}}></my-date-range-picker>                \n                          </form>\n                       </div>\n                     \n                    </div>\n                      \n                      \n                  </div>\n                  <div class=\"col-md-6\">\n                      <div class=\"btn-group pull-right\" >\n                          <!-- <button type=\"button\" class=\"btn btn-default\"   (click)=\"showdimension('ga:date');\">Day</button>\n                          <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:week');\">Week</button>\n                          <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:month');\">Month</button> -->\n                          <input type=\"radio\" name=\"Button\" class=\"ButtonState\" checked id=\"Button1\" value=\"1\"/>\n                          <label class=\"Button\" for=\"Button1\" (click)=\"showdimension('ga:date');\" >Day</label>\n                          <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button2\" value=\"2\"/>\n                          <!-- <button class=\"Button\" name=\"Button\" class=\"ButtonState\"  [disabled]=\"buttonDisabled\"  id=\"Button2\" value=\"2\">Week</button> -->\n                          <label class=\"Button\" for=\"Button2\"  (click)=\"showdimension('ga:week');\">Week</label>\n                          <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button3\" value=\"3\"/>\n                          <label class=\"Button\" for=\"Button3\" (click)=\"showdimension('ga:month');\">Month</label>\n                        \n                      </div>\n                  </div>\n                  \n                  \n              </div>  \n              <div class=\"col-md-12\">\n                  <google-chart [data]=\"lineChartData\" #cchart\n                    (chartSelect)=\"select($event)\" options=\"{'hAxis.gridlines' : false,'hAxis.viewWindow'  : false}\"></google-chart>\n                </div>\n              <!-- /.col -->\n            \n              <!-- /.col -->\n            </div>\n            \n            <!-- /.row -->\n          </div>\n          <!-- /.box-body -->\n         \n        </div>\n        <div class=\"box box-default key\">\n          \n            <!-- /.box-header -->\n         \n            <!-- /.box-body -->\n           \n            <table class=\"table table-bordered\">\n                <tr>\n                    <td>Sessions:<br><b class=\"textsize\">{{sessionTotal}}</b></td>\n                    <td>\n                        Users:<br>\n                        <b class=\"textsize\">{{usersTotal}}</b>\n                        </td>\n                        <td>\n                            Avg.Session Duration:<br>\n                            <b class=\"textsize\">{{totalSessionUsers }} </b>\n                            </td>\n                            <td>Bounce Rate:<br>\n                              <b class=\"textsize\">{{bouncesTotal }}%</b>  </td>\n                      </tr>\n                <tr>\n                    <td>Pageviews: <br>\n                      <b class=\"textsize\">{{pageViewTotal}} </b>  </td>\n                    <td>Pages/Session:<br>\n                      <b class=\"textsize\">{{pagevssessionsTotalRound}}</b>  </td>\n                    <td>% New Sessions:<br>\n                      <b class=\"textsize\">{{persessionsTotal }}%</b>  </td>\n                </tr>\n               \n            </table>\n\n\n\n          </div>\n          <div *ngIf=\"showLoader\" class=\"fa fa-spinner fa-spin\" style=\"font-size:50px;text-align: center;\n          position: absolute;top: 50%;left: 50%;\"></div>\n  </section>\n  <!-- /.content -->\n</div>"
 
 /***/ }),
 
@@ -1795,6 +1795,7 @@ var OverviewComponent = /** @class */ (function () {
         this.perSessionUser = 0;
         this.AvgSessDuration = 0;
         this.pagevssessions = 0;
+        this.currentTab = '';
         this.lineChartData = {
             chartType: '',
             dataTable: [],
@@ -1875,7 +1876,7 @@ var OverviewComponent = /** @class */ (function () {
             endDate: this.endDate
         };
         this.dropdown = ['Today', 'Yesterday', 'Last week', 'Last Month', 'Last 7 days', 'Last 30 days'];
-        this.matrics = [{ id: 'ga:sessions', value: '% new sessions' }, { id: 'ga:bounceRate', value: 'Bounce Rate' }];
+        this.matrics = [{ id: 'ga:sessions', value: 'Sessions' }, { id: 'ga:bounceRate', value: 'Bounce Rate' }, { id: 'ga:users', value: 'Users' }, { id: 'ga:pageViews', value: 'Pageviews' }];
         this.buttonDisabled = false;
         // this.list = ['ga:date', 'ga:week', 'ga:month'];
     }
@@ -2001,13 +2002,11 @@ var OverviewComponent = /** @class */ (function () {
         this.finalDataToSend();
     };
     OverviewComponent.prototype.onDateRangeChanged = function (event) {
-        // console.log(event, 'tocheckDate');
         if (event.formatted !== '') {
             // const datePipe = new DatePipe('en-US');
             // this.startDate = datePipe.transform(event.beginJsDate, 'dd MMM yyyy');
             // this.endDate = datePipe.transform(event.endJsDate, 'dd MMM yyyy');
             var newDate = new Date(this.endDate);
-            console.log();
             if (event.beginJsDate <= newDate && event.endJsDate >= newDate) {
                 this.finalDataToSend();
             }
@@ -2028,24 +2027,28 @@ var OverviewComponent = /** @class */ (function () {
     };
     OverviewComponent.prototype.getDetailsfirst = function (event) {
         var _this = this;
-        // if (matric === '% new sessions') {
-        //   this.firstMetric = this.perSessionUser;
-        // } else if (matric === 'Avg. Session Duration') {
-        //   this.firstMetric = this.AvgSessDuration;
-        // } else if (matric === 'Bounce Rate') {
-        //   this.firstMetric = this.Bounce;
-        // } else if (matric === 'Pages/Sessions') {
-        //   this.firstMetric = this.pagevssessions;
-        // } else if (matric === 'Pagesviews') {
-        //   this.firstMetric = this.pageView;
-        // } else if (matric === 'Sessions') {
-        //   this.firstMetric = this.session;
-        // } else if (matric === 'Users') {
-        //   this.firstMetric = this.user;
-        // }
-        // this.lineChartData.destroy();
+        this.currentTab = event;
         var tables = [];
-        tables.push(['date', 'sessions']);
+        if (event === '(ga:sessionDuration/ga:sessions)') {
+            tables.push(['date', 'Avg. Session Duration']);
+        }
+        else if (event === 'ga:bounceRate') {
+            // const generateTitle = 'Bounce Rate';
+            tables.push(['date', 'Bounce Rate']);
+        }
+        else if (event === 'Pages/Sessions') {
+            this.firstMetric = this.pagevssessions;
+        }
+        else if (event === 'ga:pageViews') {
+            tables.push(['date', 'pageviews']);
+        }
+        else if (event === 'ga:sessions') {
+            // const generateTitle = 'Sessions';
+            tables.push(['date', 'Sessions']);
+        }
+        else if (event === 'ga:users') {
+            tables.push(['date', 'Users']);
+        }
         this.dataTable.forEach(function (item, index) {
             _this.day = item.dimensions;
             _this.metrics = item.metrics;
@@ -2053,19 +2056,16 @@ var OverviewComponent = /** @class */ (function () {
                 tables.push([_this.gettheDate(_this.day[0]['ga:date']), _this.metrics[0][event]]);
             }
             else {
-                // console.log('ga:date', 'hjvghsssssssssssf');
                 tables.push([_this.day[0]['ga:date'], _this.metrics[0][event]]);
             }
-            // this.finalDataToSend();
         });
-        this.cchart.redraw(); // this.lineChartData = {
-        // //   chartType: 'AreaChart',
-        // //   dataTable: tables,
-        // const optionss = {
-        //   colors: ['skyblue'], pointsVisible: true,
-        //   // "legend":"none",
-        // };
-        // console.log(this.lineChartData);
+        this.lineChartData = {
+            chartType: 'AreaChart',
+            dataTable: tables,
+            options: {
+                colors: ['skyblue'], pointsVisible: true,
+            },
+        };
     };
     // finaldrop(matric) {
     //   if (matric === '% new sessions') {
@@ -2099,6 +2099,20 @@ var OverviewComponent = /** @class */ (function () {
             this.secondsTocal = '0' + this.secondsTocal;
         }
         return this.hoursTocal + ':' + this.minutesTocal + ':' + parseInt(this.secondsTocal, 10);
+    };
+    OverviewComponent.prototype.getTheCurrentTabEvent = function (type) {
+        if (type === 'ga:sessions') {
+            return 'sessions';
+        }
+        else if (type === 'ga:bounceRate') {
+            return 'bouncerate';
+        }
+        else if (type === 'ga:users') {
+            return 'Users';
+        }
+        else if (type === 'ga:pageViews') {
+            return 'pageviews';
+        }
     };
     OverviewComponent.prototype.finalDataToSend = function () {
         var _this = this;
@@ -2135,7 +2149,10 @@ var OverviewComponent = /** @class */ (function () {
                     var pageview = [];
                     var pagevssessions = [];
                     var persessions = [];
-                    table_1.push(['date', 'sessions']);
+                    if (_this.currentTab === '') {
+                        _this.currentTab = 'ga:sessions';
+                    }
+                    table_1.push(['date', _this.getTheCurrentTabEvent(_this.currentTab)]);
                     sessions.push(['week', 'sessions']);
                     users.push(['week', 'users']);
                     durations.push(['week', 'durations']);
@@ -2152,7 +2169,7 @@ var OverviewComponent = /** @class */ (function () {
                         _this.BounceTotal += _this.metrics[0]['ga:bounceRate'];
                         _this.pageViewTotal += _this.metrics[0]['ga:pageViews'];
                         _this.newUsers += _this.metrics[0]['ga:newUsers'];
-                        _this.session = _this.metrics[0]['ga:sessions'];
+                        _this.session = _this.metrics[0][_this.currentTab];
                         _this.user = _this.metrics[0]['ga:users'];
                         _this.duration = _this.metrics[0]['ga:sessionDuration'];
                         _this.Bounce = _this.metrics[0]['ga:bounceRate'];
@@ -2164,7 +2181,7 @@ var OverviewComponent = /** @class */ (function () {
                             table_1.push([_this.gettheDate(_this.day[0]['ga:date']), _this.session]);
                         }
                         else {
-                            table_1.push([_this.day[0]['ga:date'], _this.metrics[0]['ga:sessions']]);
+                            table_1.push([_this.day[0]['ga:date'], _this.session]);
                         }
                         // sessions.push([this.day[0][''], this.metrics[0]['ga:sessions']]);
                         // users.push([this.day[0][''], this.metrics[0]['ga:users']]);

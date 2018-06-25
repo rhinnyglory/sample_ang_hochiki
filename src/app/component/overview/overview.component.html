@@ -23,18 +23,20 @@
               <div class="col-md-12">
                   <div class="col-md-6">
                     <div class="row">
-                        <div class="col-md-5 pl2">
+                        <div class="col-md-3">
                             <!-- <select class='form-control select-option' required [(ngModel)]='optionSelected' (ngModelChange)='onMetricSelected($event)'>
                                     <option [value]="" selected="selected">select a metrics</option>
                                 <option class='option' *ngFor='let option of dropdown' [value]="option">{{metric}}</option>
                             </select> -->
-                            <select [(ngModel)]='firstMetric' (ngModelChange)="getDetailsfirst($event)">
-                                <option  *ngFor="let metric of matrics"  [value]="metric.id" >
+                            <select [(ngModel)]='currentTab' (ngModelChange)="getDetailsfirst($event)">
+                                <!-- <option [value]="undefined" selected="selected">Select a metrics</option> -->
+                                
+                                <option  *ngFor="let metric of matrics" selected="currentTab == metric.id"  [value]="metric.id" >
                                   {{metric.value}}
                                 </option>
                               </select> 
                             
-                             Vs
+                            
                          </div>
                         
                          <!-- <div class="col-md-5 pl3">
@@ -48,7 +50,7 @@
                              
                          </div> -->
 
-                       <div class="col-md-7 pl0">
+                       <div class="col-md-3 pl3">
                          
                           <form #myForm="ngForm" novalidate>
                               <my-date-range-picker [options]="myDateRangePickerOptions" placeholder="Select date range" (dateRangeChanged)="onDateRangeChanged($event)" 

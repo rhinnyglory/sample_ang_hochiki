@@ -69,8 +69,9 @@ export class OverviewComponent implements OnInit {
   private perSessionUser = 0;
   private AvgSessDuration = 0;
   private pagevssessions = 0;
-
+  private currentTab: any = '';
   private firstMetric: any;
+  // private generateTitle: '';
   public buttonDisabled: boolean;
   name: string;
   list: any;
@@ -153,7 +154,7 @@ export class OverviewComponent implements OnInit {
   myDateRangePickerOptions: IMyDrpOptions = {
     // other options...
     // dateFormat: 'yyyy-mm-dd',
-    dateFormat:  'mmm dd, yyyy',
+    dateFormat: 'mmm dd, yyyy',
     // dateFormat: ' DD YYYY'MMM,
     disableSince: { year: new Date().getFullYear(), month: (new Date().getMonth() + 1), day: (new Date().getDate() + 1) },
     // disableSince: { day: (new Date().getDate() + 1), month: (new Date().getMonth() + 1), year: new Date().getFullYear() },
@@ -300,13 +301,11 @@ export class OverviewComponent implements OnInit {
     this.finalDataToSend();
   }
   onDateRangeChanged(event: IMyDateRangeModel) {
-    // console.log(event, 'tocheckDate');
     if (event.formatted !== '') {
       // const datePipe = new DatePipe('en-US');
       // this.startDate = datePipe.transform(event.beginJsDate, 'dd MMM yyyy');
       // this.endDate = datePipe.transform(event.endJsDate, 'dd MMM yyyy');
       const newDate = new Date(this.endDate);
-      console.log();
       if (event.beginJsDate <= newDate && event.endJsDate >= newDate) {
         this.finalDataToSend();
       } else {
@@ -322,48 +321,41 @@ export class OverviewComponent implements OnInit {
       this.endDate = dates.formatted;
     }
   }
-  matrics = [{ id: 'ga:sessions', value: '% new sessions' }, { id: 'ga:bounceRate', value: 'Bounce Rate' }];
-
+  matrics = [{ id: 'ga:sessions', value: 'Sessions' }, { id: 'ga:bounceRate', value: 'Bounce Rate' }, { id: 'ga:users', value: 'Users' }, { id: 'ga:pageViews', value: 'Pageviews' }];
   getDetailsfirst(event: any) {
-    // if (matric === '% new sessions') {
-    //   this.firstMetric = this.perSessionUser;
-    // } else if (matric === 'Avg. Session Duration') {
-    //   this.firstMetric = this.AvgSessDuration;
-    // } else if (matric === 'Bounce Rate') {
-    //   this.firstMetric = this.Bounce;
-    // } else if (matric === 'Pages/Sessions') {
-    //   this.firstMetric = this.pagevssessions;
-    // } else if (matric === 'Pagesviews') {
-    //   this.firstMetric = this.pageView;
-    // } else if (matric === 'Sessions') {
-    //   this.firstMetric = this.session;
-    // } else if (matric === 'Users') {
-    //   this.firstMetric = this.user;
-    // }
-    // this.lineChartData.destroy();
+    this.currentTab = event;
     const tables = [];
-    tables.push(['date', 'sessions']);
+    if (event === '(ga:sessionDuration/ga:sessions)') {
+      tables.push(['date', 'Avg. Session Duration']);
+    } else if (event === 'ga:bounceRate') {
+      // const generateTitle = 'Bounce Rate';
+      tables.push(['date', 'Bounce Rate']);
+    } else if (event === 'Pages/Sessions') {
+      this.firstMetric = this.pagevssessions;
+    } else if (event === 'ga:pageViews') {
+      tables.push(['date', 'pageviews']);
+    } else if (event === 'ga:sessions') {
+      // const generateTitle = 'Sessions';
+      tables.push(['date', 'Sessions']);
+    } else if (event === 'ga:users') {
+      tables.push(['date', 'Users']);
+    }
     this.dataTable.forEach((item, index) => {
       this.day = item.dimensions;
       this.metrics = item.metrics;
       if (this.dimensions === 'ga:date') {
         tables.push([this.gettheDate(this.day[0]['ga:date']), this.metrics[0][event]]);
       } else {
-        // console.log('ga:date', 'hjvghsssssssssssf');
-
         tables.push([this.day[0]['ga:date'], this.metrics[0][event]]);
       }
-      // this.finalDataToSend();
     });
-    this.cchart.redraw();    // this.lineChartData = {
-    // //   chartType: 'AreaChart',
-    // //   dataTable: tables,
-    // const optionss = {
-    //   colors: ['skyblue'], pointsVisible: true,
-    //   // "legend":"none",
-    // };
-    // console.log(this.lineChartData);
-
+    this.lineChartData = {
+      chartType: 'AreaChart',
+      dataTable: tables,
+      options: {
+        colors: ['skyblue'], pointsVisible: true,
+      },
+    };
   }
   // finaldrop(matric) {
   //   if (matric === '% new sessions') {
@@ -399,7 +391,17 @@ export class OverviewComponent implements OnInit {
     }
     return this.hoursTocal + ':' + this.minutesTocal + ':' + parseInt(this.secondsTocal, 10);
   }
-
+  getTheCurrentTabEvent(type: any) {
+    if (type === 'ga:sessions') {
+      return 'sessions';
+    } else if (type === 'ga:bounceRate') {
+      return 'bouncerate';
+    } else if (type === 'ga:users') {
+      return 'Users';
+    } else if (type === 'ga:pageViews') {
+      return 'pageviews';
+    }
+  }
   finalDataToSend() {
     const completeDate = { startDate: '', endDate: '', dimensions: '' };
     completeDate.startDate = new Date(this.startDate).getFullYear() + '-' + ((new Date(this.startDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.startDate).getMonth() + 1) + '-' + ((new Date(this.startDate).getDate()) < 10 ? '0' : '') + (new Date(this.startDate).getDate());
@@ -437,7 +439,10 @@ export class OverviewComponent implements OnInit {
             const pageview = [];
             const pagevssessions = [];
             const persessions = [];
-            table.push(['date', 'sessions']);
+            if (this.currentTab === '') {
+              this.currentTab = 'ga:sessions';
+            }
+            table.push(['date', this.getTheCurrentTabEvent(this.currentTab)]);
             sessions.push(['week', 'sessions']);
             users.push(['week', 'users']);
             durations.push(['week', 'durations']);
@@ -457,7 +462,7 @@ export class OverviewComponent implements OnInit {
               this.newUsers += this.metrics[0]['ga:newUsers'];
 
 
-              this.session = this.metrics[0]['ga:sessions'];
+              this.session = this.metrics[0][this.currentTab];
               this.user = this.metrics[0]['ga:users'];
               this.duration = this.metrics[0]['ga:sessionDuration'];
               this.Bounce = this.metrics[0]['ga:bounceRate'];
@@ -468,7 +473,7 @@ export class OverviewComponent implements OnInit {
               if (this.dimensions === 'ga:date') {
                 table.push([this.gettheDate(this.day[0]['ga:date']), this.session]);
               } else {
-                table.push([this.day[0]['ga:date'], this.metrics[0]['ga:sessions']]);
+                table.push([this.day[0]['ga:date'], this.session]);
               }
               // sessions.push([this.day[0][''], this.metrics[0]['ga:sessions']]);
               // users.push([this.day[0][''], this.metrics[0]['ga:users']]);
