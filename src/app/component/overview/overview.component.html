@@ -7,7 +7,7 @@
         Hochiki(Audience Overview)
    
     </h1>
-    <h4>http://www.hochikieurope.com/</h4>
+    <h4>http://www.hochikiamerica.com/</h4>
   
    
   </section>
@@ -16,18 +16,40 @@
   <!-- Main content -->
   <section class="content">
       <div class="box box-default trafic ">
-          <div class="box-header with-border">
-            <h3 class="box-title">Traffic Trend</h3>
-  
-           
-          </div>
+         
           <!-- /.box-header -->
           <div class="box-body">
             <div class="row">
               <div class="col-md-12">
                   <div class="col-md-6">
                     <div class="row">
+                        <div class="col-md-5 pl2">
+                            <!-- <select class='form-control select-option' required [(ngModel)]='optionSelected' (ngModelChange)='onMetricSelected($event)'>
+                                    <option [value]="" selected="selected">select a metrics</option>
+                                <option class='option' *ngFor='let option of dropdown' [value]="option">{{metric}}</option>
+                            </select> -->
+                            <select [(ngModel)]='firstMetric' (ngModelChange)="getDetailsfirst($event)">
+                                <option  *ngFor="let metric of matrics"  [value]="metric.id" >
+                                  {{metric.value}}
+                                </option>
+                              </select> 
+                            
+                             Vs
+                         </div>
+                        
+                         <!-- <div class="col-md-5 pl3">
+                  
+                            <select [(ngModel)]='secondMetric' (ngModelChange)="getDetailssecond($event)">
+                                <option  *ngFor="let metric of matrics" [selected]="metric === '% new sessions'" [value]="metric" >
+                                  {{metric}}
+                                </option>
+                              </select> 
+                            
+                             
+                         </div> -->
+
                        <div class="col-md-7 pl0">
+                         
                           <form #myForm="ngForm" novalidate>
                               <my-date-range-picker [options]="myDateRangePickerOptions" placeholder="Select date range" (dateRangeChanged)="onDateRangeChanged($event)" 
                                 (dateSelected)="onDateSelected($event)" date-format="dd MMM yyyy"
@@ -58,14 +80,11 @@
                   
               </div>  
               <div class="col-md-12">
-                  <google-chart [data]="lineChartData"  (chartSelect)="select($event)" options="{'hAxis.gridlines' : false,'hAxis.viewWindow'  : false}"></google-chart>
+                  <google-chart [data]="lineChartData" #cchart
+                    (chartSelect)="select($event)" options="{'hAxis.gridlines' : false,'hAxis.viewWindow'  : false}"></google-chart>
                 </div>
               <!-- /.col -->
-              <!-- <div class="col-md-6">
-                  <img src="../app/assets/images/google-charts-output.png">
-                  
-               
-              </div> -->
+            
               <!-- /.col -->
             </div>
             
@@ -75,10 +94,7 @@
          
         </div>
         <div class="box box-default key">
-            <div class="box-header with-border">
-              <h3 class="box-title">Key Metrics</h3>
-             
-            </div>
+          
             <!-- /.box-header -->
          
             <!-- /.box-body -->

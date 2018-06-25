@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 import { IMyDrpOptions, IMyDateRangeModel } from 'mydaterangepicker';
@@ -23,13 +23,15 @@ import * as moment from 'moment'; // add this 1 of 4
 })
 export class OverviewComponent implements OnInit {
   // public dropdown = [];
+  @ViewChild('cchart') cchart;
+
   private startDate = '';
   private endDate = '';
   private days = '';
   private beginDateFormat = '';
   private endDateFormat = '';
   showLoader = false;
-  private dimensions = 'ga:channelGrouping , ga:date';
+  private dimensions = 'ga:date';
   public sessionTotal = 0;
   public usersTotal = 0;
   public durationTotal = 0;
@@ -54,9 +56,21 @@ export class OverviewComponent implements OnInit {
   private previousDays = [];
   private metrics = [];
   private pmetrics = [];
+  // private matrics = [];
   private hoursTocal;
   private secondsTocal;
   private minutesTocal;
+  private session = 0;
+  private user = 0;
+  private duration = 0;
+  private Bounce = 0;
+  private pageView = 0;
+  private newUser = 0;
+  private perSessionUser = 0;
+  private AvgSessDuration = 0;
+  private pagevssessions = 0;
+
+  private firstMetric: any;
   public buttonDisabled: boolean;
   name: string;
   list: any;
@@ -139,7 +153,7 @@ export class OverviewComponent implements OnInit {
   myDateRangePickerOptions: IMyDrpOptions = {
     // other options...
     // dateFormat: 'yyyy-mm-dd',
-    dateFormat: 'dd mmm yyyy',
+    dateFormat:  'mmm dd, yyyy',
     // dateFormat: ' DD YYYY'MMM,
     disableSince: { year: new Date().getFullYear(), month: (new Date().getMonth() + 1), day: (new Date().getDate() + 1) },
     // disableSince: { day: (new Date().getDate() + 1), month: (new Date().getMonth() + 1), year: new Date().getFullYear() },
@@ -190,79 +204,77 @@ export class OverviewComponent implements OnInit {
     this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
     this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate()) < 10 ? '0' : '') + (new Date().getDate());
     const datePipeS = new DatePipe('en-US');
-    this.startDate = datePipeS.transform(this.startDate, 'dd MMM yyyy');
-    this.endDate = datePipeS.transform(this.endDate, 'dd MMM yyyy');
-    this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
+    this.startDate = datePipeS.transform(this.startDate, 'MMM dd, yyyy');
+    this.endDate = datePipeS.transform(this.endDate, 'MMM dd, yyyy');
+    this.selectedIntialDates = this.startDate + ' ' + '' + '-' + '' + ' ' + this.endDate;
     this.finalDataToSend();
 
   }
 
   dropdown = ['Today', 'Yesterday', 'Last week', 'Last Month', 'Last 7 days', 'Last 30 days'];
   //  public optionSelected: any;
-  onOptionSelected(event) {
-    if (event === 'Last 7 days') {
-      const days = 7;
-      const date = new Date();
-      const last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
-      this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
-      this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate() - 1) < 10 ? '0' : '') + (new Date().getDate() - 1);
-      const datePipeS = new DatePipe('en-US');
-      this.startDate = datePipeS.transform(this.startDate, 'dd MMM yyyy');
-      this.endDate = datePipeS.transform(this.endDate, 'dd MMM yyyy');
-      this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
-    } else if (event === 'Last 30 days') {
-      const days = 30;
-      const date = new Date();
-      const last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
-      this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
-      this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate() - 1) < 10 ? '0' : '') + (new Date().getDate() - 1);
-      const datePipeS = new DatePipe('en-US');
-      this.startDate = datePipeS.transform(this.startDate, 'dd MMM yyyy');
-      this.endDate = datePipeS.transform(this.endDate, 'dd MMM yyyy');
-      this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
-    } else if (event === 'Last Month') {
-      const date = new Date();
-      const firstDay = new Date(date.getFullYear(), date.getMonth() - 1, 1);
-      const lastDay = new Date(date.getFullYear(), date.getMonth(), 0);
-      const datePipeS = new DatePipe('en-US');
-      this.startDate = datePipeS.transform(firstDay, 'dd MMM yyyy');
-      this.endDate = datePipeS.transform(lastDay, 'dd MMM yyyy');
-      this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
-      // alert(firstDay+"==="+lastDay);
-    } else if (event === 'Last week') {
-      const first = new Date().getDate() - new Date().getDay() - 7;
-      const last = first + 6; // last day is the first day + 6
-      const startDateOfWeek = new Date(new Date().setDate(first));
-      const endDateOfWeek = new Date(new Date().setDate(last));
-      const datePipeS = new DatePipe('en-US');
-      this.startDate = datePipeS.transform(startDateOfWeek, 'dd MMM yyyy');
-      this.endDate = datePipeS.transform(endDateOfWeek, 'dd MMM yyyy');
-      this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
-    } else if (event === 'Yesterday') {
-      // this.buttonDisabled = true;
-      const days = 1;
-      const date = new Date();
-      const last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
-      this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
-      this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate() - 1) < 10 ? '0' : '') + (new Date().getDate() - 1);
-      const datePipeS = new DatePipe('en-US');
-      this.startDate = datePipeS.transform(this.startDate, 'dd MMM yyyy');
-      this.endDate = datePipeS.transform(this.endDate, 'dd MMM yyyy');
-      this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
-    } else {
-      // this.buttonDisabled = true;
-      const days = 0;
-      const date = new Date();
-      const last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
-      this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
-      this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate()) < 10 ? '0' : '') + (new Date().getDate());
-      const datePipeS = new DatePipe('en-US');
-      this.startDate = datePipeS.transform(this.startDate, 'dd MMM yyyy');
-      this.endDate = datePipeS.transform(this.endDate, 'dd MMM yyyy');
-      this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
-    }
-    this.finalDataToSend();
-  }
+  // onOptionSelected(event) {
+  //   if (event === 'Last 7 days') {
+  //     const days = 7;
+  //     const date = new Date();
+  //     const last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
+  //     this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
+  //     this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate() - 1) < 10 ? '0' : '') + (new Date().getDate() - 1);
+  //     const datePipeS = new DatePipe('en-US');
+  //     this.startDate = datePipeS.transform(this.startDate, 'dd MMM yyyy');
+  //     this.endDate = datePipeS.transform(this.endDate, 'dd MMM yyyy');
+  //     this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
+  //   } else if (event === 'Last 30 days') {
+  //     const days = 30;
+  //     const date = new Date();
+  //     const last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
+  //     this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
+  //     this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate() - 1) < 10 ? '0' : '') + (new Date().getDate() - 1);
+  //     const datePipeS = new DatePipe('en-US');
+  //     this.startDate = datePipeS.transform(this.startDate, 'dd MMM yyyy');
+  //     this.endDate = datePipeS.transform(this.endDate, 'dd MMM yyyy');
+  //     this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
+  //   } else if (event === 'Last Month') {
+  //     const date = new Date();
+  //     const firstDay = new Date(date.getFullYear(), date.getMonth() - 1, 1);
+  //     const lastDay = new Date(date.getFullYear(), date.getMonth(), 0);
+  //     const datePipeS = new DatePipe('en-US');
+  //     this.startDate = datePipeS.transform(firstDay, 'dd MMM yyyy');
+  //     this.endDate = datePipeS.transform(lastDay, 'dd MMM yyyy');
+  //     this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
+  //   } else if (event === 'Last week') {
+  //     const first = new Date().getDate() - new Date().getDay() - 7;
+  //     const last = first + 6; // last day is the first day + 6
+  //     const startDateOfWeek = new Date(new Date().setDate(first));
+  //     const endDateOfWeek = new Date(new Date().setDate(last));
+  //     const datePipeS = new DatePipe('en-US');
+  //     this.startDate = datePipeS.transform(startDateOfWeek, 'dd MMM yyyy');
+  //     this.endDate = datePipeS.transform(endDateOfWeek, 'dd MMM yyyy');
+  //     this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
+  //   } else if (event === 'Yesterday') {
+  //     const days = 1;
+  //     const date = new Date();
+  //     const last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
+  //     this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
+  //     this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate() - 1) < 10 ? '0' : '') + (new Date().getDate() - 1);
+  //     const datePipeS = new DatePipe('en-US');
+  //     this.startDate = datePipeS.transform(this.startDate, 'dd MMM yyyy');
+  //     this.endDate = datePipeS.transform(this.endDate, 'dd MMM yyyy');
+  //     this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
+  //   } else {
+  //     const days = 0;
+  //     const date = new Date();
+  //     const last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
+  //     this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
+  //     this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate()) < 10 ? '0' : '') + (new Date().getDate());
+  //     const datePipeS = new DatePipe('en-US');
+  //     this.startDate = datePipeS.transform(this.startDate, 'dd MMM yyyy');
+  //     this.endDate = datePipeS.transform(this.endDate, 'dd MMM yyyy');
+  //     this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
+  //   }
+  //   this.finalDataToSend();
+  // }
+
 
   clearDateRange(): void {
     this.startDate = '';
@@ -277,7 +289,8 @@ export class OverviewComponent implements OnInit {
     const year = date.substring(0, 4);
     const month = date.substring(4, 6);
     const dates = date.substring(6, 8);
-    return dates + '-' + monthNames[month < 10 ? (month.substring(1, 2) - 1) : month - 1];
+    // return dates + '-' + monthNames[month < 10 ? (month.substring(1, 2) - 1) : month - 1];
+    return monthNames[month < 10 ? (month.substring(1, 2) - 1) : month - 1] + ' ' + dates;
 
   }
 
@@ -293,6 +306,7 @@ export class OverviewComponent implements OnInit {
       // this.startDate = datePipe.transform(event.beginJsDate, 'dd MMM yyyy');
       // this.endDate = datePipe.transform(event.endJsDate, 'dd MMM yyyy');
       const newDate = new Date(this.endDate);
+      console.log();
       if (event.beginJsDate <= newDate && event.endJsDate >= newDate) {
         this.finalDataToSend();
       } else {
@@ -308,8 +322,66 @@ export class OverviewComponent implements OnInit {
       this.endDate = dates.formatted;
     }
   }
+  matrics = [{ id: 'ga:sessions', value: '% new sessions' }, { id: 'ga:bounceRate', value: 'Bounce Rate' }];
 
+  getDetailsfirst(event: any) {
+    // if (matric === '% new sessions') {
+    //   this.firstMetric = this.perSessionUser;
+    // } else if (matric === 'Avg. Session Duration') {
+    //   this.firstMetric = this.AvgSessDuration;
+    // } else if (matric === 'Bounce Rate') {
+    //   this.firstMetric = this.Bounce;
+    // } else if (matric === 'Pages/Sessions') {
+    //   this.firstMetric = this.pagevssessions;
+    // } else if (matric === 'Pagesviews') {
+    //   this.firstMetric = this.pageView;
+    // } else if (matric === 'Sessions') {
+    //   this.firstMetric = this.session;
+    // } else if (matric === 'Users') {
+    //   this.firstMetric = this.user;
+    // }
+    // this.lineChartData.destroy();
+    const tables = [];
+    tables.push(['date', 'sessions']);
+    this.dataTable.forEach((item, index) => {
+      this.day = item.dimensions;
+      this.metrics = item.metrics;
+      if (this.dimensions === 'ga:date') {
+        tables.push([this.gettheDate(this.day[0]['ga:date']), this.metrics[0][event]]);
+      } else {
+        // console.log('ga:date', 'hjvghsssssssssssf');
 
+        tables.push([this.day[0]['ga:date'], this.metrics[0][event]]);
+      }
+      // this.finalDataToSend();
+    });
+    this.cchart.redraw();    // this.lineChartData = {
+    // //   chartType: 'AreaChart',
+    // //   dataTable: tables,
+    // const optionss = {
+    //   colors: ['skyblue'], pointsVisible: true,
+    //   // "legend":"none",
+    // };
+    // console.log(this.lineChartData);
+
+  }
+  // finaldrop(matric) {
+  //   if (matric === '% new sessions') {
+  //     return this.firstMetric = this.perSessionUser;
+  //   } else if (matric === 'Avg. Session Duration') {
+  //     return this.firstMetric = this.AvgSessDuration;
+  //   } else if (matric === 'Bounce Rate') {
+  //     return this.firstMetric = this.Bounce;
+  //   } else if (matric === 'Pages/Sessions') {
+  //     return this.firstMetric = this.pagevssessions;
+  //   } else if (matric === 'Pagesviews') {
+  //     return this.firstMetric = this.pageView;
+  //   } else if (matric === 'Sessions') {
+  //     return this.firstMetric = this.session;
+  //   } else if (matric === 'Users') {
+  //     return this.firstMetric = this.user;
+  //   }
+  // }
 
   changeTheSecondsToDate(seconddata) {
     const sec_num = parseFloat(seconddata);
@@ -327,51 +399,22 @@ export class OverviewComponent implements OnInit {
     }
     return this.hoursTocal + ':' + this.minutesTocal + ':' + parseInt(this.secondsTocal, 10);
   }
-  // getDatesBetween(startDate, endDate) {
-  //   const dateArray = [];
-  //   let currentDateofApp = moment(startDate);
-  //   const stopDate = moment(endDate);
-  //   while (currentDateofApp <= stopDate) {
-  //     dateArray.push(moment(currentDateofApp).format('YYYY-MM-DD'));
-  //     currentDateofApp = moment(currentDateofApp).add(1, 'days');
-  //   }
-  //   return dateArray;
-  // }
+
   finalDataToSend() {
     const completeDate = { startDate: '', endDate: '', dimensions: '' };
     completeDate.startDate = new Date(this.startDate).getFullYear() + '-' + ((new Date(this.startDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.startDate).getMonth() + 1) + '-' + ((new Date(this.startDate).getDate()) < 10 ? '0' : '') + (new Date(this.startDate).getDate());
     completeDate.endDate = new Date(this.endDate).getFullYear() + '-' + ((new Date(this.endDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.endDate).getMonth() + 1) + '-' + ((new Date(this.endDate).getDate()) < 10 ? '0' : '') + (new Date(this.endDate).getDate());
     completeDate.dimensions = this.dimensions;
     this.showLoader = true;
-    
+
     if (this.startDate !== '' && this.endDate !== '' && this.dimensions !== '' && completeDate.endDate >= completeDate.startDate) {
-      //  console.log(this.startDate , this.endDate , 'forcjjcjcj', new Date(this.startDate).getMonth() );
-      //  this.loaderService.display(true);
+
       this.cluster1Service.createGraph(completeDate)
         .then(response => {
           this.showLoader = false;
-          
-          //  this.loaderService.display(false);
-          if (response.data.length === 0) {
-            // this.getDatesBetween(completeDate.startDate, completeDate.endDate);
-            // console.log(this.getDatesBetween(completeDate.startDate, completeDate.endDate));
 
-            // const table = [];
-            // this.dataTable.forEach((item, index) => {
-            //   this.day = item.dimensions;
-            //   this.metrics = item.metrics;
-            //   this.sessionTotal += this.metrics[0]['ga:sessions'];
-            //   this.usersTotal += this.metrics[0]['ga:users'];
-            //   this.durationTotal += this.metrics[0]['ga:sessionDuration'];
-            //   this.BounceTotal += this.metrics[0]['ga:bounces'];
-            //   this.pageViewTotal += this.metrics[0]['ga:pageviews'];
-            //   this.newUsers += this.metrics[0]['ga:newUsers'];
-            //   if (this.dimensions === 'ga:date') {
-            //     table.push([this.gettheDate(this.day[0]['ga:date']), this.metrics[0]['ga:users']]);
-            //   } else {
-            //     table.push([this.day[0]['ga:date'], this.metrics[0]['ga:users']]);
-            //   }
-            // });
+          if (response.data.length === 0) {
+
           } else {
             this.dataTable = response.data;
             this.sessionTotal = 0;
@@ -394,7 +437,7 @@ export class OverviewComponent implements OnInit {
             const pageview = [];
             const pagevssessions = [];
             const persessions = [];
-            table.push(['date', 'users']);
+            table.push(['date', 'sessions']);
             sessions.push(['week', 'sessions']);
             users.push(['week', 'users']);
             durations.push(['week', 'durations']);
@@ -402,6 +445,7 @@ export class OverviewComponent implements OnInit {
             pageview.push(['week', 'pageview']);
             pagevssessions.push(['week', 'pagevssessions']);
             persessions.push(['week', 'persessions']);
+
             this.dataTable.forEach((item, index) => {
               this.day = item.dimensions;
               this.metrics = item.metrics;
@@ -411,18 +455,28 @@ export class OverviewComponent implements OnInit {
               this.BounceTotal += this.metrics[0]['ga:bounceRate'];
               this.pageViewTotal += this.metrics[0]['ga:pageViews'];
               this.newUsers += this.metrics[0]['ga:newUsers'];
+
+
+              this.session = this.metrics[0]['ga:sessions'];
+              this.user = this.metrics[0]['ga:users'];
+              this.duration = this.metrics[0]['ga:sessionDuration'];
+              this.Bounce = this.metrics[0]['ga:bounceRate'];
+              this.pageView = this.metrics[0]['ga:pageViews'];
+              this.newUser = this.metrics[0]['ga:newUsers'];
+              this.AvgSessDuration = (this.durationTotal / this.session);
+              this.pagevssessions = (this.pageViewTotal / this.sessionTotal);
               if (this.dimensions === 'ga:date') {
-                table.push([this.gettheDate(this.day[0]['ga:date']), this.metrics[0]['ga:users']]);
+                table.push([this.gettheDate(this.day[0]['ga:date']), this.session]);
               } else {
-                table.push([this.day[0]['ga:date'], this.metrics[0]['ga:users']]);
+                table.push([this.day[0]['ga:date'], this.metrics[0]['ga:sessions']]);
               }
-              sessions.push([this.day[0][''], this.metrics[0]['ga:sessions']]);
-              users.push([this.day[0][''], this.metrics[0]['ga:users']]);
-              durations.push([this.day[0][''], this.metrics[0]['ga:avgSessionDuration']]);
-              bouncerate.push([this.day[0][''], this.metrics[0]['ga:bounceRate']]);
-              pageview.push([this.day[0][''], this.metrics[0]['ga:pageviews']]);
-              pagevssessions.push([this.day[0][''], this.metrics[0]['ga:pageviewsPerSession']]);
-              persessions.push([this.day[0][''], this.metrics[0]['ga:percentNewSessions']]);
+              // sessions.push([this.day[0][''], this.metrics[0]['ga:sessions']]);
+              // users.push([this.day[0][''], this.metrics[0]['ga:users']]);
+              // durations.push([this.day[0][''], this.metrics[0]['ga:avgSessionDuration']]);
+              // bouncerate.push([this.day[0][''], this.metrics[0]['ga:bounceRate']]);
+              // pageview.push([this.day[0][''], this.metrics[0]['ga:pageviews']]);
+              // pagevssessions.push([this.day[0][''], this.metrics[0]['ga:pageviewsPerSession']]);
+              // persessions.push([this.day[0][''], this.metrics[0]['ga:percentNewSessions']]);
             });
             this.pagevssessionsTotal = ((this.pageViewTotal / this.sessionTotal)).toFixed(2);
             this.pagevssessionsTotalRound = parseFloat(this.pagevssessionsTotal);
@@ -434,13 +488,20 @@ export class OverviewComponent implements OnInit {
             this.lineChartData = {
               chartType: 'AreaChart',
               dataTable: table,
-              // options: { title: '' }
-            };
-            this.lineChartDatasessions = {
-              chartType: 'AreaChart',
-              dataTable: sessions,
-              // options: { title: 'sessions' }
-            };
+              options: {
+                colors: ['skyblue'], pointsVisible: true,
+                // "legend":"none",
+              },
+            },
+              // this.lineChartData = {
+              //   chartType: 'AreaChart',
+              //   dataTable: table,
+              // };
+              this.lineChartDatasessions = {
+                chartType: 'AreaChart',
+                dataTable: sessions,
+                // options: { title: 'sessions' }
+              };
             this.lineChartDatausers = {
               chartType: 'AreaChart',
               dataTable: users,
