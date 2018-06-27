@@ -24,46 +24,50 @@
                   <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-3">
-                            <!-- <select class='form-control select-option' required [(ngModel)]='optionSelected' (ngModelChange)='onMetricSelected($event)'>
-                                    <option [value]="" selected="selected">select a metrics</option>
-                                <option class='option' *ngFor='let option of dropdown' [value]="option">{{metric}}</option>
-                            </select> -->
-                            <select [(ngModel)]='currentTab' (ngModelChange)="getDetailsfirst($event)">
-                                <!-- <option [value]="undefined" selected="selected">Select a metrics</option> -->
-                                
+                         <select [(ngModel)]='currentTab' (ngModelChange)="getDetailsfirst($event)">
                                 <option  *ngFor="let metric of matrics" selected="currentTab == metric.id"  [value]="metric.id" >
                                   {{metric.value}}
                                 </option>
                               </select> 
-                            
-                            
+                        </div>
+                        <div class="col-md-1">
+                         Vs
                          </div>
-                        
-                         <!-- <div class="col-md-5 pl3">
-                  
-                            <select [(ngModel)]='secondMetric' (ngModelChange)="getDetailssecond($event)">
-                                <option  *ngFor="let metric of matrics" [selected]="metric === '% new sessions'" [value]="metric" >
-                                  {{metric}}
-                                </option>
-                              </select> 
-                            
-                             
-                         </div> -->
+                        <div class="col-md-3">
+                          <select [(ngModel)]='currentTab2' (ngModelChange)="getDetailssecond($event)">
+                              <!-- <option [value]=" " selected="selected">Select a metrics</option> -->
+                              
+                               <option [value]=" " selected="currentTab2 == metric2.id" >Select a metrics</option>
 
-                       <div class="col-md-3 pl3">
+                                 <option  *ngFor="let metric2 of matrics2" selected="currentTab2 == metric2.id"  [value]="metric2.id" >
+                                   {{metric2.value}}
+                                 </option>
+                               </select> 
+                         </div>
+                     
+                       <!-- <div class="col-md-3 pl3">
                          
                           <form #myForm="ngForm" novalidate>
                               <my-date-range-picker [options]="myDateRangePickerOptions" placeholder="Select date range" (dateRangeChanged)="onDateRangeChanged($event)" 
                                 (dateSelected)="onDateSelected($event)" date-format="dd MMM yyyy"
                                 selDateRange={{selectedIntialDates}}></my-date-range-picker>                
                           </form>
-                       </div>
+                       </div> -->
                      
                     </div>
                       
                       
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-3">
+                      
+                       <form #myForm="ngForm" novalidate>
+                           <my-date-range-picker [options]="myDateRangePickerOptions" placeholder="Select date range" (dateRangeChanged)="onDateRangeChanged($event)" 
+                             (dateSelected)="onDateSelected($event)" date-format="dd MMM yyyy"
+                             selDateRange={{selectedIntialDates}}></my-date-range-picker>                
+                       </form>
+                    </div>
+                  <div class="col-md-3">
+                    
                       <div class="btn-group pull-right" >
                           <!-- <button type="button" class="btn btn-default"   (click)="showdimension('ga:date');">Day</button>
                           <button type="button" class="btn btn-default" (click)="showdimension('ga:week');">Week</button>
@@ -122,6 +126,8 @@
                       <b class="textsize">{{pagevssessionsTotalRound}}</b>  </td>
                     <td>% New Sessions:<br>
                       <b class="textsize">{{persessionsTotal }}%</b>  </td>
+                      <td>New Users:<br>
+                        <b class="textsize">{{newUsers }}</b>  </td>
                 </tr>
                
             </table>

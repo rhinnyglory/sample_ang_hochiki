@@ -1722,7 +1722,7 @@ module.exports = ".box.box-default.trafic {\n    border-top-color: #d2d6de;\n   
 /***/ "./src/app/component/overview/overview.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<div class=\"content-wrapper\">\n  <!-- Content Header (Page header) -->\n  <section class=\"content-header\">\n    <h1>\n        Hochiki(Audience Overview)\n   \n    </h1>\n    <h4>http://www.hochikiamerica.com/</h4>\n  \n   \n  </section>\n \n\n  <!-- Main content -->\n  <section class=\"content\">\n      <div class=\"box box-default trafic \">\n         \n          <!-- /.box-header -->\n          <div class=\"box-body\">\n            <div class=\"row\">\n              <div class=\"col-md-12\">\n                  <div class=\"col-md-6\">\n                    <div class=\"row\">\n                        <div class=\"col-md-3\">\n                            <!-- <select class='form-control select-option' required [(ngModel)]='optionSelected' (ngModelChange)='onMetricSelected($event)'>\n                                    <option [value]=\"\" selected=\"selected\">select a metrics</option>\n                                <option class='option' *ngFor='let option of dropdown' [value]=\"option\">{{metric}}</option>\n                            </select> -->\n                            <select [(ngModel)]='currentTab' (ngModelChange)=\"getDetailsfirst($event)\">\n                                <!-- <option [value]=\"undefined\" selected=\"selected\">Select a metrics</option> -->\n                                \n                                <option  *ngFor=\"let metric of matrics\" selected=\"currentTab == metric.id\"  [value]=\"metric.id\" >\n                                  {{metric.value}}\n                                </option>\n                              </select> \n                            \n                            \n                         </div>\n                        \n                         <!-- <div class=\"col-md-5 pl3\">\n                  \n                            <select [(ngModel)]='secondMetric' (ngModelChange)=\"getDetailssecond($event)\">\n                                <option  *ngFor=\"let metric of matrics\" [selected]=\"metric === '% new sessions'\" [value]=\"metric\" >\n                                  {{metric}}\n                                </option>\n                              </select> \n                            \n                             \n                         </div> -->\n\n                       <div class=\"col-md-3 pl3\">\n                         \n                          <form #myForm=\"ngForm\" novalidate>\n                              <my-date-range-picker [options]=\"myDateRangePickerOptions\" placeholder=\"Select date range\" (dateRangeChanged)=\"onDateRangeChanged($event)\" \n                                (dateSelected)=\"onDateSelected($event)\" date-format=\"dd MMM yyyy\"\n                                selDateRange={{selectedIntialDates}}></my-date-range-picker>                \n                          </form>\n                       </div>\n                     \n                    </div>\n                      \n                      \n                  </div>\n                  <div class=\"col-md-6\">\n                      <div class=\"btn-group pull-right\" >\n                          <!-- <button type=\"button\" class=\"btn btn-default\"   (click)=\"showdimension('ga:date');\">Day</button>\n                          <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:week');\">Week</button>\n                          <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:month');\">Month</button> -->\n                          <input type=\"radio\" name=\"Button\" class=\"ButtonState\" checked id=\"Button1\" value=\"1\"/>\n                          <label class=\"Button\" for=\"Button1\" (click)=\"showdimension('ga:date');\" >Day</label>\n                          <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button2\" value=\"2\"/>\n                          <!-- <button class=\"Button\" name=\"Button\" class=\"ButtonState\"  [disabled]=\"buttonDisabled\"  id=\"Button2\" value=\"2\">Week</button> -->\n                          <label class=\"Button\" for=\"Button2\"  (click)=\"showdimension('ga:week');\">Week</label>\n                          <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button3\" value=\"3\"/>\n                          <label class=\"Button\" for=\"Button3\" (click)=\"showdimension('ga:month');\">Month</label>\n                        \n                      </div>\n                  </div>\n                  \n                  \n              </div>  \n              <div class=\"col-md-12\">\n                  <google-chart [data]=\"lineChartData\" #cchart\n                    (chartSelect)=\"select($event)\" options=\"{'hAxis.gridlines' : false,'hAxis.viewWindow'  : false}\"></google-chart>\n                </div>\n              <!-- /.col -->\n            \n              <!-- /.col -->\n            </div>\n            \n            <!-- /.row -->\n          </div>\n          <!-- /.box-body -->\n         \n        </div>\n        <div class=\"box box-default key\">\n          \n            <!-- /.box-header -->\n         \n            <!-- /.box-body -->\n           \n            <table class=\"table table-bordered\">\n                <tr>\n                    <td>Sessions:<br><b class=\"textsize\">{{sessionTotal}}</b></td>\n                    <td>\n                        Users:<br>\n                        <b class=\"textsize\">{{usersTotal}}</b>\n                        </td>\n                        <td>\n                            Avg.Session Duration:<br>\n                            <b class=\"textsize\">{{totalSessionUsers }} </b>\n                            </td>\n                            <td>Bounce Rate:<br>\n                              <b class=\"textsize\">{{bouncesTotal }}%</b>  </td>\n                      </tr>\n                <tr>\n                    <td>Pageviews: <br>\n                      <b class=\"textsize\">{{pageViewTotal}} </b>  </td>\n                    <td>Pages/Session:<br>\n                      <b class=\"textsize\">{{pagevssessionsTotalRound}}</b>  </td>\n                    <td>% New Sessions:<br>\n                      <b class=\"textsize\">{{persessionsTotal }}%</b>  </td>\n                </tr>\n               \n            </table>\n\n\n\n          </div>\n          <div *ngIf=\"showLoader\" class=\"fa fa-spinner fa-spin\" style=\"font-size:50px;text-align: center;\n          position: absolute;top: 50%;left: 50%;\"></div>\n  </section>\n  <!-- /.content -->\n</div>"
+module.exports = "\n\n<div class=\"content-wrapper\">\n  <!-- Content Header (Page header) -->\n  <section class=\"content-header\">\n    <h1>\n        Hochiki(Audience Overview)\n   \n    </h1>\n    <h4>http://www.hochikiamerica.com/</h4>\n  \n   \n  </section>\n \n\n  <!-- Main content -->\n  <section class=\"content\">\n      <div class=\"box box-default trafic \">\n         \n          <!-- /.box-header -->\n          <div class=\"box-body\">\n            <div class=\"row\">\n              <div class=\"col-md-12\">\n                  <div class=\"col-md-6\">\n                    <div class=\"row\">\n                        <div class=\"col-md-3\">\n                         <select [(ngModel)]='currentTab' (ngModelChange)=\"getDetailsfirst($event)\">\n                                <option  *ngFor=\"let metric of matrics\" selected=\"currentTab == metric.id\"  [value]=\"metric.id\" >\n                                  {{metric.value}}\n                                </option>\n                              </select> \n                        </div>\n                        <div class=\"col-md-1\">\n                         Vs\n                         </div>\n                        <div class=\"col-md-3\">\n                          <select [(ngModel)]='currentTab2' (ngModelChange)=\"getDetailssecond($event)\">\n                              <!-- <option [value]=\" \" selected=\"selected\">Select a metrics</option> -->\n                              \n                               <option [value]=\" \" selected=\"currentTab2 == metric2.id\" >Select a metrics</option>\n\n                                 <option  *ngFor=\"let metric2 of matrics2\" selected=\"currentTab2 == metric2.id\"  [value]=\"metric2.id\" >\n                                   {{metric2.value}}\n                                 </option>\n                               </select> \n                         </div>\n                     \n                       <!-- <div class=\"col-md-3 pl3\">\n                         \n                          <form #myForm=\"ngForm\" novalidate>\n                              <my-date-range-picker [options]=\"myDateRangePickerOptions\" placeholder=\"Select date range\" (dateRangeChanged)=\"onDateRangeChanged($event)\" \n                                (dateSelected)=\"onDateSelected($event)\" date-format=\"dd MMM yyyy\"\n                                selDateRange={{selectedIntialDates}}></my-date-range-picker>                \n                          </form>\n                       </div> -->\n                     \n                    </div>\n                      \n                      \n                  </div>\n                  <div class=\"col-md-3\">\n                      \n                       <form #myForm=\"ngForm\" novalidate>\n                           <my-date-range-picker [options]=\"myDateRangePickerOptions\" placeholder=\"Select date range\" (dateRangeChanged)=\"onDateRangeChanged($event)\" \n                             (dateSelected)=\"onDateSelected($event)\" date-format=\"dd MMM yyyy\"\n                             selDateRange={{selectedIntialDates}}></my-date-range-picker>                \n                       </form>\n                    </div>\n                  <div class=\"col-md-3\">\n                    \n                      <div class=\"btn-group pull-right\" >\n                          <!-- <button type=\"button\" class=\"btn btn-default\"   (click)=\"showdimension('ga:date');\">Day</button>\n                          <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:week');\">Week</button>\n                          <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:month');\">Month</button> -->\n                          <input type=\"radio\" name=\"Button\" class=\"ButtonState\" checked id=\"Button1\" value=\"1\"/>\n                          <label class=\"Button\" for=\"Button1\" (click)=\"showdimension('ga:date');\" >Day</label>\n                          <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button2\" value=\"2\"/>\n                          <!-- <button class=\"Button\" name=\"Button\" class=\"ButtonState\"  [disabled]=\"buttonDisabled\"  id=\"Button2\" value=\"2\">Week</button> -->\n                          <label class=\"Button\" for=\"Button2\"  (click)=\"showdimension('ga:week');\">Week</label>\n                          <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button3\" value=\"3\"/>\n                          <label class=\"Button\" for=\"Button3\" (click)=\"showdimension('ga:month');\">Month</label>\n                        \n                      </div>\n                  </div>\n                  \n                  \n              </div>  \n              <div class=\"col-md-12\">\n                  <google-chart [data]=\"lineChartData\" #cchart\n                    (chartSelect)=\"select($event)\" options=\"{'hAxis.gridlines' : false,'hAxis.viewWindow'  : false}\"></google-chart>\n                </div>\n              <!-- /.col -->\n            \n              <!-- /.col -->\n            </div>\n            \n            <!-- /.row -->\n          </div>\n          <!-- /.box-body -->\n         \n        </div>\n        <div class=\"box box-default key\">\n          \n            <!-- /.box-header -->\n         \n            <!-- /.box-body -->\n           \n            <table class=\"table table-bordered\">\n                <tr>\n                    <td>Sessions:<br><b class=\"textsize\">{{sessionTotal}}</b></td>\n                    <td>\n                        Users:<br>\n                        <b class=\"textsize\">{{usersTotal}}</b>\n                        </td>\n                        <td>\n                            Avg.Session Duration:<br>\n                            <b class=\"textsize\">{{totalSessionUsers }} </b>\n                            </td>\n                            <td>Bounce Rate:<br>\n                              <b class=\"textsize\">{{bouncesTotal }}%</b>  </td>\n                      </tr>\n                <tr>\n                    <td>Pageviews: <br>\n                      <b class=\"textsize\">{{pageViewTotal}} </b>  </td>\n                    <td>Pages/Session:<br>\n                      <b class=\"textsize\">{{pagevssessionsTotalRound}}</b>  </td>\n                    <td>% New Sessions:<br>\n                      <b class=\"textsize\">{{persessionsTotal }}%</b>  </td>\n                      <td>New Users:<br>\n                        <b class=\"textsize\">{{newUsers }}</b>  </td>\n                </tr>\n               \n            </table>\n\n\n\n          </div>\n          <div *ngIf=\"showLoader\" class=\"fa fa-spinner fa-spin\" style=\"font-size:50px;text-align: center;\n          position: absolute;top: 50%;left: 50%;\"></div>\n  </section>\n  <!-- /.content -->\n</div>"
 
 /***/ }),
 
@@ -1796,6 +1796,9 @@ var OverviewComponent = /** @class */ (function () {
         this.AvgSessDuration = 0;
         this.pagevssessions = 0;
         this.currentTab = '';
+        this.currentTab2 = '';
+        this.currentTabcopy = '';
+        this.currentTab2copy = '';
         this.lineChartData = {
             chartType: '',
             dataTable: [],
@@ -1877,6 +1880,7 @@ var OverviewComponent = /** @class */ (function () {
         };
         this.dropdown = ['Today', 'Yesterday', 'Last week', 'Last Month', 'Last 7 days', 'Last 30 days'];
         this.matrics = [{ id: 'ga:sessions', value: 'Sessions' }, { id: 'ga:bounceRate', value: 'Bounce Rate' }, { id: 'ga:users', value: 'Users' }, { id: 'ga:pageViews', value: 'Pageviews' }];
+        this.matrics2 = [{ id: 'ga:sessions', value: 'Sessions' }, { id: 'ga:bounceRate', value: 'Bounce Rate' }, { id: 'ga:users', value: 'Users' }, { id: 'ga:pageViews', value: 'Pageviews' }];
         this.buttonDisabled = false;
         // this.list = ['ga:date', 'ga:week', 'ga:month'];
     }
@@ -2029,61 +2033,143 @@ var OverviewComponent = /** @class */ (function () {
         var _this = this;
         this.currentTab = event;
         var tables = [];
-        if (event === '(ga:sessionDuration/ga:sessions)') {
-            tables.push(['date', 'Avg. Session Duration']);
+        // if (this.currentTab2copy !== '') {
+        // if (event === '(ga:sessionDuration/ga:sessions)') {
+        //   tables.push(['date', this.currentTab2 === '' ? 'Avg. Session Duration' : 'Avg. Session Duration', this.getTheCurrentTab2(this.currentTab2)]);
+        // } else if (event === 'ga:bounceRate') {
+        //   tables.push(['date', this.currentTab2 === '' ? 'Bounce Rate' : 'Bounce Rate', this.getTheCurrentTab2(this.currentTab2)]);
+        // } else if (event === 'Pages/Sessions') {
+        //   this.firstMetric = this.pagevssessions;
+        // } else if (event === 'ga:pageViews') {
+        //   tables.push(['date', this.currentTab2 === '' ? 'pageviews' : 'pageviews', this.getTheCurrentTab2(this.currentTab2)]);
+        // } else if (event === 'ga:sessions') {
+        //   tables.push(['date', this.currentTab2 === '' ? 'Sessions' : 'Sessions', this.getTheCurrentTab2(this.currentTab2)]);
+        // } else if (event === 'ga:users') {
+        //   tables.push(['date', this.currentTab2 === '' ? 'Users' : 'Users', this.getTheCurrentTab2(this.currentTab2)]);
+        // }
+        if (this.currentTab2 !== 'Select a metrics') {
+            if (event === '(ga:sessionDuration/ga:sessions)') {
+                tables.push(['date', 'Avg. Session Duration', this.getTheCurrentTab2(this.currentTab2)]);
+            }
+            else if (event === 'ga:bounceRate') {
+                tables.push(['date', 'Bounce Rate', this.getTheCurrentTab2(this.currentTab2)]);
+            }
+            else if (event === 'Pages/Sessions') {
+                this.firstMetric = this.pagevssessions;
+            }
+            else if (event === 'ga:pageViews') {
+                tables.push(['date', 'pageviews', this.getTheCurrentTab2(this.currentTab2)]);
+            }
+            else if (event === 'ga:sessions') {
+                tables.push(['date', 'Sessions', this.getTheCurrentTab2(this.currentTab2)]);
+            }
+            else if (event === 'ga:users') {
+                tables.push(['date', 'Users', this.getTheCurrentTab2(this.currentTab2)]);
+            }
         }
-        else if (event === 'ga:bounceRate') {
-            // const generateTitle = 'Bounce Rate';
-            tables.push(['date', 'Bounce Rate']);
-        }
-        else if (event === 'Pages/Sessions') {
-            this.firstMetric = this.pagevssessions;
-        }
-        else if (event === 'ga:pageViews') {
-            tables.push(['date', 'pageviews']);
-        }
-        else if (event === 'ga:sessions') {
-            // const generateTitle = 'Sessions';
-            tables.push(['date', 'Sessions']);
-        }
-        else if (event === 'ga:users') {
-            tables.push(['date', 'Users']);
+        else {
+            if (event === '(ga:sessionDuration/ga:sessions)') {
+                tables.push(['date', 'Avg. Session Duration']);
+            }
+            else if (event === 'ga:bounceRate') {
+                tables.push(['date', 'Bounce Rate']);
+            }
+            else if (event === 'Pages/Sessions') {
+                this.firstMetric = this.pagevssessions;
+            }
+            else if (event === 'ga:pageViews') {
+                tables.push(['date', 'pageviews']);
+            }
+            else if (event === 'ga:sessions') {
+                tables.push(['date', 'Sessions']);
+            }
+            else if (event === 'ga:users') {
+                tables.push(['date', 'Users']);
+            }
         }
         this.dataTable.forEach(function (item, index) {
             _this.day = item.dimensions;
             _this.metrics = item.metrics;
-            if (_this.dimensions === 'ga:date') {
-                tables.push([_this.gettheDate(_this.day[0]['ga:date']), _this.metrics[0][event]]);
+            if (_this.currentTab2 !== 'Select a metrics') {
+                if (_this.dimensions === 'ga:date') {
+                    tables.push([_this.gettheDate(_this.day[0]['ga:date']), _this.metrics[0][_this.currentTab], _this.metrics[0][_this.currentTab2]]);
+                }
+                else {
+                    tables.push([_this.day[0]['ga:date'], _this.metrics[0][_this.currentTab], _this.metrics[0][_this.currentTab2]]);
+                }
             }
             else {
-                tables.push([_this.day[0]['ga:date'], _this.metrics[0][event]]);
+                if (_this.dimensions === 'ga:date') {
+                    tables.push([_this.gettheDate(_this.day[0]['ga:date']), _this.metrics[0][_this.currentTab]]);
+                }
+                else {
+                    tables.push([_this.day[0]['ga:date'], _this.metrics[0][_this.currentTab]]);
+                }
             }
         });
         this.lineChartData = {
             chartType: 'AreaChart',
             dataTable: tables,
             options: {
-                colors: ['skyblue'], pointsVisible: true,
+                colors: ['skyblue', '0099FF'], pointsVisible: true,
             },
         };
     };
-    // finaldrop(matric) {
-    //   if (matric === '% new sessions') {
-    //     return this.firstMetric = this.perSessionUser;
-    //   } else if (matric === 'Avg. Session Duration') {
-    //     return this.firstMetric = this.AvgSessDuration;
-    //   } else if (matric === 'Bounce Rate') {
-    //     return this.firstMetric = this.Bounce;
-    //   } else if (matric === 'Pages/Sessions') {
-    //     return this.firstMetric = this.pagevssessions;
-    //   } else if (matric === 'Pagesviews') {
-    //     return this.firstMetric = this.pageView;
-    //   } else if (matric === 'Sessions') {
-    //     return this.firstMetric = this.session;
-    //   } else if (matric === 'Users') {
-    //     return this.firstMetric = this.user;
-    //   }
-    // }
+    OverviewComponent.prototype.getDetailssecond = function (type) {
+        var _this = this;
+        var tables2 = [];
+        this.currentTab2 = type;
+        if (this.currentTab2 !== 'Select a metrics') {
+            if (type === '(ga:sessionDuration/ga:sessions)') {
+                tables2.push(['date', this.getTheCurrentTabEvent(this.currentTab), 'Avg. Session Duration']);
+            }
+            else if (type === 'ga:bounceRate') {
+                tables2.push(['date', this.getTheCurrentTabEvent(this.currentTab), 'Bounce Rate']);
+            }
+            else if (type === 'Pages/Sessions') {
+                this.firstMetric = this.pagevssessions;
+            }
+            else if (type === 'ga:pageViews') {
+                tables2.push(['date', this.getTheCurrentTabEvent(this.currentTab), 'pageviews']);
+            }
+            else if (type === 'ga:sessions') {
+                tables2.push(['date', this.getTheCurrentTabEvent(this.currentTab), 'Sessions']);
+            }
+            else if (type === 'ga:users') {
+                tables2.push(['date', this.getTheCurrentTabEvent(this.currentTab), 'Users']);
+            }
+        }
+        else {
+            tables2.push(['date', this.getTheCurrentTabEvent(this.currentTab)]);
+        }
+        this.dataTable.forEach(function (item, index) {
+            _this.day = item.dimensions;
+            _this.metrics = item.metrics;
+            if (_this.currentTab2 !== 'Select a metrics') {
+                if (_this.dimensions === 'ga:date') {
+                    tables2.push([_this.gettheDate(_this.day[0]['ga:date']), _this.metrics[0][_this.currentTab], _this.metrics[0][type]]);
+                }
+                else {
+                    tables2.push([_this.day[0]['ga:date'], _this.metrics[0][_this.currentTab], _this.metrics[0][type]]);
+                }
+            }
+            else {
+                if (_this.dimensions === 'ga:date') {
+                    tables2.push([_this.gettheDate(_this.day[0]['ga:date']), _this.metrics[0][_this.currentTab]]);
+                }
+                else {
+                    tables2.push([_this.day[0]['ga:date'], _this.metrics[0][_this.currentTab]]);
+                }
+            }
+        });
+        this.lineChartData = {
+            chartType: 'AreaChart',
+            dataTable: tables2,
+            options: {
+                colors: ['skyblue', '0099FF'], pointsVisible: true,
+            },
+        };
+    };
     OverviewComponent.prototype.changeTheSecondsToDate = function (seconddata) {
         var sec_num = parseFloat(seconddata);
         this.hoursTocal = Math.floor(sec_num / 3600);
@@ -2112,6 +2198,20 @@ var OverviewComponent = /** @class */ (function () {
         }
         else if (type === 'ga:pageViews') {
             return 'pageviews';
+        }
+    };
+    OverviewComponent.prototype.getTheCurrentTab2 = function (type) {
+        if (type === 'ga:sessions') {
+            return 'sessions';
+        }
+        else if (type === 'ga:bounceRate') {
+            return 'bounceRate';
+        }
+        else if (type === 'ga:users') {
+            return 'users';
+        }
+        else if (type === 'ga:pageViews') {
+            return 'pageViews';
         }
     };
     OverviewComponent.prototype.finalDataToSend = function () {
@@ -2152,7 +2252,15 @@ var OverviewComponent = /** @class */ (function () {
                     if (_this.currentTab === '') {
                         _this.currentTab = 'ga:sessions';
                     }
-                    table_1.push(['date', _this.getTheCurrentTabEvent(_this.currentTab)]);
+                    if (_this.currentTab2 === '') {
+                        _this.currentTab2 = 'Select a metrics';
+                    }
+                    if (_this.currentTab2 !== 'Select a metrics') {
+                        table_1.push(['date', _this.getTheCurrentTabEvent(_this.currentTab), _this.getTheCurrentTab2(_this.currentTab2)]);
+                    }
+                    else {
+                        table_1.push(['date', _this.getTheCurrentTabEvent(_this.currentTab)]);
+                    }
                     sessions.push(['week', 'sessions']);
                     users.push(['week', 'users']);
                     durations.push(['week', 'durations']);
@@ -2170,18 +2278,30 @@ var OverviewComponent = /** @class */ (function () {
                         _this.pageViewTotal += _this.metrics[0]['ga:pageViews'];
                         _this.newUsers += _this.metrics[0]['ga:newUsers'];
                         _this.session = _this.metrics[0][_this.currentTab];
-                        _this.user = _this.metrics[0]['ga:users'];
+                        // this.session = this.metrics[0]['ga:sessions'];
+                        _this.user = _this.metrics[0][_this.currentTab2];
+                        // this.user = this.metrics[0]['ga:users'];
                         _this.duration = _this.metrics[0]['ga:sessionDuration'];
                         _this.Bounce = _this.metrics[0]['ga:bounceRate'];
                         _this.pageView = _this.metrics[0]['ga:pageViews'];
                         _this.newUser = _this.metrics[0]['ga:newUsers'];
                         _this.AvgSessDuration = (_this.durationTotal / _this.session);
                         _this.pagevssessions = (_this.pageViewTotal / _this.sessionTotal);
-                        if (_this.dimensions === 'ga:date') {
-                            table_1.push([_this.gettheDate(_this.day[0]['ga:date']), _this.session]);
+                        if (_this.currentTab2 !== 'Select a metrics') {
+                            if (_this.dimensions === 'ga:date') {
+                                table_1.push([_this.gettheDate(_this.day[0]['ga:date']), _this.session, _this.user]);
+                            }
+                            else {
+                                table_1.push([_this.day[0]['ga:date'], _this.session, _this.user]);
+                            }
                         }
                         else {
-                            table_1.push([_this.day[0]['ga:date'], _this.session]);
+                            if (_this.dimensions === 'ga:date') {
+                                table_1.push([_this.gettheDate(_this.day[0]['ga:date']), _this.session]);
+                            }
+                            else {
+                                table_1.push([_this.day[0]['ga:date'], _this.session]);
+                            }
                         }
                         // sessions.push([this.day[0][''], this.metrics[0]['ga:sessions']]);
                         // users.push([this.day[0][''], this.metrics[0]['ga:users']]);
@@ -2202,7 +2322,7 @@ var OverviewComponent = /** @class */ (function () {
                         chartType: 'AreaChart',
                         dataTable: table_1,
                         options: {
-                            colors: ['skyblue'], pointsVisible: true,
+                            colors: ['skyblue', '0099FF'], pointsVisible: true,
                         },
                     },
                         // this.lineChartData = {
@@ -3218,7 +3338,7 @@ module.exports = ".skin-blue .sidebar-menu > li> a{\n    color: #ffffff;\n    ba
 /***/ "./src/app/component/sidepanel/sidepanel.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Left side column. contains the logo and sidebar -->\n<aside class=\"main-sidebar\">\n  <!-- sidebar: style can be found in sidebar.less -->\n  <section class=\"sidebar\">\n    <!-- Sidebar user panel -->\n    <!-- /.search form -->\n    <!-- sidebar menu: : style can be found in sidebar.less -->\n    <ul class=\"sidebar-menu\" data-widget=\"tree\">\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/dashboard\"> <i class=\"fa fa-dashboard\"></i><span class=\"pl10\">Dashboard</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/user\"> <i class=\"fa fa-user\"></i><span class=\"pl10\">User Management</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/userExplorer\"> <i class=\"fa fa-user\"></i><span class=\"pl10\">User Explorer</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/overview\"> <i class=\"fa fa-user\"></i><span class=\"pl10\">Overview</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/roles\"> <i class=\"fa fa-cubes\"></i><span class=\"pl10\"> Role Management</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/product\"> <i class=\"fa fa-archive\"></i><span class=\"pl10\">Product Management</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/category\"><i class=\"fa fa-database\"></i>\n          <span class=\"pl10\">Category</span>\n        </a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/feedback\"> <i class=\"fa fa-comments\"></i><span class=\"pl10\"> Feedback</span></a>\n      </li>\n    </ul>\n  </section>\n  <!-- /.sidebar -->\n</aside>"
+module.exports = "<!-- Left side column. contains the logo and sidebar -->\n<aside class=\"main-sidebar\">\n  <!-- sidebar: style can be found in sidebar.less -->\n  <section class=\"sidebar\">\n    <!-- Sidebar user panel -->\n    <!-- /.search form -->\n    <!-- sidebar menu: : style can be found in sidebar.less -->\n    <ul class=\"sidebar-menu\" data-widget=\"tree\">\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/dashboard\"> <i class=\"fa fa-dashboard\"></i><span class=\"pl10\">Dashboard</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/user\"> <i class=\"fa fa-user\"></i><span class=\"pl10\">User Management</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/userExplorer\"> <i class=\"fa fa-user\"></i><span class=\"pl10\">User Explorer</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/overview\"> <i class=\"fa fa-area-chart\"></i><span class=\"pl10\">Overview</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/roles\"> <i class=\"fa fa-cubes\"></i><span class=\"pl10\"> Role Management</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/product\"> <i class=\"fa fa-archive\"></i><span class=\"pl10\">Product Management</span></a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/category\"><i class=\"fa fa-database\"></i>\n          <span class=\"pl10\">Category</span>\n        </a>\n      </li>\n      <li [routerLinkActive]=\"['active']\" class=\"treeview\">\n        <a routerLink=\"/feedback\"> <i class=\"fa fa-comments\"></i><span class=\"pl10\"> Feedback</span></a>\n      </li>\n    </ul>\n  </section>\n  <!-- /.sidebar -->\n</aside>"
 
 /***/ }),
 

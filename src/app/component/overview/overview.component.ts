@@ -70,6 +70,9 @@ export class OverviewComponent implements OnInit {
   private AvgSessDuration = 0;
   private pagevssessions = 0;
   private currentTab: any = '';
+  private currentTab2: any = '';
+  private currentTabcopy: any = '';
+  private currentTab2copy: any = '';
   private firstMetric: any;
   // private generateTitle: '';
   public buttonDisabled: boolean;
@@ -325,55 +328,130 @@ export class OverviewComponent implements OnInit {
   getDetailsfirst(event: any) {
     this.currentTab = event;
     const tables = [];
-    if (event === '(ga:sessionDuration/ga:sessions)') {
-      tables.push(['date', 'Avg. Session Duration']);
-    } else if (event === 'ga:bounceRate') {
-      // const generateTitle = 'Bounce Rate';
-      tables.push(['date', 'Bounce Rate']);
-    } else if (event === 'Pages/Sessions') {
-      this.firstMetric = this.pagevssessions;
-    } else if (event === 'ga:pageViews') {
-      tables.push(['date', 'pageviews']);
-    } else if (event === 'ga:sessions') {
-      // const generateTitle = 'Sessions';
-      tables.push(['date', 'Sessions']);
-    } else if (event === 'ga:users') {
-      tables.push(['date', 'Users']);
+    // if (this.currentTab2copy !== '') {
+    // if (event === '(ga:sessionDuration/ga:sessions)') {
+    //   tables.push(['date', this.currentTab2 === '' ? 'Avg. Session Duration' : 'Avg. Session Duration', this.getTheCurrentTab2(this.currentTab2)]);
+    // } else if (event === 'ga:bounceRate') {
+    //   tables.push(['date', this.currentTab2 === '' ? 'Bounce Rate' : 'Bounce Rate', this.getTheCurrentTab2(this.currentTab2)]);
+    // } else if (event === 'Pages/Sessions') {
+    //   this.firstMetric = this.pagevssessions;
+    // } else if (event === 'ga:pageViews') {
+    //   tables.push(['date', this.currentTab2 === '' ? 'pageviews' : 'pageviews', this.getTheCurrentTab2(this.currentTab2)]);
+    // } else if (event === 'ga:sessions') {
+    //   tables.push(['date', this.currentTab2 === '' ? 'Sessions' : 'Sessions', this.getTheCurrentTab2(this.currentTab2)]);
+    // } else if (event === 'ga:users') {
+    //   tables.push(['date', this.currentTab2 === '' ? 'Users' : 'Users', this.getTheCurrentTab2(this.currentTab2)]);
+    // }
+    if (this.currentTab2 !== 'Select a metrics') {
+      if (event === '(ga:sessionDuration/ga:sessions)') {
+        tables.push(['date', 'Avg. Session Duration', this.getTheCurrentTab2(this.currentTab2)]);
+      } else if (event === 'ga:bounceRate') {
+        tables.push(['date', 'Bounce Rate', this.getTheCurrentTab2(this.currentTab2)]);
+      } else if (event === 'Pages/Sessions') {
+        this.firstMetric = this.pagevssessions;
+      } else if (event === 'ga:pageViews') {
+        tables.push(['date', 'pageviews', this.getTheCurrentTab2(this.currentTab2)]);
+      } else if (event === 'ga:sessions') {
+        tables.push(['date', 'Sessions', this.getTheCurrentTab2(this.currentTab2)]);
+      } else if (event === 'ga:users') {
+        tables.push(['date', 'Users', this.getTheCurrentTab2(this.currentTab2)]);
+      }
+    }else {
+      if (event === '(ga:sessionDuration/ga:sessions)') {
+        tables.push(['date', 'Avg. Session Duration']);
+      } else if (event === 'ga:bounceRate') {
+        tables.push(['date', 'Bounce Rate']);
+      } else if (event === 'Pages/Sessions') {
+        this.firstMetric = this.pagevssessions;
+      } else if (event === 'ga:pageViews') {
+        tables.push(['date',  'pageviews']);
+      } else if (event === 'ga:sessions') {
+        tables.push(['date', 'Sessions']);
+      } else if (event === 'ga:users') {
+        tables.push(['date', 'Users']);
+      }
     }
+
     this.dataTable.forEach((item, index) => {
       this.day = item.dimensions;
       this.metrics = item.metrics;
-      if (this.dimensions === 'ga:date') {
-        tables.push([this.gettheDate(this.day[0]['ga:date']), this.metrics[0][event]]);
+  
+      if (this.currentTab2 !== 'Select a metrics') {
+        
+        if (this.dimensions === 'ga:date') {
+          
+          tables.push([this.gettheDate(this.day[0]['ga:date']), this.metrics[0][this.currentTab], this.metrics[0][this.currentTab2]]);
+        } else {
+          tables.push([this.day[0]['ga:date'], this.metrics[0][this.currentTab], this.metrics[0][this.currentTab2]]);
+        }
       } else {
-        tables.push([this.day[0]['ga:date'], this.metrics[0][event]]);
+        if (this.dimensions === 'ga:date') {
+          tables.push([this.gettheDate(this.day[0]['ga:date']), this.metrics[0][this.currentTab]]);
+        } else {
+          tables.push([this.day[0]['ga:date'], this.metrics[0][this.currentTab]]);
+        }
       }
     });
     this.lineChartData = {
       chartType: 'AreaChart',
       dataTable: tables,
       options: {
-        colors: ['skyblue'], pointsVisible: true,
+        colors: ['skyblue' , '0099FF'], pointsVisible: true,
+      },
+    };
+
+  }
+
+  matrics2 = [{ id: 'ga:sessions', value: 'Sessions' }, { id: 'ga:bounceRate', value: 'Bounce Rate' }, { id: 'ga:users', value: 'Users' }, { id: 'ga:pageViews', value: 'Pageviews' }];
+  getDetailssecond(type: any) {
+    const tables2 = [];
+
+    this.currentTab2 = type;
+    if (this.currentTab2 !== 'Select a metrics') {
+      if (type === '(ga:sessionDuration/ga:sessions)') {
+        tables2.push(['date', this.getTheCurrentTabEvent(this.currentTab), 'Avg. Session Duration']);
+      } else if (type === 'ga:bounceRate') {
+        tables2.push(['date', this.getTheCurrentTabEvent(this.currentTab), 'Bounce Rate']);
+      } else if (type === 'Pages/Sessions') {
+        this.firstMetric = this.pagevssessions;
+      } else if (type === 'ga:pageViews') {
+        tables2.push(['date', this.getTheCurrentTabEvent(this.currentTab), 'pageviews']);
+      } else if (type === 'ga:sessions') {
+        tables2.push(['date', this.getTheCurrentTabEvent(this.currentTab), 'Sessions']);
+      } else if (type === 'ga:users') {
+        tables2.push(['date', this.getTheCurrentTabEvent(this.currentTab), 'Users']);
+      }
+    }else {
+      tables2.push(['date', this.getTheCurrentTabEvent(this.currentTab)]);
+
+    }
+
+    this.dataTable.forEach((item, index) => {
+      this.day = item.dimensions;
+      this.metrics = item.metrics;
+      if (this.currentTab2 !== 'Select a metrics') {
+        if (this.dimensions === 'ga:date') {
+          tables2.push([this.gettheDate(this.day[0]['ga:date']), this.metrics[0][this.currentTab], this.metrics[0][type]]);
+        } else {
+          tables2.push([this.day[0]['ga:date'], this.metrics[0][this.currentTab], this.metrics[0][type]]);
+        }
+      } else {
+        if (this.dimensions === 'ga:date') {
+          tables2.push([this.gettheDate(this.day[0]['ga:date']), this.metrics[0][this.currentTab]]);
+        } else {
+          tables2.push([this.day[0]['ga:date'], this.metrics[0][this.currentTab]]);
+        }
+      }
+
+    });
+    this.lineChartData = {
+      chartType: 'AreaChart',
+      dataTable: tables2,
+      options: {
+        colors: ['skyblue' , '0099FF'], pointsVisible: true,
       },
     };
   }
-  // finaldrop(matric) {
-  //   if (matric === '% new sessions') {
-  //     return this.firstMetric = this.perSessionUser;
-  //   } else if (matric === 'Avg. Session Duration') {
-  //     return this.firstMetric = this.AvgSessDuration;
-  //   } else if (matric === 'Bounce Rate') {
-  //     return this.firstMetric = this.Bounce;
-  //   } else if (matric === 'Pages/Sessions') {
-  //     return this.firstMetric = this.pagevssessions;
-  //   } else if (matric === 'Pagesviews') {
-  //     return this.firstMetric = this.pageView;
-  //   } else if (matric === 'Sessions') {
-  //     return this.firstMetric = this.session;
-  //   } else if (matric === 'Users') {
-  //     return this.firstMetric = this.user;
-  //   }
-  // }
 
   changeTheSecondsToDate(seconddata) {
     const sec_num = parseFloat(seconddata);
@@ -402,13 +480,23 @@ export class OverviewComponent implements OnInit {
       return 'pageviews';
     }
   }
+  getTheCurrentTab2(type: any) {
+    if (type === 'ga:sessions') {
+      return 'sessions';
+    } else if (type === 'ga:bounceRate') {
+      return 'bounceRate';
+    } else if (type === 'ga:users') {
+      return 'users';
+    } else if (type === 'ga:pageViews') {
+      return 'pageViews';
+    }
+  }
   finalDataToSend() {
     const completeDate = { startDate: '', endDate: '', dimensions: '' };
     completeDate.startDate = new Date(this.startDate).getFullYear() + '-' + ((new Date(this.startDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.startDate).getMonth() + 1) + '-' + ((new Date(this.startDate).getDate()) < 10 ? '0' : '') + (new Date(this.startDate).getDate());
     completeDate.endDate = new Date(this.endDate).getFullYear() + '-' + ((new Date(this.endDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.endDate).getMonth() + 1) + '-' + ((new Date(this.endDate).getDate()) < 10 ? '0' : '') + (new Date(this.endDate).getDate());
     completeDate.dimensions = this.dimensions;
     this.showLoader = true;
-
     if (this.startDate !== '' && this.endDate !== '' && this.dimensions !== '' && completeDate.endDate >= completeDate.startDate) {
 
       this.cluster1Service.createGraph(completeDate)
@@ -442,7 +530,14 @@ export class OverviewComponent implements OnInit {
             if (this.currentTab === '') {
               this.currentTab = 'ga:sessions';
             }
-            table.push(['date', this.getTheCurrentTabEvent(this.currentTab)]);
+            if (this.currentTab2 === '') {
+              this.currentTab2 = 'Select a metrics';
+            }
+            if (this.currentTab2 !== 'Select a metrics') {
+              table.push(['date', this.getTheCurrentTabEvent(this.currentTab), this.getTheCurrentTab2(this.currentTab2)]);
+            } else {
+              table.push(['date', this.getTheCurrentTabEvent(this.currentTab)]);
+            }
             sessions.push(['week', 'sessions']);
             users.push(['week', 'users']);
             durations.push(['week', 'durations']);
@@ -463,18 +558,30 @@ export class OverviewComponent implements OnInit {
 
 
               this.session = this.metrics[0][this.currentTab];
-              this.user = this.metrics[0]['ga:users'];
+              // this.session = this.metrics[0]['ga:sessions'];
+              this.user = this.metrics[0][this.currentTab2];
+
+              // this.user = this.metrics[0]['ga:users'];
               this.duration = this.metrics[0]['ga:sessionDuration'];
               this.Bounce = this.metrics[0]['ga:bounceRate'];
               this.pageView = this.metrics[0]['ga:pageViews'];
               this.newUser = this.metrics[0]['ga:newUsers'];
               this.AvgSessDuration = (this.durationTotal / this.session);
               this.pagevssessions = (this.pageViewTotal / this.sessionTotal);
-              if (this.dimensions === 'ga:date') {
-                table.push([this.gettheDate(this.day[0]['ga:date']), this.session]);
+              if (this.currentTab2 !== 'Select a metrics') {
+                if (this.dimensions === 'ga:date') {
+                  table.push([this.gettheDate(this.day[0]['ga:date']), this.session, this.user]);
+                } else {
+                  table.push([this.day[0]['ga:date'], this.session, this.user]);
+                }
               } else {
-                table.push([this.day[0]['ga:date'], this.session]);
+                if (this.dimensions === 'ga:date') {
+                  table.push([this.gettheDate(this.day[0]['ga:date']), this.session]);
+                } else {
+                  table.push([this.day[0]['ga:date'], this.session]);
+                }
               }
+
               // sessions.push([this.day[0][''], this.metrics[0]['ga:sessions']]);
               // users.push([this.day[0][''], this.metrics[0]['ga:users']]);
               // durations.push([this.day[0][''], this.metrics[0]['ga:avgSessionDuration']]);
@@ -494,7 +601,7 @@ export class OverviewComponent implements OnInit {
               chartType: 'AreaChart',
               dataTable: table,
               options: {
-                colors: ['skyblue'], pointsVisible: true,
+                colors: ['skyblue', '0099FF'], pointsVisible: true,
                 // "legend":"none",
               },
             },
