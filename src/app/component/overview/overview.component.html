@@ -45,6 +45,7 @@
                           
                       </div>
                   <div class="col-md-6 text-right">
+                      
                       <form #myForm="ngForm" novalidate>
                           <my-date-range-picker [options]="myDateRangePickerOptions" placeholder="Select date range" (dateRangeChanged)="onDateRangeChanged($event)" 
                             (dateSelected)="onDateSelected($event)" date-format="dd MMM yyyy"
