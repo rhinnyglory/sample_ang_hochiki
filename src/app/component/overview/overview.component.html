@@ -4,10 +4,9 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-        Hochiki(Audience Overview)
+        Hochiki - Audience Overview
    
     </h1>
-    <h4>http://www.hochikiamerica.com/</h4>
   
    
   </section>
@@ -20,70 +19,66 @@
           <!-- /.box-header -->
           <div class="box-body">
             <div class="row">
-              <div class="col-md-12">
-                  <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-3">
-                         <select [(ngModel)]='currentTab' (ngModelChange)="getDetailsfirst($event)">
-                                <option  *ngFor="let metric of matrics" selected="currentTab == metric.id"  [value]="metric.id" >
-                                  {{metric.value}}
-                                </option>
-                              </select> 
-                        </div>
-                        <div class="col-md-1">
-                         Vs
-                         </div>
-                        <div class="col-md-3">
-                          <select [(ngModel)]='currentTab2' (ngModelChange)="getDetailssecond($event)">
-                              <!-- <option [value]=" " selected="selected">Select a metrics</option> -->
-                              
-                               <option [value]=" " selected="currentTab2 == metric2.id" >Select a metrics</option>
-
-                                 <option  *ngFor="let metric2 of matrics2" selected="currentTab2 == metric2.id"  [value]="metric2.id" >
-                                   {{metric2.value}}
-                                 </option>
-                               </select> 
-                         </div>
-                     
-                       <!-- <div class="col-md-3 pl3">
-                         
-                          <form #myForm="ngForm" novalidate>
-                              <my-date-range-picker [options]="myDateRangePickerOptions" placeholder="Select date range" (dateRangeChanged)="onDateRangeChanged($event)" 
-                                (dateSelected)="onDateSelected($event)" date-format="dd MMM yyyy"
-                                selDateRange={{selectedIntialDates}}></my-date-range-picker>                
-                          </form>
-                       </div> -->
-                     
-                    </div>
-                      
-                      
-                  </div>
-                  <div class="col-md-3">
-                      
-                       <form #myForm="ngForm" novalidate>
-                           <my-date-range-picker [options]="myDateRangePickerOptions" placeholder="Select date range" (dateRangeChanged)="onDateRangeChanged($event)" 
-                             (dateSelected)="onDateSelected($event)" date-format="dd MMM yyyy"
-                             selDateRange={{selectedIntialDates}}></my-date-range-picker>                
-                       </form>
-                    </div>
-                  <div class="col-md-3">
-                    
-                      <div class="btn-group pull-right" >
-                          <!-- <button type="button" class="btn btn-default"   (click)="showdimension('ga:date');">Day</button>
-                          <button type="button" class="btn btn-default" (click)="showdimension('ga:week');">Week</button>
-                          <button type="button" class="btn btn-default" (click)="showdimension('ga:month');">Month</button> -->
-                          <input type="radio" name="Button" class="ButtonState" checked id="Button1" value="1"/>
-                          <label class="Button" for="Button1" (click)="showdimension('ga:date');" >Day</label>
-                          <input type="radio" name="Button" class="ButtonState" id="Button2" value="2"/>
-                          <!-- <button class="Button" name="Button" class="ButtonState"  [disabled]="buttonDisabled"  id="Button2" value="2">Week</button> -->
-                          <label class="Button" for="Button2"  (click)="showdimension('ga:week');">Week</label>
-                          <input type="radio" name="Button" class="ButtonState" id="Button3" value="3"/>
-                          <label class="Button" for="Button3" (click)="showdimension('ga:month');">Month</label>
-                        
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-6">
+                            <!-- <div class="col-md-5"> -->
+                                  <div class="form-group inline-block">
+                                      <select [(ngModel)]='currentTab'  class="form-control" (ngModelChange)="getDetailsfirst($event)">
+                                          <option  *ngFor="let metric of matrics" selected="currentTab == metric.id"  [value]="metric.id" >
+                                            {{metric.value}}
+                                          </option>
+                                        </select> 
+                                  </div>
+                                  <div class="inline-block">Vs.</div>
+                                      <div class="form-group inline-block">
+                                          <select [(ngModel)]='currentTab2'  class="form-control"  (ngModelChange)="getDetailssecond($event)">
+                                              
+                                               <option [value]=" " selected="currentTab2 == metric2.id" >Select a metrics</option>
+                
+                                                 <option  *ngFor="let metric2 of matrics2" selected="currentTab2 == metric2.id"  [value]="metric2.id" >
+                                                   {{metric2.value}}
+                                                 </option>
+                                               </select> 
+                                      </div>
+                            <!-- </div> -->
+                          
                       </div>
+                  <div class="col-md-6 text-right">
+                      <form #myForm="ngForm" novalidate>
+                          <my-date-range-picker [options]="myDateRangePickerOptions" placeholder="Select date range" (dateRangeChanged)="onDateRangeChanged($event)" 
+                            (dateSelected)="onDateSelected($event)" date-format="dd MMM yyyy"
+                            selDateRange={{selectedIntialDates}}></my-date-range-picker>                
+                      </form>
                   </div>
-                  
-                  
+                </div>
+                   
+                </div>
+              <div class="col-md-12">
+                
+                  <div class="row">
+                  <div class="col-md-6">
+                  </div>
+                  <div class="col-md-6">
+                      <div class="row"> 
+                      <div class="col-md-6 col-md-offset-6 text-right">
+                            <div class="btn-group">
+                                <!-- <button type="button" class="btn btn-default"   (click)="showdimension('ga:date');">Day</button>
+                                <button type="button" class="btn btn-default" (click)="showdimension('ga:week');">Week</button>
+                                <button type="button" class="btn btn-default" (click)="showdimension('ga:month');">Month</button> -->
+                                <input type="radio" name="Button" class="ButtonState" checked id="Button1" value="1"/>
+                                <label class="Button" for="Button1" (click)="showdimension('ga:date');" >Day</label>
+                                <input type="radio" name="Button" class="ButtonState" id="Button2" value="2"/>
+                                <!-- <button class="Button" name="Button" class="ButtonState"  [disabled]="buttonDisabled"  id="Button2" value="2">Week</button> -->
+                                <label class="Button" for="Button2"  (click)="showdimension('ga:week');">Week</label>
+                                <input type="radio" name="Button" class="ButtonState" id="Button3" value="3"/>
+                                <label class="Button" for="Button3" (click)="showdimension('ga:month');">Month</label>
+                              
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
               </div>  
               <div class="col-md-12">
                   <google-chart [data]="lineChartData" #cchart
