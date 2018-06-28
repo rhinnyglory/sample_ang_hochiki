@@ -1722,7 +1722,7 @@ module.exports = ".box.box-default.trafic {\n    border-top-color: #d2d6de;\n   
 /***/ "./src/app/component/overview/overview.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<div class=\"content-wrapper\">\n  <!-- Content Header (Page header) -->\n  <section class=\"content-header\">\n    <h1>\n        Hochiki - Audience Overview\n   \n    </h1>\n  \n   \n  </section>\n \n\n  <!-- Main content -->\n  <section class=\"content\">\n      <div class=\"box box-default trafic \">\n         \n          <!-- /.box-header -->\n          <div class=\"box-body\">\n            <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"row\">\n                    <div class=\"col-md-6\">\n                            <!-- <div class=\"col-md-5\"> -->\n                                  <div class=\"form-group inline-block\">\n                                      <select [(ngModel)]='currentTab'  class=\"form-control\" (ngModelChange)=\"getDetailsfirst($event)\">\n                                          <option  *ngFor=\"let metric of matrics\" selected=\"currentTab == metric.id\"  [value]=\"metric.id\" >\n                                            {{metric.value}}\n                                          </option>\n                                        </select> \n                                  </div>\n                                  <div class=\"inline-block\">Vs.</div>\n                                      <div class=\"form-group inline-block\">\n                                          <select [(ngModel)]='currentTab2'  class=\"form-control\"  (ngModelChange)=\"getDetailssecond($event)\">\n                                              \n                                               <option [value]=\" \" selected=\"currentTab2 == metric2.id\" >Select a metrics</option>\n                \n                                                 <option  *ngFor=\"let metric2 of matrics2\" selected=\"currentTab2 == metric2.id\"  [value]=\"metric2.id\" >\n                                                   {{metric2.value}}\n                                                 </option>\n                                               </select> \n                                      </div>\n                            <!-- </div> -->\n                          \n                      </div>\n                  <div class=\"col-md-6 text-right\">\n                      <form #myForm=\"ngForm\" novalidate>\n                          <my-date-range-picker [options]=\"myDateRangePickerOptions\" placeholder=\"Select date range\" (dateRangeChanged)=\"onDateRangeChanged($event)\" \n                            (dateSelected)=\"onDateSelected($event)\" date-format=\"dd MMM yyyy\"\n                            selDateRange={{selectedIntialDates}}></my-date-range-picker>                \n                      </form>\n                  </div>\n                </div>\n                   \n                </div>\n              <div class=\"col-md-12\">\n                \n                  <div class=\"row\">\n                  <div class=\"col-md-6\">\n                  </div>\n                  <div class=\"col-md-6\">\n                      <div class=\"row\"> \n                      <div class=\"col-md-6 col-md-offset-6 text-right\">\n                            <div class=\"btn-group\">\n                                <!-- <button type=\"button\" class=\"btn btn-default\"   (click)=\"showdimension('ga:date');\">Day</button>\n                                <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:week');\">Week</button>\n                                <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:month');\">Month</button> -->\n                                <input type=\"radio\" name=\"Button\" class=\"ButtonState\" checked id=\"Button1\" value=\"1\"/>\n                                <label class=\"Button\" for=\"Button1\" (click)=\"showdimension('ga:date');\" >Day</label>\n                                <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button2\" value=\"2\"/>\n                                <!-- <button class=\"Button\" name=\"Button\" class=\"ButtonState\"  [disabled]=\"buttonDisabled\"  id=\"Button2\" value=\"2\">Week</button> -->\n                                <label class=\"Button\" for=\"Button2\"  (click)=\"showdimension('ga:week');\">Week</label>\n                                <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button3\" value=\"3\"/>\n                                <label class=\"Button\" for=\"Button3\" (click)=\"showdimension('ga:month');\">Month</label>\n                              \n                            </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n              </div>  \n              <div class=\"col-md-12\">\n                  <google-chart [data]=\"lineChartData\" #cchart\n                    (chartSelect)=\"select($event)\" options=\"{'hAxis.gridlines' : false,'hAxis.viewWindow'  : false}\"></google-chart>\n                </div>\n              <!-- /.col -->\n            \n              <!-- /.col -->\n            </div>\n            \n            <!-- /.row -->\n          </div>\n          <!-- /.box-body -->\n         \n        </div>\n        <div class=\"box box-default key\">\n          \n            <!-- /.box-header -->\n         \n            <!-- /.box-body -->\n           \n            <table class=\"table table-bordered\">\n                <tr>\n                    <td>Sessions:<br><b class=\"textsize\">{{sessionTotal}}</b></td>\n                    <td>\n                        Users:<br>\n                        <b class=\"textsize\">{{usersTotal}}</b>\n                        </td>\n                        <td>\n                            Avg.Session Duration:<br>\n                            <b class=\"textsize\">{{totalSessionUsers }} </b>\n                            </td>\n                            <td>Bounce Rate:<br>\n                              <b class=\"textsize\">{{bouncesTotal }}%</b>  </td>\n                      </tr>\n                <tr>\n                    <td>Pageviews: <br>\n                      <b class=\"textsize\">{{pageViewTotal}} </b>  </td>\n                    <td>Pages/Session:<br>\n                      <b class=\"textsize\">{{pagevssessionsTotalRound}}</b>  </td>\n                    <td>% New Sessions:<br>\n                      <b class=\"textsize\">{{persessionsTotal }}%</b>  </td>\n                      <td>New Users:<br>\n                        <b class=\"textsize\">{{newUsers }}</b>  </td>\n                </tr>\n               \n            </table>\n\n\n\n          </div>\n          <div *ngIf=\"showLoader\" class=\"fa fa-spinner fa-spin\" style=\"font-size:50px;text-align: center;\n          position: absolute;top: 50%;left: 50%;\"></div>\n  </section>\n  <!-- /.content -->\n</div>"
+module.exports = "\n\n<div class=\"content-wrapper\">\n  <!-- Content Header (Page header) -->\n  <section class=\"content-header\">\n    <h1>\n        Hochiki - Audience Overview\n   \n    </h1>\n  \n   \n  </section>\n \n\n  <!-- Main content -->\n  <section class=\"content\">\n      <div class=\"box box-default trafic \">\n         \n          <!-- /.box-header -->\n          <div class=\"box-body\">\n            <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"row\">\n                    <div class=\"col-md-6\">\n                            <!-- <div class=\"col-md-5\"> -->\n                                  <div class=\"form-group inline-block\">\n                                      <select [(ngModel)]='currentTab'  class=\"form-control\" (ngModelChange)=\"getDetailsfirst($event)\">\n                                          <option  *ngFor=\"let metric of matrics\" selected=\"currentTab == metric.id\"  [value]=\"metric.id\" >\n                                            {{metric.value}}\n                                          </option>\n                                        </select> \n                                  </div>\n                                  <div class=\"inline-block\">Vs.</div>\n                                      <div class=\"form-group inline-block\">\n                                          <select [(ngModel)]='currentTab2'  class=\"form-control\"  (ngModelChange)=\"getDetailssecond($event)\">\n                                              \n                                               <option [value]=\" \" selected=\"currentTab2 == metric2.id\" >Select a metrics</option>\n                \n                                                 <option  *ngFor=\"let metric2 of matrics2\" selected=\"currentTab2 == metric2.id\"  [value]=\"metric2.id\" >\n                                                   {{metric2.value}}\n                                                 </option>\n                                               </select> \n                                      </div>\n                            <!-- </div> -->\n                          \n                      </div>\n                  <div class=\"col-md-6 text-right\">\n                      \n                      <form #myForm=\"ngForm\" novalidate>\n                          <my-date-range-picker [options]=\"myDateRangePickerOptions\" placeholder=\"Select date range\" (dateRangeChanged)=\"onDateRangeChanged($event)\" \n                            (dateSelected)=\"onDateSelected($event)\" date-format=\"dd MMM yyyy\"\n                            selDateRange={{selectedIntialDates}}></my-date-range-picker>                \n                      </form>\n                  </div>\n                </div>\n                   \n                </div>\n              <div class=\"col-md-12\">\n                \n                  <div class=\"row\">\n                  <div class=\"col-md-6\">\n                  </div>\n                  <div class=\"col-md-6\">\n                      <div class=\"row\"> \n                      <div class=\"col-md-6 col-md-offset-6 text-right\">\n                            <div class=\"btn-group\">\n                                <!-- <button type=\"button\" class=\"btn btn-default\"   (click)=\"showdimension('ga:date');\">Day</button>\n                                <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:week');\">Week</button>\n                                <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:month');\">Month</button> -->\n                                <input type=\"radio\" name=\"Button\" class=\"ButtonState\" checked id=\"Button1\" value=\"1\"/>\n                                <label class=\"Button\" for=\"Button1\" (click)=\"showdimension('ga:date');\" >Day</label>\n                                <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button2\" value=\"2\"/>\n                                <!-- <button class=\"Button\" name=\"Button\" class=\"ButtonState\"  [disabled]=\"buttonDisabled\"  id=\"Button2\" value=\"2\">Week</button> -->\n                                <label class=\"Button\" for=\"Button2\"  (click)=\"showdimension('ga:week');\">Week</label>\n                                <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button3\" value=\"3\"/>\n                                <label class=\"Button\" for=\"Button3\" (click)=\"showdimension('ga:month');\">Month</label>\n                              \n                            </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n              </div>  \n              <div class=\"col-md-12\">\n                  <google-chart [data]=\"lineChartData\" #cchart\n                    (chartSelect)=\"select($event)\" options=\"{'hAxis.gridlines' : false,'hAxis.viewWindow'  : false}\"></google-chart>\n                </div>\n              <!-- /.col -->\n            \n              <!-- /.col -->\n            </div>\n            \n            <!-- /.row -->\n          </div>\n          <!-- /.box-body -->\n         \n        </div>\n        <div class=\"box box-default key\">\n          \n            <!-- /.box-header -->\n         \n            <!-- /.box-body -->\n           \n            <table class=\"table table-bordered\">\n                <tr>\n                    <td>Sessions:<br><b class=\"textsize\">{{sessionTotal}}</b></td>\n                    <td>\n                        Users:<br>\n                        <b class=\"textsize\">{{usersTotal}}</b>\n                        </td>\n                        <td>\n                            Avg.Session Duration:<br>\n                            <b class=\"textsize\">{{totalSessionUsers }} </b>\n                            </td>\n                            <td>Bounce Rate:<br>\n                              <b class=\"textsize\">{{bouncesTotal }}%</b>  </td>\n                      </tr>\n                <tr>\n                    <td>Pageviews: <br>\n                      <b class=\"textsize\">{{pageViewTotal}} </b>  </td>\n                    <td>Pages/Session:<br>\n                      <b class=\"textsize\">{{pagevssessionsTotalRound}}</b>  </td>\n                    <td>% New Sessions:<br>\n                      <b class=\"textsize\">{{persessionsTotal }}%</b>  </td>\n                      <td>New Users:<br>\n                        <b class=\"textsize\">{{newUsers }}</b>  </td>\n                </tr>\n               \n            </table>\n\n\n\n          </div>\n          <div *ngIf=\"showLoader\" class=\"fa fa-spinner fa-spin\" style=\"font-size:50px;text-align: center;\n          position: absolute;top: 50%;left: 50%;\"></div>\n  </section>\n  <!-- /.content -->\n</div>"
 
 /***/ }),
 
@@ -1878,11 +1878,9 @@ var OverviewComponent = /** @class */ (function () {
             beginDate: this.startDate,
             endDate: this.endDate
         };
-        this.dropdown = ['Today', 'Yesterday', 'Last week', 'Last Month', 'Last 7 days', 'Last 30 days'];
         this.matrics = [{ id: 'ga:sessions', value: 'Sessions' }, { id: 'ga:bounceRate', value: 'Bounce Rate' }, { id: 'ga:users', value: 'Users' }, { id: 'ga:pageViews', value: 'Pageviews' }];
         this.matrics2 = [{ id: 'ga:sessions', value: 'Sessions' }, { id: 'ga:bounceRate', value: 'Bounce Rate' }, { id: 'ga:users', value: 'Users' }, { id: 'ga:pageViews', value: 'Pageviews' }];
         this.buttonDisabled = false;
-        // this.list = ['ga:date', 'ga:week', 'ga:month'];
     }
     OverviewComponent.prototype.setDateRange = function () {
         var date = new Date();
@@ -1901,19 +1899,15 @@ var OverviewComponent = /** @class */ (function () {
             }
         });
     };
-    //    select(item) {
-    //     this.selected = item;
-    // }
-    // isActive(item) {
-    //     return this.selected === item;
-    // }
     OverviewComponent.prototype.ngOnInit = function () {
         document.title = 'Audience Overview - Firestrome';
-        //  this.loaderService.display(true);
-        //  this.loaderService.display(false);
         this.myForm = this.formBuilder.group({
             myDateRange: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required]
         });
+        // ($('#daterange') as any).dateRangePicker({
+        //   container: '#daterange-picker-container',
+        //   defaultDateRange: 'LAST_30_DAYS'
+        // });
         var days = 7;
         var date = new Date();
         var last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
@@ -1925,68 +1919,6 @@ var OverviewComponent = /** @class */ (function () {
         this.selectedIntialDates = this.startDate + ' ' + '' + '-' + '' + ' ' + this.endDate;
         this.finalDataToSend();
     };
-    //  public optionSelected: any;
-    // onOptionSelected(event) {
-    //   if (event === 'Last 7 days') {
-    //     const days = 7;
-    //     const date = new Date();
-    //     const last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
-    //     this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
-    //     this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate() - 1) < 10 ? '0' : '') + (new Date().getDate() - 1);
-    //     const datePipeS = new DatePipe('en-US');
-    //     this.startDate = datePipeS.transform(this.startDate, 'dd MMM yyyy');
-    //     this.endDate = datePipeS.transform(this.endDate, 'dd MMM yyyy');
-    //     this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
-    //   } else if (event === 'Last 30 days') {
-    //     const days = 30;
-    //     const date = new Date();
-    //     const last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
-    //     this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
-    //     this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate() - 1) < 10 ? '0' : '') + (new Date().getDate() - 1);
-    //     const datePipeS = new DatePipe('en-US');
-    //     this.startDate = datePipeS.transform(this.startDate, 'dd MMM yyyy');
-    //     this.endDate = datePipeS.transform(this.endDate, 'dd MMM yyyy');
-    //     this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
-    //   } else if (event === 'Last Month') {
-    //     const date = new Date();
-    //     const firstDay = new Date(date.getFullYear(), date.getMonth() - 1, 1);
-    //     const lastDay = new Date(date.getFullYear(), date.getMonth(), 0);
-    //     const datePipeS = new DatePipe('en-US');
-    //     this.startDate = datePipeS.transform(firstDay, 'dd MMM yyyy');
-    //     this.endDate = datePipeS.transform(lastDay, 'dd MMM yyyy');
-    //     this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
-    //   } else if (event === 'Last week') {
-    //     const first = new Date().getDate() - new Date().getDay() - 7;
-    //     const last = first + 6; // last day is the first day + 6
-    //     const startDateOfWeek = new Date(new Date().setDate(first));
-    //     const endDateOfWeek = new Date(new Date().setDate(last));
-    //     const datePipeS = new DatePipe('en-US');
-    //     this.startDate = datePipeS.transform(startDateOfWeek, 'dd MMM yyyy');
-    //     this.endDate = datePipeS.transform(endDateOfWeek, 'dd MMM yyyy');
-    //     this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
-    //   } else if (event === 'Yesterday') {
-    //     const days = 1;
-    //     const date = new Date();
-    //     const last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
-    //     this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
-    //     this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate() - 1) < 10 ? '0' : '') + (new Date().getDate() - 1);
-    //     const datePipeS = new DatePipe('en-US');
-    //     this.startDate = datePipeS.transform(this.startDate, 'dd MMM yyyy');
-    //     this.endDate = datePipeS.transform(this.endDate, 'dd MMM yyyy');
-    //     this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
-    //   } else {
-    //     const days = 0;
-    //     const date = new Date();
-    //     const last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
-    //     this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
-    //     this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate()) < 10 ? '0' : '') + (new Date().getDate());
-    //     const datePipeS = new DatePipe('en-US');
-    //     this.startDate = datePipeS.transform(this.startDate, 'dd MMM yyyy');
-    //     this.endDate = datePipeS.transform(this.endDate, 'dd MMM yyyy');
-    //     this.selectedIntialDates = this.startDate + '' + '' + '-' + '' + '' + this.endDate;
-    //   }
-    //   this.finalDataToSend();
-    // }
     OverviewComponent.prototype.clearDateRange = function () {
         this.startDate = '';
         this.endDate = '';
@@ -1998,7 +1930,6 @@ var OverviewComponent = /** @class */ (function () {
         var year = date.substring(0, 4);
         var month = date.substring(4, 6);
         var dates = date.substring(6, 8);
-        // return dates + '-' + monthNames[month < 10 ? (month.substring(1, 2) - 1) : month - 1];
         return monthNames[month < 10 ? (month.substring(1, 2) - 1) : month - 1] + ' ' + dates;
     };
     OverviewComponent.prototype.showdimension = function (dimen) {
@@ -2033,20 +1964,6 @@ var OverviewComponent = /** @class */ (function () {
         var _this = this;
         this.currentTab = event;
         var tables = [];
-        // if (this.currentTab2copy !== '') {
-        // if (event === '(ga:sessionDuration/ga:sessions)') {
-        //   tables.push(['date', this.currentTab2 === '' ? 'Avg. Session Duration' : 'Avg. Session Duration', this.getTheCurrentTab2(this.currentTab2)]);
-        // } else if (event === 'ga:bounceRate') {
-        //   tables.push(['date', this.currentTab2 === '' ? 'Bounce Rate' : 'Bounce Rate', this.getTheCurrentTab2(this.currentTab2)]);
-        // } else if (event === 'Pages/Sessions') {
-        //   this.firstMetric = this.pagevssessions;
-        // } else if (event === 'ga:pageViews') {
-        //   tables.push(['date', this.currentTab2 === '' ? 'pageviews' : 'pageviews', this.getTheCurrentTab2(this.currentTab2)]);
-        // } else if (event === 'ga:sessions') {
-        //   tables.push(['date', this.currentTab2 === '' ? 'Sessions' : 'Sessions', this.getTheCurrentTab2(this.currentTab2)]);
-        // } else if (event === 'ga:users') {
-        //   tables.push(['date', this.currentTab2 === '' ? 'Users' : 'Users', this.getTheCurrentTab2(this.currentTab2)]);
-        // }
         if (this.currentTab2 !== 'Select a metrics') {
             if (event === '(ga:sessionDuration/ga:sessions)') {
                 tables.push(['date', 'Avg. Session Duration', this.getTheCurrentTab2(this.currentTab2)]);
@@ -2112,6 +2029,7 @@ var OverviewComponent = /** @class */ (function () {
             dataTable: tables,
             options: {
                 colors: ['skyblue', '0099FF'], pointsVisible: true,
+                legend: { position: 'top' },
             },
         };
     };
@@ -2167,6 +2085,7 @@ var OverviewComponent = /** @class */ (function () {
             dataTable: tables2,
             options: {
                 colors: ['skyblue', '0099FF'], pointsVisible: true,
+                legend: { position: 'top' },
             },
         };
     };
@@ -2323,6 +2242,7 @@ var OverviewComponent = /** @class */ (function () {
                         dataTable: table_1,
                         options: {
                             colors: ['skyblue', '0099FF'], pointsVisible: true,
+                            legend: { position: 'top', Style: 'circle' }
                         },
                     },
                         // this.lineChartData = {
