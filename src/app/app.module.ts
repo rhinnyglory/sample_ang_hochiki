@@ -33,6 +33,8 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxDeleteConfirmModule } from 'ngx-delete-confirm';
 import * as $ from 'jquery';
 import * as bootstrap from 'bootstrap';
+import * as jquery from 'jquery';
+
 // import { LoaderService } from './loader.service';
 import { ProductComponent } from './component/product/product.component';
 import { CategoryComponent } from './component/category/category.component';

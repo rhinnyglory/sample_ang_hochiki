@@ -1,5 +1,274 @@
 webpackJsonp(["main"],{
 
+/***/ "./node_modules/moment/locale recursive ^\\.\\/.*$":
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./af": "./node_modules/moment/locale/af.js",
+	"./af.js": "./node_modules/moment/locale/af.js",
+	"./ar": "./node_modules/moment/locale/ar.js",
+	"./ar-dz": "./node_modules/moment/locale/ar-dz.js",
+	"./ar-dz.js": "./node_modules/moment/locale/ar-dz.js",
+	"./ar-kw": "./node_modules/moment/locale/ar-kw.js",
+	"./ar-kw.js": "./node_modules/moment/locale/ar-kw.js",
+	"./ar-ly": "./node_modules/moment/locale/ar-ly.js",
+	"./ar-ly.js": "./node_modules/moment/locale/ar-ly.js",
+	"./ar-ma": "./node_modules/moment/locale/ar-ma.js",
+	"./ar-ma.js": "./node_modules/moment/locale/ar-ma.js",
+	"./ar-sa": "./node_modules/moment/locale/ar-sa.js",
+	"./ar-sa.js": "./node_modules/moment/locale/ar-sa.js",
+	"./ar-tn": "./node_modules/moment/locale/ar-tn.js",
+	"./ar-tn.js": "./node_modules/moment/locale/ar-tn.js",
+	"./ar.js": "./node_modules/moment/locale/ar.js",
+	"./az": "./node_modules/moment/locale/az.js",
+	"./az.js": "./node_modules/moment/locale/az.js",
+	"./be": "./node_modules/moment/locale/be.js",
+	"./be.js": "./node_modules/moment/locale/be.js",
+	"./bg": "./node_modules/moment/locale/bg.js",
+	"./bg.js": "./node_modules/moment/locale/bg.js",
+	"./bm": "./node_modules/moment/locale/bm.js",
+	"./bm.js": "./node_modules/moment/locale/bm.js",
+	"./bn": "./node_modules/moment/locale/bn.js",
+	"./bn.js": "./node_modules/moment/locale/bn.js",
+	"./bo": "./node_modules/moment/locale/bo.js",
+	"./bo.js": "./node_modules/moment/locale/bo.js",
+	"./br": "./node_modules/moment/locale/br.js",
+	"./br.js": "./node_modules/moment/locale/br.js",
+	"./bs": "./node_modules/moment/locale/bs.js",
+	"./bs.js": "./node_modules/moment/locale/bs.js",
+	"./ca": "./node_modules/moment/locale/ca.js",
+	"./ca.js": "./node_modules/moment/locale/ca.js",
+	"./cs": "./node_modules/moment/locale/cs.js",
+	"./cs.js": "./node_modules/moment/locale/cs.js",
+	"./cv": "./node_modules/moment/locale/cv.js",
+	"./cv.js": "./node_modules/moment/locale/cv.js",
+	"./cy": "./node_modules/moment/locale/cy.js",
+	"./cy.js": "./node_modules/moment/locale/cy.js",
+	"./da": "./node_modules/moment/locale/da.js",
+	"./da.js": "./node_modules/moment/locale/da.js",
+	"./de": "./node_modules/moment/locale/de.js",
+	"./de-at": "./node_modules/moment/locale/de-at.js",
+	"./de-at.js": "./node_modules/moment/locale/de-at.js",
+	"./de-ch": "./node_modules/moment/locale/de-ch.js",
+	"./de-ch.js": "./node_modules/moment/locale/de-ch.js",
+	"./de.js": "./node_modules/moment/locale/de.js",
+	"./dv": "./node_modules/moment/locale/dv.js",
+	"./dv.js": "./node_modules/moment/locale/dv.js",
+	"./el": "./node_modules/moment/locale/el.js",
+	"./el.js": "./node_modules/moment/locale/el.js",
+	"./en-au": "./node_modules/moment/locale/en-au.js",
+	"./en-au.js": "./node_modules/moment/locale/en-au.js",
+	"./en-ca": "./node_modules/moment/locale/en-ca.js",
+	"./en-ca.js": "./node_modules/moment/locale/en-ca.js",
+	"./en-gb": "./node_modules/moment/locale/en-gb.js",
+	"./en-gb.js": "./node_modules/moment/locale/en-gb.js",
+	"./en-ie": "./node_modules/moment/locale/en-ie.js",
+	"./en-ie.js": "./node_modules/moment/locale/en-ie.js",
+	"./en-il": "./node_modules/moment/locale/en-il.js",
+	"./en-il.js": "./node_modules/moment/locale/en-il.js",
+	"./en-nz": "./node_modules/moment/locale/en-nz.js",
+	"./en-nz.js": "./node_modules/moment/locale/en-nz.js",
+	"./eo": "./node_modules/moment/locale/eo.js",
+	"./eo.js": "./node_modules/moment/locale/eo.js",
+	"./es": "./node_modules/moment/locale/es.js",
+	"./es-do": "./node_modules/moment/locale/es-do.js",
+	"./es-do.js": "./node_modules/moment/locale/es-do.js",
+	"./es-us": "./node_modules/moment/locale/es-us.js",
+	"./es-us.js": "./node_modules/moment/locale/es-us.js",
+	"./es.js": "./node_modules/moment/locale/es.js",
+	"./et": "./node_modules/moment/locale/et.js",
+	"./et.js": "./node_modules/moment/locale/et.js",
+	"./eu": "./node_modules/moment/locale/eu.js",
+	"./eu.js": "./node_modules/moment/locale/eu.js",
+	"./fa": "./node_modules/moment/locale/fa.js",
+	"./fa.js": "./node_modules/moment/locale/fa.js",
+	"./fi": "./node_modules/moment/locale/fi.js",
+	"./fi.js": "./node_modules/moment/locale/fi.js",
+	"./fo": "./node_modules/moment/locale/fo.js",
+	"./fo.js": "./node_modules/moment/locale/fo.js",
+	"./fr": "./node_modules/moment/locale/fr.js",
+	"./fr-ca": "./node_modules/moment/locale/fr-ca.js",
+	"./fr-ca.js": "./node_modules/moment/locale/fr-ca.js",
+	"./fr-ch": "./node_modules/moment/locale/fr-ch.js",
+	"./fr-ch.js": "./node_modules/moment/locale/fr-ch.js",
+	"./fr.js": "./node_modules/moment/locale/fr.js",
+	"./fy": "./node_modules/moment/locale/fy.js",
+	"./fy.js": "./node_modules/moment/locale/fy.js",
+	"./gd": "./node_modules/moment/locale/gd.js",
+	"./gd.js": "./node_modules/moment/locale/gd.js",
+	"./gl": "./node_modules/moment/locale/gl.js",
+	"./gl.js": "./node_modules/moment/locale/gl.js",
+	"./gom-latn": "./node_modules/moment/locale/gom-latn.js",
+	"./gom-latn.js": "./node_modules/moment/locale/gom-latn.js",
+	"./gu": "./node_modules/moment/locale/gu.js",
+	"./gu.js": "./node_modules/moment/locale/gu.js",
+	"./he": "./node_modules/moment/locale/he.js",
+	"./he.js": "./node_modules/moment/locale/he.js",
+	"./hi": "./node_modules/moment/locale/hi.js",
+	"./hi.js": "./node_modules/moment/locale/hi.js",
+	"./hr": "./node_modules/moment/locale/hr.js",
+	"./hr.js": "./node_modules/moment/locale/hr.js",
+	"./hu": "./node_modules/moment/locale/hu.js",
+	"./hu.js": "./node_modules/moment/locale/hu.js",
+	"./hy-am": "./node_modules/moment/locale/hy-am.js",
+	"./hy-am.js": "./node_modules/moment/locale/hy-am.js",
+	"./id": "./node_modules/moment/locale/id.js",
+	"./id.js": "./node_modules/moment/locale/id.js",
+	"./is": "./node_modules/moment/locale/is.js",
+	"./is.js": "./node_modules/moment/locale/is.js",
+	"./it": "./node_modules/moment/locale/it.js",
+	"./it.js": "./node_modules/moment/locale/it.js",
+	"./ja": "./node_modules/moment/locale/ja.js",
+	"./ja.js": "./node_modules/moment/locale/ja.js",
+	"./jv": "./node_modules/moment/locale/jv.js",
+	"./jv.js": "./node_modules/moment/locale/jv.js",
+	"./ka": "./node_modules/moment/locale/ka.js",
+	"./ka.js": "./node_modules/moment/locale/ka.js",
+	"./kk": "./node_modules/moment/locale/kk.js",
+	"./kk.js": "./node_modules/moment/locale/kk.js",
+	"./km": "./node_modules/moment/locale/km.js",
+	"./km.js": "./node_modules/moment/locale/km.js",
+	"./kn": "./node_modules/moment/locale/kn.js",
+	"./kn.js": "./node_modules/moment/locale/kn.js",
+	"./ko": "./node_modules/moment/locale/ko.js",
+	"./ko.js": "./node_modules/moment/locale/ko.js",
+	"./ky": "./node_modules/moment/locale/ky.js",
+	"./ky.js": "./node_modules/moment/locale/ky.js",
+	"./lb": "./node_modules/moment/locale/lb.js",
+	"./lb.js": "./node_modules/moment/locale/lb.js",
+	"./lo": "./node_modules/moment/locale/lo.js",
+	"./lo.js": "./node_modules/moment/locale/lo.js",
+	"./lt": "./node_modules/moment/locale/lt.js",
+	"./lt.js": "./node_modules/moment/locale/lt.js",
+	"./lv": "./node_modules/moment/locale/lv.js",
+	"./lv.js": "./node_modules/moment/locale/lv.js",
+	"./me": "./node_modules/moment/locale/me.js",
+	"./me.js": "./node_modules/moment/locale/me.js",
+	"./mi": "./node_modules/moment/locale/mi.js",
+	"./mi.js": "./node_modules/moment/locale/mi.js",
+	"./mk": "./node_modules/moment/locale/mk.js",
+	"./mk.js": "./node_modules/moment/locale/mk.js",
+	"./ml": "./node_modules/moment/locale/ml.js",
+	"./ml.js": "./node_modules/moment/locale/ml.js",
+	"./mn": "./node_modules/moment/locale/mn.js",
+	"./mn.js": "./node_modules/moment/locale/mn.js",
+	"./mr": "./node_modules/moment/locale/mr.js",
+	"./mr.js": "./node_modules/moment/locale/mr.js",
+	"./ms": "./node_modules/moment/locale/ms.js",
+	"./ms-my": "./node_modules/moment/locale/ms-my.js",
+	"./ms-my.js": "./node_modules/moment/locale/ms-my.js",
+	"./ms.js": "./node_modules/moment/locale/ms.js",
+	"./mt": "./node_modules/moment/locale/mt.js",
+	"./mt.js": "./node_modules/moment/locale/mt.js",
+	"./my": "./node_modules/moment/locale/my.js",
+	"./my.js": "./node_modules/moment/locale/my.js",
+	"./nb": "./node_modules/moment/locale/nb.js",
+	"./nb.js": "./node_modules/moment/locale/nb.js",
+	"./ne": "./node_modules/moment/locale/ne.js",
+	"./ne.js": "./node_modules/moment/locale/ne.js",
+	"./nl": "./node_modules/moment/locale/nl.js",
+	"./nl-be": "./node_modules/moment/locale/nl-be.js",
+	"./nl-be.js": "./node_modules/moment/locale/nl-be.js",
+	"./nl.js": "./node_modules/moment/locale/nl.js",
+	"./nn": "./node_modules/moment/locale/nn.js",
+	"./nn.js": "./node_modules/moment/locale/nn.js",
+	"./pa-in": "./node_modules/moment/locale/pa-in.js",
+	"./pa-in.js": "./node_modules/moment/locale/pa-in.js",
+	"./pl": "./node_modules/moment/locale/pl.js",
+	"./pl.js": "./node_modules/moment/locale/pl.js",
+	"./pt": "./node_modules/moment/locale/pt.js",
+	"./pt-br": "./node_modules/moment/locale/pt-br.js",
+	"./pt-br.js": "./node_modules/moment/locale/pt-br.js",
+	"./pt.js": "./node_modules/moment/locale/pt.js",
+	"./ro": "./node_modules/moment/locale/ro.js",
+	"./ro.js": "./node_modules/moment/locale/ro.js",
+	"./ru": "./node_modules/moment/locale/ru.js",
+	"./ru.js": "./node_modules/moment/locale/ru.js",
+	"./sd": "./node_modules/moment/locale/sd.js",
+	"./sd.js": "./node_modules/moment/locale/sd.js",
+	"./se": "./node_modules/moment/locale/se.js",
+	"./se.js": "./node_modules/moment/locale/se.js",
+	"./si": "./node_modules/moment/locale/si.js",
+	"./si.js": "./node_modules/moment/locale/si.js",
+	"./sk": "./node_modules/moment/locale/sk.js",
+	"./sk.js": "./node_modules/moment/locale/sk.js",
+	"./sl": "./node_modules/moment/locale/sl.js",
+	"./sl.js": "./node_modules/moment/locale/sl.js",
+	"./sq": "./node_modules/moment/locale/sq.js",
+	"./sq.js": "./node_modules/moment/locale/sq.js",
+	"./sr": "./node_modules/moment/locale/sr.js",
+	"./sr-cyrl": "./node_modules/moment/locale/sr-cyrl.js",
+	"./sr-cyrl.js": "./node_modules/moment/locale/sr-cyrl.js",
+	"./sr.js": "./node_modules/moment/locale/sr.js",
+	"./ss": "./node_modules/moment/locale/ss.js",
+	"./ss.js": "./node_modules/moment/locale/ss.js",
+	"./sv": "./node_modules/moment/locale/sv.js",
+	"./sv.js": "./node_modules/moment/locale/sv.js",
+	"./sw": "./node_modules/moment/locale/sw.js",
+	"./sw.js": "./node_modules/moment/locale/sw.js",
+	"./ta": "./node_modules/moment/locale/ta.js",
+	"./ta.js": "./node_modules/moment/locale/ta.js",
+	"./te": "./node_modules/moment/locale/te.js",
+	"./te.js": "./node_modules/moment/locale/te.js",
+	"./tet": "./node_modules/moment/locale/tet.js",
+	"./tet.js": "./node_modules/moment/locale/tet.js",
+	"./tg": "./node_modules/moment/locale/tg.js",
+	"./tg.js": "./node_modules/moment/locale/tg.js",
+	"./th": "./node_modules/moment/locale/th.js",
+	"./th.js": "./node_modules/moment/locale/th.js",
+	"./tl-ph": "./node_modules/moment/locale/tl-ph.js",
+	"./tl-ph.js": "./node_modules/moment/locale/tl-ph.js",
+	"./tlh": "./node_modules/moment/locale/tlh.js",
+	"./tlh.js": "./node_modules/moment/locale/tlh.js",
+	"./tr": "./node_modules/moment/locale/tr.js",
+	"./tr.js": "./node_modules/moment/locale/tr.js",
+	"./tzl": "./node_modules/moment/locale/tzl.js",
+	"./tzl.js": "./node_modules/moment/locale/tzl.js",
+	"./tzm": "./node_modules/moment/locale/tzm.js",
+	"./tzm-latn": "./node_modules/moment/locale/tzm-latn.js",
+	"./tzm-latn.js": "./node_modules/moment/locale/tzm-latn.js",
+	"./tzm.js": "./node_modules/moment/locale/tzm.js",
+	"./ug-cn": "./node_modules/moment/locale/ug-cn.js",
+	"./ug-cn.js": "./node_modules/moment/locale/ug-cn.js",
+	"./uk": "./node_modules/moment/locale/uk.js",
+	"./uk.js": "./node_modules/moment/locale/uk.js",
+	"./ur": "./node_modules/moment/locale/ur.js",
+	"./ur.js": "./node_modules/moment/locale/ur.js",
+	"./uz": "./node_modules/moment/locale/uz.js",
+	"./uz-latn": "./node_modules/moment/locale/uz-latn.js",
+	"./uz-latn.js": "./node_modules/moment/locale/uz-latn.js",
+	"./uz.js": "./node_modules/moment/locale/uz.js",
+	"./vi": "./node_modules/moment/locale/vi.js",
+	"./vi.js": "./node_modules/moment/locale/vi.js",
+	"./x-pseudo": "./node_modules/moment/locale/x-pseudo.js",
+	"./x-pseudo.js": "./node_modules/moment/locale/x-pseudo.js",
+	"./yo": "./node_modules/moment/locale/yo.js",
+	"./yo.js": "./node_modules/moment/locale/yo.js",
+	"./zh-cn": "./node_modules/moment/locale/zh-cn.js",
+	"./zh-cn.js": "./node_modules/moment/locale/zh-cn.js",
+	"./zh-hk": "./node_modules/moment/locale/zh-hk.js",
+	"./zh-hk.js": "./node_modules/moment/locale/zh-hk.js",
+	"./zh-tw": "./node_modules/moment/locale/zh-tw.js",
+	"./zh-tw.js": "./node_modules/moment/locale/zh-tw.js"
+};
+function webpackContext(req) {
+	return __webpack_require__(webpackContextResolve(req));
+};
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) // check for number or string
+		throw new Error("Cannot find module '" + req + "'.");
+	return id;
+};
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./node_modules/moment/locale recursive ^\\.\\/.*$";
+
+/***/ }),
+
 /***/ "./src/$$_gendir lazy recursive":
 /***/ (function(module, exports) {
 
@@ -1715,14 +1984,14 @@ var MainContentComponent = /** @class */ (function () {
 /***/ "./src/app/component/overview/overview.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".box.box-default.trafic {\n    border-top-color: #d2d6de;\n    height: 320px;\n}\n.box.box-default.key {\n    border-top-color: #d2d6de;\n    /* height: 600px; */\n    height:300px;\n}\n.btn-group .pull-right{\n    padding-left: 813px;\n}\n.textsize{\n    font-size: 30px;\n}\n.breadcrumbs{\n    float:right;\n}\n.ButtonState{display:none}\n.Button{padding: 6px; margin:0 -2px; background:#fff; border:1px solid rgb(179, 174, 174); cursor:pointer;}\n.ButtonState:checked + .Button{background:#CCC;}\ntd{\n    height: 88px;\n    padding: 30px;\n    \n}\n.table > tbody > tr > td, .table > tfoot > tr > td {\n    padding: 33px;\n   \n}\n.pl0 { padding-left: 798px; }\n.pl2 { padding-left: 0px; }\n.pl3 {  padding-left: 164px; }\n.pr10 {padding-left: 0px;}\n.mtb7 {\n    margin: 7px 0;\n}\n.inline-block {\n    display: inline-block;\n}\n@media (min-width: 992px)\n{\n    .w6 {width: 7%;}\n    \n}\n@media (min-width: 992px)\n{\n    .w16 {\n        width: 34.666667%;\n    }\n    .p0 {padding-left: 0px;\n        width: 34.666667%;\n    } \n}\n"
+module.exports = ".box.box-default.trafic {\n    border-top-color: #d2d6de;\n    height: 320px;\n}\n.box.box-default.key {\n    border-top-color: #d2d6de;\n    /* height: 600px; */\n    height:300px;\n}\n.btn-group .pull-right{\n    padding-left: 813px;\n}\n.textsize{\n    font-size: 30px;\n}\n.breadcrumbs{\n    float:right;\n}\n.ButtonState{display:none}\n.Button{padding: 6px; margin:0 -2px; background:#fff; border:1px solid rgb(179, 174, 174); cursor:pointer;}\n.ButtonState:checked + .Button{background:#CCC;}\ntd{\n    height: 88px;\n    padding: 30px;\n    \n}\n.table > tbody > tr > td, .table > tfoot > tr > td {\n    padding: 33px;\n   \n}\n.pl0 { padding-left: 798px; }\n.pl2 { padding-left: 0px; }\n.pl3 {  padding-left: 164px; }\n.pr10 {padding-left: 0px;}\n.mtb7 {\n    margin: 7px 0;\n}\n.inline-block {\n    display: inline-block;\n}\n@media (min-width: 992px)\n{\n    .w6 {width: 7%;}\n    \n}\n@media (min-width: 992px)\n{\n    .w16 {\n        width: 34.666667%;\n    }\n    .p0 {padding-left: 0px;\n        width: 34.666667%;\n    } \n}\n.cg{\n    color:rgb(212, 208, 208);\n}"
 
 /***/ }),
 
 /***/ "./src/app/component/overview/overview.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<div class=\"content-wrapper\">\n  <!-- Content Header (Page header) -->\n  <section class=\"content-header\">\n    <h1>\n        Hochiki - Audience Overview\n   \n    </h1>\n  \n   \n  </section>\n \n\n  <!-- Main content -->\n  <section class=\"content\">\n      <div class=\"box box-default trafic \">\n         \n          <!-- /.box-header -->\n          <div class=\"box-body\">\n            <div class=\"row\">\n                <div class=\"col-md-12\">\n                  <div class=\"row\">\n                    <div class=\"col-md-6\">\n                            <!-- <div class=\"col-md-5\"> -->\n                                  <div class=\"form-group inline-block\">\n                                      <select [(ngModel)]='currentTab'  class=\"form-control\" (ngModelChange)=\"getDetailsfirst($event)\">\n                                          <option  *ngFor=\"let metric of matrics\" selected=\"currentTab == metric.id\"  [value]=\"metric.id\" >\n                                            {{metric.value}}\n                                          </option>\n                                        </select> \n                                  </div>\n                                  <div class=\"inline-block\">Vs.</div>\n                                      <div class=\"form-group inline-block\">\n                                          <select [(ngModel)]='currentTab2'  class=\"form-control\"  (ngModelChange)=\"getDetailssecond($event)\">\n                                              \n                                               <option [value]=\" \" selected=\"currentTab2 == metric2.id\" >Select a metrics</option>\n                \n                                                 <option  *ngFor=\"let metric2 of matrics2\" selected=\"currentTab2 == metric2.id\"  [value]=\"metric2.id\" >\n                                                   {{metric2.value}}\n                                                 </option>\n                                               </select> \n                                      </div>\n                            <!-- </div> -->\n                          \n                      </div>\n                  <div class=\"col-md-6 text-right\">\n                      \n                      <form #myForm=\"ngForm\" novalidate>\n                          <my-date-range-picker [options]=\"myDateRangePickerOptions\" placeholder=\"Select date range\" (dateRangeChanged)=\"onDateRangeChanged($event)\" \n                            (dateSelected)=\"onDateSelected($event)\" date-format=\"dd MMM yyyy\"\n                            selDateRange={{selectedIntialDates}}></my-date-range-picker>                \n                      </form>\n                  </div>\n                </div>\n                   \n                </div>\n              <div class=\"col-md-12\">\n                \n                  <div class=\"row\">\n                  <div class=\"col-md-6\">\n                  </div>\n                  <div class=\"col-md-6\">\n                      <div class=\"row\"> \n                      <div class=\"col-md-6 col-md-offset-6 text-right\">\n                            <div class=\"btn-group\">\n                                <!-- <button type=\"button\" class=\"btn btn-default\"   (click)=\"showdimension('ga:date');\">Day</button>\n                                <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:week');\">Week</button>\n                                <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:month');\">Month</button> -->\n                                <input type=\"radio\" name=\"Button\" class=\"ButtonState\" checked id=\"Button1\" value=\"1\"/>\n                                <label class=\"Button\" for=\"Button1\" (click)=\"showdimension('ga:date');\" >Day</label>\n                                <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button2\" value=\"2\"/>\n                                <!-- <button class=\"Button\" name=\"Button\" class=\"ButtonState\"  [disabled]=\"buttonDisabled\"  id=\"Button2\" value=\"2\">Week</button> -->\n                                <label class=\"Button\" for=\"Button2\"  (click)=\"showdimension('ga:week');\">Week</label>\n                                <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button3\" value=\"3\"/>\n                                <label class=\"Button\" for=\"Button3\" (click)=\"showdimension('ga:month');\">Month</label>\n                              \n                            </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n              </div>  \n              <div class=\"col-md-12\">\n                  <google-chart [data]=\"lineChartData\" #cchart\n                    (chartSelect)=\"select($event)\" options=\"{'hAxis.gridlines' : false,'hAxis.viewWindow'  : false}\"></google-chart>\n                </div>\n              <!-- /.col -->\n            \n              <!-- /.col -->\n            </div>\n            \n            <!-- /.row -->\n          </div>\n          <!-- /.box-body -->\n         \n        </div>\n        <div class=\"box box-default key\">\n          \n            <!-- /.box-header -->\n         \n            <!-- /.box-body -->\n           \n            <table class=\"table table-bordered\">\n                <tr>\n                    <td>Sessions:<br><b class=\"textsize\">{{sessionTotal}}</b></td>\n                    <td>\n                        Users:<br>\n                        <b class=\"textsize\">{{usersTotal}}</b>\n                        </td>\n                        <td>\n                            Avg.Session Duration:<br>\n                            <b class=\"textsize\">{{totalSessionUsers }} </b>\n                            </td>\n                            <td>Bounce Rate:<br>\n                              <b class=\"textsize\">{{bouncesTotal }}%</b>  </td>\n                      </tr>\n                <tr>\n                    <td>Pageviews: <br>\n                      <b class=\"textsize\">{{pageViewTotal}} </b>  </td>\n                    <td>Pages/Session:<br>\n                      <b class=\"textsize\">{{pagevssessionsTotalRound}}</b>  </td>\n                    <td>% New Sessions:<br>\n                      <b class=\"textsize\">{{persessionsTotal }}%</b>  </td>\n                      <td>New Users:<br>\n                        <b class=\"textsize\">{{newUsers }}</b>  </td>\n                </tr>\n               \n            </table>\n\n\n\n          </div>\n          <div *ngIf=\"showLoader\" class=\"fa fa-spinner fa-spin\" style=\"font-size:50px;text-align: center;\n          position: absolute;top: 50%;left: 50%;\"></div>\n  </section>\n  <!-- /.content -->\n</div>"
+module.exports = "\n\n<div class=\"content-wrapper\">\n  <!-- Content Header (Page header) -->\n  <section class=\"content-header\">\n    <h1>\n      Hochiki - Audience Overview\n\n    </h1>\n\n\n  </section>\n\n\n  <!-- Main content -->\n  <section class=\"content\">\n    <div class=\"box box-default trafic \">\n\n      <!-- /.box-header -->\n      <div class=\"box-body\">\n        <div class=\"row\">\n          <div class=\"col-md-12\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                <!-- <div class=\"col-md-5\"> -->\n                <div class=\"form-group inline-block\">\n                  <select [(ngModel)]='currentTab' class=\"form-control\" (ngModelChange)=\"getDetailsfirst($event)\">\n                    <option *ngFor=\"let metric of matrics\" selected=\"currentTab == metric.id\" [value]=\"metric.id\">\n                      {{metric.value}}\n                    </option>\n                  </select>\n                </div>\n                <div class=\"inline-block\">Vs.</div>\n                <div class=\"form-group inline-block\">\n                  <select [(ngModel)]='currentTab2' class=\"form-control\" (ngModelChange)=\"getDetailssecond($event)\">\n\n                    <option [value]=\" \" selected=\"currentTab2 == metric2.id\">Select a metrics</option>\n\n                    <option *ngFor=\"let metric2 of matrics2\" selected=\"currentTab2 == metric2.id\" [value]=\"metric2.id\">\n                      {{metric2.value}}\n                    </option>\n                  </select>\n                </div>\n                <!-- </div> -->\n\n              </div>\n              <div class=\"col-md-6\">\n                  <div class=\"row\">\n                      <div class=\"col-md-6 col-md-offset-6 text-right\">\n                          <div id=\"reportrange\" style=\"background: #fff; cursor: pointer; padding: 5px 10px; border-bottom: 1px solid rgb(212, 208, 208); width: 229px;margin-left: 59px;\">\n                              <!-- <i class=\"fa fa-calendar\"></i>&nbsp; -->\n                              <span></span> <i class=\"fa fa-caret-down cg\"></i>\n                          </div>\n                      </div>\n                    </div>\n\n                \n\n                <!-- <div id=\"daterange-picker-container\">\n                </div> -->\n\n\n                <!-- <form #myForm=\"ngForm\" novalidate>\n                          <my-date-range-picker [options]=\"myDateRangePickerOptions\" placeholder=\"Select date range\" (dateRangeChanged)=\"onDateRangeChanged($event)\" \n                            (dateSelected)=\"onDateSelected($event)\" date-format=\"dd MMM yyyy\"\n                            selDateRange={{selectedIntialDates}}></my-date-range-picker>                \n                      </form> -->\n              </div>\n            </div>\n\n          </div>\n          <div class=\"col-md-12\">\n\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n              </div>\n              <div class=\"col-md-6\">\n                <div class=\"row\">\n                  <div class=\"col-md-6 col-md-offset-6 text-right\">\n                    <div class=\"btn-group\">\n                      <!-- <button type=\"button\" class=\"btn btn-default\"   (click)=\"showdimension('ga:date');\">Day</button>\n                                <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:week');\">Week</button>\n                                <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:month');\">Month</button> -->\n                      <input type=\"radio\" name=\"Button\" class=\"ButtonState\" checked id=\"Button1\" value=\"1\" />\n                      <label class=\"Button\" for=\"Button1\" (click)=\"showdimension('ga:date');\">Day</label>\n                      <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button2\" value=\"2\" />\n                      <!-- <button class=\"Button\" name=\"Button\" class=\"ButtonState\"  [disabled]=\"buttonDisabled\"  id=\"Button2\" value=\"2\">Week</button> -->\n                      <label class=\"Button\" for=\"Button2\" (click)=\"showdimension('ga:week');\">Week</label>\n                      <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button3\" value=\"3\" />\n                      <label class=\"Button\" for=\"Button3\" (click)=\"showdimension('ga:month');\">Month</label>\n\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-md-12\">\n            <google-chart [data]=\"lineChartData\" #cchart (chartSelect)=\"select($event)\" options=\"{'hAxis.gridlines' : false,'hAxis.viewWindow'  : false}\"></google-chart>\n          </div>\n          <!-- /.col -->\n\n          <!-- /.col -->\n        </div>\n\n        <!-- /.row -->\n      </div>\n      <!-- /.box-body -->\n\n    </div>\n    <div class=\"box box-default key\">\n\n      <!-- /.box-header -->\n\n      <!-- /.box-body -->\n\n      <table class=\"table table-bordered\">\n        <tr>\n          <td>Sessions:\n            <br>\n            <b class=\"textsize\">{{sessionTotal}}</b>\n          </td>\n          <td>\n            Users:\n            <br>\n            <b class=\"textsize\">{{usersTotal}}</b>\n          </td>\n          <td>\n            Avg.Session Duration:\n            <br>\n            <b class=\"textsize\">{{totalSessionUsers }} </b>\n          </td>\n          <td>Bounce Rate:\n            <br>\n            <b class=\"textsize\">{{bouncesTotal }}%</b>\n          </td>\n        </tr>\n        <tr>\n          <td>Pageviews:\n            <br>\n            <b class=\"textsize\">{{pageViewTotal}} </b>\n          </td>\n          <td>Pages/Session:\n            <br>\n            <b class=\"textsize\">{{pagevssessionsTotalRound}}</b>\n          </td>\n          <td>% New Sessions:\n            <br>\n            <b class=\"textsize\">{{persessionsTotal }}%</b>\n          </td>\n          <td>New Users:\n            <br>\n            <b class=\"textsize\">{{newUsers }}</b>\n          </td>\n        </tr>\n\n      </table>\n\n\n\n    </div>\n    <div *ngIf=\"showLoader\" class=\"fa fa-spinner fa-spin\" style=\"font-size:50px;text-align: center;\n          position: absolute;top: 50%;left: 50%;\"></div>\n  </section>\n  <!-- /.content -->\n</div>"
 
 /***/ }),
 
@@ -1733,9 +2002,10 @@ module.exports = "\n\n<div class=\"content-wrapper\">\n  <!-- Content Header (Pa
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OverviewComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__("./node_modules/@angular/common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__overview_service__ = __webpack_require__("./src/app/component/overview/overview.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__overview_service__ = __webpack_require__("./src/app/component/overview/overview.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__("./node_modules/moment/moment.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1747,17 +2017,43 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 // import { IMyDpOptions, IMyDateModel, IMyInputFieldChanged } from 'mydatepicker';
 
 
+ // add this 1 of 4
+// import 'jquery-daterangepicker/lib/dist/daterangepicker.min.css';
 var OverviewComponent = /** @class */ (function () {
+    //   myDateRangePickerOptions: IMyDrpOptions = {
+    //     dateFormat: 'mmm dd, yyyy',
+    //     disableSince: { year: new Date().getFullYear(), month: (new Date().getMonth() + 1), day: (new Date().getDate() + 1) },
+    //  };
+    //   private model: any = {
+    //     beginDate: this.startDate,
+    //     endDate: this.endDate
+    //   };
+    //   setDateRange(): void {
+    //     const date = new Date();
+    //     this.myForm.patchValue({
+    //       myDateRange: {
+    //         beginDate: {
+    //           year: date.getFullYear(),
+    //           month: date.getMonth() + 1,
+    //           day: date.getDate()
+    //         },
+    //         endDate: {
+    //           year: date.getFullYear(),
+    //           month: date.getMonth() + 1,
+    //           day: date.getDate()
+    //         }
+    //       }
+    //     });
+    //   }
     function OverviewComponent(router, cluster1Service, formBuilder) {
         this.router = router;
         this.cluster1Service = cluster1Service;
         this.formBuilder = formBuilder;
-        this.startDate = '';
-        this.endDate = '';
+        this.startDate = 'Jun 22, 2018';
+        this.endDate = ' Jun 29, 2018';
         this.days = '';
         this.beginDateFormat = '';
         this.endDateFormat = '';
@@ -1778,9 +2074,8 @@ var OverviewComponent = /** @class */ (function () {
         this.totalSessionUsersRound = 0;
         this.totalSessionUsers = '';
         this.IntialDates = '';
-        this.start = '';
+        // private start = '';
         this.selectedIntialDates = '';
-        this.end = '';
         this.dataTable = [];
         this.day = [];
         this.previousDays = [];
@@ -1799,6 +2094,7 @@ var OverviewComponent = /** @class */ (function () {
         this.currentTab2 = '';
         this.currentTabcopy = '';
         this.currentTab2copy = '';
+        this.QUnit = {};
         this.lineChartData = {
             chartType: '',
             dataTable: [],
@@ -1867,62 +2163,68 @@ var OverviewComponent = /** @class */ (function () {
             dataTable: [],
             options: {}
         };
-        this.myDateRangePickerOptions = {
-            // other options...
-            // dateFormat: 'yyyy-mm-dd',
-            dateFormat: 'mmm dd, yyyy',
-            // dateFormat: ' DD YYYY'MMM,
-            disableSince: { year: new Date().getFullYear(), month: (new Date().getMonth() + 1), day: (new Date().getDate() + 1) },
-        };
-        this.model = {
-            beginDate: this.startDate,
-            endDate: this.endDate
-        };
         this.matrics = [{ id: 'ga:sessions', value: 'Sessions' }, { id: 'ga:bounceRate', value: 'Bounce Rate' }, { id: 'ga:users', value: 'Users' }, { id: 'ga:pageViews', value: 'Pageviews' }];
         this.matrics2 = [{ id: 'ga:sessions', value: 'Sessions' }, { id: 'ga:bounceRate', value: 'Bounce Rate' }, { id: 'ga:users', value: 'Users' }, { id: 'ga:pageViews', value: 'Pageviews' }];
         this.buttonDisabled = false;
     }
-    OverviewComponent.prototype.setDateRange = function () {
-        var date = new Date();
-        this.myForm.patchValue({
-            myDateRange: {
-                beginDate: {
-                    year: date.getFullYear(),
-                    month: date.getMonth() + 1,
-                    day: date.getDate()
-                },
-                endDate: {
-                    year: date.getFullYear(),
-                    month: date.getMonth() + 1,
-                    day: date.getDate()
-                }
-            }
-        });
-    };
     OverviewComponent.prototype.ngOnInit = function () {
         document.title = 'Audience Overview - Firestrome';
-        this.myForm = this.formBuilder.group({
-            myDateRange: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required]
-        });
-        // ($('#daterange') as any).dateRangePicker({
-        //   container: '#daterange-picker-container',
-        //   defaultDateRange: 'LAST_30_DAYS'
+        // this.myForm = this.formBuilder.group({
+        //   myDateRange: ['', Validators.required]
         // });
-        var days = 7;
-        var date = new Date();
-        var last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
-        this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
-        this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate()) < 10 ? '0' : '') + (new Date().getDate());
-        var datePipeS = new __WEBPACK_IMPORTED_MODULE_2__angular_common__["DatePipe"]('en-US');
-        this.startDate = datePipeS.transform(this.startDate, 'MMM dd, yyyy');
-        this.endDate = datePipeS.transform(this.endDate, 'MMM dd, yyyy');
-        this.selectedIntialDates = this.startDate + ' ' + '' + '-' + '' + ' ' + this.endDate;
+        var vm = this;
+        $(function () {
+            var start = __WEBPACK_IMPORTED_MODULE_4_moment__().subtract(7, 'days');
+            var end = __WEBPACK_IMPORTED_MODULE_4_moment__().subtract(1, 'days');
+            vm.startDate = start.format('MMM D, YYYY');
+            vm.endDate = end.format('MMM D, YYYY');
+            // console.log()
+            function cb(start, end) {
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            }
+            $('#reportrange').daterangepicker({
+                startDate: start,
+                endDate: end,
+                opens: 'left',
+                alwaysShowCalendars: true,
+                maxDate: __WEBPACK_IMPORTED_MODULE_4_moment__(),
+                ranges: {
+                    'Today': [__WEBPACK_IMPORTED_MODULE_4_moment__(), __WEBPACK_IMPORTED_MODULE_4_moment__()],
+                    'Yesterday': [__WEBPACK_IMPORTED_MODULE_4_moment__().subtract(1, 'days'), __WEBPACK_IMPORTED_MODULE_4_moment__().subtract(1, 'days')],
+                    'Last 7 Days': [__WEBPACK_IMPORTED_MODULE_4_moment__().subtract(6, 'days'), __WEBPACK_IMPORTED_MODULE_4_moment__()],
+                    'Last 30 Days': [__WEBPACK_IMPORTED_MODULE_4_moment__().subtract(29, 'days'), __WEBPACK_IMPORTED_MODULE_4_moment__()],
+                    'This Month': [__WEBPACK_IMPORTED_MODULE_4_moment__().startOf('month'), __WEBPACK_IMPORTED_MODULE_4_moment__().endOf('month')],
+                    'Last Month': [__WEBPACK_IMPORTED_MODULE_4_moment__().subtract(1, 'month').startOf('month'), __WEBPACK_IMPORTED_MODULE_4_moment__().subtract(1, 'month').endOf('month')]
+                }
+            }, cb);
+            cb(start, end);
+        });
+        $('#reportrange').on('apply.daterangepicker', function (ev, picker) {
+            console.log(picker.startDate.format('MMM D, YYYY'));
+            console.log(picker.endDate.format('MMM D, YYYY'));
+            vm.startDate = picker.startDate.format('MMM D, YYYY');
+            vm.endDate = picker.endDate.format('MMM D, YYYY');
+            // console.log(this.startDate, this.endDate);
+            vm.finalDataToSend();
+        });
+        // console.log(this.startDate , this.endDate, 'hghjghjgkj' );
+        // console.log(picker.startDate.format('MMM D, YYYY'));
+        // console.log(picker.endDate.format('MMM D, YYYY'));
+        // const days = 7;
+        // const date = new Date();
+        // const last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
+        // this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
+        // this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate()) < 10 ? '0' : '') + (new Date().getDate());
+        // const datePipeS = new DatePipe('en-US');
+        // this.startDate = datePipeS.transform(this.startDate, 'MMM dd, yyyy');
+        // this.endDate = datePipeS.transform(this.endDate, 'MMM dd, yyyy');
+        // this.selectedIntialDates = this.startDate + ' ' + '' + '-' + '' + ' ' + this.endDate;
         this.finalDataToSend();
     };
-    OverviewComponent.prototype.clearDateRange = function () {
-        this.startDate = '';
-        this.endDate = '';
-    };
+    // clearDateRange(): void {
+    //   this.startDate = '';
+    //   this.endDate = '';
+    // }
     OverviewComponent.prototype.gettheDate = function (date) {
         var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
             'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'
@@ -1936,22 +2238,17 @@ var OverviewComponent = /** @class */ (function () {
         this.dimensions = dimen;
         this.finalDataToSend();
     };
-    OverviewComponent.prototype.onDateRangeChanged = function (event) {
-        if (event.formatted !== '') {
-            // const datePipe = new DatePipe('en-US');
-            // this.startDate = datePipe.transform(event.beginJsDate, 'dd MMM yyyy');
-            // this.endDate = datePipe.transform(event.endJsDate, 'dd MMM yyyy');
-            var newDate = new Date(this.endDate);
-            if (event.beginJsDate <= newDate && event.endJsDate >= newDate) {
-                this.finalDataToSend();
-            }
-            else {
-                this.onDateSelected(event);
-            }
-        }
-        else {
-        }
-    };
+    // onDateRangeChanged(event: IMyDateRangeModel) {
+    //   if (event.formatted !== '') {
+    //     const newDate = new Date(this.endDate);
+    //     if (event.beginJsDate <= newDate && event.endJsDate >= newDate) {
+    //       this.finalDataToSend();
+    //     } else {
+    //       this.onDateSelected(event);
+    //     }
+    //   } else {
+    //   }
+    // }
     OverviewComponent.prototype.onDateSelected = function (dates) {
         if (dates.type === 1) {
             this.startDate = dates.formatted;
@@ -2139,6 +2436,7 @@ var OverviewComponent = /** @class */ (function () {
         completeDate.startDate = new Date(this.startDate).getFullYear() + '-' + ((new Date(this.startDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.startDate).getMonth() + 1) + '-' + ((new Date(this.startDate).getDate()) < 10 ? '0' : '') + (new Date(this.startDate).getDate());
         completeDate.endDate = new Date(this.endDate).getFullYear() + '-' + ((new Date(this.endDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.endDate).getMonth() + 1) + '-' + ((new Date(this.endDate).getDate()) < 10 ? '0' : '') + (new Date(this.endDate).getDate());
         completeDate.dimensions = this.dimensions;
+        console.log(completeDate.startDate, completeDate.endDate, completeDate.dimensions);
         this.showLoader = true;
         if (this.startDate !== '' && this.endDate !== '' && this.dimensions !== '' && completeDate.endDate >= completeDate.startDate) {
             this.cluster1Service.createGraph(completeDate)
@@ -2209,6 +2507,7 @@ var OverviewComponent = /** @class */ (function () {
                         if (_this.currentTab2 !== 'Select a metrics') {
                             if (_this.dimensions === 'ga:date') {
                                 table_1.push([_this.gettheDate(_this.day[0]['ga:date']), _this.session, _this.user]);
+                                // table.push([this.day[0]['ga:date'], this.session, this.user])
                             }
                             else {
                                 table_1.push([_this.day[0]['ga:date'], _this.session, _this.user]);
@@ -2217,6 +2516,7 @@ var OverviewComponent = /** @class */ (function () {
                         else {
                             if (_this.dimensions === 'ga:date') {
                                 table_1.push([_this.gettheDate(_this.day[0]['ga:date']), _this.session]);
+                                // table.push([this.day[0]['ga:date'], this.session]);
                             }
                             else {
                                 table_1.push([_this.day[0]['ga:date'], _this.session]);
@@ -2245,10 +2545,6 @@ var OverviewComponent = /** @class */ (function () {
                             legend: { position: 'top', Style: 'circle' }
                         },
                     },
-                        // this.lineChartData = {
-                        //   chartType: 'AreaChart',
-                        //   dataTable: table,
-                        // };
                         _this.lineChartDatasessions = {
                             chartType: 'AreaChart',
                             dataTable: sessions,
@@ -2292,7 +2588,7 @@ var OverviewComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/component/overview/overview.component.html"),
             styles: [__webpack_require__("./src/app/component/overview/overview.component.css")]
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__overview_service__["a" /* overviewService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__overview_service__["a" /* overviewService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__overview_service__["a" /* overviewService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__overview_service__["a" /* overviewService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]) === "function" && _c || Object])
     ], OverviewComponent);
     return OverviewComponent;
 }());

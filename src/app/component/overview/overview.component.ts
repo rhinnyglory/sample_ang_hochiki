@@ -11,10 +11,11 @@ import { IMyDpOptions } from 'mydatepicker';
 import { overviewService } from './overview.service';
 import { Cluster1Model } from '../../types/cluster1';
 import { Router } from '@angular/router';
-// import { LoaderService } from '../../loader.service';
 // import {GoogleChart} from 'angular2-google-chart/directives/angular2-google-chart.directive';
 import { MomentModule } from 'angular2-moment';
 import * as moment from 'moment'; // add this 1 of 4
+declare var $: any;
+// import 'jquery-daterangepicker/lib/dist/daterangepicker.min.css';
 
 @Component({
   selector: 'app-overview',
@@ -23,8 +24,8 @@ import * as moment from 'moment'; // add this 1 of 4
 })
 export class OverviewComponent implements OnInit {
   @ViewChild('cchart') cchart;
-  private startDate = '';
-  private endDate = '';
+  private startDate = 'Jun 22, 2018';
+  private endDate = ' Jun 29, 2018';
   private days = '';
   private beginDateFormat = '';
   private endDateFormat = '';
@@ -45,9 +46,9 @@ export class OverviewComponent implements OnInit {
   public totalSessionUsersRound = 0;
   public totalSessionUsers = '';
   private IntialDates = '';
-  private start = '';
+  // private start = '';
   private selectedIntialDates = '';
-  private end = '';
+  // private end = '';
   private dates: Cluster1Model[];
   private dataTable = [];
   private day = [];
@@ -72,6 +73,7 @@ export class OverviewComponent implements OnInit {
   private currentTab2copy: any = '';
   private firstMetric: any;
   public buttonDisabled: boolean;
+  public QUnit: any = {};
   // private container: null;
   // private numberOfMonths: 3;
 
@@ -166,36 +168,32 @@ export class OverviewComponent implements OnInit {
     dataTable: [],
     options: {}
   };
-  myDateRangePickerOptions: IMyDrpOptions = {
-    // other options...
-    // dateFormat: 'yyyy-mm-dd',
-    dateFormat: 'mmm dd, yyyy',
-    // dateFormat: ' DD YYYY'MMM,
-    disableSince: { year: new Date().getFullYear(), month: (new Date().getMonth() + 1), day: (new Date().getDate() + 1) },
-    // disableSince: { day: (new Date().getDate() + 1), month: (new Date().getMonth() + 1), year: new Date().getFullYear() },
+  //   myDateRangePickerOptions: IMyDrpOptions = {
 
-  };
-  private model: any = {
-    beginDate: this.startDate,
-    endDate: this.endDate
-  };
-  setDateRange(): void {
-    const date = new Date();
-    this.myForm.patchValue({
-      myDateRange: {
-        beginDate: {
-          year: date.getFullYear(),
-          month: date.getMonth() + 1,
-          day: date.getDate()
-        },
-        endDate: {
-          year: date.getFullYear(),
-          month: date.getMonth() + 1,
-          day: date.getDate()
-        }
-      }
-    });
-  }
+  //     dateFormat: 'mmm dd, yyyy',
+  //     disableSince: { year: new Date().getFullYear(), month: (new Date().getMonth() + 1), day: (new Date().getDate() + 1) },
+  //  };
+  //   private model: any = {
+  //     beginDate: this.startDate,
+  //     endDate: this.endDate
+  //   };
+  //   setDateRange(): void {
+  //     const date = new Date();
+  //     this.myForm.patchValue({
+  //       myDateRange: {
+  //         beginDate: {
+  //           year: date.getFullYear(),
+  //           month: date.getMonth() + 1,
+  //           day: date.getDate()
+  //         },
+  //         endDate: {
+  //           year: date.getFullYear(),
+  //           month: date.getMonth() + 1,
+  //           day: date.getDate()
+  //         }
+  //       }
+  //     });
+  //   }
   constructor(private router: Router,
     private cluster1Service: overviewService, private formBuilder: FormBuilder) {
     this.buttonDisabled = false;
@@ -203,35 +201,68 @@ export class OverviewComponent implements OnInit {
 
   ngOnInit() {
     document.title = 'Audience Overview - Firestrome';
-    this.myForm = this.formBuilder.group({
-      myDateRange: ['', Validators.required]
-    });
-    // ($('#daterange') as any).dateRangePicker({
-    //   container: '#daterange-picker-container',
-    //   defaultDateRange: 'LAST_30_DAYS'
+    // this.myForm = this.formBuilder.group({
+    //   myDateRange: ['', Validators.required]
     // });
+    const vm = this;
 
-    
-    const days = 7;
-    const date = new Date();
-    const last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
-    this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
-    this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate()) < 10 ? '0' : '') + (new Date().getDate());
-    const datePipeS = new DatePipe('en-US');
-    this.startDate = datePipeS.transform(this.startDate, 'MMM dd, yyyy');
-    this.endDate = datePipeS.transform(this.endDate, 'MMM dd, yyyy');
-    this.selectedIntialDates = this.startDate + ' ' + '' + '-' + '' + ' ' + this.endDate;
+    $(function () {
+
+      const start = moment().subtract(7, 'days');
+      const end = moment().subtract(1, 'days');
+      vm.startDate = start.format('MMM D, YYYY');
+      vm.endDate = end.format('MMM D, YYYY');
+// console.log()
+      function cb(start, end) {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+      }
+      $('#reportrange').daterangepicker({
+        startDate: start,
+        endDate: end,
+        opens: 'left',
+        alwaysShowCalendars: true,
+        maxDate: moment(),
+        ranges: {
+          'Today': [moment(), moment()],
+          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month': [moment().startOf('month'), moment().endOf('month')],
+          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+      }, cb);
+      cb(start, end);
+    });
+    $('#reportrange').on('apply.daterangepicker', function (ev, picker) {
+      console.log(picker.startDate.format('MMM D, YYYY'));
+      console.log(picker.endDate.format('MMM D, YYYY'));
+      vm.startDate = picker.startDate.format('MMM D, YYYY');
+      vm.endDate = picker.endDate.format('MMM D, YYYY');
+      // console.log(this.startDate, this.endDate);
+      vm.finalDataToSend();
+    });
+    // console.log(this.startDate , this.endDate, 'hghjghjgkj' );
+    // console.log(picker.startDate.format('MMM D, YYYY'));
+    // console.log(picker.endDate.format('MMM D, YYYY'));
+    // const days = 7;
+    // const date = new Date();
+    // const last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
+    // this.startDate = last.getFullYear() + '-' + ((last.getMonth() + 1) < 10 ? '0' : '') + (last.getMonth() + 1) + '-' + ((last.getDate()) < 10 ? '0' : '') + (last.getDate());
+    // this.endDate = new Date().getFullYear() + '-' + ((new Date().getMonth() + 1) < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-' + ((new Date().getDate()) < 10 ? '0' : '') + (new Date().getDate());
+    // const datePipeS = new DatePipe('en-US');
+    // this.startDate = datePipeS.transform(this.startDate, 'MMM dd, yyyy');
+    // this.endDate = datePipeS.transform(this.endDate, 'MMM dd, yyyy');
+    // this.selectedIntialDates = this.startDate + ' ' + '' + '-' + '' + ' ' + this.endDate;
     this.finalDataToSend();
 
   }
 
 
 
-
-  clearDateRange(): void {
-    this.startDate = '';
-    this.endDate = '';
-  }
+  // clearDateRange(): void {
+  //   this.startDate = '';
+  //   this.endDate = '';
+  // }
 
 
   gettheDate(date) {
@@ -250,20 +281,18 @@ export class OverviewComponent implements OnInit {
     this.dimensions = dimen;
     this.finalDataToSend();
   }
-  onDateRangeChanged(event: IMyDateRangeModel) {
-    if (event.formatted !== '') {
-      // const datePipe = new DatePipe('en-US');
-      // this.startDate = datePipe.transform(event.beginJsDate, 'dd MMM yyyy');
-      // this.endDate = datePipe.transform(event.endJsDate, 'dd MMM yyyy');
-      const newDate = new Date(this.endDate);
-      if (event.beginJsDate <= newDate && event.endJsDate >= newDate) {
-        this.finalDataToSend();
-      } else {
-        this.onDateSelected(event);
-      }
-    } else {
-    }
-  }
+  // onDateRangeChanged(event: IMyDateRangeModel) {
+  //   if (event.formatted !== '') {
+
+  //     const newDate = new Date(this.endDate);
+  //     if (event.beginJsDate <= newDate && event.endJsDate >= newDate) {
+  //       this.finalDataToSend();
+  //     } else {
+  //       this.onDateSelected(event);
+  //     }
+  //   } else {
+  //   }
+  // }
   onDateSelected(dates) {
     if (dates.type === 1) {
       this.startDate = dates.formatted;
@@ -275,7 +304,7 @@ export class OverviewComponent implements OnInit {
   getDetailsfirst(event: any) {
     this.currentTab = event;
     const tables = [];
- 
+
     if (this.currentTab2 !== 'Select a metrics') {
       if (event === '(ga:sessionDuration/ga:sessions)') {
         tables.push(['date', 'Avg. Session Duration', this.getTheCurrentTab2(this.currentTab2)]);
@@ -290,7 +319,7 @@ export class OverviewComponent implements OnInit {
       } else if (event === 'ga:users') {
         tables.push(['date', 'Users', this.getTheCurrentTab2(this.currentTab2)]);
       }
-    }else {
+    } else {
       if (event === '(ga:sessionDuration/ga:sessions)') {
         tables.push(['date', 'Avg. Session Duration']);
       } else if (event === 'ga:bounceRate') {
@@ -298,7 +327,7 @@ export class OverviewComponent implements OnInit {
       } else if (event === 'Pages/Sessions') {
         this.firstMetric = this.pagevssessions;
       } else if (event === 'ga:pageViews') {
-        tables.push(['date',  'pageviews']);
+        tables.push(['date', 'pageviews']);
       } else if (event === 'ga:sessions') {
         tables.push(['date', 'Sessions']);
       } else if (event === 'ga:users') {
@@ -309,11 +338,8 @@ export class OverviewComponent implements OnInit {
     this.dataTable.forEach((item, index) => {
       this.day = item.dimensions;
       this.metrics = item.metrics;
-  
       if (this.currentTab2 !== 'Select a metrics') {
-        
         if (this.dimensions === 'ga:date') {
-          
           tables.push([this.gettheDate(this.day[0]['ga:date']), this.metrics[0][this.currentTab], this.metrics[0][this.currentTab2]]);
         } else {
           tables.push([this.day[0]['ga:date'], this.metrics[0][this.currentTab], this.metrics[0][this.currentTab2]]);
@@ -330,8 +356,8 @@ export class OverviewComponent implements OnInit {
       chartType: 'AreaChart',
       dataTable: tables,
       options: {
-        colors: ['skyblue' , '0099FF'], pointsVisible: true,
-        legend: { position: 'top'},
+        colors: ['skyblue', '0099FF'], pointsVisible: true,
+        legend: { position: 'top' },
       },
     };
 
@@ -356,7 +382,7 @@ export class OverviewComponent implements OnInit {
       } else if (type === 'ga:users') {
         tables2.push(['date', this.getTheCurrentTabEvent(this.currentTab), 'Users']);
       }
-    }else {
+    } else {
       tables2.push(['date', this.getTheCurrentTabEvent(this.currentTab)]);
 
     }
@@ -383,8 +409,8 @@ export class OverviewComponent implements OnInit {
       chartType: 'AreaChart',
       dataTable: tables2,
       options: {
-        colors: ['skyblue' , '0099FF'], pointsVisible: true,
-        legend: { position: 'top'},
+        colors: ['skyblue', '0099FF'], pointsVisible: true,
+        legend: { position: 'top' },
       },
     };
   }
@@ -432,9 +458,9 @@ export class OverviewComponent implements OnInit {
     completeDate.startDate = new Date(this.startDate).getFullYear() + '-' + ((new Date(this.startDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.startDate).getMonth() + 1) + '-' + ((new Date(this.startDate).getDate()) < 10 ? '0' : '') + (new Date(this.startDate).getDate());
     completeDate.endDate = new Date(this.endDate).getFullYear() + '-' + ((new Date(this.endDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.endDate).getMonth() + 1) + '-' + ((new Date(this.endDate).getDate()) < 10 ? '0' : '') + (new Date(this.endDate).getDate());
     completeDate.dimensions = this.dimensions;
+    console.log(completeDate.startDate, completeDate.endDate, completeDate.dimensions);
     this.showLoader = true;
     if (this.startDate !== '' && this.endDate !== '' && this.dimensions !== '' && completeDate.endDate >= completeDate.startDate) {
-
       this.cluster1Service.createGraph(completeDate)
         .then(response => {
           this.showLoader = false;
@@ -507,12 +533,15 @@ export class OverviewComponent implements OnInit {
               if (this.currentTab2 !== 'Select a metrics') {
                 if (this.dimensions === 'ga:date') {
                   table.push([this.gettheDate(this.day[0]['ga:date']), this.session, this.user]);
+                  // table.push([this.day[0]['ga:date'], this.session, this.user])
                 } else {
                   table.push([this.day[0]['ga:date'], this.session, this.user]);
                 }
               } else {
                 if (this.dimensions === 'ga:date') {
                   table.push([this.gettheDate(this.day[0]['ga:date']), this.session]);
+                  // table.push([this.day[0]['ga:date'], this.session]);
+
                 } else {
                   table.push([this.day[0]['ga:date'], this.session]);
                 }
@@ -538,12 +567,9 @@ export class OverviewComponent implements OnInit {
               dataTable: table,
               options: {
                 colors: ['skyblue', '0099FF'], pointsVisible: true,
-                legend: { position: 'top', Style: 'circle'}},
+                legend: { position: 'top', Style: 'circle' }
+              },
             },
-              // this.lineChartData = {
-              //   chartType: 'AreaChart',
-              //   dataTable: table,
-              // };
               this.lineChartDatasessions = {
                 chartType: 'AreaChart',
                 dataTable: sessions,
@@ -583,6 +609,4 @@ export class OverviewComponent implements OnInit {
         });
     }
   }
-
-
 }
