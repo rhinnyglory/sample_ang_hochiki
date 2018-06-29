@@ -24,8 +24,8 @@ declare var $: any;
 })
 export class OverviewComponent implements OnInit {
   @ViewChild('cchart') cchart;
-  private startDate = 'Jun 22, 2018';
-  private endDate = ' Jun 29, 2018';
+  private startDate = moment().subtract(7, 'days').format('MMMM D, YYYY');
+  private endDate = moment().subtract(1, 'days').format('MMMM D, YYYY');
   private days = '';
   private beginDateFormat = '';
   private endDateFormat = '';
@@ -210,8 +210,8 @@ export class OverviewComponent implements OnInit {
 
       const start = moment().subtract(7, 'days');
       const end = moment().subtract(1, 'days');
-      vm.startDate = start.format('MMM D, YYYY');
-      vm.endDate = end.format('MMM D, YYYY');
+      // vm.startDate = start.format('MMM D, YYYY');
+      // vm.endDate = end.format('MMM D, YYYY');
 // console.log()
       function cb(start, end) {
         $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
