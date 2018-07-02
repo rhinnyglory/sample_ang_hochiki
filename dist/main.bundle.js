@@ -2329,7 +2329,7 @@ var OverviewComponent = /** @class */ (function () {
                 colors: ['skyblue', 'lightpink'], pointsVisible: true,
                 legend: { position: 'top' },
                 chartArea: {
-                    width: '95%',
+                    width: '94%',
                 }
             },
         };
@@ -2389,7 +2389,7 @@ var OverviewComponent = /** @class */ (function () {
                 colors: ['skyblue', 'lightpink'], pointsVisible: true,
                 legend: { position: 'top' },
                 chartArea: {
-                    width: '95%',
+                    width: '94%',
                 }
             },
         };
@@ -2552,9 +2552,8 @@ var OverviewComponent = /** @class */ (function () {
                         options: {
                             colors: ['skyblue', 'lightpink'], pointsVisible: true,
                             legend: { position: 'top' },
-                            width: 1200,
                             chartArea: {
-                                width: '95%',
+                                width: '94%',
                             }
                         },
                     },
