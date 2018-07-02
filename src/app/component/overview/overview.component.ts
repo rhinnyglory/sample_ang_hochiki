@@ -354,10 +354,14 @@ export class OverviewComponent implements OnInit {
     });
     this.lineChartData = {
       chartType: 'AreaChart',
+      chart: {2: {type: 'LineChart'}},
       dataTable: tables,
       options: {
-        colors: ['skyblue', '0099FF'], pointsVisible: true,
+        colors: ['skyblue', 'lightpink'], pointsVisible: true,
         legend: { position: 'top' },
+        chartArea: {
+          width: '95%',
+      }
       },
     };
 
@@ -407,10 +411,14 @@ export class OverviewComponent implements OnInit {
     });
     this.lineChartData = {
       chartType: 'AreaChart',
+      chart: {2: {type: 'LineChart'}},
       dataTable: tables2,
       options: {
-        colors: ['skyblue', '0099FF'], pointsVisible: true,
+        colors: ['skyblue', 'lightpink'], pointsVisible: true,
         legend: { position: 'top' },
+        chartArea: {
+          width: '95%',
+      }
       },
     };
   }
@@ -564,10 +572,15 @@ export class OverviewComponent implements OnInit {
             this.totalSessionUsers = this.changeTheSecondsToDate(this.totalSessionUsers);
             this.lineChartData = {
               chartType: 'AreaChart',
+              chart: {2: {type: 'LineChart'}},
               dataTable: table,
               options: {
-                colors: ['skyblue', '0099FF'], pointsVisible: true,
-                legend: { position: 'top', Style: 'circle' }
+                colors: ['skyblue', 'lightpink'], pointsVisible: true,
+                legend: { position: 'top' },
+                width: 1200,
+                chartArea: {
+                  width: '95%',
+              }
               },
             },
               this.lineChartDatasessions = {

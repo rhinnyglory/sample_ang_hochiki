@@ -9,23 +9,24 @@
 }
 .btn-group .pull-right{
     padding-left: 813px;
+    
 }
 .textsize{
-    font-size: 30px;
+    font-size: 25px;
 }
 .breadcrumbs{
     float:right;
 }
 .ButtonState{display:none}
-.Button{padding: 6px; margin:0 -2px; background:#fff; border:1px solid rgb(179, 174, 174); cursor:pointer;}
+.Button{padding: 6px; margin:0 -2px; background:#fff; border:1px solid rgb(179, 174, 174); cursor:pointer; font-size: 12px;}
 .ButtonState:checked + .Button{background:#CCC;}
 td{
     height: 88px;
-    padding: 30px;
+    padding: 25px;
     
 }
 .table > tbody > tr > td, .table > tfoot > tr > td {
-    padding: 33px;
+    padding: 25px;
    
 }
 .pl0 { padding-left: 798px; }
