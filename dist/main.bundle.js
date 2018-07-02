@@ -2321,16 +2321,29 @@ var OverviewComponent = /** @class */ (function () {
                 }
             }
         });
+        // this.lineChartData = {
+        //   chartType: 'AreaChart',
+        //   chart: {2: {type: 'LineChart'}},
+        //   dataTable: tables,
+        //   options: {
+        //     colors: ['skyblue', 'blue'], pointsVisible: true,
+        //     legend: { position: 'top' },
+        //     chartArea: {
+        //       width: '94%',
+        //   }
+        //   },
+        // };
         this.lineChartData = {
-            chartType: 'AreaChart',
-            chart: { 2: { type: 'LineChart' } },
+            chartType: 'ComboChart',
             dataTable: tables,
             options: {
-                colors: ['skyblue', 'lightpink'], pointsVisible: true,
+                colors: ['skyblue', '#0A97F5'], pointsVisible: true,
                 legend: { position: 'top' },
                 chartArea: {
                     width: '94%',
-                }
+                },
+                seriesType: 'area',
+                series: { 1: { type: 'line' } }
             },
         };
     };
@@ -2381,16 +2394,29 @@ var OverviewComponent = /** @class */ (function () {
                 }
             }
         });
+        // this.lineChartData = {
+        //   chartType: 'AreaChart',
+        //   chart: {2: {type: 'LineChart'}},
+        //   dataTable: tables2,
+        //   options: {
+        //     colors: ['skyblue', 'blue'], pointsVisible: true,
+        //     legend: { position: 'top' },
+        //     chartArea: {
+        //       width: '94%',
+        //   }
+        //   },
+        // };
         this.lineChartData = {
-            chartType: 'AreaChart',
-            chart: { 2: { type: 'LineChart' } },
+            chartType: 'ComboChart',
             dataTable: tables2,
             options: {
-                colors: ['skyblue', 'lightpink'], pointsVisible: true,
+                colors: ['skyblue', '#0A97F5'], pointsVisible: true,
                 legend: { position: 'top' },
                 chartArea: {
                     width: '94%',
-                }
+                },
+                seriesType: 'area',
+                series: { 1: { type: 'line' } }
             },
         };
     };
@@ -2545,16 +2571,29 @@ var OverviewComponent = /** @class */ (function () {
                     _this.bouncesTotalround = parseInt('this.bouncesTotal', 10);
                     _this.totalSessionUsers = JSON.stringify((_this.durationTotal / _this.sessionTotal));
                     _this.totalSessionUsers = _this.changeTheSecondsToDate(_this.totalSessionUsers);
+                    // this.lineChartData = {
+                    //   chartType: 'AreaChart',
+                    //   chart: {2: {type: 'LineChart'}},
+                    //   dataTable: table,
+                    //   options: {
+                    //     colors: ['skyblue', 'blue'], pointsVisible: true,
+                    //     legend: { position: 'top' },
+                    //     chartArea: {
+                    //       width: '94%',
+                    //   }
+                    //   },
+                    // },
                     _this.lineChartData = {
-                        chartType: 'AreaChart',
-                        chart: { 2: { type: 'LineChart' } },
+                        chartType: 'ComboChart',
                         dataTable: table_1,
                         options: {
-                            colors: ['skyblue', 'lightpink'], pointsVisible: true,
+                            colors: ['skyblue', '#0A97F5'], pointsVisible: true,
                             legend: { position: 'top' },
                             chartArea: {
                                 width: '94%',
-                            }
+                            },
+                            seriesType: 'area',
+                            series: { 1: { type: 'line' } }
                         },
                     },
                         _this.lineChartDatasessions = {

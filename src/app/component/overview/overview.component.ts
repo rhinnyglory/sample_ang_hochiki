@@ -352,19 +352,31 @@ export class OverviewComponent implements OnInit {
         }
       }
     });
+    // this.lineChartData = {
+    //   chartType: 'AreaChart',
+    //   chart: {2: {type: 'LineChart'}},
+    //   dataTable: tables,
+    //   options: {
+    //     colors: ['skyblue', 'blue'], pointsVisible: true,
+    //     legend: { position: 'top' },
+    //     chartArea: {
+    //       width: '94%',
+    //   }
+    //   },
+    // };
     this.lineChartData = {
-      chartType: 'AreaChart',
-      chart: {2: {type: 'LineChart'}},
+      chartType: 'ComboChart',
       dataTable: tables,
       options: {
-        colors: ['skyblue', 'lightpink'], pointsVisible: true,
+        colors: ['skyblue', '#0A97F5'], pointsVisible: true,
         legend: { position: 'top' },
         chartArea: {
           width: '94%',
-      }
+      },
+      seriesType: 'area',
+      series: {1: {type: 'line'}}
       },
     };
-
   }
 
   matrics2 = [{ id: 'ga:sessions', value: 'Sessions' }, { id: 'ga:bounceRate', value: 'Bounce Rate' }, { id: 'ga:users', value: 'Users' }, { id: 'ga:pageViews', value: 'Pageviews' }];
@@ -409,16 +421,29 @@ export class OverviewComponent implements OnInit {
       }
 
     });
+    // this.lineChartData = {
+    //   chartType: 'AreaChart',
+    //   chart: {2: {type: 'LineChart'}},
+    //   dataTable: tables2,
+    //   options: {
+    //     colors: ['skyblue', 'blue'], pointsVisible: true,
+    //     legend: { position: 'top' },
+    //     chartArea: {
+    //       width: '94%',
+    //   }
+    //   },
+    // };
     this.lineChartData = {
-      chartType: 'AreaChart',
-      chart: {2: {type: 'LineChart'}},
+      chartType: 'ComboChart',
       dataTable: tables2,
       options: {
-        colors: ['skyblue', 'lightpink'], pointsVisible: true,
+        colors: ['skyblue', '#0A97F5'], pointsVisible: true,
         legend: { position: 'top' },
         chartArea: {
           width: '94%',
-      }
+      },
+      seriesType: 'area',
+      series: {1: {type: 'line'}}
       },
     };
   }
@@ -570,16 +595,29 @@ export class OverviewComponent implements OnInit {
             this.bouncesTotalround = parseInt('this.bouncesTotal', 10);
             this.totalSessionUsers = JSON.stringify((this.durationTotal / this.sessionTotal));
             this.totalSessionUsers = this.changeTheSecondsToDate(this.totalSessionUsers);
+            // this.lineChartData = {
+            //   chartType: 'AreaChart',
+            //   chart: {2: {type: 'LineChart'}},
+            //   dataTable: table,
+            //   options: {
+            //     colors: ['skyblue', 'blue'], pointsVisible: true,
+            //     legend: { position: 'top' },
+            //     chartArea: {
+            //       width: '94%',
+            //   }
+            //   },
+            // },
             this.lineChartData = {
-              chartType: 'AreaChart',
-              chart: {2: {type: 'LineChart'}},
+              chartType: 'ComboChart',
               dataTable: table,
               options: {
-                colors: ['skyblue', 'lightpink'], pointsVisible: true,
+                colors: ['skyblue', '#0A97F5'], pointsVisible: true,
                 legend: { position: 'top' },
                 chartArea: {
                   width: '94%',
-              }
+              },
+              seriesType: 'area',
+              series: {1: {type: 'line'}}
               },
             },
               this.lineChartDatasessions = {
