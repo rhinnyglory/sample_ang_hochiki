@@ -2222,6 +2222,7 @@ var OverviewComponent = /** @class */ (function () {
     //   this.endDate = '';
     // }
     OverviewComponent.prototype.gettheDate = function (date) {
+        console.log(date, 'date');
         var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
             'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'
         ];
@@ -2310,9 +2311,11 @@ var OverviewComponent = /** @class */ (function () {
             _this.metrics = item.metrics;
             if (_this.currentTab2 !== 'Select a metrics') {
                 if (_this.dimensions === 'ga:date') {
+                    console.log(_this.day[0]['ga:date'], 'gfgrg');
                     tables.push([_this.gettheDate(_this.day[0]['ga:date']), _this.metrics[0][_this.currentTab], _this.metrics[0][_this.currentTab2]]);
                 }
                 else {
+                    console.log(_this.day[0]['ga:date'], 'gfgrgmonth');
                     tables.push([_this.day[0]['ga:date'], _this.metrics[0][_this.currentTab], _this.metrics[0][_this.currentTab2]]);
                 }
             }
@@ -2467,7 +2470,6 @@ var OverviewComponent = /** @class */ (function () {
         if (this.startDate !== '' && this.endDate !== '' && this.dimensions !== '' && completeDate.endDate >= completeDate.startDate) {
             this.cluster1Service.createGraph(completeDate)
                 .then(function (response) {
-                _this.showLoader = false;
                 _this.dataTable = response.data;
                 console.log(_this.dataTable, completeDate, 'abcd');
                 var table = [];
@@ -2519,6 +2521,9 @@ var OverviewComponent = /** @class */ (function () {
                         series: { 1: { type: 'line' } }
                     },
                 };
+                setTimeout(function () {
+                }, 1000);
+                _this.showLoader = false;
             });
             this.cluster1Service.createMetrics(completeDate)
                 .then(function (response) {
@@ -2570,6 +2575,9 @@ var OverviewComponent = /** @class */ (function () {
                 _this.totalSessionUsers = JSON.stringify(_this.avgSessDuration);
                 _this.totalSessionUsers = _this.changeTheSecondsToDate(_this.totalSessionUsers);
             });
+        }
+        else {
+            this.showLoader = false;
         }
     };
     var _a, _b, _c;

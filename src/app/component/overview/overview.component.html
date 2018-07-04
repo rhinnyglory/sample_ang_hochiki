@@ -73,6 +73,11 @@
 
             <div class="row">
               <div class="col-md-6">
+                   <div class="inline-block dot1"></div>
+                  <div class="inline-block" style="padding-right: 25px;">{{legend1}}</div>
+                   
+                   <div class="inline-block dot2" *ngIf="currentTab2 !== 'Select a metrics'"></div>   
+                   <div class="inline-block" *ngIf="currentTab2 !== 'Select a metrics'">{{legend2}}</div>           
               </div>
               <div class="col-md-6">
                 <div class="row">
@@ -132,7 +137,7 @@
           </td>
           <td>Bounce Rate:
             <br>
-            <b class="textsize">{{bouncesTotal }}%</b>
+            <b class="textsize">{{bouncesTotalround }}%</b>
           </td>
         </tr>
         <tr>
@@ -144,9 +149,9 @@
             <br>
             <b class="textsize">{{pagevssessionsTotalRound}}</b>
           </td>
-          <td>% New Sessions:
+          <td>Number of Sessions per User:
             <br>
-            <b class="textsize">{{persessionsTotal }}%</b>
+            <b class="textsize">{{persessionsTotal }}</b>
           </td>
         </tr>
 
