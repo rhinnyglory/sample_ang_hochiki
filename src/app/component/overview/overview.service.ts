@@ -11,7 +11,8 @@ import { Cluster1Model } from '../../types/cluster1';
 export class overviewService {
     private TrendGraphUrl = 'company-list';
 
-    private GoogleAnalytics = 'googleAnalytics/audience-overview';
+    private GoogleAnalytics = 'googleAnalytics/audience-overview/1';
+    private GoogleAnalyticsMetrics = 'googleAnalytics/audience-overview/0';
     private GoogleGagsc = 'googleGaGsc';
  constructor(private _http: Http, private httpcaller: HttpService) { }
 
@@ -23,8 +24,9 @@ getCompanyList() {
   createGraph(dates: Cluster1Model) {
     return this.httpcaller.httpcall(this.GoogleAnalytics, 'post', dates);
  }
- createcluster1(dates: Cluster1Model) {
-  return this.httpcaller.httpcall(this.GoogleGagsc, 'post', dates);
+ createMetrics(dates: Cluster1Model) {
+  return this.httpcaller.httpcall(this.GoogleAnalyticsMetrics, 'post', dates);
 }
+
 
 }
