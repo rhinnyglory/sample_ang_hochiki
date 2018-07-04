@@ -2098,7 +2098,6 @@ var OverviewComponent = /** @class */ (function () {
         this.legend2 = '';
         this.currentTabcopy = '';
         this.currentTab2copy = '';
-        this.QUnit = {};
         this.lineChartData = {
             chartType: '',
             dataTable: [],
@@ -2470,7 +2469,7 @@ var OverviewComponent = /** @class */ (function () {
                 .then(function (response) {
                 _this.showLoader = false;
                 _this.dataTable = response.data;
-                console.log(_this.dataTable);
+                console.log(_this.dataTable, completeDate, 'abcd');
                 var table = [];
                 if (_this.currentTab === '') {
                     _this.currentTab = 'ga:sessions';
@@ -2630,9 +2629,6 @@ var overviewService = /** @class */ (function () {
     };
     overviewService.prototype.createMetrics = function (dates) {
         return this.httpcaller.httpcall(this.GoogleAnalyticsMetrics, 'post', dates);
-    };
-    overviewService.prototype.createcluster1 = function (dates) {
-        return this.httpcaller.httpcall(this.GoogleGagsc, 'post', dates);
     };
     var _a, _b;
     overviewService = __decorate([
