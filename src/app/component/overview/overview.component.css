@@ -76,7 +76,7 @@ td{
     display: inline-block;
 }
 a:link, a:visited {
-    background-color: red;
+    background-color: skyblue;
     color: white;
     padding: 14px 25px;
     text-align: center;
@@ -90,5 +90,5 @@ a:link, a:visited {
 
 
 a:hover, a:active {
-    background-color: red;
+    background-color: black;
 }
