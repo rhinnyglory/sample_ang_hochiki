@@ -1984,7 +1984,7 @@ var MainContentComponent = /** @class */ (function () {
 /***/ "./src/app/component/overview/overview.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".box.box-default.trafic {\n    border-top-color: #d2d6de;\n    height: 320px;\n}\n.box.box-default.key {\n    border-top-color: #d2d6de;\n    /* height: 600px; */\n    height:300px;\n}\n.btn-group .pull-right{\n    padding-left: 813px;\n    \n}\n.textsize{\n    font-size: 25px;\n}\n.breadcrumbs{\n    float:right;\n}\n.ButtonState{display:none}\n.Button{padding: 6px; margin:0 -2px; background:#fff; border:1px solid rgb(179, 174, 174); cursor:pointer; font-size: 12px;}\n.ButtonState:checked + .Button{background:#CCC;}\ntd{\n    height: 88px;\n    padding: 25px;\n    \n}\n.table > tbody > tr > td, .table > tfoot > tr > td {\n    padding: 25px;\n   \n}\n.pl0 { padding-left: 798px; }\n.pl2 { padding-left: 0px; }\n.pl3 {  padding-left: 164px; }\n.pr10 {padding-left: 0px;}\n.mtb7 {\n    margin: 7px 0;\n}\n.inline-block {\n    display: inline-block;\n}\n@media (min-width: 992px)\n{\n    .w6 {width: 7%;}\n    \n}\n@media (min-width: 992px)\n{\n    .w16 {\n        width: 34.666667%;\n    }\n    .p0 {padding-left: 0px;\n        width: 34.666667%;\n    } \n}\n.cg{\n    color:rgb(212, 208, 208);\n}\n.dot1 {\n    height: 12px;\n    width: 12px;\n    background-color: skyblue;\n    border-radius: 50%;\n    display: inline-block;\n}\n.dot2 {\n    height: 12px;\n    width: 12px;\n    background-color: #0A97F5;\n    border-radius: 50%;\n    display: inline-block;\n}\na:link, a:visited {\n    background-color: skyblue;\n    color: white;\n    padding: 14px 25px;\n    text-align: center;\n    text-decoration: none;\n    display: inline-block;\n    font-size: 21px;\n    font-weight: bold;\n    width: 100%;\n    height: 100%;\n}\na:hover, a:active {\n    background-color: black;\n}"
+module.exports = ".box.box-default.trafic {\n    border-top-color: #d2d6de;\n    height: 320px;\n}\n.box.box-default.key {\n    border-top-color: #d2d6de;\n    /* height: 600px; */\n    height:300px;\n}\n.btn-group .pull-right{\n    padding-left: 813px;\n    \n}\n.textsize{\n    font-size: 25px;\n}\n.breadcrumbs{\n    float:right;\n}\n.ButtonState{display:none}\n.Button{padding: 6px; margin:0 -2px; background:#fff; border:1px solid rgb(179, 174, 174); cursor:pointer; font-size: 12px;}\n.ButtonState:checked + .Button{background:#CCC;}\ntd{\n    height: 88px;\n    padding: 25px;\n    \n}\n.table > tbody > tr > td, .table > tfoot > tr > td {\n    padding: 25px;\n   \n}\n.pl0 { padding-left: 798px; }\n.pl2 { padding-left: 0px; }\n.pl3 {  padding-left: 164px; }\n.pr10 {padding-left: 0px;}\n.mtb7 {\n    margin: 7px 0;\n}\n.inline-block {\n    display: inline-block;\n}\n@media (min-width: 992px)\n{\n    .w6 {width: 7%;}\n    \n}\n@media (min-width: 992px)\n{\n    .w16 {\n        width: 34.666667%;\n    }\n    .p0 {padding-left: 0px;\n        width: 34.666667%;\n    } \n}\n.cg{\n    color:rgb(212, 208, 208);\n}\n.dot1 {\n    height: 12px;\n    width: 12px;\n    background-color: skyblue;\n    border-radius: 50%;\n    display: inline-block;\n}\n.dot2 {\n    height: 12px;\n    width: 12px;\n    background-color: #0A97F5;\n    border-radius: 50%;\n    display: inline-block;\n}\na:link, a:visited {\n    background-color: skyblue;\n    color: white;\n    padding: 35px 25px;\n    text-align: center;\n    text-decoration: none;\n    display: inline-block;\n    font-size: 21px;\n    font-weight: bold;\n    width: 100% !important;\n    height: 100% !important;\n}\na:hover, a:active {\n    background-color:  #f1f1f1;\n    color: black;\n}"
 
 /***/ }),
 
@@ -2222,7 +2222,6 @@ var OverviewComponent = /** @class */ (function () {
     //   this.endDate = '';
     // }
     OverviewComponent.prototype.gettheDate = function (date) {
-        console.log(date, 'date');
         var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
             'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'
         ];
@@ -2311,11 +2310,9 @@ var OverviewComponent = /** @class */ (function () {
             _this.metrics = item.metrics;
             if (_this.currentTab2 !== 'Select a metrics') {
                 if (_this.dimensions === 'ga:date') {
-                    console.log(_this.day[0]['ga:date'], 'gfgrg');
                     tables.push([_this.gettheDate(_this.day[0]['ga:date']), _this.metrics[0][_this.currentTab], _this.metrics[0][_this.currentTab2]]);
                 }
                 else {
-                    console.log(_this.day[0]['ga:date'], 'gfgrgmonth');
                     tables.push([_this.day[0]['ga:date'], _this.metrics[0][_this.currentTab], _this.metrics[0][_this.currentTab2]]);
                 }
             }
@@ -2471,7 +2468,6 @@ var OverviewComponent = /** @class */ (function () {
             this.cluster1Service.createGraph(completeDate)
                 .then(function (response) {
                 _this.dataTable = response.data;
-                console.log(_this.dataTable, completeDate, 'abcd');
                 var table = [];
                 if (_this.currentTab === '') {
                     _this.currentTab = 'ga:sessions';
@@ -4285,7 +4281,7 @@ var AddUserComponent = /** @class */ (function () {
         if (this.userId) {
             this.editEmail = false;
             this.showpreviewafterEdit = true;
-            this.title = 'Edit Product';
+            this.title = 'Edit User';
             this.buttonTitle = 'Update';
             this.getUserDetails(this.userId);
         }

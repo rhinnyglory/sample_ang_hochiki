@@ -263,8 +263,7 @@ export class OverviewComponent implements OnInit {
 
 
   gettheDate(date) {
-    console.log(date,'date');
-    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
       'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'
     ];
     const year = date.substring(0, 4);
@@ -346,10 +345,8 @@ export class OverviewComponent implements OnInit {
       this.metrics = item.metrics;
       if (this.currentTab2 !== 'Select a metrics') {
         if (this.dimensions === 'ga:date') {
-          console.log(this.day[0]['ga:date'],'gfgrg');
           tables.push([this.gettheDate(this.day[0]['ga:date']), this.metrics[0][this.currentTab], this.metrics[0][this.currentTab2]]);
         } else {
-          console.log(this.day[0]['ga:date'],'gfgrgmonth');
           tables.push([this.day[0]['ga:date'], this.metrics[0][this.currentTab], this.metrics[0][this.currentTab2]]);
         }
       } else {
@@ -496,7 +493,6 @@ export class OverviewComponent implements OnInit {
         .then(response => {
 
             this.dataTable = response.data;
-            console.log(this.dataTable, completeDate, 'abcd');
             const table = [];
             if (this.currentTab === '') {
               this.currentTab = 'ga:sessions';
