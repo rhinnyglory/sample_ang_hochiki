@@ -100,12 +100,12 @@ const routes: Routes = [
   {
     path: 'supression',
     component: SupressionComponent,
-
+    canActivate: [AuthenticateGuard],
   },
   {
     path: 'ves/:action/:id',
     component: VesEditComponent,
-    // canActivate: [AuthenticateGuard],
+    canActivate: [AuthenticateGuard],
   },
   {
     path: 'ves',
