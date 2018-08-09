@@ -2227,6 +2227,7 @@ var OverviewComponent = /** @class */ (function () {
     OverviewComponent.prototype.showdimension = function (dimen) {
         this.dimensions = dimen;
         this.finalDataToSend();
+        this.listOfOverview();
     };
     OverviewComponent.prototype.onDateSelected = function (dates) {
         if (dates.type === 1) {
@@ -2546,10 +2547,14 @@ var OverviewComponent = /** @class */ (function () {
                     _this.pagevssessions = (_this.pageViewTotal / _this.sessionTotal);
                 });
                 _this.pagevssessionsTotal = ((_this.pageViewTotal / _this.sessionTotal)).toFixed(2);
+                // console.log(typeof this.pagevssessionsTotal);
                 _this.pagevssessionsTotalRound = parseFloat(_this.pagevssessionsTotal);
+                console.log(typeof _this.pagevssessionsTotalRound);
                 _this.persessionsTotal = (_this.sessionperUser).toFixed(2);
                 _this.bouncesTotal = ((_this.BounceTotal)).toFixed(2);
+                // console.log(typeof this.bouncesTotal);
                 _this.bouncesTotalround = parseFloat(_this.bouncesTotal);
+                // console.log( typeof this.bouncesTotalround);
                 _this.totalSessionUsers = JSON.stringify(_this.avgSessDuration);
                 _this.totalSessionUsers = _this.changeTheSecondsToDate(_this.totalSessionUsers);
             });
@@ -2560,12 +2565,12 @@ var OverviewComponent = /** @class */ (function () {
     };
     OverviewComponent.prototype.listOfOverview = function () {
         var _this = this;
-        var completeDate = { startDate: '', endDate: '' };
+        var completeDate = { startDate: '', endDate: '', dimensions: '' };
         completeDate.startDate = new Date(this.startDate).getFullYear() + '-' + ((new Date(this.startDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.startDate).getMonth() + 1) + '-' + ((new Date(this.startDate).getDate()) < 10 ? '0' : '') + (new Date(this.startDate).getDate());
         completeDate.endDate = new Date(this.endDate).getFullYear() + '-' + ((new Date(this.endDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.endDate).getMonth() + 1) + '-' + ((new Date(this.endDate).getDate()) < 10 ? '0' : '') + (new Date(this.endDate).getDate());
+        completeDate.dimensions = this.dimensions;
         this.showLoader = true;
-        //  const itemCount = 0;
-        if (this.startDate !== '' && this.endDate !== '' && completeDate.endDate >= completeDate.startDate) {
+        if (this.startDate !== '' && this.endDate !== '' && this.dimensions !== '' && completeDate.endDate >= completeDate.startDate) {
             this.cluster1Service.overviewList(completeDate)
                 .then(function (response) {
                 _this.items = response.data;

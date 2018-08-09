@@ -263,6 +263,7 @@ export class OverviewComponent implements OnInit {
   public showdimension(dimen) {
     this.dimensions = dimen;
     this.finalDataToSend();
+    this.listOfOverview();
   }
 
   onDateSelected(dates) {
@@ -563,10 +564,16 @@ export class OverviewComponent implements OnInit {
            });
 
             this.pagevssessionsTotal = ((this.pageViewTotal / this.sessionTotal)).toFixed(2);
+            // console.log(typeof this.pagevssessionsTotal);
+            
             this.pagevssessionsTotalRound = parseFloat(this.pagevssessionsTotal);
+            console.log(typeof this.pagevssessionsTotalRound);
             this.persessionsTotal = (this.sessionperUser).toFixed(2);
             this.bouncesTotal = ((this.BounceTotal)).toFixed(2);
+            // console.log(typeof this.bouncesTotal);
             this.bouncesTotalround = parseFloat(this.bouncesTotal);
+            // console.log( typeof this.bouncesTotalround);
+            
             this.totalSessionUsers = JSON.stringify(this.avgSessDuration);
             this.totalSessionUsers = this.changeTheSecondsToDate(this.totalSessionUsers);
 
@@ -576,12 +583,12 @@ export class OverviewComponent implements OnInit {
     }
   }
   listOfOverview() {
-    const completeDate = { startDate: '', endDate: '' };
+    const completeDate = { startDate: '', endDate: '', dimensions: '' };
     completeDate.startDate = new Date(this.startDate).getFullYear() + '-' + ((new Date(this.startDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.startDate).getMonth() + 1) + '-' + ((new Date(this.startDate).getDate()) < 10 ? '0' : '') + (new Date(this.startDate).getDate());
     completeDate.endDate = new Date(this.endDate).getFullYear() + '-' + ((new Date(this.endDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.endDate).getMonth() + 1) + '-' + ((new Date(this.endDate).getDate()) < 10 ? '0' : '') + (new Date(this.endDate).getDate());
+    completeDate.dimensions = this.dimensions;
     this.showLoader = true;
-  //  const itemCount = 0;
-    if (this.startDate !== '' && this.endDate !== '' && completeDate.endDate >= completeDate.startDate) {
+    if (this.startDate !== '' && this.endDate !== '' && this.dimensions !== '' && completeDate.endDate >= completeDate.startDate) {
       this.cluster1Service.overviewList(completeDate)
         .then(response => {
            this.items = response.data;
@@ -590,7 +597,7 @@ export class OverviewComponent implements OnInit {
            this.dataTable.forEach((item, index) => {
              item.avgSessionDuration = this.changeTheSecondsToDate(JSON.stringify(item.avgSessionDuration));
              item.timeOnPage = this.changeTheSecondsToDate(JSON.stringify(item.timeOnPage));
-  
+
          });
        
         });
