@@ -166,21 +166,53 @@
 
     <div class="box box-default">
 
-      <div class="box table-responsive">
+      <!-- <div class="box table-responsive"> -->
         <table  class="table table-striped a"  *ngIf="items.length !== 0" >
             <tr >
               <th height="10%"></th>
-              <th height="10%" (click)="sort('userName')">userName</th>
-              <th height="10%" (click)="sort('eventAction')">Event Action</th>
-              <th height="10%" (click)="sort('screenName')">Screen Name</th>
-              <th height="10%" (click)="sort('totalEvents')">Total Events</th>
-              <th height="10%" (click)="sort('sessions')">Sessions</th>
-              <th height="10%" (click)="sort('avgSessionDuration')">Avg. Session Duration</th>
-              <th height="10%" (click)="sort('percentNewSessions')">% New Sessions</th>
-              <th height="10%" (click)="sort('pageviewsPerSession')">Pages/Sessions</th>
-              <th height="10%" (click)="sort('pageviews')">Pageviews</th>
-              <th height="10%" (click)="sort('bounceRate')">Bounce Rate</th>
-              <th height="10%" (click)="sort('timeOnPage')">Time on Page</th>
+              <th height="10%" (click)="sort('userName')">User Name
+                  <span class="glyphicon sort-icon" *ngIf="key =='userName'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              <th height="10%" (click)="sort('eventAction')">Event Action
+                  <span class="glyphicon sort-icon" *ngIf="key =='eventAction'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                  
+              </th>
+              <th height="10%" (click)="sort('screenName')">Screen Name
+                  <span class="glyphicon sort-icon" *ngIf="key =='screenName'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                  
+              </th>
+              <th height="10%" (click)="sort('totalEvents')">Total Events
+                  <span class="glyphicon sort-icon" *ngIf="key =='totalEvents'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                  
+              </th>
+              <th height="10%" (click)="sort('sessions')">Sessions
+                  <span class="glyphicon sort-icon" *ngIf="key =='sessions'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                  
+              </th>
+              <th height="10%" (click)="sort('avgSessionDuration')">Avg. Session Duration
+                  <span class="glyphicon sort-icon" *ngIf="key =='avgSessionDuration'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                  
+              </th>
+              <th height="10%" (click)="sort('percentNewSessions')">% New Sessions
+                  <span class="glyphicon sort-icon" *ngIf="key =='percentNewSessions'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                  
+              </th>
+              <th height="10%" (click)="sort('pageviewsPerSession')">Pages/Sessions
+                  <span class="glyphicon sort-icon" *ngIf="key =='pageviewsPerSession'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                  
+              </th>
+              <th height="10%" (click)="sort('pageviews')">Pageviews
+                  <span class="glyphicon sort-icon" *ngIf="key =='pageviews'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                  
+              </th>
+              <th height="10%" (click)="sort('bounceRate')">Bounce Rate
+                  <span class="glyphicon sort-icon" *ngIf="key =='bounceRate'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                  
+              </th>
+              <th height="10%" (click)="sort('timeOnPage')">Time on Page
+                  <span class="glyphicon sort-icon" *ngIf="key =='timeOnPage'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                  
+              </th>
             </tr>
            
 
@@ -208,14 +240,14 @@
             maxSize="10"
             directionLinks="true"
             autoHide="true">
-      </pagination-controls>`
+      </pagination-controls>
         </div>
        
   <div style='text-align: center' *ngIf="items.length == 0">
       <!-- <img style='text-align: center' src="assets/images/found.jpg" /> -->
       <h3 style='text-align: center'>Data not available, Please select dates</h3>
   </div>
-    </div>
+    <!-- </div> -->
      
     <!-- <div style="margin: auto; max-width: 1500px; margin-bottom: 50px;">
       <data-table id="persons-grid"
