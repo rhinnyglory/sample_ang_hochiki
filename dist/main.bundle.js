@@ -663,45 +663,46 @@ var ConstantApi = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ng2_search_filter__ = __webpack_require__("./node_modules/ng2-search-filter/ng2-search-filter.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__http_service__ = __webpack_require__("./src/app/http.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_mydatepicker__ = __webpack_require__("./node_modules/mydatepicker/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_angular2_datatable__ = __webpack_require__("./node_modules/angular2-datatable/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_angular2_datatable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20_angular2_datatable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__component_profile_profile_component__ = __webpack_require__("./src/app/component/profile/profile.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__component_profile_profile_service__ = __webpack_require__("./src/app/component/profile/profile.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__component_header_header_service__ = __webpack_require__("./src/app/component/header/header.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__component_hochiki_company_management_component__ = __webpack_require__("./src/app/component/hochiki/company-management.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__component_hochiki_company_service__ = __webpack_require__("./src/app/component/hochiki/company.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__component_hochiki_add_company_component__ = __webpack_require__("./src/app/component/hochiki/add-company.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_ng2_order_pipe__ = __webpack_require__("./node_modules/ng2-order-pipe/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_ng2_order_pipe___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27_ng2_order_pipe__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_ngx_delete_confirm__ = __webpack_require__("./node_modules/ngx-delete-confirm/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__component_product_product_component__ = __webpack_require__("./src/app/component/product/product.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__component_category_category_component__ = __webpack_require__("./src/app/component/category/category.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__component_product_add_product_component__ = __webpack_require__("./src/app/component/product/add-product.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__component_product_product_service__ = __webpack_require__("./src/app/component/product/product.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__component_category_category_service__ = __webpack_require__("./src/app/component/category/category.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__component_supression_supression_component__ = __webpack_require__("./src/app/component/supression/supression.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__component_ves_ves_component__ = __webpack_require__("./src/app/component/ves/ves.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__component_ves_ves_service__ = __webpack_require__("./src/app/component/ves/ves.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__component_user_management_user_service__ = __webpack_require__("./src/app/component/user-management/user.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__component_supression_supression_service__ = __webpack_require__("./src/app/component/supression/supression.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__component_supression_supression_edit_component__ = __webpack_require__("./src/app/component/supression/supression-edit.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__component_product_file_control_value_accessor__ = __webpack_require__("./src/app/component/product/file-control-value-accessor.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__component_product_file_validator__ = __webpack_require__("./src/app/component/product/file.validator.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__component_supression_bootstrap_growl_module__ = __webpack_require__("./src/app/component/supression/bootstrap-growl.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__component_ves_ves_edit_component__ = __webpack_require__("./src/app/component/ves/ves-edit.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__component_user_management_user_management_component__ = __webpack_require__("./src/app/component/user-management/user-management.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__component_user_management_add_user_component__ = __webpack_require__("./src/app/component/user-management/add-user.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__component_forgot_password_forgot_password_component__ = __webpack_require__("./src/app/component/forgot-password/forgot-password.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__component_roles_roles_component__ = __webpack_require__("./src/app/component/roles/roles.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__component_roles_role_info_service__ = __webpack_require__("./src/app/component/roles/role-info.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__component_roles_add_role_add_role_component__ = __webpack_require__("./src/app/component/roles/add-role/add-role.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__component_feedback_feedback_component__ = __webpack_require__("./src/app/component/feedback/feedback.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__component_feedback_feedback_detail_feedback_detail_component__ = __webpack_require__("./src/app/component/feedback/feedback-detail/feedback-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__component_feedback_feedbck_service__ = __webpack_require__("./src/app/component/feedback/feedbck.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__component_user_explorer_user_explorer_component__ = __webpack_require__("./src/app/component/user-explorer/user-explorer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__component_user_explorer_view_user_explorer_component__ = __webpack_require__("./src/app/component/user-explorer/view-user-explorer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__component_overview_overview_component__ = __webpack_require__("./src/app/component/overview/overview.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__component_overview_overview_service__ = __webpack_require__("./src/app/component/overview/overview.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__component_profile_profile_component__ = __webpack_require__("./src/app/component/profile/profile.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__component_profile_profile_service__ = __webpack_require__("./src/app/component/profile/profile.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__component_header_header_service__ = __webpack_require__("./src/app/component/header/header.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__component_hochiki_company_management_component__ = __webpack_require__("./src/app/component/hochiki/company-management.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__component_hochiki_company_service__ = __webpack_require__("./src/app/component/hochiki/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__component_hochiki_add_company_component__ = __webpack_require__("./src/app/component/hochiki/add-company.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_ng2_order_pipe__ = __webpack_require__("./node_modules/ng2-order-pipe/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_ng2_order_pipe___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26_ng2_order_pipe__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_ngx_delete_confirm__ = __webpack_require__("./node_modules/ngx-delete-confirm/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_angular_4_data_table__ = __webpack_require__("./node_modules/angular-4-data-table/src/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_ng2_pagination__ = __webpack_require__("./node_modules/ng2-pagination/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_ng2_pagination___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29_ng2_pagination__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__component_product_product_component__ = __webpack_require__("./src/app/component/product/product.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__component_category_category_component__ = __webpack_require__("./src/app/component/category/category.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__component_product_add_product_component__ = __webpack_require__("./src/app/component/product/add-product.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__component_product_product_service__ = __webpack_require__("./src/app/component/product/product.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__component_category_category_service__ = __webpack_require__("./src/app/component/category/category.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__component_supression_supression_component__ = __webpack_require__("./src/app/component/supression/supression.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__component_ves_ves_component__ = __webpack_require__("./src/app/component/ves/ves.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__component_ves_ves_service__ = __webpack_require__("./src/app/component/ves/ves.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__component_user_management_user_service__ = __webpack_require__("./src/app/component/user-management/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__component_supression_supression_service__ = __webpack_require__("./src/app/component/supression/supression.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__component_supression_supression_edit_component__ = __webpack_require__("./src/app/component/supression/supression-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__component_product_file_control_value_accessor__ = __webpack_require__("./src/app/component/product/file-control-value-accessor.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__component_product_file_validator__ = __webpack_require__("./src/app/component/product/file.validator.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__component_supression_bootstrap_growl_module__ = __webpack_require__("./src/app/component/supression/bootstrap-growl.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__component_ves_ves_edit_component__ = __webpack_require__("./src/app/component/ves/ves-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__component_user_management_user_management_component__ = __webpack_require__("./src/app/component/user-management/user-management.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__component_user_management_add_user_component__ = __webpack_require__("./src/app/component/user-management/add-user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__component_forgot_password_forgot_password_component__ = __webpack_require__("./src/app/component/forgot-password/forgot-password.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__component_roles_roles_component__ = __webpack_require__("./src/app/component/roles/roles.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__component_roles_role_info_service__ = __webpack_require__("./src/app/component/roles/role-info.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__component_roles_add_role_add_role_component__ = __webpack_require__("./src/app/component/roles/add-role/add-role.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__component_feedback_feedback_component__ = __webpack_require__("./src/app/component/feedback/feedback.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__component_feedback_feedback_detail_feedback_detail_component__ = __webpack_require__("./src/app/component/feedback/feedback-detail/feedback-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__component_feedback_feedbck_service__ = __webpack_require__("./src/app/component/feedback/feedbck.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__component_user_explorer_user_explorer_component__ = __webpack_require__("./src/app/component/user-explorer/user-explorer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__component_user_explorer_view_user_explorer_component__ = __webpack_require__("./src/app/component/user-explorer/view-user-explorer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__component_overview_overview_component__ = __webpack_require__("./src/app/component/overview/overview.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__component_overview_overview_service__ = __webpack_require__("./src/app/component/overview/overview.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -714,6 +715,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 // import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -781,60 +783,61 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_12__component_main_content_main_content_component__["a" /* MainContentComponent */],
                 __WEBPACK_IMPORTED_MODULE_14__component_dashboard_dashboard_component__["a" /* DashboardComponent */],
                 __WEBPACK_IMPORTED_MODULE_16__component_login_page_login_page_component__["a" /* LoginPageComponent */],
-                __WEBPACK_IMPORTED_MODULE_21__component_profile_profile_component__["a" /* ProfileComponent */],
-                __WEBPACK_IMPORTED_MODULE_24__component_hochiki_company_management_component__["a" /* CompanyManagementComponent */],
-                __WEBPACK_IMPORTED_MODULE_26__component_hochiki_add_company_component__["a" /* AddCompanyComponent */],
-                __WEBPACK_IMPORTED_MODULE_29__component_product_product_component__["a" /* ProductComponent */],
-                __WEBPACK_IMPORTED_MODULE_30__component_category_category_component__["a" /* CategoryComponent */],
-                __WEBPACK_IMPORTED_MODULE_31__component_product_add_product_component__["a" /* AddProductComponent */],
-                __WEBPACK_IMPORTED_MODULE_34__component_supression_supression_component__["a" /* SupressionComponent */],
-                __WEBPACK_IMPORTED_MODULE_35__component_ves_ves_component__["a" /* VesComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__component_supression_supression_edit_component__["a" /* SupressionEditComponent */],
-                __WEBPACK_IMPORTED_MODULE_40__component_product_file_control_value_accessor__["a" /* FileValueAccessor */],
-                __WEBPACK_IMPORTED_MODULE_41__component_product_file_validator__["a" /* FileValidator */],
-                __WEBPACK_IMPORTED_MODULE_43__component_ves_ves_edit_component__["a" /* VesEditComponent */],
-                __WEBPACK_IMPORTED_MODULE_44__component_user_management_user_management_component__["a" /* UserManagementComponent */],
-                __WEBPACK_IMPORTED_MODULE_45__component_user_management_add_user_component__["a" /* AddUserComponent */],
-                __WEBPACK_IMPORTED_MODULE_46__component_forgot_password_forgot_password_component__["a" /* ForgotPasswordComponent */],
-                __WEBPACK_IMPORTED_MODULE_47__component_roles_roles_component__["a" /* RolesComponent */],
-                __WEBPACK_IMPORTED_MODULE_49__component_roles_add_role_add_role_component__["a" /* AddRoleComponent */],
-                __WEBPACK_IMPORTED_MODULE_50__component_feedback_feedback_component__["a" /* FeedbackComponent */],
-                __WEBPACK_IMPORTED_MODULE_51__component_feedback_feedback_detail_feedback_detail_component__["a" /* FeedbackDetailComponent */],
-                __WEBPACK_IMPORTED_MODULE_53__component_user_explorer_user_explorer_component__["a" /* UserExplorerComponent */],
-                __WEBPACK_IMPORTED_MODULE_54__component_user_explorer_view_user_explorer_component__["a" /* ViewUserExplorerComponent */],
-                __WEBPACK_IMPORTED_MODULE_55__component_overview_overview_component__["a" /* OverviewComponent */]
+                __WEBPACK_IMPORTED_MODULE_20__component_profile_profile_component__["a" /* ProfileComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__component_hochiki_company_management_component__["a" /* CompanyManagementComponent */],
+                __WEBPACK_IMPORTED_MODULE_25__component_hochiki_add_company_component__["a" /* AddCompanyComponent */],
+                __WEBPACK_IMPORTED_MODULE_30__component_product_product_component__["a" /* ProductComponent */],
+                __WEBPACK_IMPORTED_MODULE_31__component_category_category_component__["a" /* CategoryComponent */],
+                __WEBPACK_IMPORTED_MODULE_32__component_product_add_product_component__["a" /* AddProductComponent */],
+                __WEBPACK_IMPORTED_MODULE_35__component_supression_supression_component__["a" /* SupressionComponent */],
+                __WEBPACK_IMPORTED_MODULE_36__component_ves_ves_component__["a" /* VesComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__component_supression_supression_edit_component__["a" /* SupressionEditComponent */],
+                __WEBPACK_IMPORTED_MODULE_41__component_product_file_control_value_accessor__["a" /* FileValueAccessor */],
+                __WEBPACK_IMPORTED_MODULE_42__component_product_file_validator__["a" /* FileValidator */],
+                __WEBPACK_IMPORTED_MODULE_44__component_ves_ves_edit_component__["a" /* VesEditComponent */],
+                __WEBPACK_IMPORTED_MODULE_45__component_user_management_user_management_component__["a" /* UserManagementComponent */],
+                __WEBPACK_IMPORTED_MODULE_46__component_user_management_add_user_component__["a" /* AddUserComponent */],
+                __WEBPACK_IMPORTED_MODULE_47__component_forgot_password_forgot_password_component__["a" /* ForgotPasswordComponent */],
+                __WEBPACK_IMPORTED_MODULE_48__component_roles_roles_component__["a" /* RolesComponent */],
+                __WEBPACK_IMPORTED_MODULE_50__component_roles_add_role_add_role_component__["a" /* AddRoleComponent */],
+                __WEBPACK_IMPORTED_MODULE_51__component_feedback_feedback_component__["a" /* FeedbackComponent */],
+                __WEBPACK_IMPORTED_MODULE_52__component_feedback_feedback_detail_feedback_detail_component__["a" /* FeedbackDetailComponent */],
+                __WEBPACK_IMPORTED_MODULE_54__component_user_explorer_user_explorer_component__["a" /* UserExplorerComponent */],
+                __WEBPACK_IMPORTED_MODULE_55__component_user_explorer_view_user_explorer_component__["a" /* ViewUserExplorerComponent */],
+                __WEBPACK_IMPORTED_MODULE_56__component_overview_overview_component__["a" /* OverviewComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_42__component_supression_bootstrap_growl_module__["a" /* BootstrapGrowlModule */],
+                __WEBPACK_IMPORTED_MODULE_43__component_supression_bootstrap_growl_module__["a" /* BootstrapGrowlModule */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_5__angular_http__["c" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_4_ng2_google_charts__["a" /* Ng2GoogleChartsModule */],
+                __WEBPACK_IMPORTED_MODULE_29_ng2_pagination__["Ng2PaginationModule"],
                 __WEBPACK_IMPORTED_MODULE_6__app_routing_module__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_15_mydaterangepicker__["MyDateRangePickerModule"],
                 __WEBPACK_IMPORTED_MODULE_17_ng2_search_filter__["a" /* Ng2SearchPipeModule */],
                 __WEBPACK_IMPORTED_MODULE_19_mydatepicker__["MyDatePickerModule"],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* ReactiveFormsModule */],
-                __WEBPACK_IMPORTED_MODULE_20_angular2_datatable__["DataTableModule"],
-                __WEBPACK_IMPORTED_MODULE_27_ng2_order_pipe__["Ng2OrderModule"],
-                __WEBPACK_IMPORTED_MODULE_28_ngx_delete_confirm__["a" /* NgxDeleteConfirmModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_28_angular_4_data_table__["a" /* DataTableModule */],
+                __WEBPACK_IMPORTED_MODULE_26_ng2_order_pipe__["Ng2OrderModule"],
+                __WEBPACK_IMPORTED_MODULE_27_ngx_delete_confirm__["a" /* NgxDeleteConfirmModule */].forRoot(),
             ],
             providers: [__WEBPACK_IMPORTED_MODULE_13__component_login_page_login_service__["a" /* AuthenticationService */],
                 __WEBPACK_IMPORTED_MODULE_8__gaurds_authenticate_guard__["a" /* AuthenticateGuard */],
-                __WEBPACK_IMPORTED_MODULE_22__component_profile_profile_service__["a" /* ProfileService */],
+                __WEBPACK_IMPORTED_MODULE_21__component_profile_profile_service__["a" /* ProfileService */],
                 __WEBPACK_IMPORTED_MODULE_18__http_service__["a" /* HttpService */],
-                __WEBPACK_IMPORTED_MODULE_23__component_header_header_service__["a" /* HeaderService */],
-                __WEBPACK_IMPORTED_MODULE_25__component_hochiki_company_service__["a" /* CompanyService */],
-                __WEBPACK_IMPORTED_MODULE_32__component_product_product_service__["a" /* ProductService */],
+                __WEBPACK_IMPORTED_MODULE_22__component_header_header_service__["a" /* HeaderService */],
+                __WEBPACK_IMPORTED_MODULE_24__component_hochiki_company_service__["a" /* CompanyService */],
+                __WEBPACK_IMPORTED_MODULE_33__component_product_product_service__["a" /* ProductService */],
                 // LoaderService,
-                __WEBPACK_IMPORTED_MODULE_33__component_category_category_service__["a" /* CategoryService */],
-                __WEBPACK_IMPORTED_MODULE_38__component_supression_supression_service__["a" /* SupressionService */],
-                __WEBPACK_IMPORTED_MODULE_36__component_ves_ves_service__["a" /* VesService */],
-                __WEBPACK_IMPORTED_MODULE_37__component_user_management_user_service__["a" /* UserService */],
-                __WEBPACK_IMPORTED_MODULE_48__component_roles_role_info_service__["a" /* RoleInfoService */],
-                __WEBPACK_IMPORTED_MODULE_52__component_feedback_feedbck_service__["a" /* FeedbckService */],
-                __WEBPACK_IMPORTED_MODULE_56__component_overview_overview_service__["a" /* overviewService */]
+                __WEBPACK_IMPORTED_MODULE_34__component_category_category_service__["a" /* CategoryService */],
+                __WEBPACK_IMPORTED_MODULE_39__component_supression_supression_service__["a" /* SupressionService */],
+                __WEBPACK_IMPORTED_MODULE_37__component_ves_ves_service__["a" /* VesService */],
+                __WEBPACK_IMPORTED_MODULE_38__component_user_management_user_service__["a" /* UserService */],
+                __WEBPACK_IMPORTED_MODULE_49__component_roles_role_info_service__["a" /* RoleInfoService */],
+                __WEBPACK_IMPORTED_MODULE_53__component_feedback_feedbck_service__["a" /* FeedbckService */],
+                __WEBPACK_IMPORTED_MODULE_57__component_overview_overview_service__["a" /* overviewService */]
                 // BootstrapGrowlService
                 // {provide: ToastOptions, useClass: AddProductComponent},
             ],
@@ -1986,14 +1989,14 @@ var MainContentComponent = /** @class */ (function () {
 /***/ "./src/app/component/overview/overview.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".box.box-default.trafic {\n    border-top-color: #d2d6de;\n    height: 320px;\n}\n.box.box-default.key {\n    border-top-color: #d2d6de;\n    /* height: 600px; */\n    height:300px;\n}\n.btn-group .pull-right{\n    padding-left: 813px;\n    \n}\n.textsize{\n    font-size: 25px;\n}\n.breadcrumbs{\n    float:right;\n}\n.ButtonState{display:none}\n.Button{padding: 6px; margin:0 -2px; background:#fff; border:1px solid rgb(179, 174, 174); cursor:pointer; font-size: 12px;}\n.ButtonState:checked + .Button{background:#CCC;}\ntd{\n    height: 88px;\n    padding: 25px;\n    \n}\n.table > tbody > tr > td, .table > tfoot > tr > td {\n    padding: 25px;\n   \n}\n.pl0 { padding-left: 798px; }\n.pl2 { padding-left: 0px; }\n.pl3 {  padding-left: 164px; }\n.pr10 {padding-left: 0px;}\n.mtb7 {\n    margin: 7px 0;\n}\n.inline-block {\n    display: inline-block;\n}\n@media (min-width: 992px)\n{\n    .w6 {width: 7%;}\n    \n}\n@media (min-width: 992px)\n{\n    .w16 {\n        width: 34.666667%;\n    }\n    .p0 {padding-left: 0px;\n        width: 34.666667%;\n    } \n}\n.cg{\n    color:rgb(212, 208, 208);\n}\n.dot1 {\n    height: 12px;\n    width: 12px;\n    background-color: skyblue;\n    border-radius: 50%;\n    display: inline-block;\n}\n.dot2 {\n    height: 12px;\n    width: 12px;\n    background-color: #0A97F5;\n    border-radius: 50%;\n    display: inline-block;\n}\na:link, a:visited {\n    background-color: skyblue;\n    color: white;\n    padding: 35px 25px;\n    text-align: center;\n    text-decoration: none;\n    display: inline-block;\n    font-size: 21px;\n    font-weight: bold;\n    width: 100% !important;\n    height: 100% !important;\n}\na:hover, a:active {\n    background-color:  #f1f1f1;\n    color: black;\n}"
+module.exports = ".box.box-default.trafic {\n    border-top-color: #d2d6de;\n    height: 320px;\n}\n.box.box-default.key {\n    border-top-color: #d2d6de;\n    /* height: 600px; */\n    height:216px;\n}\n.btn-group .pull-right{\n    padding-left: 813px;\n    \n}\n.textsize{\n    font-size: 25px;\n}\n.breadcrumbs{\n    float:right;\n}\n.ButtonState{display:none}\n.Button{padding: 6px; margin:0 -2px; background:#fff; border:1px solid rgb(179, 174, 174); cursor:pointer; font-size: 12px;}\n.ButtonState:checked + .Button{background:#CCC;}\ntd{\n    height: 88px;\n    padding: 25px;\n    \n}\n.table > tbody > tr > td, .table > tfoot > tr > td {\n    padding: 25px;\n   \n}\n.pl0 { padding-left: 798px; }\n.pl2 { padding-left: 0px; }\n.pl3 {  padding-left: 164px; }\n.pr10 {padding-left: 0px;}\n.mtb7 {\n    margin: 7px 0;\n}\n.inline-block {\n    display: inline-block;\n}\n@media (min-width: 992px)\n{\n    .w6 {width: 7%;}\n    \n}\n@media (min-width: 992px)\n{\n    .w16 {\n        width: 34.666667%;\n    }\n    .p0 {padding-left: 0px;\n        width: 34.666667%;\n    } \n}\n.cg{\n    color:rgb(212, 208, 208);\n}\n.dot1 {\n    height: 12px;\n    width: 12px;\n    background-color: skyblue;\n    border-radius: 50%;\n    display: inline-block;\n}\n.dot2 {\n    height: 12px;\n    width: 12px;\n    background-color: #0A97F5;\n    border-radius: 50%;\n    display: inline-block;\n}\na:link, a:visited {\n    background-color: skyblue;\n    color: white;\n    padding: 35px 25px;\n    text-align: center;\n    text-decoration: none;\n    display: inline-block;\n    font-size: 21px;\n    font-weight: bold;\n    width: 100% !important;\n    height: 100% !important;\n}\na:hover, a:active {\n    background-color:  #f1f1f1;\n    color: black;\n}\n.a td, th {\n    padding: 11px !important;\n    height:0px !important;\n}"
 
 /***/ }),
 
 /***/ "./src/app/component/overview/overview.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<div class=\"content-wrapper\">\n  <!-- Content Header (Page header) -->\n  <section class=\"content-header\">\n    <h1>\n      Hochiki - Audience Overview\n\n    </h1>\n\n\n  </section>\n\n\n  <!-- Main content -->\n  <section class=\"content\">\n    <div class=\"box box-default trafic \">\n\n      <!-- /.box-header -->\n      <div class=\"box-body\">\n        <div class=\"row\">\n          <div class=\"col-md-12\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                <!-- <div class=\"col-md-5\"> -->\n                <div class=\"form-group inline-block\">\n                  <select [(ngModel)]='currentTab' class=\"form-control\" (ngModelChange)=\"getDetailsfirst($event)\">\n                    <option *ngFor=\"let metric of matrics\" selected=\"currentTab == metric.id\" [value]=\"metric.id\">\n                      {{metric.value}}\n                    </option>\n                  </select>\n                </div>\n                <div class=\"inline-block\">Vs.</div>\n                <div class=\"form-group inline-block\">\n                  <select [(ngModel)]='currentTab2' class=\"form-control\" (ngModelChange)=\"getDetailssecond($event)\">\n\n                    <option [value]=\" \" selected=\"currentTab2 == metric2.id\">Select a metrics</option>\n\n                    <option *ngFor=\"let metric2 of matrics2\" selected=\"currentTab2 == metric2.id\" [value]=\"metric2.id\">\n                      {{metric2.value}}\n                    </option>\n                  </select>\n                </div>\n                <!-- </div> -->\n\n              </div>\n              <div class=\"col-md-6\">\n                  <div class=\"row\">\n                      <div class=\"col-md-6 col-md-offset-6 text-right\">\n                          <div id=\"reportrange\" style=\"background: #fff; cursor: pointer; padding: 5px 0px; border-bottom: 1px solid rgb(212, 208, 208); width:auto; display: inline-block;\">\n                              <!-- <i class=\"fa fa-calendar\"></i>&nbsp; -->\n                              <span></span> <i class=\"fa fa-caret-down cg\"></i>\n                          </div>\n                      </div>\n                    </div>\n\n                \n\n                <!-- <div id=\"daterange-picker-container\">\n                </div> -->\n\n\n                <!-- <form #myForm=\"ngForm\" novalidate>\n                          <my-date-range-picker [options]=\"myDateRangePickerOptions\" placeholder=\"Select date range\" (dateRangeChanged)=\"onDateRangeChanged($event)\" \n                            (dateSelected)=\"onDateSelected($event)\" date-format=\"dd MMM yyyy\"\n                            selDateRange={{selectedIntialDates}}></my-date-range-picker>                \n                      </form> -->\n              </div>\n            </div>\n\n          </div>\n          <div class=\"col-md-12\">\n\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                   <div class=\"inline-block dot1\"></div>\n                  <div class=\"inline-block\" style=\"padding-right: 25px;\">{{legend1}}</div>\n                   \n                   <div class=\"inline-block dot2\" *ngIf=\"currentTab2 !== 'Select a metrics'\"></div>   \n                   <div class=\"inline-block\" *ngIf=\"currentTab2 !== 'Select a metrics'\">{{legend2}}</div>           \n              </div>\n              <div class=\"col-md-6\">\n                <div class=\"row\">\n                  <div class=\"col-md-6 col-md-offset-6 text-right\">\n                    <div class=\"btn-group\">\n                      <!-- <button type=\"button\" class=\"btn btn-default\"   (click)=\"showdimension('ga:date');\">Day</button>\n                                <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:week');\">Week</button>\n                                <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:month');\">Month</button> -->\n                      <input type=\"radio\" name=\"Button\" class=\"ButtonState\" checked id=\"Button1\" value=\"1\" />\n                      <label class=\"Button\" for=\"Button1\" (click)=\"showdimension('ga:date');\">Day</label>\n                      <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button2\" value=\"2\" />\n                      <!-- <button class=\"Button\" name=\"Button\" class=\"ButtonState\"  [disabled]=\"buttonDisabled\"  id=\"Button2\" value=\"2\">Week</button> -->\n                      <label class=\"Button\" for=\"Button2\" (click)=\"showdimension('ga:week');\">Week</label>\n                      <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button3\" value=\"3\" />\n                      <label class=\"Button\" for=\"Button3\" (click)=\"showdimension('ga:month');\">Month</label>\n\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-md-12\">\n            <google-chart [data]=\"lineChartData\" #cchart (chartSelect)=\"select($event)\" options=\"{'hAxis.gridlines' : false,'hAxis.viewWindow'  : false}\"></google-chart>\n          </div>\n          <!-- /.col -->\n\n          <!-- /.col -->\n        </div>\n\n        <!-- /.row -->\n      </div>\n      <!-- /.box-body -->\n\n    </div>\n    <div class=\"box box-default key\">\n\n      <!-- /.box-header -->\n\n      <!-- /.box-body -->\n\n      <table class=\"table table-bordered\">\n        <tr>\n          <td>Sessions:\n            <br>\n            <b class=\"textsize\">{{sessionTotal}}</b>\n          </td>\n          <td>\n            Users:\n            <br>\n            <b class=\"textsize\">{{usersTotal}}</b>\n          </td>\n          <td>\n            Avg.Session Duration:\n            <br>\n            <b class=\"textsize\">{{totalSessionUsers }} </b>\n          </td>\n          <td>Bounce Rate:\n            <br>\n            <b class=\"textsize\">{{bouncesTotalround }}%</b>\n          </td>\n        </tr>\n        <tr>\n          <td>Pageviews:\n            <br>\n            <b class=\"textsize\">{{pageViewTotal}} </b>\n          </td>\n          <td>Pages/Session:\n            <br>\n            <b class=\"textsize\">{{pagevssessionsTotalRound}}</b>\n          </td>\n          <td>Number of Sessions per User:\n            <br>\n            <b class=\"textsize\">{{persessionsTotal }}</b>\n          </td>\n          <td style = \"padding:0px\">\n            <!-- <form target=\"_blank\">\n            <input class=\"MyButton\" type=\"button\" target=\"_blank\" value=\"View User Explorer\" onclick=\"window.location.href='http://www.hyperlinkcode.com/button-links.php'\" />\n            </form> -->\n            <a href=\"https://analytics.google.com/analytics/web/#/report/visitors-legacy-user-id/a121170303w179024821p177426717/_u.date00=20180506&_u.date01=20180524\" target=\"_blank\">View User Explorer</a>\n          </td>\n        </tr>\n\n      </table>\n\n\n\n    </div>\n    <div *ngIf=\"showLoader\" class=\"fa fa-spinner fa-spin\" style=\"font-size:50px;text-align: center;\n          position: absolute;top: 50%;left: 50%;\"></div>\n  </section>\n  <!-- /.content -->\n</div>"
+module.exports = "\n\n<div class=\"content-wrapper\">\n  <!-- Content Header (Page header) -->\n  <section class=\"content-header\">\n    <h1>\n      Hochiki - Audience Overview\n\n    </h1>\n\n\n  </section>\n\n\n  <!-- Main content -->\n  <section class=\"content\">\n    <div class=\"box box-default trafic \">\n\n      <!-- /.box-header -->\n      <div class=\"box-body\">\n        <div class=\"row\">\n          <div class=\"col-md-12\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                <!-- <div class=\"col-md-5\"> -->\n                <div class=\"form-group inline-block\">\n                  <select [(ngModel)]='currentTab' class=\"form-control\" (ngModelChange)=\"getDetailsfirst($event)\">\n                    <option *ngFor=\"let metric of matrics\" selected=\"currentTab == metric.id\" [value]=\"metric.id\">\n                      {{metric.value}}\n                    </option>\n                  </select>\n                </div>\n                <div class=\"inline-block\">Vs.</div>\n                <div class=\"form-group inline-block\">\n                  <select [(ngModel)]='currentTab2' class=\"form-control\" (ngModelChange)=\"getDetailssecond($event)\">\n\n                    <option [value]=\" \" selected=\"currentTab2 == metric2.id\">Select a metrics</option>\n\n                    <option *ngFor=\"let metric2 of matrics2\" selected=\"currentTab2 == metric2.id\" [value]=\"metric2.id\">\n                      {{metric2.value}}\n                    </option>\n                  </select>\n                </div>\n                <!-- </div> -->\n\n              </div>\n              <div class=\"col-md-6\">\n                  <div class=\"row\">\n                      <div class=\"col-md-6 col-md-offset-6 text-right\">\n                          <div id=\"reportrange\" style=\"background: #fff; cursor: pointer; padding: 5px 0px; border-bottom: 1px solid rgb(212, 208, 208); width:auto; display: inline-block;\">\n                              <!-- <i class=\"fa fa-calendar\"></i>&nbsp; -->\n                              <span></span> <i class=\"fa fa-caret-down cg\"></i>\n                          </div>\n                      </div>\n                    </div>\n\n                \n\n                <!-- <div id=\"daterange-picker-container\">\n                </div> -->\n\n\n                <!-- <form #myForm=\"ngForm\" novalidate>\n                          <my-date-range-picker [options]=\"myDateRangePickerOptions\" placeholder=\"Select date range\" (dateRangeChanged)=\"onDateRangeChanged($event)\" \n                            (dateSelected)=\"onDateSelected($event)\" date-format=\"dd MMM yyyy\"\n                            selDateRange={{selectedIntialDates}}></my-date-range-picker>                \n                      </form> -->\n              </div>\n            </div>\n\n          </div>\n          <div class=\"col-md-12\">\n\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                   <div class=\"inline-block dot1\"></div>\n                  <div class=\"inline-block\" style=\"padding-right: 25px;\">{{legend1}}</div>\n                   \n                   <div class=\"inline-block dot2\" *ngIf=\"currentTab2 !== 'Select a metrics'\"></div>   \n                   <div class=\"inline-block\" *ngIf=\"currentTab2 !== 'Select a metrics'\">{{legend2}}</div>           \n              </div>\n              <div class=\"col-md-6\">\n                <div class=\"row\">\n                  <div class=\"col-md-6 col-md-offset-6 text-right\">\n                    <div class=\"btn-group\">\n                      <!-- <button type=\"button\" class=\"btn btn-default\"   (click)=\"showdimension('ga:date');\">Day</button>\n                                <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:week');\">Week</button>\n                                <button type=\"button\" class=\"btn btn-default\" (click)=\"showdimension('ga:month');\">Month</button> -->\n                      <input type=\"radio\" name=\"Button\" class=\"ButtonState\" checked id=\"Button1\" value=\"1\" />\n                      <label class=\"Button\" for=\"Button1\" (click)=\"showdimension('ga:date');\">Day</label>\n                      <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button2\" value=\"2\" />\n                      <!-- <button class=\"Button\" name=\"Button\" class=\"ButtonState\"  [disabled]=\"buttonDisabled\"  id=\"Button2\" value=\"2\">Week</button> -->\n                      <label class=\"Button\" for=\"Button2\" (click)=\"showdimension('ga:week');\">Week</label>\n                      <input type=\"radio\" name=\"Button\" class=\"ButtonState\" id=\"Button3\" value=\"3\" />\n                      <label class=\"Button\" for=\"Button3\" (click)=\"showdimension('ga:month');\">Month</label>\n\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-md-12\">\n            <google-chart [data]=\"lineChartData\" #cchart (chartSelect)=\"select($event)\" options=\"{'hAxis.gridlines' : false,'hAxis.viewWindow'  : false}\"></google-chart>\n          </div>\n          <!-- /.col -->\n\n          <!-- /.col -->\n        </div>\n\n        <!-- /.row -->\n      </div>\n      <!-- /.box-body -->\n\n    </div>\n    <div class=\"box box-default key\">\n\n      <!-- /.box-header -->\n\n      <!-- /.box-body -->\n\n      <table class=\"table table-bordered\">\n        <tr>\n          <td>Sessions:\n            <br>\n            <b class=\"textsize\">{{sessionTotal}}</b>\n          </td>\n          <td>\n            Users:\n            <br>\n            <b class=\"textsize\">{{usersTotal}}</b>\n          </td>\n          <td>\n            Avg.Session Duration:\n            <br>\n            <b class=\"textsize\">{{totalSessionUsers }} </b>\n          </td>\n          <td>Bounce Rate:\n            <br>\n            <b class=\"textsize\">{{bouncesTotalround }}%</b>\n          </td>\n        </tr>\n        <tr>\n          <td>Pageviews:\n            <br>\n            <b class=\"textsize\">{{pageViewTotal}} </b>\n          </td>\n          <td>Pages/Session:\n            <br>\n            <b class=\"textsize\">{{pagevssessionsTotalRound}}</b>\n          </td>\n          <td>Number of Sessions per User:\n            <br>\n            <b class=\"textsize\">{{persessionsTotal }}</b>\n          </td>\n          <!-- <td style = \"padding:0px\">\n            <a href=\"https://analytics.google.com/analytics/web/#/report/visitors-legacy-user-id/a121170303w179024821p177426717/_u.date00=20180506&_u.date01=20180524\" target=\"_blank\">View User Explorer</a>\n          </td> -->\n        </tr>\n\n      </table>\n\n\n\n    </div>\n\n    <div class=\"box box-default\">\n\n      <div class=\"box table-responsive\">\n        <table  class=\"table table-striped a\"  *ngIf=\"items.length !== 0\" >\n            <tr >\n              <th height=\"10%\"></th>\n              <th height=\"10%\" (click)=\"sort('userName')\">userName</th>\n              <th height=\"10%\" (click)=\"sort('eventAction')\">Event Action</th>\n              <th height=\"10%\" (click)=\"sort('screenName')\">Screen Name</th>\n              <th height=\"10%\" (click)=\"sort('totalEvents')\">Total Events</th>\n              <th height=\"10%\" (click)=\"sort('sessions')\">Sessions</th>\n              <th height=\"10%\" (click)=\"sort('avgSessionDuration')\">Avg. Session Duration</th>\n              <th height=\"10%\" (click)=\"sort('percentNewSessions')\">% New Sessions</th>\n              <th height=\"10%\" (click)=\"sort('pageviewsPerSession')\">Pages/Sessions</th>\n              <th height=\"10%\" (click)=\"sort('pageviews')\">Pageviews</th>\n              <th height=\"10%\" (click)=\"sort('bounceRate')\">Bounce Rate</th>\n              <th height=\"10%\" (click)=\"sort('timeOnPage')\">Time on Page</th>\n            </tr>\n           \n\n            <tr *ngFor=\"let x of items | orderBy: key : reverse | filter:filter | paginate: {itemsPerPage: 10, currentPage:page, id: '1'}; let i = index\" style=\" height:10px\">\n              <td>{{i + 1}}</td> \n              <td>{{x.userName}}</td>\n               <td>{{x.eventAction}}</td>\n               <td>{{x.screenName}}</td>\n               <td>{{x.totalEvents}}</td>\n               <td>{{x.sessions}}</td>\n               <!-- <td>{{x.totalSessionUsers}}</td> -->\n               <td>{{x.avgSessionDuration}}</td>\n               \n               <td>{{x.percentNewSessions}}</td>\n               <td>{{x.pageviewsPerSession}}</td>\n               <td>{{x.pageviews}}</td>\n               <td>{{x.bounceRate}}</td>\n               <td>{{x.timeOnPage}}</td>\n               \n            </tr>\n           \n        </table>\n        <div style=\" text-align:right;\">\n            <pagination-controls (pageChange)=\"page = $event\" id=\"1\"\n            maxSize=\"10\"\n            directionLinks=\"true\"\n            autoHide=\"true\">\n      </pagination-controls>`\n        </div>\n       \n  <div style='text-align: center' *ngIf=\"items.length == 0\">\n      <!-- <img style='text-align: center' src=\"assets/images/found.jpg\" /> -->\n      <h3 style='text-align: center'>Data not available, Please select dates</h3>\n  </div>\n    </div>\n     \n    <!-- <div style=\"margin: auto; max-width: 1500px; margin-bottom: 50px;\">\n      <data-table id=\"persons-grid\"\n      [pagination_limit]=\"10\"\n          [items]=\"items\"\n          [itemCount]=\"itemCount\"\n  \n          (rowClick)=\"rowClick($event)\"\n          (rowDoubleClick)=\"rowDoubleClick($event)\"\n          [rowTooltip]=\"rowTooltip\"\n          >\n          <data-table-column\n              [property]=\"'userName'\"\n              [header]=\"'userName'\"\n              [sortable]=\"true\"\n              [resizable]=\"true\">\n          </data-table-column>\n          <data-table-column\n          [property]=\"'eventAction'\"\n          [header]=\"'Event Action'\"\n          [sortable]=\"true\"\n          [resizable]=\"true\">\n          </data-table-column>\n         <data-table-column\n      [property]=\"'screenName'\"\n      [header]=\"'Screen Name'\"\n      [sortable]=\"true\"\n      [resizable]=\"true\">\n      </data-table-column>\n  <data-table-column\n  [property]=\"'totalEvents'\"\n  [header]=\"'Total Events'\"\n  [sortable]=\"true\"\n  [resizable]=\"true\">\n</data-table-column>\n<data-table-column\n[property]=\"'sessions'\"\n[header]=\"'Sessions'\"\n[sortable]=\"true\"\n[resizable]=\"true\">\n</data-table-column>\n<data-table-column\n[property]=\"'avgSessionDuration'\"\n[header]=\"'Avg. Session Duration'\"\n[sortable]=\"true\"\n[resizable]=\"true\">\n</data-table-column>\n<data-table-column\n[property]=\"'percentNewSessions'\"\n[header]=\"'% New Sessions'\"\n[sortable]=\"true\"\n[resizable]=\"true\">\n</data-table-column>\n<data-table-column\n[property]=\"'pageviewsPerSession'\"\n[header]=\"'Pages/Sessions'\"\n[sortable]=\"true\"\n[resizable]=\"true\">\n</data-table-column>\n<data-table-column\n[property]=\"'pageviews'\"\n[header]=\"'Pageviews'\"\n[sortable]=\"true\"\n[resizable]=\"true\">\n</data-table-column>\n<data-table-column\n[property]=\"'bounceRate'\"\n[header]=\"'Bounce Rate'\"\n[sortable]=\"true\"\n[resizable]=\"true\">\n</data-table-column>\n<data-table-column\n[property]=\"'timeOnPage'\"\n[header]=\"'Time on Page'\"\n[sortable]=\"true\"\n[resizable]=\"true\">\n</data-table-column>\n        \n         \n      </data-table>\n  </div> -->\n\n          </div>\n        \n\n    <div *ngIf=\"showLoader\" class=\"fa fa-spinner fa-spin\" style=\"font-size:50px;text-align: center;\n          position: absolute;top: 50%;left: 50%;\"></div>\n  </section>\n  <!-- /.content -->\n</div>"
 
 /***/ }),
 
@@ -2004,10 +2007,11 @@ module.exports = "\n\n<div class=\"content-wrapper\">\n  <!-- Content Header (Pa
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OverviewComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__overview_service__ = __webpack_require__("./src/app/component/overview/overview.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__("./node_modules/moment/moment.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular_4_data_table__ = __webpack_require__("./node_modules/angular-4-data-table/src/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__overview_service__ = __webpack_require__("./src/app/component/overview/overview.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__("./node_modules/moment/moment.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2019,43 +2023,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 // import { IMyDpOptions, IMyDateModel, IMyInputFieldChanged } from 'mydatepicker';
 
 
  // add this 1 of 4
 // import 'jquery-daterangepicker/lib/dist/daterangepicker.min.css';
 var OverviewComponent = /** @class */ (function () {
-    //   myDateRangePickerOptions: IMyDrpOptions = {
-    //     dateFormat: 'mmm dd, yyyy',
-    //     disableSince: { year: new Date().getFullYear(), month: (new Date().getMonth() + 1), day: (new Date().getDate() + 1) },
-    //  };
-    //   private model: any = {
-    //     beginDate: this.startDate,
-    //     endDate: this.endDate
-    //   };
-    //   setDateRange(): void {
-    //     const date = new Date();
-    //     this.myForm.patchValue({
-    //       myDateRange: {
-    //         beginDate: {
-    //           year: date.getFullYear(),
-    //           month: date.getMonth() + 1,
-    //           day: date.getDate()
-    //         },
-    //         endDate: {
-    //           year: date.getFullYear(),
-    //           month: date.getMonth() + 1,
-    //           day: date.getDate()
-    //         }
-    //       }
-    //     });
-    //   }
     function OverviewComponent(router, cluster1Service, formBuilder) {
         this.router = router;
         this.cluster1Service = cluster1Service;
         this.formBuilder = formBuilder;
-        this.startDate = __WEBPACK_IMPORTED_MODULE_4_moment__().subtract(7, 'days').format('MMMM D, YYYY');
-        this.endDate = __WEBPACK_IMPORTED_MODULE_4_moment__().subtract(1, 'days').format('MMMM D, YYYY');
+        this.startDate = __WEBPACK_IMPORTED_MODULE_5_moment__().subtract(7, 'days').format('MMMM D, YYYY');
+        this.endDate = __WEBPACK_IMPORTED_MODULE_5_moment__().subtract(1, 'days').format('MMMM D, YYYY');
         this.days = '';
         this.beginDateFormat = '';
         this.endDateFormat = '';
@@ -2076,11 +2056,13 @@ var OverviewComponent = /** @class */ (function () {
         this.displayBounce = 0;
         this.bouncesTotalround = 0;
         this.totalSessionUsersRound = 0;
+        this.itemCount = 0;
         this.totalSessionUsers = '';
         this.IntialDates = '';
         // private start = '';
         this.selectedIntialDates = '';
         this.dataTable = [];
+        this.items = [];
         this.day = [];
         this.previousDays = [];
         this.metrics = [];
@@ -2096,10 +2078,12 @@ var OverviewComponent = /** @class */ (function () {
         this.pagevssessions = 0;
         this.currentTab = '';
         this.legend1 = '';
+        // private itemResource = '';
         this.currentTab2 = '';
         this.legend2 = '';
         this.currentTabcopy = '';
         this.currentTab2copy = '';
+        this.itemResource = new __WEBPACK_IMPORTED_MODULE_2_angular_4_data_table__["b" /* DataTableResource */](this.items);
         this.lineChartData = {
             chartType: '',
             dataTable: [],
@@ -2168,10 +2152,16 @@ var OverviewComponent = /** @class */ (function () {
             dataTable: [],
             options: {}
         };
+        this.key = 'name';
+        this.reverse = false;
         this.matrics = [{ id: 'ga:sessions', value: 'Sessions' }, { id: 'ga:bounceRate', value: 'Bounce Rate' }, { id: 'ga:users', value: 'Users' }, { id: 'ga:pageViews', value: 'Pageviews' }];
         this.matrics2 = [{ id: 'ga:sessions', value: 'Sessions' }, { id: 'ga:bounceRate', value: 'Bounce Rate' }, { id: 'ga:users', value: 'Users' }, { id: 'ga:pageViews', value: 'Pageviews' }];
         this.buttonDisabled = false;
     }
+    OverviewComponent.prototype.sort = function (key) {
+        this.key = key;
+        this.reverse = !this.reverse;
+    };
     OverviewComponent.prototype.ngOnInit = function () {
         document.title = 'Audience Overview - Firestrome';
         // this.myForm = this.formBuilder.group({
@@ -2179,8 +2169,8 @@ var OverviewComponent = /** @class */ (function () {
         // });
         var vm = this;
         $(function () {
-            var start = __WEBPACK_IMPORTED_MODULE_4_moment__().subtract(7, 'days');
-            var end = __WEBPACK_IMPORTED_MODULE_4_moment__().subtract(1, 'days');
+            var start = __WEBPACK_IMPORTED_MODULE_5_moment__().subtract(7, 'days');
+            var end = __WEBPACK_IMPORTED_MODULE_5_moment__().subtract(1, 'days');
             // vm.startDate = start.format('MMM D, YYYY');
             // vm.endDate = end.format('MMM D, YYYY');
             function cb(start, end) {
@@ -2191,14 +2181,14 @@ var OverviewComponent = /** @class */ (function () {
                 endDate: end,
                 opens: 'left',
                 alwaysShowCalendars: true,
-                maxDate: __WEBPACK_IMPORTED_MODULE_4_moment__(),
+                maxDate: __WEBPACK_IMPORTED_MODULE_5_moment__(),
                 ranges: {
-                    'Today': [__WEBPACK_IMPORTED_MODULE_4_moment__(), __WEBPACK_IMPORTED_MODULE_4_moment__()],
-                    'Yesterday': [__WEBPACK_IMPORTED_MODULE_4_moment__().subtract(1, 'days'), __WEBPACK_IMPORTED_MODULE_4_moment__().subtract(1, 'days')],
-                    'Last 7 Days': [__WEBPACK_IMPORTED_MODULE_4_moment__().subtract(6, 'days'), __WEBPACK_IMPORTED_MODULE_4_moment__()],
-                    'Last 30 Days': [__WEBPACK_IMPORTED_MODULE_4_moment__().subtract(29, 'days'), __WEBPACK_IMPORTED_MODULE_4_moment__()],
-                    'This Month': [__WEBPACK_IMPORTED_MODULE_4_moment__().startOf('month'), __WEBPACK_IMPORTED_MODULE_4_moment__().endOf('month')],
-                    'Last Month': [__WEBPACK_IMPORTED_MODULE_4_moment__().subtract(1, 'month').startOf('month'), __WEBPACK_IMPORTED_MODULE_4_moment__().subtract(1, 'month').endOf('month')]
+                    'Today': [__WEBPACK_IMPORTED_MODULE_5_moment__(), __WEBPACK_IMPORTED_MODULE_5_moment__()],
+                    'Yesterday': [__WEBPACK_IMPORTED_MODULE_5_moment__().subtract(1, 'days'), __WEBPACK_IMPORTED_MODULE_5_moment__().subtract(1, 'days')],
+                    'Last 7 Days': [__WEBPACK_IMPORTED_MODULE_5_moment__().subtract(6, 'days'), __WEBPACK_IMPORTED_MODULE_5_moment__()],
+                    'Last 30 Days': [__WEBPACK_IMPORTED_MODULE_5_moment__().subtract(29, 'days'), __WEBPACK_IMPORTED_MODULE_5_moment__()],
+                    'This Month': [__WEBPACK_IMPORTED_MODULE_5_moment__().startOf('month'), __WEBPACK_IMPORTED_MODULE_5_moment__().endOf('month')],
+                    'Last Month': [__WEBPACK_IMPORTED_MODULE_5_moment__().subtract(1, 'month').startOf('month'), __WEBPACK_IMPORTED_MODULE_5_moment__().subtract(1, 'month').endOf('month')]
                 }
             }, cb);
             cb(start, end);
@@ -2207,6 +2197,7 @@ var OverviewComponent = /** @class */ (function () {
             vm.startDate = picker.startDate.format('MMM D, YYYY');
             vm.endDate = picker.endDate.format('MMM D, YYYY');
             vm.finalDataToSend();
+            vm.listOfOverview();
         });
         // const days = 7;
         // const date = new Date();
@@ -2218,6 +2209,7 @@ var OverviewComponent = /** @class */ (function () {
         // this.endDate = datePipeS.transform(this.endDate, 'MMM dd, yyyy');
         // this.selectedIntialDates = this.startDate + ' ' + '' + '-' + '' + ' ' + this.endDate;
         this.finalDataToSend();
+        this.listOfOverview();
     };
     // clearDateRange(): void {
     //   this.startDate = '';
@@ -2236,17 +2228,6 @@ var OverviewComponent = /** @class */ (function () {
         this.dimensions = dimen;
         this.finalDataToSend();
     };
-    // onDateRangeChanged(event: IMyDateRangeModel) {
-    //   if (event.formatted !== '') {
-    //     const newDate = new Date(this.endDate);
-    //     if (event.beginJsDate <= newDate && event.endJsDate >= newDate) {
-    //       this.finalDataToSend();
-    //     } else {
-    //       this.onDateSelected(event);
-    //     }
-    //   } else {
-    //   }
-    // }
     OverviewComponent.prototype.onDateSelected = function (dates) {
         if (dates.type === 1) {
             this.startDate = dates.formatted;
@@ -2538,7 +2519,6 @@ var OverviewComponent = /** @class */ (function () {
                 _this.bouncesTotalround = 0;
                 _this.totalSessionUsers = '';
                 _this.totalSessionUsersRound = 0;
-                _this.pagevssessionsTotalRound = 0;
                 _this.durationTotal = 0;
                 var table = [];
                 var sessions = [];
@@ -2578,6 +2558,47 @@ var OverviewComponent = /** @class */ (function () {
             this.showLoader = false;
         }
     };
+    OverviewComponent.prototype.listOfOverview = function () {
+        var _this = this;
+        var completeDate = { startDate: '', endDate: '' };
+        completeDate.startDate = new Date(this.startDate).getFullYear() + '-' + ((new Date(this.startDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.startDate).getMonth() + 1) + '-' + ((new Date(this.startDate).getDate()) < 10 ? '0' : '') + (new Date(this.startDate).getDate());
+        completeDate.endDate = new Date(this.endDate).getFullYear() + '-' + ((new Date(this.endDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.endDate).getMonth() + 1) + '-' + ((new Date(this.endDate).getDate()) < 10 ? '0' : '') + (new Date(this.endDate).getDate());
+        this.showLoader = true;
+        //  const itemCount = 0;
+        if (this.startDate !== '' && this.endDate !== '' && completeDate.endDate >= completeDate.startDate) {
+            this.cluster1Service.overviewList(completeDate)
+                .then(function (response) {
+                _this.items = response.data;
+                _this.dataTable = response.data;
+                _this.itemCount = response.data.length;
+                _this.totalSessionUsers = '';
+                _this.dataTable.forEach(function (item, index) {
+                    console.log(item);
+                    item.avgSessionDuration = _this.changeTheSecondsToDate(JSON.stringify(item.avgSessionDuration));
+                });
+                // this.totalSessionUsers = JSON.stringify(this.avgSessDuration);
+                // this.totalSessionUsers = this.changeTheSecondsToDate(this.totalSessionUsers);
+                // console.log(this.totalSessionUsers);
+                // this.items.push(this.totalSessionUsers);
+                console.log(_this.items);
+            });
+            this.itemResource = new __WEBPACK_IMPORTED_MODULE_2_angular_4_data_table__["b" /* DataTableResource */](this.items);
+            //   reloadItems(params) {
+            //     this.itemResource.query(params).then(response => this.items = items);
+            // }
+            //   reloadItems(params) {
+            //     this.response.query(params).then(items => this.items = items);
+            //     this.cluster1Service.overviewList(completeDate)
+            //     .then(response => {
+            //        this.items = response.data;
+            //        this.itemCount = response.data.length;
+            //     });
+            // }
+        }
+        else {
+            this.showLoader = false;
+        }
+    };
     var _a, _b, _c;
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('cchart'),
@@ -2589,7 +2610,7 @@ var OverviewComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/component/overview/overview.component.html"),
             styles: [__webpack_require__("./src/app/component/overview/overview.component.css")]
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__overview_service__["a" /* overviewService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__overview_service__["a" /* overviewService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__overview_service__["a" /* overviewService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__overview_service__["a" /* overviewService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]) === "function" && _c || Object])
     ], OverviewComponent);
     return OverviewComponent;
 }());
@@ -2626,6 +2647,7 @@ var overviewService = /** @class */ (function () {
         this.GoogleAnalytics = 'googleAnalytics/audience-overview/1';
         this.GoogleAnalyticsMetrics = 'googleAnalytics/audience-overview/0';
         this.GoogleGagsc = 'googleGaGsc';
+        this.overview = 'googleAnalytics/user-explorer';
     }
     overviewService.prototype.getCompanyList = function () {
         return this.httpcaller.httpcall(this.TrendGraphUrl, 'get', {});
@@ -2635,6 +2657,9 @@ var overviewService = /** @class */ (function () {
     };
     overviewService.prototype.createMetrics = function (dates) {
         return this.httpcaller.httpcall(this.GoogleAnalyticsMetrics, 'post', dates);
+    };
+    overviewService.prototype.overviewList = function (dates) {
+        return this.httpcaller.httpcall(this.overview, 'post', dates);
     };
     var _a, _b;
     overviewService = __decorate([

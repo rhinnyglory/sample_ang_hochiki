@@ -5,7 +5,7 @@
 .box.box-default.key {
     border-top-color: #d2d6de;
     /* height: 600px; */
-    height:300px;
+    height:216px;
 }
 .btn-group .pull-right{
     padding-left: 813px;
@@ -92,4 +92,9 @@ a:link, a:visited {
 a:hover, a:active {
     background-color:  #f1f1f1;
     color: black;
+}
+
+.a td, th {
+    padding: 11px !important;
+    height:0px !important;
 }

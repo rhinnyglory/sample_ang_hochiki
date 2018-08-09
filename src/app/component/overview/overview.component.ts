@@ -5,6 +5,7 @@ import { IMyDrpOptions, IMyDateRangeModel } from 'mydaterangepicker';
 import { DatePipe } from '@angular/common';
 import { ChartSelectEvent } from 'ng2-google-charts';
 import { IMyDpOptions } from 'mydatepicker';
+import { DataTableResource } from 'angular-4-data-table';
 
 // import { IMyDpOptions, IMyDateModel, IMyInputFieldChanged } from 'mydatepicker';
 
@@ -46,6 +47,7 @@ export class OverviewComponent implements OnInit {
   public displayBounce = 0;
   public bouncesTotalround = 0;
   public totalSessionUsersRound = 0;
+  public itemCount = 0;
   public totalSessionUsers = '';
   private IntialDates = '';
   // private start = '';
@@ -53,6 +55,7 @@ export class OverviewComponent implements OnInit {
   // private end = '';
   private dates: Cluster1Model[];
   private dataTable = [];
+  private items = [];
   private day = [];
   private previousDays = [];
   private metrics = [];
@@ -71,12 +74,14 @@ export class OverviewComponent implements OnInit {
   private pagevssessions = 0;
   private currentTab: any = '';
   private legend1: any = '';
+  // private itemResource = '';
   private currentTab2: any = '';
   private legend2: any = '';
   private currentTabcopy: any = '';
   private currentTab2copy: any = '';
   private firstMetric: any;
   public buttonDisabled: boolean;
+  private itemResource = new DataTableResource(this.items);
   // private container: null;
   // private numberOfMonths: 3;
 
@@ -171,32 +176,12 @@ export class OverviewComponent implements OnInit {
     dataTable: [],
     options: {}
   };
-  //   myDateRangePickerOptions: IMyDrpOptions = {
-
-  //     dateFormat: 'mmm dd, yyyy',
-  //     disableSince: { year: new Date().getFullYear(), month: (new Date().getMonth() + 1), day: (new Date().getDate() + 1) },
-  //  };
-  //   private model: any = {
-  //     beginDate: this.startDate,
-  //     endDate: this.endDate
-  //   };
-  //   setDateRange(): void {
-  //     const date = new Date();
-  //     this.myForm.patchValue({
-  //       myDateRange: {
-  //         beginDate: {
-  //           year: date.getFullYear(),
-  //           month: date.getMonth() + 1,
-  //           day: date.getDate()
-  //         },
-  //         endDate: {
-  //           year: date.getFullYear(),
-  //           month: date.getMonth() + 1,
-  //           day: date.getDate()
-  //         }
-  //       }
-  //     });
-  //   }
+  key: string = 'name'; 
+  reverse: boolean = false;
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
   constructor(private router: Router,
     private cluster1Service: overviewService, private formBuilder: FormBuilder) {
     this.buttonDisabled = false;
@@ -239,6 +224,7 @@ export class OverviewComponent implements OnInit {
       vm.startDate = picker.startDate.format('MMM D, YYYY');
       vm.endDate = picker.endDate.format('MMM D, YYYY');
       vm.finalDataToSend();
+      vm.listOfOverview();
     });
 
     // const days = 7;
@@ -251,7 +237,7 @@ export class OverviewComponent implements OnInit {
     // this.endDate = datePipeS.transform(this.endDate, 'MMM dd, yyyy');
     // this.selectedIntialDates = this.startDate + ' ' + '' + '-' + '' + ' ' + this.endDate;
     this.finalDataToSend();
-
+    this.listOfOverview();
   }
 
 
@@ -278,18 +264,7 @@ export class OverviewComponent implements OnInit {
     this.dimensions = dimen;
     this.finalDataToSend();
   }
-  // onDateRangeChanged(event: IMyDateRangeModel) {
-  //   if (event.formatted !== '') {
 
-  //     const newDate = new Date(this.endDate);
-  //     if (event.beginJsDate <= newDate && event.endJsDate >= newDate) {
-  //       this.finalDataToSend();
-  //     } else {
-  //       this.onDateSelected(event);
-  //     }
-  //   } else {
-  //   }
-  // }
   onDateSelected(dates) {
     if (dates.type === 1) {
       this.startDate = dates.formatted;
@@ -559,7 +534,6 @@ export class OverviewComponent implements OnInit {
             this.bouncesTotalround = 0;
             this.totalSessionUsers = '';
             this.totalSessionUsersRound = 0;
-            this.pagevssessionsTotalRound = 0;
             this.durationTotal = 0;
             const table = [];
             const sessions = [];
@@ -597,10 +571,51 @@ export class OverviewComponent implements OnInit {
             this.totalSessionUsers = this.changeTheSecondsToDate(this.totalSessionUsers);
 
         });
-        
-    }else{
+    }else {
       this.showLoader = false;
     }
-    
+  }
+  listOfOverview() {
+    const completeDate = { startDate: '', endDate: '' };
+    completeDate.startDate = new Date(this.startDate).getFullYear() + '-' + ((new Date(this.startDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.startDate).getMonth() + 1) + '-' + ((new Date(this.startDate).getDate()) < 10 ? '0' : '') + (new Date(this.startDate).getDate());
+    completeDate.endDate = new Date(this.endDate).getFullYear() + '-' + ((new Date(this.endDate).getMonth() + 1) < 10 ? '0' : '') + (new Date(this.endDate).getMonth() + 1) + '-' + ((new Date(this.endDate).getDate()) < 10 ? '0' : '') + (new Date(this.endDate).getDate());
+    this.showLoader = true;
+  //  const itemCount = 0;
+    if (this.startDate !== '' && this.endDate !== '' && completeDate.endDate >= completeDate.startDate) {
+      this.cluster1Service.overviewList(completeDate)
+        .then(response => {
+           this.items = response.data;
+           this.dataTable = response.data;
+           this.itemCount = response.data.length;
+           this.totalSessionUsers = '';
+           
+           this.dataTable.forEach((item, index) => {
+             console.log(item);
+             item.avgSessionDuration = this.changeTheSecondsToDate(JSON.stringify(item.avgSessionDuration));
+  
+         });
+          // this.totalSessionUsers = JSON.stringify(this.avgSessDuration);
+          // this.totalSessionUsers = this.changeTheSecondsToDate(this.totalSessionUsers);
+          // console.log(this.totalSessionUsers);
+          // this.items.push(this.totalSessionUsers);
+          console.log(this.items);
+        });
+      
+        this.itemResource = new DataTableResource(this.items);
+
+      //   reloadItems(params) {
+      //     this.itemResource.query(params).then(response => this.items = items);
+      // }
+      //   reloadItems(params) {
+      //     this.response.query(params).then(items => this.items = items);
+      //     this.cluster1Service.overviewList(completeDate)
+      //     .then(response => {
+      //        this.items = response.data;
+      //        this.itemCount = response.data.length;
+      //     });
+      // }
+    }else {
+      this.showLoader = false;
+    }
   }
 }

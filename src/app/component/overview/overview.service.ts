@@ -14,6 +14,7 @@ export class overviewService {
     private GoogleAnalytics = 'googleAnalytics/audience-overview/1';
     private GoogleAnalyticsMetrics = 'googleAnalytics/audience-overview/0';
     private GoogleGagsc = 'googleGaGsc';
+    private overview = 'googleAnalytics/user-explorer';
  constructor(private _http: Http, private httpcaller: HttpService) { }
 
 
@@ -26,6 +27,9 @@ getCompanyList() {
  }
  createMetrics(dates: Cluster1Model) {
   return this.httpcaller.httpcall(this.GoogleAnalyticsMetrics, 'post', dates);
+}
+overviewList(dates: Cluster1Model) {
+  return this.httpcaller.httpcall(this.overview, 'post', dates);
 }
 
 

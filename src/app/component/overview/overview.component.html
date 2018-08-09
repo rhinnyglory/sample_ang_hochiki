@@ -153,12 +153,9 @@
             <br>
             <b class="textsize">{{persessionsTotal }}</b>
           </td>
-          <td style = "padding:0px">
-            <!-- <form target="_blank">
-            <input class="MyButton" type="button" target="_blank" value="View User Explorer" onclick="window.location.href='http://www.hyperlinkcode.com/button-links.php'" />
-            </form> -->
+          <!-- <td style = "padding:0px">
             <a href="https://analytics.google.com/analytics/web/#/report/visitors-legacy-user-id/a121170303w179024821p177426717/_u.date00=20180506&_u.date01=20180524" target="_blank">View User Explorer</a>
-          </td>
+          </td> -->
         </tr>
 
       </table>
@@ -166,6 +163,144 @@
 
 
     </div>
+
+    <div class="box box-default">
+
+      <div class="box table-responsive">
+        <table  class="table table-striped a"  *ngIf="items.length !== 0" >
+            <tr >
+              <th height="10%"></th>
+              <th height="10%" (click)="sort('userName')">userName</th>
+              <th height="10%" (click)="sort('eventAction')">Event Action</th>
+              <th height="10%" (click)="sort('screenName')">Screen Name</th>
+              <th height="10%" (click)="sort('totalEvents')">Total Events</th>
+              <th height="10%" (click)="sort('sessions')">Sessions</th>
+              <th height="10%" (click)="sort('avgSessionDuration')">Avg. Session Duration</th>
+              <th height="10%" (click)="sort('percentNewSessions')">% New Sessions</th>
+              <th height="10%" (click)="sort('pageviewsPerSession')">Pages/Sessions</th>
+              <th height="10%" (click)="sort('pageviews')">Pageviews</th>
+              <th height="10%" (click)="sort('bounceRate')">Bounce Rate</th>
+              <th height="10%" (click)="sort('timeOnPage')">Time on Page</th>
+            </tr>
+           
+
+            <tr *ngFor="let x of items | orderBy: key : reverse | filter:filter | paginate: {itemsPerPage: 10, currentPage:page, id: '1'}; let i = index" style=" height:10px">
+              <td>{{i + 1}}</td> 
+              <td>{{x.userName}}</td>
+               <td>{{x.eventAction}}</td>
+               <td>{{x.screenName}}</td>
+               <td>{{x.totalEvents}}</td>
+               <td>{{x.sessions}}</td>
+               <!-- <td>{{x.totalSessionUsers}}</td> -->
+               <td>{{x.avgSessionDuration}}</td>
+               
+               <td>{{x.percentNewSessions}}</td>
+               <td>{{x.pageviewsPerSession}}</td>
+               <td>{{x.pageviews}}</td>
+               <td>{{x.bounceRate}}</td>
+               <td>{{x.timeOnPage}}</td>
+               
+            </tr>
+           
+        </table>
+        <div style=" text-align:right;">
+            <pagination-controls (pageChange)="page = $event" id="1"
+            maxSize="10"
+            directionLinks="true"
+            autoHide="true">
+      </pagination-controls>`
+        </div>
+       
+  <div style='text-align: center' *ngIf="items.length == 0">
+      <!-- <img style='text-align: center' src="assets/images/found.jpg" /> -->
+      <h3 style='text-align: center'>Data not available, Please select dates</h3>
+  </div>
+    </div>
+     
+    <!-- <div style="margin: auto; max-width: 1500px; margin-bottom: 50px;">
+      <data-table id="persons-grid"
+      [pagination_limit]="10"
+          [items]="items"
+          [itemCount]="itemCount"
+  
+          (rowClick)="rowClick($event)"
+          (rowDoubleClick)="rowDoubleClick($event)"
+          [rowTooltip]="rowTooltip"
+          >
+          <data-table-column
+              [property]="'userName'"
+              [header]="'userName'"
+              [sortable]="true"
+              [resizable]="true">
+          </data-table-column>
+          <data-table-column
+          [property]="'eventAction'"
+          [header]="'Event Action'"
+          [sortable]="true"
+          [resizable]="true">
+          </data-table-column>
+         <data-table-column
+      [property]="'screenName'"
+      [header]="'Screen Name'"
+      [sortable]="true"
+      [resizable]="true">
+      </data-table-column>
+  <data-table-column
+  [property]="'totalEvents'"
+  [header]="'Total Events'"
+  [sortable]="true"
+  [resizable]="true">
+</data-table-column>
+<data-table-column
+[property]="'sessions'"
+[header]="'Sessions'"
+[sortable]="true"
+[resizable]="true">
+</data-table-column>
+<data-table-column
+[property]="'avgSessionDuration'"
+[header]="'Avg. Session Duration'"
+[sortable]="true"
+[resizable]="true">
+</data-table-column>
+<data-table-column
+[property]="'percentNewSessions'"
+[header]="'% New Sessions'"
+[sortable]="true"
+[resizable]="true">
+</data-table-column>
+<data-table-column
+[property]="'pageviewsPerSession'"
+[header]="'Pages/Sessions'"
+[sortable]="true"
+[resizable]="true">
+</data-table-column>
+<data-table-column
+[property]="'pageviews'"
+[header]="'Pageviews'"
+[sortable]="true"
+[resizable]="true">
+</data-table-column>
+<data-table-column
+[property]="'bounceRate'"
+[header]="'Bounce Rate'"
+[sortable]="true"
+[resizable]="true">
+</data-table-column>
+<data-table-column
+[property]="'timeOnPage'"
+[header]="'Time on Page'"
+[sortable]="true"
+[resizable]="true">
+</data-table-column>
+        
+         
+      </data-table>
+  </div> -->
+
+          </div>
+        
+
     <div *ngIf="showLoader" class="fa fa-spinner fa-spin" style="font-size:50px;text-align: center;
           position: absolute;top: 50%;left: 50%;"></div>
   </section>

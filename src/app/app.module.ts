@@ -21,7 +21,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HttpService } from './http.service';
 import { Pipe, PipeTransform } from '@angular/core';
 import { MyDatePickerModule } from 'mydatepicker';
-import { DataTableModule } from 'angular2-datatable';
+
 import { ProfileComponent } from './component/profile/profile.component';
 import { ModalModule } from 'ngx-modialog';
 import { ProfileService } from './component/profile/profile.service';
@@ -34,6 +34,8 @@ import { NgxDeleteConfirmModule } from 'ngx-delete-confirm';
 import * as $ from 'jquery';
 import * as bootstrap from 'bootstrap';
 import * as jquery from 'jquery';
+import { DataTableModule } from 'angular-4-data-table';
+import {Ng2PaginationModule} from 'ng2-pagination';
 
 // import { LoaderService } from './loader.service';
 import { ProductComponent } from './component/product/product.component';
@@ -107,6 +109,7 @@ import { overviewService} from './component/overview/overview.service';
     FormsModule,
     HttpModule,
     Ng2GoogleChartsModule,
+    Ng2PaginationModule,
     AppRoutingModule,
     MyDateRangePickerModule,
     Ng2SearchPipeModule,
