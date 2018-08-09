@@ -2571,16 +2571,10 @@ var OverviewComponent = /** @class */ (function () {
                 _this.items = response.data;
                 _this.dataTable = response.data;
                 _this.itemCount = response.data.length;
-                _this.totalSessionUsers = '';
                 _this.dataTable.forEach(function (item, index) {
-                    console.log(item);
                     item.avgSessionDuration = _this.changeTheSecondsToDate(JSON.stringify(item.avgSessionDuration));
+                    item.timeOnPage = _this.changeTheSecondsToDate(JSON.stringify(item.timeOnPage));
                 });
-                // this.totalSessionUsers = JSON.stringify(this.avgSessDuration);
-                // this.totalSessionUsers = this.changeTheSecondsToDate(this.totalSessionUsers);
-                // console.log(this.totalSessionUsers);
-                // this.items.push(this.totalSessionUsers);
-                console.log(_this.items);
             });
             this.itemResource = new __WEBPACK_IMPORTED_MODULE_2_angular_4_data_table__["b" /* DataTableResource */](this.items);
             //   reloadItems(params) {

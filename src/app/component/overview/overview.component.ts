@@ -587,18 +587,12 @@ export class OverviewComponent implements OnInit {
            this.items = response.data;
            this.dataTable = response.data;
            this.itemCount = response.data.length;
-           this.totalSessionUsers = '';
-           
            this.dataTable.forEach((item, index) => {
-             console.log(item);
              item.avgSessionDuration = this.changeTheSecondsToDate(JSON.stringify(item.avgSessionDuration));
+             item.timeOnPage = this.changeTheSecondsToDate(JSON.stringify(item.timeOnPage));
   
          });
-          // this.totalSessionUsers = JSON.stringify(this.avgSessDuration);
-          // this.totalSessionUsers = this.changeTheSecondsToDate(this.totalSessionUsers);
-          // console.log(this.totalSessionUsers);
-          // this.items.push(this.totalSessionUsers);
-          console.log(this.items);
+       
         });
       
         this.itemResource = new DataTableResource(this.items);
