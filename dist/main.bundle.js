@@ -2550,11 +2550,12 @@ var OverviewComponent = /** @class */ (function () {
                 // console.log(typeof this.pagevssessionsTotal);
                 _this.pagevssessionsTotalRound = parseFloat(_this.pagevssessionsTotal);
                 console.log(typeof _this.pagevssessionsTotalRound);
+                if (typeof _this.pagevssessionsTotalRound === 'number') {
+                    _this.pagevssessionsTotalRound = 0;
+                }
                 _this.persessionsTotal = (_this.sessionperUser).toFixed(2);
                 _this.bouncesTotal = ((_this.BounceTotal)).toFixed(2);
-                // console.log(typeof this.bouncesTotal);
                 _this.bouncesTotalround = parseFloat(_this.bouncesTotal);
-                // console.log( typeof this.bouncesTotalround);
                 _this.totalSessionUsers = JSON.stringify(_this.avgSessDuration);
                 _this.totalSessionUsers = _this.changeTheSecondsToDate(_this.totalSessionUsers);
             });

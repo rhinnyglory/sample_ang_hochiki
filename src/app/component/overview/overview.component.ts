@@ -568,11 +568,12 @@ export class OverviewComponent implements OnInit {
             
             this.pagevssessionsTotalRound = parseFloat(this.pagevssessionsTotal);
             console.log(typeof this.pagevssessionsTotalRound);
+            if (typeof this.pagevssessionsTotalRound === 'number') {
+              this.pagevssessionsTotalRound = 0;
+            }
             this.persessionsTotal = (this.sessionperUser).toFixed(2);
             this.bouncesTotal = ((this.BounceTotal)).toFixed(2);
-            // console.log(typeof this.bouncesTotal);
             this.bouncesTotalround = parseFloat(this.bouncesTotal);
-            // console.log( typeof this.bouncesTotalround);
             
             this.totalSessionUsers = JSON.stringify(this.avgSessDuration);
             this.totalSessionUsers = this.changeTheSecondsToDate(this.totalSessionUsers);
