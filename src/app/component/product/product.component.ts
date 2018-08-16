@@ -14,6 +14,8 @@ export class ProductComponent implements OnInit {
   response = [];
   private body = '';
   private name = '';
+  private documentPath: string;
+  private filePath: string;
   private count = {};
   p = 1;
   showLoader = false;
@@ -40,6 +42,8 @@ export class ProductComponent implements OnInit {
   getProduct() {
     return this.productService.getProductList().then(response => {
       this.showLoader = false;
+      this.documentPath = response.documentPath;
+      this.filePath = response.filePath;
       this.product = response.result;
       this.count = response.count;
       this.storeproduct = JSON.parse(JSON.stringify(response.result));

@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  // url: 'http://192.168.11.71:3002/',
-  url: 'http://dev.credencys.com:3038/'
+  url: 'http://192.168.11.71:3002/',
+  // url: 'http://dev.credencys.com:3038/'
 };

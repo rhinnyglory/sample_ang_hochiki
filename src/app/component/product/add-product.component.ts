@@ -36,6 +36,8 @@ export class AddProductComponent implements OnInit {
   reader: any;
   private categories: any = [];
   private product: ProductAddModel;
+  private documentPath: string;
+  private filePath: string;
   constructor(private router: Router, private route: ActivatedRoute,
     private productService: ProductService, private formBuilder: FormBuilder) {
     this.product = {
@@ -54,6 +56,8 @@ export class AddProductComponent implements OnInit {
       this.buttonTitle = 'Update';
       this.productService.getProductDetail(userId).then(users => {
         this.product = users.result;
+        this.documentPath = users.documentPath;
+        this.filePath = users.filePath;
       });
     } else {
       this.buttonTitle = 'Save';

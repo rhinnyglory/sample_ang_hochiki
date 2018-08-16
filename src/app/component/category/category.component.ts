@@ -15,6 +15,7 @@ export class CategoryComponent implements OnInit {
   private category: any = [];
   key: string;
   reverse = false;
+  private filePath: string;
   sort(key) {
     this.key = key;
     this.reverse = !this.reverse;
@@ -31,6 +32,7 @@ export class CategoryComponent implements OnInit {
     this.categoryService.getCategoryList().then(response => {
       this.showLoader = false;
       this.category = response.result;
+      this.filePath = response.filePath;
     });
   }
 
