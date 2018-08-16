@@ -45,7 +45,7 @@
             <img *ngIf="showpreview" style="padding-bottom:10px;" src="{{images}}" />
 
 
-            <img *ngIf="showpreviewafterEdit" style="padding-bottom:10px;" src="{{product.image}}" />
+            <img *ngIf="showpreviewafterEdit" style="padding-bottom:10px;" src="{{filePath}}/{{product.image}}" />
 
           </div>
 
@@ -68,7 +68,7 @@
             <input type="file" name="documentName" [(ngModel)]="file" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf,.doc,.docx"
               id="name" />
 
-            <a href="{{product.documentName}}" target="_blank">Read Document</a>
+            <a href="{{documentPath}}/{{product.documentName}}" target="_blank">Read Document</a>
 
           </div>
 
