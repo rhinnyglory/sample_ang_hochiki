@@ -29,11 +29,9 @@
             <label for="exampleInputEmail1">Category<span class="astric">*</span></label>
             <select class="form-control" name="selectedTechs" [(ngModel)]="product.category.id" id="name" (change)="selectName();" required
               #id="ngModel">
-                        <option value="">Select Category</option>
-                        <option *ngFor="let role of categories" [value]="role.id" [selected]="product.category.id == role.id">{{role.name}}
-        
-                        </option>
-                      </select>
+              <option value="">Select Category</option>
+              <option *ngFor="let role of categories" [value]="role.id" [selected]="product.category.id == role.id">{{role.name}}</option>
+            </select>
             <div *ngIf="id.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
               Category required.
             </div>
@@ -41,14 +39,9 @@
           <div class="form-group">
             <label for="exampleInputFile">Product Image<span class="astric">*</span>(Accept only .png,.jpg)</label>
             <input type="file" name="image" [(ngModel)]="file" (change)="uploadImage($event)" accept=".png,.jpg" id="name" />
-
             <img *ngIf="showpreview" style="padding-bottom:10px;" src="{{images}}" />
-
-
             <img *ngIf="showpreviewafterEdit" style="padding-bottom:10px;" src="{{filePath}}/{{product.image}}" />
-
           </div>
-
           <div class="form-group">
             <label for="exampleInputEmail1">Video Url<span class="astric">*</span></label>
             <!-- <input type="text" id="videoUrl" name="videoUrl" [(ngModel)]="product.videoUrl" class="form-control" name="videoUrl" #videoUrl="ngModel"
@@ -67,11 +60,8 @@
             <label for="exampleInputFile">Document<span class="astric">*</span>(Accept only .pdf,.doc,.docx)</label>
             <input type="file" name="documentName" [(ngModel)]="file" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf,.doc,.docx"
               id="name" />
-
             <a href="{{documentPath}}/{{product.documentName}}" target="_blank">Read Document</a>
-
           </div>
-
         </div>
         <!-- /.box-body -->
 

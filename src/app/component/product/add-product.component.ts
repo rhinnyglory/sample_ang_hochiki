@@ -32,12 +32,12 @@ export class AddProductComponent implements OnInit {
   userhtml: {};
   buttonTitle: string;
   pdf = '';
-  private thumbnail = '';
+  thumbnail = '';
   reader: any;
-  private categories: any = [];
-  private product: ProductAddModel;
-  private documentPath: string;
-  private filePath: string;
+  categories: any = [];
+  product: ProductAddModel;
+  documentPath: string;
+  filePath: string;
   constructor(private router: Router, private route: ActivatedRoute,
     private productService: ProductService, private formBuilder: FormBuilder) {
     this.product = {
@@ -96,8 +96,6 @@ export class AddProductComponent implements OnInit {
   }
   selectName() {
   }
-
-
 
   saveCompanyDetails(form: NgForm) {
     this.isValidFormSubmitted = false;

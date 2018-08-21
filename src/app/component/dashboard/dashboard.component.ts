@@ -11,12 +11,13 @@ import { VesComponent } from '../ves/ves.component';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  public count: {};
-  public counthochiki: {};
-  public countves: {};
+  count: {};
+  counthochiki: {};
+  countves: {};
   showLoader = false;
-  constructor( private supressioncomp: SupressionComponent, private hochikicomp: CompanyManagementComponent,
-     private vescomp: VesComponent) { }
+  constructor(private supressioncomp: SupressionComponent,
+    private hochikicomp: CompanyManagementComponent,
+    private vescomp: VesComponent) { }
 
   ngOnInit() {
     // const counties;
@@ -34,7 +35,7 @@ export class DashboardComponent implements OnInit {
       this.showLoader = false;
       this.countves = response;
     });
-}
+  }
 
 
 

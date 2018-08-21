@@ -7,12 +7,14 @@ import { RoleInfoService } from './role-info.service';
   styleUrls: ['./roles.component.css']
 })
 export class RolesComponent implements OnInit {
+  id: number;
+  userName: string;
   rolesList = [];
   showLoader = false;
   searchUser = [];
   key: string;
   reverse = false;
-  private count = {};
+  count = {};
   constructor(private role: RoleInfoService) { }
 
   ngOnInit() {
@@ -26,7 +28,6 @@ export class RolesComponent implements OnInit {
       this.count = data.count;
       this.searchUser = JSON.parse(JSON.stringify(data.result));
     }).catch(err => {
-      console.log(err, '123');
       this.showLoader = false;
     });
   }

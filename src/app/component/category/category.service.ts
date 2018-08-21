@@ -8,8 +8,8 @@ import { CategoryAddModel } from '../../types/category';
 
 @Injectable()
 export class CategoryService {
-  private categoryUrl = 'categories-list';
-  private product = 'products';
+  categoryUrl = 'categories-list';
+  product = 'products';
   data: CategoryAddModel[];
 
   constructor(private http: Http, private httpcaller: HttpService) { }

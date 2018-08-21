@@ -42,7 +42,7 @@
                     <th></th>
                 </tr>
 
-                <tr *ngFor="let x of users | filter:filter ; let i = index">
+                <tr *ngFor="let x of users; let i = index">
                     <td width="11%">
                         {{x.id}}
                     </td>

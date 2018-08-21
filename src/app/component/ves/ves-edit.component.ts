@@ -15,7 +15,7 @@ export class VesEditComponent implements OnInit {
   images = {};
   showpreview = false;
   showpreviewafterEdit = false;
-  private company: ProductAddModel;
+  company: ProductAddModel;
 
   constructor(private router: Router, private route: ActivatedRoute,
     private vesService: VesService) {

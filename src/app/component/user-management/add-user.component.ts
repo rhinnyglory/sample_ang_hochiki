@@ -28,21 +28,23 @@ export class AddUserComponent implements OnInit {
   showCloseButton = true;
   userhtml: {};
   buttonTitle: string;
-  private thumbnail = '';
+  thumbnail = '';
   reader: any;
   countryId: any;
   stateId: any;
   showSelected = false;
 
   phoneempty = false;
-  private countries: any = [];
-  private states: any = [];
-  private cities: any = [];
-  private roles: any = [];
-  private user: UserGroupModel;
+  countries: any = [];
+  states: any = [];
+  cities: any = [];
+  roles: any = [];
+  user: UserGroupModel;
   editEmail = true;
   constructor(private router: Router,
-    private userService: UserService, private route: ActivatedRoute, private formBuilder: FormBuilder) {
+    private userService: UserService,
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder) {
     this.user = {
       country: {},
       state: {},
@@ -76,7 +78,7 @@ export class AddUserComponent implements OnInit {
       console.log(this.user);
       this.user.countryId = res.result.countryId;
       this.user.roleId = res.result.role.id;
-      console.log( this.user.roleId );
+      console.log(this.user.roleId);
       this.userService.getStates(res.result.countryId).then(res1 => {
         this.states = res1.result;
       });

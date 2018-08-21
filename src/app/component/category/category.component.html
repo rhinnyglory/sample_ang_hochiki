@@ -13,7 +13,7 @@
                   <th (click)="sort('name')">Category Name<span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
                   <th class="text-center">Status</th>
               </tr>
-              <tr *ngFor="let x of category |orderBy: key : reverse | filter:filter; let i = index">
+              <tr *ngFor="let x of category |orderBy: key : reverse; let i = index">
                   <td class="text-center">
                   {{x.id}}
                   </td>

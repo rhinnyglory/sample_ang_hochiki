@@ -9,28 +9,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./company-management.component.css']
 })
 export class CompanyManagementComponent implements OnInit {
+  id: number;
+  productName: string;
   response = [];
-  private body= '';
-  public count: '';
-  private company: any = [];
-  private storeproduct: any = [];
+  body = '';
+  count: '';
+  company: any = [];
+  storeproduct: any = [];
   key: string;
   reverse = false;
   sort(key) {
     this.key = key;
     this.reverse = !this.reverse;
   }
-  constructor(  private router: Router,
+  constructor(private router: Router,
     private companyService: CompanyService) { }
 
-    ngOnInit() {
-      document.title = 'View Product - Hochiki';
+  ngOnInit() {
+    document.title = 'View Product - Hochiki';
 
     this.getCompany();
   }
   getCompany() {
 
-   return this.companyService.getCompanyList().then(response => {
+    return this.companyService.getCompanyList().then(response => {
       this.company = response.result;
       this.storeproduct = JSON.parse(JSON.stringify(response.result));
       this.count = response.count;
@@ -46,34 +48,34 @@ export class CompanyManagementComponent implements OnInit {
       console.log(response.category.name, 'hii');
       return (response.productName.toLowerCase().indexOf(type.toLowerCase()) !== -1) || (JSON.stringify(response.id).indexOf(type.toLowerCase()) !== -1);
     });
-   }
+  }
   delUser(i) {
     const index = this.response.indexOf(i);
     const body = { isDelete: true };
     this.companyService.deleteCompany(i, body.isDelete).then(response => {
-        this.company.splice(index, 1);
+      this.company.splice(index, 1);
 
     });
 
 
     this.getCompany();
-}
+  }
 
-private sendDelete($event: any, i): void {
-  const index = this.response.indexOf(i);
-  const body = { isDelete: true };
-  this.companyService.deleteCompany(i, body.isDelete).then(response => {
+  private sendDelete($event: any, i): void {
+    const index = this.response.indexOf(i);
+    const body = { isDelete: true };
+    this.companyService.deleteCompany(i, body.isDelete).then(response => {
       this.company.splice(index, 1);
-  });
-  $('.alert').css('z-index', '9999');
-  $('#error-alert').fadeTo(2000, 500).slideUp(500, function(){
-    $('#error-alert').slideUp(500);
-    $('.alert').css('z-index', '-1000');
-  });
-  this.getCompany();
-}
-private sendCancel($event: any): void {
-  // this.getProduct();
-}
+    });
+    $('.alert').css('z-index', '9999');
+    $('#error-alert').fadeTo(2000, 500).slideUp(500, function () {
+      $('#error-alert').slideUp(500);
+      $('.alert').css('z-index', '-1000');
+    });
+    this.getCompany();
+  }
+  private sendCancel($event: any): void {
+    // this.getProduct();
+  }
 
 }

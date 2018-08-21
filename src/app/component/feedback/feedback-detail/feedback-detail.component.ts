@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { FeedbckService } from './../feedbck.service';
+import { Feedack } from './../../../types/feedback';
 
 @Component({
   selector: 'app-feedback-detail',
@@ -9,7 +10,7 @@ import { FeedbckService } from './../feedbck.service';
   styleUrls: ['./feedback-detail.component.css']
 })
 export class FeedbackDetailComponent implements OnInit {
-  feedDet = {};
+  feedDet = {} as Feedack;
   constructor(private route: ActivatedRoute, private feed: FeedbckService) { }
 
   ngOnInit() {

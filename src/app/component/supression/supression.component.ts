@@ -8,32 +8,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./supression.component.css']
 })
 export class SupressionComponent implements OnInit {
+  id: number;
+  productName: string;
   response = [];
-  private body= '';
-  public count: '';
+  body = '';
+  count: '';
   showLoader = false;
-  private company: any = [];
-  private storeproduct: any = [];
+  company: any = [];
+  storeproduct: any = [];
   key: string;
   reverse = false;
   sort(key) {
     this.key = key;
     this.reverse = !this.reverse;
   }
-  constructor(  private router: Router,
+  constructor(private router: Router,
     private supressionService: SupressionService) { }
 
-    ngOnInit() {
-      document.title = 'View Product - Supression';
-      this.showLoader = true;
+  ngOnInit() {
+    document.title = 'View Product - Supression';
+    this.showLoader = true;
     this.getCompany();
 
     // this.countDetails();
   }
   getCompany() {
-   return this.supressionService.getCompanyList().then(response => {
-    this.showLoader = false;
-     this.company = response.result;
+    return this.supressionService.getCompanyList().then(response => {
+      this.showLoader = false;
+      this.company = response.result;
       this.storeproduct = JSON.parse(JSON.stringify(response.result));
       this.count = response.count;
       const counties = this.count;
@@ -45,17 +47,18 @@ export class SupressionComponent implements OnInit {
     this.company = this.company.filter(response => {
       const searchresult = false;
       console.log(response.category.name, 'hii');
-      return (response.productName.toLowerCase().indexOf(type.toLowerCase()) !== -1) || (JSON.stringify(response.id).indexOf(type.toLowerCase()) !== -1);
+      return (response.productName.toLowerCase().indexOf(type.toLowerCase()) !== -1)
+        || (JSON.stringify(response.id).indexOf(type.toLowerCase()) !== -1);
     });
-   }
-   private sendDelete($event: any, i): void {
+  }
+  private sendDelete($event: any, i): void {
     const index = this.response.indexOf(i);
     const body = { isDelete: true };
     this.supressionService.deleteCompany(i, body.isDelete).then(response => {
-        this.company.splice(index, 1);
+      this.company.splice(index, 1);
     });
     $('.alert').css('z-index', '9999');
-    $('#error-alert').fadeTo(2000, 500).slideUp(500, function(){
+    $('#error-alert').fadeTo(2000, 500).slideUp(500, function () {
       $('#error-alert').slideUp(500);
       $('.alert').css('z-index', '-1000');
     });

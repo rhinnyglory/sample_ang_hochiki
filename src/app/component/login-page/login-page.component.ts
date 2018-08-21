@@ -1,4 +1,4 @@
-import { Component, NgZone } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Login } from '../../types/login';
@@ -39,9 +39,10 @@ export class LoginPageComponent {
         password: ''
     };
     authenticated: boolean;
-    private loading = false;
-    public userRights: any;
+    loading = false;
+    userRights: any;
     returnUrl: string;
+    errMessage: string;
 
     constructor(
         private loginServices: AuthenticationService,
@@ -62,6 +63,7 @@ export class LoginPageComponent {
 
         }, err => {
             this.loading = false;
+            this.errMessage = err.error;
             console.log('error');
         });
     }

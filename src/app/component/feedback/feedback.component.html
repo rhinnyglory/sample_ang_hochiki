@@ -43,7 +43,7 @@
                     <th></th>
                 </tr>
 
-                <tr *ngFor="let x of feedList | filter:filter ; let i = index">
+                <tr *ngFor="let x of feedList; let i = index">
                     <td style="width: 11%">{{x.id}}</td>
                     <td>{{x.name}}</td>
                     <td>{{x.customerEmail}}</td>

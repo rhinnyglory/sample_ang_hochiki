@@ -18,9 +18,10 @@ export class AddCompanyComponent implements OnInit {
   showpreview = false;
   showpreviewafterEdit = false;
   buttonTitle: string;
-  private company: ProductAddModel;
+  company: ProductAddModel;
 
-  constructor(private router: Router, private route: ActivatedRoute,
+  constructor(private router: Router,
+    private route: ActivatedRoute,
     private companyService: CompanyService) {
     this.company = {
       categoryId: {},
@@ -32,7 +33,7 @@ export class AddCompanyComponent implements OnInit {
 
   ngOnInit() {
     document.title = 'edit Hochiki - Hochiki';
-      this.selectName();
+    this.selectName();
     const userId = this.route.snapshot.params['id'];
     if (userId) {
       this.showpreviewafterEdit = true;
@@ -51,12 +52,12 @@ export class AddCompanyComponent implements OnInit {
     }
     if (file.target.files && file.target.files[0]) {
       const reader = new FileReader();
-    reader.onload = (event: any) => {
+      reader.onload = (event: any) => {
         this.images = event.target.result;
         this.showpreview = true;
         this.showpreviewafterEdit = false;
       };
-     reader.readAsDataURL(file.target.files[0]);
+      reader.readAsDataURL(file.target.files[0]);
     }
   }
   fileChange(event) {
@@ -87,7 +88,7 @@ export class AddCompanyComponent implements OnInit {
         this.showLoader = false;
         this.companyService.getCompanyList();
         $('.alert').css('z-index', '9999');
-        $('#success-alert').fadeTo(2000, 500).slideUp(500, function(){
+        $('#success-alert').fadeTo(2000, 500).slideUp(500, function () {
           $('#success-alert').slideUp(500);
           $('.alert').css('z-index', '-1000');
         });
@@ -96,7 +97,7 @@ export class AddCompanyComponent implements OnInit {
     } else {
       const infoUpdated: FormData = new FormData();
 
-     if (typeof this.company.category === 'object') {
+      if (typeof this.company.category === 'object') {
         this.company.categoryId = 1;
       }
       for (const keys in this.company) {
@@ -108,14 +109,14 @@ export class AddCompanyComponent implements OnInit {
         this.showLoader = false;
         // this.loaderService.display(false);
         $('.alert').css('z-index', '9999');
-        $('#updated-alert').fadeTo(2000, 500).slideUp(500, function(){
+        $('#updated-alert').fadeTo(2000, 500).slideUp(500, function () {
           $('#updated-alert').slideUp(500);
           $('.alert').css('z-index', '-1000');
         });
-          this.router.navigate(['/hochiki']);
-     });
+        this.router.navigate(['/hochiki']);
+      });
     }
- }
+  }
 
 
 }

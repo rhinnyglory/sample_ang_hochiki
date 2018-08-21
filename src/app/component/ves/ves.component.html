@@ -31,7 +31,7 @@
                     <th></th>
                     <th></th>
                 </tr>
-                <tr *ngFor="let x of company |orderBy: key : reverse | filter:filter; let i = index">
+                <tr *ngFor="let x of company |orderBy: key : reverse; let i = index">
                     <td width="10%">
                     {{x.id}}
                     </td>

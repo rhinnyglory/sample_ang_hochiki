@@ -39,10 +39,7 @@
                                                                 pattern="^((https?|ftp)://)?([a-z]+[.])?[a  -z0-9-]+([.][a-z]{1,4}){1,2}(/.*)?$" required/> -->
             <input class="form-control" type="text" name="video" #videoUrl='ngModel' pattern="^((https?|ftp)://)?([a-z]+[.])?[a-z0-9-]+([.][a-z]{1,4}){1,2}(/.*)?$"
               [(ngModel)]="company.videoUrl">
-            <!-- <div *ngIf="videoUrl.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
-                                                                Video Url required.
-                                                              </div> -->
-            <div *ngIf="videoUrl.errors?.pattern && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+            <div *ngIf="videoUrl.errors?.pattern" [ngClass]="'error'">
               Please give proper url!
             </div>
           </div>
@@ -61,7 +58,6 @@
 
         <div class="box-footer">
           <a class="btn btn-default" routerLink="/ves">Cancel</a>
-          <!-- <button class="btn btn-primary">{{buttonTitle}}</button> -->
           <button class="btn btn-primary">{{this.buttonTitle}}</button>
         </div>
       </form>

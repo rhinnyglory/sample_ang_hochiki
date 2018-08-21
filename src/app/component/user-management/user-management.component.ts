@@ -7,12 +7,16 @@ import { UserService } from './user.service';
   styleUrls: ['./user-management.component.css']
 })
 export class UserManagementComponent implements OnInit {
+  id: number;
+  userName: string;
+  email: string;
+  mobile: string;
   users = [];
   showLoader = false;
   searchUser = [];
   key: string;
   reverse = false;
-  private count = {};
+  count = {};
   constructor(private user: UserService) { }
 
   ngOnInit() {

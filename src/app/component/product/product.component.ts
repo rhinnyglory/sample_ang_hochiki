@@ -11,23 +11,26 @@ import { Subject } from 'rxjs/Subject';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
+  id: number;
+  productName: string;
+  categoryName: string;
   response = [];
-  private body = '';
-  private name = '';
-  private documentPath: string;
-  private filePath: string;
-  private count = {};
+  body = '';
+  name = '';
+  documentPath: string;
+  filePath: string;
+  count = {};
   p = 1;
   showLoader = false;
-  private product: any = [];
-  private storeproduct: any = [];
+  product: any = [];
+  storeproduct: any = [];
   searchTerm$ = new Subject<string>();
-  // key: string;
-  // reverse = false;
-  // sort(key) {
-  //   this.key = key;
-  //   this.reverse = !this.reverse;
-  // }
+  key: string;
+  reverse = false;
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
   constructor(private router: Router,
     private productService: ProductService) {
 

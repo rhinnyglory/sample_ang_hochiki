@@ -10,22 +10,22 @@ import { Router } from '@angular/router';
 })
 export class CategoryComponent implements OnInit {
   response = [];
-  private body= '';
+  body = '';
   showLoader = false;
-  private category: any = [];
+  category: any = [];
   key: string;
   reverse = false;
-  private filePath: string;
+  filePath: string;
   sort(key) {
     this.key = key;
     this.reverse = !this.reverse;
   }
-  constructor(  private router: Router,
-    private categoryService: CategoryService) {  }
+  constructor(private router: Router,
+    private categoryService: CategoryService) { }
 
-    ngOnInit() {
-      document.title = 'View Category - Hochiki';
-      this.showLoader = true;
+  ngOnInit() {
+    document.title = 'View Category - Hochiki';
+    this.showLoader = true;
     this.getCategory();
   }
   getCategory(): void {

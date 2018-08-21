@@ -65,8 +65,8 @@ import { AddRoleComponent } from './component/roles/add-role/add-role.component'
 import { FeedbackComponent } from './component/feedback/feedback.component';
 import { FeedbackDetailComponent } from './component/feedback/feedback-detail/feedback-detail.component';
 import { FeedbckService } from './component/feedback/feedbck.service';
-import { UserExplorerComponent } from './component/user-explorer/user-explorer.component';
-import { ViewUserExplorerComponent } from './component/user-explorer/view-user-explorer.component';
+// import { UserExplorerComponent } from './component/user-explorer/user-explorer.component';
+// import { ViewUserExplorerComponent } from './component/user-explorer/view-user-explorer.component';
 import { OverviewComponent } from './component/overview/overview.component';
 import { overviewService} from './component/overview/overview.service';
 
@@ -98,8 +98,8 @@ import { overviewService} from './component/overview/overview.service';
     AddRoleComponent,
     FeedbackComponent,
     FeedbackDetailComponent,
-    UserExplorerComponent,
-    ViewUserExplorerComponent,
+    // UserExplorerComponent,
+    // ViewUserExplorerComponent,
     OverviewComponent
   ],
   imports: [

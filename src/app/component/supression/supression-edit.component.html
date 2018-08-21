@@ -24,7 +24,7 @@
           </div> -->
       <!-- /.box-header -->
       <!-- form start -->
-      <form role="form" (ngSubmit)="saveCompanyDetails()">
+      <form #suppressionForm="ngForm" (ngSubmit)="saveCompanyDetails()">
         <div class="box-body">
           <div class="form-group">
             <label for="exampleInputEmail1">Product Title<span class="astric">*</span></label>
@@ -51,7 +51,7 @@
             <!-- <div *ngIf="videoUrl.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
                                     Video Url required.
                                   </div> -->
-            <div *ngIf="videoUrl.errors?.pattern && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+            <div *ngIf="videoUrl.errors?.pattern && suppressionForm.submitted" [ngClass]="'error'">
               Please give proper url!
             </div>
           </div>

@@ -16,7 +16,7 @@
             </div> -->
       <!-- /.box-header -->
       <!-- form start -->
-      <form role="form" (ngSubmit)="saveCompanyDetails()">
+      <form #role="ngForm" (ngSubmit)="saveCompanyDetails()">
         <div class="box-body">
           <div class="form-group">
             <label for="exampleInputEmail1">Product Title<span class="astric">*</span></label>
@@ -40,10 +40,7 @@
                             pattern="^((https?|ftp)://)?([a-z]+[.])?[a  -z0-9-]+([.][a-z]{1,4}){1,2}(/.*)?$" required/> -->
               <input class="form-control" type="text" name="video" #videoUrl='ngModel' pattern="^((https?|ftp)://)?([a-z]+[.])?[a-z0-9-]+([.][a-z]{1,4}){1,2}(/.*)?$"
                 [(ngModel)]="company.videoUrl">
-              <!-- <div *ngIf="videoUrl.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
-                            Video Url required.
-                          </div> -->
-              <div *ngIf="videoUrl.errors?.pattern && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+              <div *ngIf="videoUrl.errors?.pattern && role.submitted" [ngClass]="'error'">
                 Please give proper url!
               </div>
             </div>
