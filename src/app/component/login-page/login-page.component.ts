@@ -43,7 +43,7 @@ export class LoginPageComponent {
     userRights: any;
     returnUrl: string;
     errMessage: string;
-
+    firstName: string;
     constructor(
         private loginServices: AuthenticationService,
         private router: Router) {
@@ -55,7 +55,13 @@ export class LoginPageComponent {
     login() {
         this.loginServices.login(this.model).subscribe((token: HttpResponse<any>) => {
             const xToken = token.headers.get('x-access-token');
+            const firstName = token.body.result.firstName;
+            const lastName = token.body.result.lastName;
+
             localStorage.setItem('auth', xToken);
+            localStorage.setItem('firstName', firstName);
+            localStorage.setItem('lastName', lastName);
+
             this.authenticated = true;
             if (token.body.success) {
                 this.router.navigate(['dashboard']);

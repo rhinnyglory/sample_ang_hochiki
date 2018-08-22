@@ -24,13 +24,18 @@ import { fadeInAnimation } from '../../_animations/index';
 
 export class HeaderComponent implements OnInit {
   model;
+  first = '';
+  last = '';
   constructor(private htpservice: HeaderService,
     private authService: AuthenticationService,
     private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit() {
+     this.first = localStorage.getItem('firstName').charAt(0);
+    this.last = localStorage.getItem('lastName').charAt(0);
   }
+
   logOut() {
     this.authService.logout();
   }

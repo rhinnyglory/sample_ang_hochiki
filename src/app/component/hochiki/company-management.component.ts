@@ -12,6 +12,7 @@ export class CompanyManagementComponent implements OnInit {
   id: number;
   productName: string;
   response = [];
+  filePath: string;
   body = '';
   count: '';
   company: any = [];
@@ -34,6 +35,7 @@ export class CompanyManagementComponent implements OnInit {
 
     return this.companyService.getCompanyList().then(response => {
       this.company = response.result;
+      this.filePath = response.filePath;
       this.storeproduct = JSON.parse(JSON.stringify(response.result));
       this.count = response.count;
       const counties = this.count;

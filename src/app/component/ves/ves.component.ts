@@ -14,6 +14,7 @@ export class VesComponent implements OnInit {
   response = [];
   body = '';
   count: '';
+  filePath: string;
   company: any = [];
   storeproduct: any = [];
   key: string;
@@ -32,6 +33,7 @@ export class VesComponent implements OnInit {
   getCompany() {
     return this.vesService.getCompanyList().then(response => {
       this.company = response.result;
+      this.filePath = response.filePath;
       this.storeproduct = JSON.parse(JSON.stringify(response.result));
       this.count = response.count;
       const counties = this.count;

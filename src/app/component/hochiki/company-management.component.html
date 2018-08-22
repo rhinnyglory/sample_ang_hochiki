@@ -34,7 +34,7 @@
                     <td width="10%">
                     {{x.id}}
                     </td>
-                    <td><img src="{{x.image}}" class="imgsize" ></td>
+                    <td><img src="{{filePath}}/{{x.image}}" class="imgsize" ></td>
                     
                     <td>{{x.productName}}</td>
                     <td class="text-center"> <div *ngIf="x.isActive === true">Active</div>

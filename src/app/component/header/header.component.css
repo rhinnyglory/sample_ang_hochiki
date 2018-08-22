@@ -52,3 +52,48 @@ img .hochiki{
 .logologo{
     padding-bottom: 15px;
 }
+input.rounded {
+	border: 1px solid #ccc;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 68px;
+	-moz-box-shadow: 2px 2px 3px #666;
+	-webkit-box-shadow: 2px 2px 3px #666;
+	box-shadow: 2px 2px 3px #666;
+	font-size: 20px;
+	padding: 53px 0px;
+	outline: 0;
+	-webkit-appearance: none;
+}
+input.rounded:focus {
+	border-color: #339933;
+}
+#rcorners1 {
+    border-radius: 59px;
+    background: black;
+    margin-left: 74px;
+    padding: 20px;
+    width: 105px;
+    height: 88px;
+    font-size: 40px;
+ }
+ span[rcorners2] {
+    border-radius: 16px;
+    /* background: black; */
+    color: black;
+    padding: 20px;
+    width: 55px;
+    height: 23px;
+ }
+ #rcorners2 {
+    border-radius: 16px;
+    background: black;
+    color: black;
+    /* padding: 20px; */
+    width: 55px;
+    height: 23px;
+ }
+ .circle:before {
+    content: ' \25CF';
+    font-size: 200px;
+  }

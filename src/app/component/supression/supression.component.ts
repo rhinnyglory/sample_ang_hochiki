@@ -13,6 +13,7 @@ export class SupressionComponent implements OnInit {
   response = [];
   body = '';
   count: '';
+  filePath: string;
   showLoader = false;
   company: any = [];
   storeproduct: any = [];
@@ -36,6 +37,7 @@ export class SupressionComponent implements OnInit {
     return this.supressionService.getCompanyList().then(response => {
       this.showLoader = false;
       this.company = response.result;
+      this.filePath = response.filePath;
       this.storeproduct = JSON.parse(JSON.stringify(response.result));
       this.count = response.count;
       const counties = this.count;
