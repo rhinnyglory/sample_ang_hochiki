@@ -71,6 +71,7 @@ input.rounded:focus {
 #rcorners1 {
     border-radius: 59px;
     background: black;
+    color: white;
     margin-left: 74px;
     padding: 20px;
     width: 105px;

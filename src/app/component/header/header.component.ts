@@ -32,8 +32,10 @@ export class HeaderComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-     this.first = localStorage.getItem('firstName').charAt(0);
-    this.last = localStorage.getItem('lastName').charAt(0);
+    this.first = localStorage.getItem('firstName').charAt(0).toUpperCase();
+    if (localStorage.getItem('lastName')) {
+      this.last = localStorage.getItem('lastName').charAt(0).toUpperCase();
+    }
   }
 
   logOut() {
