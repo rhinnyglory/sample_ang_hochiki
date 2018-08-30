@@ -38,15 +38,17 @@ export class AddProductComponent implements OnInit {
   product: ProductAddModel;
   documentPath: string;
   filePath: string;
-  constructor(private router: Router, private route: ActivatedRoute,
-    private productService: ProductService, private formBuilder: FormBuilder) {
+  constructor(private router: Router,
+    private route: ActivatedRoute,
+    private productService: ProductService,
+    private formBuilder: FormBuilder) { }
+  ngOnInit() {
     this.product = {
       categoryId: {},
       documentName: {},
       category: {},
+      isYoutube: 0
     } as ProductAddModel;
-  }
-  ngOnInit() {
     document.title = 'Add Product - Hochiki';
     this.product.documentName = false;
     const userId = this.route.snapshot.params['id'];
@@ -86,7 +88,36 @@ export class AddProductComponent implements OnInit {
     if (fileList.length > 0) {
       this.product.documentName = event.target.files[0];
     }
+  }
 
+  videoUpload(event) {
+    const fileList: FileList = event.target.files;
+    if (fileList.length > 0 && fileList[0].type === 'video/mp4') {
+      this.product.mp4Video = event.target.files[0];
+    } else {
+      this.product.mp4Video = null;
+      $('.alert').css('z-index', '9999');
+      $('#error-wrong-file').fadeTo(2000, 500).slideUp(500, function () {
+        $('#error-wrong-file').slideUp(500);
+        $('.alert').css('z-index', '-1000');
+      });
+    }
+    console.log(this.product.mp4Video, '123');
+  }
+
+  threeDChange(event) {
+    console.log(event, 'video');
+    const fileList: FileList = event.target.files;
+    if (fileList.length > 0 && fileList[0].name.split('.')[1] === 'obj') {
+      this.product.objFile = event.target.files[0];
+    } else {
+      this.product.objFile = null;
+      $('.alert').css('z-index', '9999');
+      $('#error-wrong-file').fadeTo(2000, 500).slideUp(500, function () {
+        $('#error-wrong-file').slideUp(500);
+        $('.alert').css('z-index', '-1000');
+      });
+    }
   }
 
   public onOptionsSelected() {
@@ -118,6 +149,8 @@ export class AddProductComponent implements OnInit {
           info.append(key, this.product[key]);
         }
       }
+      console.log(info, '456');
+      // return false;
       this.productService.createProduct(info).then(users => {
         // this.loaderService.display(false);
         this.showLoader = false;

@@ -42,8 +42,22 @@
             <img *ngIf="showpreview" style="padding-bottom:10px;" src="{{images}}" />
             <img *ngIf="showpreviewafterEdit" style="padding-bottom:10px;" src="{{filePath}}/{{product.image}}" />
           </div>
+
           <div class="form-group">
-            <label for="exampleInputEmail1">Video Url<span class="astric">*</span></label>
+            <label for="video"> Video Type </label>
+            <div class="radio-box inline mt10">
+              <input id="url" name="url" type="radio" [value]="0"  [(ngModel)]="product.isYoutube" #isYoutube="ngModel">
+              <label for="url">YouTube URL</label>
+            </div>
+
+            <div class="radio-box inline mt10">
+              <input id="mp4" name="mp4" type="radio" [value]="1"   [(ngModel)]="product.isYoutube" #isYoutube="ngModel">
+              <label for="mp4">Upload Video</label>
+            </div>
+          </div>
+        
+          <div class="form-group" [hidden]="product.isYoutube !== 0">
+            <label for="exampleInputEmail1">YouTube Url<span class="astric">*</span></label>
             <!-- <input type="text" id="videoUrl" name="videoUrl" [(ngModel)]="product.videoUrl" class="form-control" name="videoUrl" #videoUrl="ngModel"
               pattern="^((https?|ftp)://)?([a-z]+[.])?[a  -z0-9-]+([.][a-z]{1,4}){1,2}(/.*)?$" required/> -->
             <input class="form-control" type="text" name="video" #videoUrl='ngModel' pattern="^((https?|ftp)://)?([a-z]+[.])?[a-z0-9-]+([.][a-z]{1,4}){1,2}(/.*)?$"
@@ -56,11 +70,23 @@
             </div>
           </div>
 
+          <div class="form-group" [hidden]="product.isYoutube !== 1">
+            <label for="exampleInputFile">Upload Video<span class="astric">*</span>(Accept only .mp4)</label>
+            <input type="file" name="documentName" [(ngModel)]="file" (change)="videoUpload($event)" placeholder="Upload file" accept=".mp4"
+              id="name" />
+          </div>
+
           <div class="form-group">
             <label for="exampleInputFile">Document<span class="astric">*</span>(Accept only .pdf,.doc,.docx)</label>
             <input type="file" name="documentName" [(ngModel)]="file" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf,.doc,.docx"
               id="name" />
             <a href="{{documentPath}}/{{product.documentName}}" target="_blank">Read Document</a>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputFile">3D File<span class="astric">*</span>(Accept only .obj)</label>
+            <input type="file" name="documentName" [(ngModel)]="file" (change)="threeDChange($event)" placeholder="Upload file" accept=".obj"
+              id="name" />
           </div>
         </div>
         <!-- /.box-body -->
