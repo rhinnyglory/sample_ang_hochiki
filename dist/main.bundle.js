@@ -8438,7 +8438,9 @@ var HeaderComponent = /** @class */ (function () {
         this.last = '';
     }
     HeaderComponent.prototype.ngOnInit = function () {
-        this.first = localStorage.getItem('firstName').charAt(0).toUpperCase();
+        if (localStorage.getItem('firstName')) {
+            this.first = localStorage.getItem('firstName').charAt(0).toUpperCase();
+        }
         if (localStorage.getItem('lastName')) {
             this.last = localStorage.getItem('lastName').charAt(0).toUpperCase();
         }
