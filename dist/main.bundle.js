@@ -11124,7 +11124,8 @@ var BootstrapAlert = /** @class */ (function () {
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 var environment = {
     production: false,
-    url: 'http://192.168.11.71:3002/',
+    // url: 'http://192.168.11.71:3002/',
+    url: 'http://dev.credencys.com:3038/'
 };
 //# sourceMappingURL=environment.js.map
 
