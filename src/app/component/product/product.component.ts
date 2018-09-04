@@ -52,8 +52,6 @@ export class ProductComponent implements OnInit {
       this.storeproduct = JSON.parse(JSON.stringify(response.result));
     });
   }
-  delUser(i) {
-  }
 
   searchTerm(type) {
     this.product = this.storeproduct;
@@ -81,16 +79,15 @@ export class ProductComponent implements OnInit {
   }
 
   onChange(event: any, id: number) {
-    // this.user.statusChange(event.target.checked, id).then(data => {
-    //   this.showLoader = false;
-    //   $('.alert').css('z-index', '9999');
-    //   $('#success-alert-status').fadeTo(2000, 500).slideUp(500, function () {
-    //     $('#success-alert-status').slideUp(500);
-    //     $('.alert').css('z-index', '-1000');
-    //   });
-    // }).catch(err => {
-    //   console.log(err, '456');
-    // });
+    this.productService.statusChange(event.target.checked, id).then(data => {
+      this.showLoader = false;
+      $('.alert').css('z-index', '9999');
+      $('#success-alert-status').fadeTo(2000, 500).slideUp(500, function () {
+        $('#success-alert-status').slideUp(500);
+        $('.alert').css('z-index', '-1000');
+      });
+    }).catch(err => {
+      console.log(err, '456');
+    });
   }
-
 }

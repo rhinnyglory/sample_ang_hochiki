@@ -6,8 +6,8 @@ export interface ProductAddModel {
     image: any;
     documentName: any;
     category: Category;
-    videoUrl: string;
-    isYoutube: number;
+    videoUrl: any;
+    isYoutube: boolean;
     objFile: any;
     mp4Video: any;
 }

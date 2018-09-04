@@ -47,7 +47,7 @@ export class AddProductComponent implements OnInit {
       categoryId: {},
       documentName: {},
       category: {},
-      isYoutube: 0
+      isYoutube: true
     } as ProductAddModel;
     document.title = 'Add Product - Hochiki';
     this.product.documentName = false;
@@ -58,6 +58,9 @@ export class AddProductComponent implements OnInit {
       this.buttonTitle = 'Update';
       this.productService.getProductDetail(userId).then(users => {
         this.product = users.result;
+        if (!this.product.isYoutube) {
+          this.product.videoUrl = '';
+        }
         this.documentPath = users.documentPath;
         this.filePath = users.filePath;
       });
@@ -91,16 +94,18 @@ export class AddProductComponent implements OnInit {
   }
 
   videoUpload(event) {
-    const fileList: FileList = event.target.files;
-    if (fileList.length > 0 && fileList[0].type === 'video/mp4') {
-      this.product.mp4Video = event.target.files[0];
-    } else {
-      this.product.mp4Video = null;
-      $('.alert').css('z-index', '9999');
-      $('#error-wrong-file').fadeTo(2000, 500).slideUp(500, function () {
-        $('#error-wrong-file').slideUp(500);
-        $('.alert').css('z-index', '-1000');
-      });
+    if (this.product.isYoutube === false) {
+      const fileList: FileList = event.target.files;
+      if (fileList.length > 0 && fileList[0].type === 'video/mp4') {
+        this.product.mp4Video = event.target.files[0];
+      } else {
+        this.product.mp4Video = null;
+        $('.alert').css('z-index', '9999');
+        $('#error-wrong-file').fadeTo(2000, 500).slideUp(500, function () {
+          $('#error-wrong-file').slideUp(500);
+          $('.alert').css('z-index', '-1000');
+        });
+      }
     }
     console.log(this.product.mp4Video, '123');
   }
@@ -134,13 +139,10 @@ export class AddProductComponent implements OnInit {
       return;
     }
     this.isValidFormSubmitted = true;
-    // this.loaderService.display(true);
     this.showLoader = true;
     const userId = this.route.snapshot.params['id'];
     const info: FormData = new FormData();
-
     if (!userId) {
-
       if (typeof this.product.category === 'object') {
         this.product.categoryId = this.product.category.id;
       }
@@ -149,10 +151,7 @@ export class AddProductComponent implements OnInit {
           info.append(key, this.product[key]);
         }
       }
-      console.log(info, '456');
-      // return false;
       this.productService.createProduct(info).then(users => {
-        // this.loaderService.display(false);
         this.showLoader = false;
         this.productService.getProductList();
         $('.alert').css('z-index', '9999');
@@ -172,7 +171,9 @@ export class AddProductComponent implements OnInit {
       if (typeof this.product.category === 'object') {
         this.product.categoryId = this.product.category.id;
       }
-
+      if (!this.product.isYoutube) {
+        delete this.product.videoUrl;
+      }
       for (const keys in this.product) {
         if (keys !== 'file' || 'event') {
           info.append(keys, this.product[keys]);

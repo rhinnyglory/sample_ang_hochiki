@@ -15,7 +15,7 @@ export class ProductService {
   private categoryDropdown = 'category-dropdown';
   data: ProductAddModel[];
 
-  constructor(private route: Router , private http: Http, private httpcaller: HttpService) { }
+  constructor(private route: Router, private http: Http, private httpcaller: HttpService) { }
 
 
   getProductList() {
@@ -38,8 +38,10 @@ export class ProductService {
     return this.httpcaller.httpformdatacall(this.product + '/' + id, 'put', details);
   }
   getproductSearch(categoryName) {
-    return this.httpcaller.httpcall(this.productUrl, 'post', { categoryName: ''});
+    return this.httpcaller.httpcall(this.productUrl, 'post', { categoryName: '' });
   }
-
+  statusChange(status: boolean, id: number) {
+    return this.httpcaller.httpcall(this.product + '/' + id + '/' + status, 'get', {});
+  }
 
 }
