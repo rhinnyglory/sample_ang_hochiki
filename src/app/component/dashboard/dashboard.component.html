@@ -55,8 +55,9 @@
 
         <!-- ./col -->
       </div>
-      <div *ngIf="showLoader" class="fa fa-spinner fa-spin" style="font-size:50px;text-align: center;
-      position: absolute;top: 50%;left: 50%;"></div>
+      <div class="loader-div" *ngIf="showLoader">
+          <div class="fa fa-spinner fa-spin"></div>
+      </div>
   </section>
   <!-- /.content -->
 </div>

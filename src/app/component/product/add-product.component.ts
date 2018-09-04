@@ -24,7 +24,7 @@ export class AddProductComponent implements OnInit {
   showpreview = false;
   showpreviewafterEdit = false;
   documentName = false;
-  showLoader = false;
+  showLoader: boolean;
   title = 'Add Product';
   animate = 'flyRight'; // you can override any options available
   newestOnTop = false;
@@ -53,10 +53,12 @@ export class AddProductComponent implements OnInit {
     this.product.documentName = false;
     const userId = this.route.snapshot.params['id'];
     if (userId) {
+      this.showLoader = true;
       this.showpreviewafterEdit = true;
       this.title = 'Edit Product';
       this.buttonTitle = 'Update';
       this.productService.getProductDetail(userId).then(users => {
+        this.showLoader = false;
         this.product = users.result;
         if (!this.product.isYoutube) {
           this.product.videoUrl = '';

@@ -1,5 +1,5 @@
 
-import 'rxjs/add/operator/switchMap'; 
+import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
 
 import { ProfileService } from '../profile/profile.service';
@@ -15,33 +15,33 @@ import { fadeInAnimation } from '../../_animations/index';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  
+
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
- 
+
   model;
   isEdit = false;
-  constructor(private htpservice: ProfileService,private router:Router) { }
- 
+  constructor(private htpservice: ProfileService, private router: Router) { }
+
   save(id: string): void {
-   
- 
+
+
     delete this.model.password;
     delete this.model.profilepic;
     delete this.model.updatedAt;
     delete this.model.userRole;
     this.htpservice.userService(this.model).subscribe(res => {
       console.log(res)
-  
+
       this.model = res.result;
-     
-      
+
+
     });
     this.router.navigate(['/dashboard']);
 
   }
-  moveToSecond():void{
+  moveToSecond(): void {
     this.router.navigate(['/dashboard']);
   }
 
@@ -57,7 +57,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     // this.modelshow = false;
-    
+
     this.htpservice.getProducts().subscribe(res => {
       console.log(res)
       // this.model=res;

@@ -3,17 +3,17 @@
     <section class="content-header">
         <h1>VES</h1>
         <ol class="breadcrumb">
-                <li>
-                  <a routerLink="/dashboard">
+            <li>
+                <a routerLink="/dashboard">
                     <i class="fa fa-dashboard"></i>Dashboard</a>
-                </li>
-                <li class="active">Ves</li>
-              </ol>
+            </li>
+            <li class="active">Ves</li>
+        </ol>
     </section>
 
     <section class="content">
         <div class="box table-responsive">
-           
+
             <table class="table table-bordered">
                 <tr>
                     <th (click)="sort('id')" width="10%">ID<span class="glyphicon sort-icon" *ngIf="key =='id'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
@@ -23,25 +23,25 @@
                     <th>Action</th>
                 </tr>
                 <tr>
-                    <th><input [(ngModel)]="id" placeholder="search id" class="form-control"
-                        (keyup)="searchTerm(id)" width="10%"></th>
+                    <th><input [(ngModel)]="id" placeholder="search id" class="form-control" (keyup)="searchTerm(id)" width="10%"></th>
                     <th></th>
-                    <th><input [(ngModel)]="productName" placeholder="search product title" class="form-control"
-                        (keyup)="searchTerm(productName)"></th>
+                    <th><input [(ngModel)]="productName" placeholder="search product title" class="form-control" (keyup)="searchTerm(productName)"></th>
                     <th></th>
                     <th></th>
                 </tr>
                 <tr *ngFor="let x of company |orderBy: key : reverse; let i = index">
                     <td width="10%">
-                    {{x.id}}
+                        {{x.id}}
                     </td>
-                    <td><img src="{{filePath}}/{{x.image}}" class="imgsize" ></td>
-                    
+                    <td><img src="{{filePath}}/{{x.image}}" class="imgsize"></td>
+
                     <td>{{x.productName}}</td>
-                    <td class="text-center"> <div *ngIf="x.isActive === true">Active</div>
-                        <div *ngIf="x.isActive === false">Inactive</div></td>
+                    <td class="text-center">
+                        <div *ngIf="x.isActive === true">Active</div>
+                        <div *ngIf="x.isActive === false">Inactive</div>
+                    </td>
                     <td class="text-center action" width="100">
-                        <a title="Edit"  [routerLink]="['edit', x.id]" ><i class="fa fa-pencil" style="font-size:20px; color:black"></i></a>
+                        <a title="Edit" [routerLink]="['edit', x.id]"><i class="fa fa-pencil" style="font-size:20px; color:black"></i></a>
                         <!-- <a title="Delete" class="ml10" (click)="delUser(x.id)" ><i class="fa fa-trash-o" style="font-size:24px; color:black"></i></a> -->
                         <span>
                         <delete-confirm title="Delete"  [question]="'Are you sure you want to delete?'" (onConfirm)="sendDelete($event,x.id)" (onCancel)="sendCancel($event)"></delete-confirm>
@@ -49,12 +49,10 @@
                     </td>
                 </tr>
             </table>
-            <div class="view-side-form">
-                <p></p>
-               
-            </div>
+        </div>
+        <div class="loader-div" *ngIf="showLoader">
+            <div class="fa fa-spinner fa-spin"></div>
         </div>
     </section>
     <!-- /.row (main row) -->
 </div>
-

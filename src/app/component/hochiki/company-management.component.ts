@@ -13,6 +13,7 @@ export class CompanyManagementComponent implements OnInit {
   productName: string;
   response = [];
   filePath: string;
+  showLoader: boolean;
   body = '';
   count: '';
   company: any = [];
@@ -28,19 +29,20 @@ export class CompanyManagementComponent implements OnInit {
 
   ngOnInit() {
     document.title = 'View Product - Hochiki';
-
     this.getCompany();
   }
   getCompany() {
-
+    this.showLoader = true;
     return this.companyService.getCompanyList().then(response => {
+      this.showLoader = false;
       this.company = response.result;
       this.filePath = response.filePath;
       this.storeproduct = JSON.parse(JSON.stringify(response.result));
       this.count = response.count;
       const counties = this.count;
-
       return counties;
+    }).catch(err => {
+      this.showLoader = false;
     });
   }
   searchTerm(type) {
@@ -48,15 +50,17 @@ export class CompanyManagementComponent implements OnInit {
     this.company = this.company.filter(response => {
       const searchresult = false;
       console.log(response.category.name, 'hii');
-      return (response.productName.toLowerCase().indexOf(type.toLowerCase()) !== -1) || (JSON.stringify(response.id).indexOf(type.toLowerCase()) !== -1);
+      return (response.productName.toLowerCase().indexOf(type.toLowerCase()) !== -1)
+        || (JSON.stringify(response.id).indexOf(type.toLowerCase()) !== -1);
     });
   }
   delUser(i) {
     const index = this.response.indexOf(i);
     const body = { isDelete: true };
+    this.showLoader = true;
     this.companyService.deleteCompany(i, body.isDelete).then(response => {
       this.company.splice(index, 1);
-
+      this.showLoader = false;
     });
 
 
@@ -66,6 +70,7 @@ export class CompanyManagementComponent implements OnInit {
   private sendDelete($event: any, i): void {
     const index = this.response.indexOf(i);
     const body = { isDelete: true };
+    this.showLoader = true;
     this.companyService.deleteCompany(i, body.isDelete).then(response => {
       this.company.splice(index, 1);
     });
@@ -75,6 +80,7 @@ export class CompanyManagementComponent implements OnInit {
       $('.alert').css('z-index', '-1000');
     });
     this.getCompany();
+    this.showLoader = false;
   }
   private sendCancel($event: any): void {
     // this.getProduct();

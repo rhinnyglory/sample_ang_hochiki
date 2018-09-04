@@ -73,12 +73,12 @@ export class AddUserComponent implements OnInit {
   }
 
   getUserDetails(userId) {
+    this.showLoader = true;
     this.userService.getUserDetails(this.userId).then(res => {
       this.user = res.result;
-      console.log(this.user);
       this.user.countryId = res.result.countryId;
       this.user.roleId = res.result.role.id;
-      console.log(this.user.roleId);
+      this.showLoader = false;
       this.userService.getStates(res.result.countryId).then(res1 => {
         this.states = res1.result;
       });

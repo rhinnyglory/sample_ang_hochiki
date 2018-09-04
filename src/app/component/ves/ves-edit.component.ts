@@ -16,7 +16,7 @@ export class VesEditComponent implements OnInit {
   showpreview = false;
   showpreviewafterEdit = false;
   company: ProductAddModel;
-
+  showLoader: boolean;
   constructor(private router: Router, private route: ActivatedRoute,
     private vesService: VesService) {
     this.company = {
@@ -32,11 +32,15 @@ export class VesEditComponent implements OnInit {
       this.selectName();
     const userId = this.route.snapshot.params['id'];
     if (userId) {
+      this.showLoader = true;
       this.showpreviewafterEdit = true;
       this.title = 'Edit Company';
       this.buttonTitle = 'Update';
       this.vesService.getCompanyDetail(userId).then(users => {
         this.company = users.result;
+        this.showLoader = false;
+      }).catch(err => {
+        this.showLoader = false;
       });
     } else {
       this.buttonTitle = 'save';
@@ -69,6 +73,7 @@ export class VesEditComponent implements OnInit {
   }
 
   saveCompanyDetails() {
+    this.showLoader = true;
     const userId = this.route.snapshot.params['id'];
 
       const infoUpdated: FormData = new FormData();
@@ -82,12 +87,15 @@ export class VesEditComponent implements OnInit {
         }
       }
       this.vesService.updateCompany(userId, infoUpdated).then(users => {
+        this.showLoader = false;
         $('.alert').css('z-index', '9999');
         $('#updated-alert').fadeTo(2000, 500).slideUp(500, function(){
           $('#updated-alert').slideUp(500);
           $('.alert').css('z-index', '-1000');
         });
         this.router.navigate(['/ves']);
+      }).catch(err => {
+        this.showLoader = false;
       });
     }
 }

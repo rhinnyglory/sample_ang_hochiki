@@ -44,7 +44,7 @@ export class UserManagementComponent implements OnInit {
         $('.alert').css('z-index', '-1000');
       });
     }).catch(err => {
-      console.log(err, '456');
+      this.showLoader = false;
     });
   }
 

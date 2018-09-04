@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class VesComponent implements OnInit {
   id: number;
   productName: string;
+  showLoader: boolean;
   response = [];
   body = '';
   count: '';
@@ -31,13 +32,17 @@ export class VesComponent implements OnInit {
     this.getCompany();
   }
   getCompany() {
+    this.showLoader = true;
     return this.vesService.getCompanyList().then(response => {
+      this.showLoader = false;
       this.company = response.result;
       this.filePath = response.filePath;
       this.storeproduct = JSON.parse(JSON.stringify(response.result));
       this.count = response.count;
       const counties = this.count;
       return counties;
+    }).catch(err => {
+      this.showLoader = false;
     });
   }
   searchTerm(type) {
@@ -52,8 +57,10 @@ export class VesComponent implements OnInit {
   private sendDelete($event: any, i): void {
     const index = this.response.indexOf(i);
     const body = { isDelete: true };
+    this.showLoader = true;
     this.vesService.deleteCompany(i, body.isDelete).then(response => {
       this.company.splice(index, 1);
+      this.showLoader = false;
     });
     $('.alert').css('z-index', '9999');
     $('#error-alert').fadeTo(2000, 500).slideUp(500, function () {

@@ -16,26 +16,28 @@
 
       <form #userForm="ngForm" (ngSubmit)="saveCompanyDetails(userForm)">
         <div class="box-body">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Product Title<span class="astric">*</span></label>
-            <input type="text" id="name" name="productName" [(ngModel)]="product.productName" class="form-control" name="name" #productName="ngModel"
-              required/>
-            <div *ngIf="productName.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
-              Product Title required.
+          <div class="form-group row">
+            <div class="col-sm-6">
+                <label for="exampleInputEmail1">Product Title<span class="astric">*</span></label>
+                <input type="text" id="name" name="productName" [(ngModel)]="product.productName" class="form-control" name="name" #productName="ngModel"
+                  required/>
+                <div *ngIf="productName.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+                  Product Title required.
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <label for="exampleInputEmail1">Category<span class="astric">*</span></label>
+                <select class="form-control" name="selectedTechs" [(ngModel)]="product.category.id" id="name" (change)="selectName();" required
+                  #id="ngModel">
+                  <option value="">Select Category</option>
+                  <option *ngFor="let role of categories" [value]="role.id" [selected]="product.category.id == role.id">{{role.name}}</option>
+                </select>
+                <div *ngIf="id.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+                  Category required.
+                </div>
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="exampleInputEmail1">Category<span class="astric">*</span></label>
-            <select class="form-control" name="selectedTechs" [(ngModel)]="product.category.id" id="name" (change)="selectName();" required
-              #id="ngModel">
-              <option value="">Select Category</option>
-              <option *ngFor="let role of categories" [value]="role.id" [selected]="product.category.id == role.id">{{role.name}}</option>
-            </select>
-            <div *ngIf="id.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
-              Category required.
-            </div>
-          </div>
           <div class="form-group">
             <label for="exampleInputFile">Product Image<span class="astric">*</span>(Accept only .png,.jpg)</label>
             <input type="file" name="image" [(ngModel)]="file" (change)="uploadImage($event)" accept=".png,.jpg" id="name" />
@@ -45,12 +47,12 @@
 
           <div class="form-group">
             <label for="video"> Video Type </label>
-            <div class="radio-box inline mt10">
+            <div class="radio-box inline mt10 radio-align">
               <input id="url" name="url" type="radio" [value]="true"  [(ngModel)]="product.isYoutube" #isYoutube="ngModel">
               <label for="url">YouTube URL</label>
             </div>
 
-            <div class="radio-box inline mt10">
+            <div class="radio-box inline mt10 radio-align">
               <input id="mp4" name="mp4" type="radio" [value]="false"   [(ngModel)]="product.isYoutube" #isYoutube="ngModel">
               <label for="mp4">Upload Video</label>
             </div>
@@ -98,8 +100,9 @@
         </div>
       </form>
     </div>
-    <div *ngIf="showLoader" class="fa fa-spinner fa-spin" style="font-size:50px;text-align: center;
-        position: absolute;top: 50%;left: 50%;"></div>
+    <div class="loader-div" *ngIf="showLoader">
+        <div class="fa fa-spinner fa-spin"></div>
+    </div>
   </section>
   <!-- /.row (main row) -->
 </div>

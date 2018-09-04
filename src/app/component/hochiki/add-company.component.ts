@@ -13,7 +13,7 @@ import * as bootstrap from 'bootstrap';
 export class AddCompanyComponent implements OnInit {
   file: any;
   title = 'Add Product';
-  showLoader = false;
+  showLoader: boolean;
   images = {};
   showpreview = false;
   showpreviewafterEdit = false;
@@ -39,8 +39,12 @@ export class AddCompanyComponent implements OnInit {
       this.showpreviewafterEdit = true;
       this.title = 'Edit Product';
       this.buttonTitle = 'Update';
+      this.showLoader = true;
       this.companyService.getCompanyDetail(userId).then(users => {
         this.company = users.result;
+        this.showLoader = false;
+      }).catch(err => {
+        this.showLoader = false;
       });
     } else {
       this.buttonTitle = 'Save';
@@ -61,10 +65,8 @@ export class AddCompanyComponent implements OnInit {
     }
   }
   fileChange(event) {
-    console.log(event);
     const fileList: FileList = event.target.files;
     if (fileList.length > 0) {
-      console.log('ssss');
       this.company.documentName = event.target.files[0];
     }
   }

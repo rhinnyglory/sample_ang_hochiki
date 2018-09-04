@@ -38,11 +38,11 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     document.title = 'View Product - Hochiki';
-    this.showLoader = true;
     this.getProduct();
   }
 
   getProduct() {
+    this.showLoader = true;
     return this.productService.getProductList().then(response => {
       this.showLoader = false;
       this.documentPath = response.documentPath;
@@ -50,6 +50,8 @@ export class ProductComponent implements OnInit {
       this.product = response.result;
       this.count = response.count;
       this.storeproduct = JSON.parse(JSON.stringify(response.result));
+    }).catch(err => {
+      this.showLoader = false;
     });
   }
 
@@ -87,7 +89,7 @@ export class ProductComponent implements OnInit {
         $('.alert').css('z-index', '-1000');
       });
     }).catch(err => {
-      console.log(err, '456');
+      this.showLoader = false;
     });
   }
 }
