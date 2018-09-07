@@ -49,6 +49,7 @@ export class AddUserComponent implements OnInit {
       country: {},
       state: {},
       city: {},
+      userType: 1
     } as UserGroupModel;
   }
   userId: number;
@@ -79,6 +80,9 @@ export class AddUserComponent implements OnInit {
       this.user.countryId = res.result.countryId;
       this.user.roleId = res.result.role.id;
       this.showLoader = false;
+      if (this.user.userType === undefined || this.user.userType === null) {
+        this.user.userType = 1;
+      }
       this.userService.getStates(res.result.countryId).then(res1 => {
         this.states = res1.result;
       });

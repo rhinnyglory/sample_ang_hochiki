@@ -10,6 +10,7 @@ export interface UserGroupModel {
     state: State;
     city: City;
     roleId: number;
+    userType: number;
 }
 export interface Country {
     id: number;

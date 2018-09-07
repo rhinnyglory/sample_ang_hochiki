@@ -10,16 +10,21 @@ import { ProductAddModel } from '../../types/product';
 
 @Injectable()
 export class ProductService {
-  private productUrl = 'products-list';
-  private product = 'products';
-  private categoryDropdown = 'category-dropdown';
+  productUrl = 'products-list';
+  product = 'products';
+  categoryDropdown = 'category-dropdown';
   data: ProductAddModel[];
-
+  category: number;
   constructor(private route: Router, private http: Http, private httpcaller: HttpService) { }
 
 
-  getProductList() {
-    return this.httpcaller.httpcall(this.productUrl, 'post', {});
+  getProductList(catId: number) {
+    if (catId === 0) {
+      delete this.category;
+    } else {
+      this.category = catId;
+    }
+    return this.httpcaller.httpcall(this.productUrl, 'post', { categoryId: this.category });
   }
   getCategoryList() {
     return this.httpcaller.httpcall(this.categoryDropdown, 'get', {});

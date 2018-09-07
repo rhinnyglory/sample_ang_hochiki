@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
-import { FileValidator } from './file.validator';
-import { FileValueAccessor } from './file-control-value-accessor';
+// import { FileValidator } from './file.validator';
+// import { FileValueAccessor } from './file-control-value-accessor';
 import { NgForm } from '@angular/forms';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Http, Response, Headers, RequestOptions, URLSearchParams } from '@angular/http';
@@ -38,6 +38,7 @@ export class AddProductComponent implements OnInit {
   product: ProductAddModel;
   documentPath: string;
   filePath: string;
+  urlString: string;
   constructor(private router: Router,
     private route: ActivatedRoute,
     private productService: ProductService,
@@ -52,6 +53,16 @@ export class AddProductComponent implements OnInit {
     document.title = 'Add Product - Hochiki';
     this.product.documentName = false;
     const userId = this.route.snapshot.params['id'];
+    console.log(this.route.snapshot.url[0].path, 'hiii');
+    if (this.route.snapshot.url[0].path === 'product') {
+      this.urlString = 'product';
+    } else if (this.route.snapshot.url[0].path === 'hochiki') {
+      this.urlString = 'hochiki';
+    } else if (this.route.snapshot.url[0].path === 'supression') {
+      this.urlString = 'supression';
+    } else if (this.route.snapshot.url[0].path === 'ves') {
+      this.urlString = 'ves';
+    }
     if (userId) {
       this.showLoader = true;
       this.showpreviewafterEdit = true;
@@ -113,7 +124,6 @@ export class AddProductComponent implements OnInit {
   }
 
   threeDChange(event) {
-    console.log(event, 'video');
     const fileList: FileList = event.target.files;
     if (fileList.length > 0 && fileList[0].name.split('.')[1] === 'obj') {
       this.product.objFile = event.target.files[0];
@@ -135,11 +145,11 @@ export class AddProductComponent implements OnInit {
   selectName() {
   }
 
-  saveCompanyDetails(form: NgForm) {
+  saveCompanyDetails() {
     this.isValidFormSubmitted = false;
-    if (form.invalid) {
-      return;
-    }
+    // if (form.invalid) {
+    //   return;
+    // }
     this.isValidFormSubmitted = true;
     this.showLoader = true;
     const userId = this.route.snapshot.params['id'];
@@ -155,13 +165,12 @@ export class AddProductComponent implements OnInit {
       }
       this.productService.createProduct(info).then(users => {
         this.showLoader = false;
-        this.productService.getProductList();
         $('.alert').css('z-index', '9999');
         $('#success-alert-prod').fadeTo(2000, 500).slideUp(500, function () {
           $('#success-alert-prod').slideUp(500);
           $('.alert').css('z-index', '-1000');
         });
-        this.router.navigate(['/product']);
+        this.router.navigate(['/' + this.urlString]);
       }).catch(err => {
         $('.alert').css('z-index', '9999');
         $('#error-alert-prod').fadeTo(2000, 500).slideUp(500, function () {
@@ -188,7 +197,7 @@ export class AddProductComponent implements OnInit {
           $('#updated-alert').slideUp(500);
           $('.alert').css('z-index', '-1000');
         });
-        this.router.navigate(['/product']);
+        this.router.navigate(['/' + this.urlString]);
       }).catch(err => {
         $('.alert').css('z-index', '9999');
         $('#error-alert-prod').fadeTo(2000, 500).slideUp(500, function () {

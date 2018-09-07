@@ -14,33 +14,33 @@
       <!-- /.box-header -->
       <!-- form start -->
 
-      <form #userForm="ngForm" (ngSubmit)="saveCompanyDetails(userForm)">
+      <form ngNativeValidate name="form" #form="ngForm" novalidate (ngSubmit)="saveCompanyDetails()">
         <div class="box-body">
           <div class="form-group row">
             <div class="col-sm-6">
-                <label for="exampleInputEmail1">Product Title<span class="astric">*</span></label>
-                <input type="text" id="name" name="productName" [(ngModel)]="product.productName" class="form-control" name="name" #productName="ngModel"
-                  required/>
-                <div *ngIf="productName.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
-                  Product Title required.
-                </div>
+              <label for="exampleInputEmail1">Product Title<span class="astric">*</span></label>
+              <input type="text" id="name" name="productName" [(ngModel)]="product.productName" class="form-control" #productName="ngModel"
+                required/>
+              <div *ngIf="productName.errors?.required">
+                Product Title required.
+              </div>
             </div>
             <div class="col-sm-6">
-                <label for="exampleInputEmail1">Category<span class="astric">*</span></label>
-                <select class="form-control" name="selectedTechs" [(ngModel)]="product.category.id" id="name" (change)="selectName();" required
-                  #id="ngModel">
+              <label for="exampleInputEmail1">Category<span class="astric">*</span></label>
+              <select class="form-control" name="id" [(ngModel)]="product.category.id" (change)="selectName();" required #id="ngModel">
                   <option value="">Select Category</option>
                   <option *ngFor="let role of categories" [value]="role.id" [selected]="product.category.id == role.id">{{role.name}}</option>
                 </select>
-                <div *ngIf="id.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
-                  Category required.
-                </div>
+              <div *ngIf="id.errors?.required">
+                Category required.
+              </div>
             </div>
           </div>
 
           <div class="form-group">
             <label for="exampleInputFile">Product Image<span class="astric">*</span>(Accept only .png,.jpg)</label>
-            <input type="file" name="image" [(ngModel)]="file" (change)="uploadImage($event)" accept=".png,.jpg" id="name" />
+            <input type="file" name="image" [(ngModel)]="product.image" (change)="uploadImage($event)" accept=".png,.jpg" #image="ngModel"
+              required />
             <img *ngIf="showpreview" style="padding-bottom:10px;" src="{{images}}" />
             <img *ngIf="showpreviewafterEdit" style="padding-bottom:10px;" src="{{filePath}}/{{product.image}}" />
           </div>
@@ -48,60 +48,60 @@
           <div class="form-group">
             <label for="video"> Video Type </label>
             <div class="radio-box inline mt10 radio-align">
-              <input id="url" name="url" type="radio" [value]="true"  [(ngModel)]="product.isYoutube" #isYoutube="ngModel">
+              <input id="url" name="url" type="radio" [value]="true" [(ngModel)]="product.isYoutube" #isYoutube="ngModel">
               <label for="url">YouTube URL</label>
             </div>
 
             <div class="radio-box inline mt10 radio-align">
-              <input id="mp4" name="mp4" type="radio" [value]="false"   [(ngModel)]="product.isYoutube" #isYoutube="ngModel">
+              <input id="mp4" name="mp4" type="radio" [value]="false" [(ngModel)]="product.isYoutube" #isYoutube="ngModel">
               <label for="mp4">Upload Video</label>
             </div>
           </div>
-        
+
           <div class="form-group" [hidden]="product.isYoutube !== true">
             <label for="exampleInputEmail1">YouTube Url<span class="astric">*</span></label>
             <!-- <input type="text" id="videoUrl" name="videoUrl" [(ngModel)]="product.videoUrl" class="form-control" name="videoUrl" #videoUrl="ngModel"
               pattern="^((https?|ftp)://)?([a-z]+[.])?[a  -z0-9-]+([.][a-z]{1,4}){1,2}(/.*)?$" required/> -->
-            <input class="form-control" type="text" name="video" #videoUrl='ngModel' pattern="^((https?|ftp)://)?([a-z]+[.])?[a-z0-9-]+([.][a-z]{1,4}){1,2}(/.*)?$"
-              [(ngModel)]="product.videoUrl">
-            <!-- <div *ngIf="videoUrl.errors?.required && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+            <input class="form-control" type="text" name="video" [(ngModel)]="product.videoUrl" #videoUrl='ngModel' pattern="^((https?|ftp)://)?([a-z]+[.])?[a-z0-9-]+([.][a-z]{1,4}){1,2}(/.*)?$"
+              required>
+            <div *ngIf="videoUrl.errors?.required">
               Video Url required.
-            </div> -->
-            <div *ngIf="videoUrl.errors?.pattern && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+            </div>
+            <div *ngIf="videoUrl.errors?.pattern">
               Please give proper url!
             </div>
           </div>
 
           <div class="form-group" [hidden]="product.isYoutube !== false">
             <label for="exampleInputFile">Upload Video<span class="astric">*</span>(Accept only .mp4)</label>
-            <input type="file" name="documentName" [(ngModel)]="file" (change)="videoUpload($event)" placeholder="Upload file" accept=".mp4"
-              id="name" />
-              <a href="javascript:void(0)" *ngIf="showpreviewafterEdit">{{product.mp4Video}}</a>
+            <input type="file" name="mp4Video" [(ngModel)]="product.mp4Video" (change)="videoUpload($event)" placeholder="Upload file" accept=".mp4"
+              #mp4Video="ngModel" required />
+            <a href="javascript:void(0)" *ngIf="showpreviewafterEdit">{{product.mp4Video}}</a>
           </div>
 
           <div class="form-group">
             <label for="exampleInputFile">Document<span class="astric">*</span>(Accept only .pdf,.doc,.docx)</label>
-            <input type="file" name="documentName" [(ngModel)]="file" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf,.doc,.docx"
-              id="name" />
+            <input type="file" name="documentName" [(ngModel)]="product.documentName" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf,.doc,.docx"
+             #documentName="ngModel" required />
             <a href="{{documentPath}}/{{product.documentName}}" target="_blank">Read Document</a>
           </div>
 
           <div class="form-group">
             <label for="exampleInputFile">3D File<span class="astric">*</span>(Accept only .obj)</label>
-            <input type="file" name="documentName" [(ngModel)]="file" (change)="threeDChange($event)" placeholder="Upload file" accept=".obj"
-              id="name" />
+            <input type="file" name="documentName" [(ngModel)]="product.objFile" (change)="threeDChange($event)" placeholder="Upload file" accept=".obj"
+              #objFile="ngModel" />
           </div>
         </div>
         <!-- /.box-body -->
 
         <div class="box-footer">
-          <a class="btn btn-default" routerLink="/product">Cancel</a>
-          <button class="btn btn-primary" type="submit" [disabled]="!product.productName||!product.category.id||!product.image||!product.documentName">{{this.buttonTitle}}</button>
+          <a class="btn btn-default" routerLink="/{{urlString}}">Cancel</a>
+          <button class="btn btn-primary" type="submit" [disabled]="!form.valid">{{this.buttonTitle}}</button>
         </div>
       </form>
     </div>
     <div class="loader-div" *ngIf="showLoader">
-        <div class="fa fa-spinner fa-spin"></div>
+      <div class="fa fa-spinner fa-spin"></div>
     </div>
   </section>
   <!-- /.row (main row) -->

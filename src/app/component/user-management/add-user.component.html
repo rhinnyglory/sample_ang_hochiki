@@ -45,12 +45,10 @@
                 Please enter a valid email!
               </div>
             </div>
-
           </div>
 
           <div class="form-group">
             <label for="exampleInputEmail1">Phone Number<span class="astric">*</span></label>
-
             <input type="text" (blur)="onBlur(user.mobile)" class="form_fields form-control" id="mobilenumber" required [(ngModel)]="user.mobile"
               name="mobilenumber" pattern="'^[0-9]*$'" minlength="10" maxlength="10" #mobile="ngModel" (keypress)="keyPress($event)">
             <div *ngIf="showSelected" class="alert alert-danger">
@@ -58,14 +56,29 @@
               <div [hidden]="!phoneempty">Contact number is required</div>
             </div>
           </div>
+
           <div class="form-group">
             <label for="exampleInputEmail1">Role<span class="astric">*</span></label>
-            <select class="form-control" name="selectedRoles" [disabled]="user.email == 'superadmin@gmail.com'" [(ngModel)]="user.roleId"
-              id="role" required #selectedRoles="ngModel">
-                          <option value="">Select Role</option>
-                          <option *ngFor="let role of roles" [disabled]="role.name == 'admin'" [value]="role.id">{{role.name}}</option>
-                        </select>
+            <select class="form-control" name="selectedRoles" [disabled]="(user.email == 'superadmin@gmail.com') 
+            || (user.email == 'admin@kentec.com')" [(ngModel)]="user.roleId" id="role" required #selectedRoles="ngModel">
+              <option value="">Select Role</option>
+              <option *ngFor="let role of roles" [disabled]="role.name == 'admin'" [value]="role.id">{{role.name}}</option>
+            </select>
           </div>
+
+          <div class="form-group">
+            <label for="video"> User Type<span class="astric">*</span></label>
+            <div class="radio-box inline mt10 radio-align">
+              <input id="url" name="url" type="radio" [value]="1" [(ngModel)]="user.userType" #userType="ngModel">
+              <label for="url">Hochiki</label>
+            </div>
+
+            <div class="radio-box inline mt10 radio-align">
+              <input id="mp4" name="mp4" type="radio" [value]="2" [(ngModel)]="user.userType" #userType="ngModel">
+              <label for="mp4">Kentec</label>
+            </div>
+          </div>
+
           <div class="form-group">
             <label for="exampleInputEmail1">Country<span class="astric">*</span></label>
             <select class="form-control" name="countryId" [(ngModel)]="user.countryId" id="country" (change)="getStatesList();" required
@@ -77,6 +90,7 @@
               Country required.
             </div>
           </div>
+
           <div class="form-group">
             <label for="exampleInputEmail1">State<span class="astric">*</span></label>
             <select class="form-control" name="stateId" [(ngModel)]="user.stateId" id="state" (change)="getCitiesList();" required #stateId="ngModel">
@@ -89,6 +103,7 @@
               State required.
             </div>
           </div>
+
           <div class="form-group">
             <label for="exampleInputEmail1">City<span class="astric">*</span></label>
             <select class="form-control" name="cityId" [(ngModel)]="user.cityId" id="city" required #cityId="ngModel">
@@ -101,6 +116,7 @@
               City required.
             </div>
           </div>
+
         </div>
         <!-- /.box-body -->
         <div class="box-footer">

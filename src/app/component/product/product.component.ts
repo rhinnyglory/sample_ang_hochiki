@@ -2,7 +2,7 @@ import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 // import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { ProductService } from './product.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
 
 @Component({
@@ -25,6 +25,9 @@ export class ProductComponent implements OnInit {
   product: any = [];
   storeproduct: any = [];
   searchTerm$ = new Subject<string>();
+  urlString: string;
+  headerString: string;
+  addButton: boolean;
   key: string;
   reverse = false;
   sort(key) {
@@ -32,18 +35,38 @@ export class ProductComponent implements OnInit {
     this.reverse = !this.reverse;
   }
   constructor(private router: Router,
-    private productService: ProductService) {
-
-  }
+    private route: ActivatedRoute,
+    private productService: ProductService) { }
 
   ngOnInit() {
     document.title = 'View Product - Hochiki';
-    this.getProduct();
+    console.log(this.route.snapshot.url[0].path, 'hiii');
+    if (this.route.snapshot.url[0].path === 'product') {
+      this.getProduct(0);
+      this.urlString = 'product';
+      this.headerString = 'Product Management';
+      this.addButton = true;
+    } else if (this.route.snapshot.url[0].path === 'hochiki') {
+      this.getProduct(1);
+      this.urlString = 'hochiki';
+      this.headerString = 'Hochiki';
+      this.addButton = false;
+    } else if (this.route.snapshot.url[0].path === 'supression') {
+      this.getProduct(2);
+      this.urlString = 'supression';
+      this.headerString = 'Hochiki-Suppression';
+      this.addButton = false;
+    } else if (this.route.snapshot.url[0].path === 'ves') {
+      this.getProduct(3);
+      this.urlString = 'ves';
+      this.headerString = 'VES';
+      this.addButton = false;
+    }
   }
 
-  getProduct() {
+  getProduct(cat: number) {
     this.showLoader = true;
-    return this.productService.getProductList().then(response => {
+    return this.productService.getProductList(cat).then(response => {
       this.showLoader = false;
       this.documentPath = response.documentPath;
       this.filePath = response.filePath;
@@ -75,7 +98,6 @@ export class ProductComponent implements OnInit {
       $('#error-alert').slideUp(500);
       $('.alert').css('z-index', '-1000');
     });
-    this.getProduct();
   }
   private sendCancel($event: any): void {
   }

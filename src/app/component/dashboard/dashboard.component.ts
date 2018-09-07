@@ -1,42 +1,68 @@
 import { Component, OnInit } from '@angular/core';
-import { SupressionComponent } from '../supression/supression.component';
-import { CompanyManagementComponent } from '../hochiki/company-management.component';
-import { VesComponent } from '../ves/ves.component';
+import { ProductService } from '../product/product.service';
+// import { CompanyManagementComponent } from '../hochiki/company-management.component';
+// import { VesComponent } from '../ves/ves.component';
 
 
 @Component({
-  providers: [SupressionComponent, CompanyManagementComponent, VesComponent],
+  // providers: [SupressionComponent, CompanyManagementComponent, VesComponent],
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  count: {};
-  counthochiki: {};
-  countves: {};
+  count: number;
+  counthochiki: number;
+  countves: number;
+  countKent: number;
   showLoader = false;
-  constructor(private supressioncomp: SupressionComponent,
-    private hochikicomp: CompanyManagementComponent,
-    private vescomp: VesComponent) { }
+  constructor(private prodServe: ProductService) { }
 
   ngOnInit() {
-    // const counties;
-    this.showLoader = true;
     document.title = 'dashboard - Hochiki';
-    this.supressioncomp.getCompany().then((response) => {
+    this.getHochiki(1);
+    this.getSuppression(2);
+    this.getVes(3);
+    this.getKentec(4);
+  }
+
+  getHochiki(cat: number) {
+    this.showLoader = true;
+    this.prodServe.getProductList(cat).then(res => {
+      this.counthochiki = res.count;
       this.showLoader = false;
-      this.count = response;
-    });
-    this.hochikicomp.getCompany().then((response) => {
+    }).catch(err => {
       this.showLoader = false;
-      this.counthochiki = response;
-    });
-    this.vescomp.getCompany().then((response) => {
-      this.showLoader = false;
-      this.countves = response;
     });
   }
 
+  getSuppression(cat: number) {
+    this.showLoader = true;
+    this.prodServe.getProductList(cat).then(res => {
+      this.count = res.count;
+      this.showLoader = false;
+    }).catch(err => {
+      this.showLoader = false;
+    });
+  }
 
+  getVes(cat: number) {
+    this.showLoader = true;
+    this.prodServe.getProductList(cat).then(res => {
+      this.countves = res.count;
+      this.showLoader = false;
+    }).catch(err => {
+      this.showLoader = false;
+    });
+  }
 
+  getKentec(cat: number) {
+    this.showLoader = true;
+    this.prodServe.getProductList(cat).then(res => {
+      this.countKent = res.count;
+      this.showLoader = false;
+    }).catch(err => {
+      this.showLoader = false;
+    });
+  }
 }
