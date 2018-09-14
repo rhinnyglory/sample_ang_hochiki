@@ -10,6 +10,8 @@ export interface ProductAddModel {
     isYoutube: boolean;
     objFile: any;
     mp4Video: any;
+    mtlFile: any;
+    textureFile: any;
 }
 
 export interface Category {

@@ -13,7 +13,7 @@
   </section>
   <section class="content">
     <div class="row-dashboard">
-        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="col-md-3 col-sm-6 col-xs-12" [hidden]="!isKentec">
             <div class="info-box">
               
   
@@ -26,7 +26,7 @@
             </div>
             <!-- /.info-box -->
           </div>
-          <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="col-md-3 col-sm-6 col-xs-12" [hidden]="!isKentec">
               <div class="info-box">
                
     
@@ -38,7 +38,7 @@
               </div>
               <!-- /.info-box -->
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-md-3 col-sm-6 col-xs-12" [hidden]="!isKentec">
                 <div class="info-box">
       
                   <!-- <div class="info-box-content"> -->
@@ -53,8 +53,8 @@
                 <div class="info-box">
       
                   <!-- <div class="info-box-content"> -->
-                      <a routerLink="/ves"><img src="assets/images/logo3.png" class="widthSet"></a><hr>
-                      <a routerLink="/ves"><span class="info-box-number">{{countKent}} products</span></a>
+                      <a routerLink="/kentec"><img src="assets/images/Kentec logo 2015.png" class="widthSet"></a><hr>
+                      <a routerLink="/kentec"><span class="info-box-number">{{countKent}} products</span></a>
                   <!-- </div> -->
                   <!-- /.info-box-content -->
                 </div>

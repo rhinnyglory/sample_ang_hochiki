@@ -18,13 +18,13 @@
       <li [routerLinkActive]="['active']" class="treeview">
         <a routerLink="/overview"> <i class="fa fa-area-chart"></i><span class="pl10">Overview</span></a>
       </li>
-      <li [routerLinkActive]="['active']" class="treeview">
+      <li [routerLinkActive]="['active']" class="treeview" *ngIf="hideProps">
         <a routerLink="/roles"> <i class="fa fa-cubes"></i><span class="pl10"> Role Management</span></a>
       </li>
       <li [routerLinkActive]="['active']" class="treeview">
-        <a routerLink="/product"> <i class="fa fa-archive"></i><span class="pl10">Product Management</span></a>
+        <a routerLink="/{{productUrl}}"> <i class="fa fa-archive"></i><span class="pl10">Product Management</span></a>
       </li>
-      <li [routerLinkActive]="['active']" class="treeview">
+      <li [routerLinkActive]="['active']" class="treeview" *ngIf="hideProps">
         <a routerLink="/category"><i class="fa fa-database"></i>
           <span class="pl10">Category</span>
         </a>

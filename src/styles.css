@@ -334,3 +334,7 @@ bootstrap-growl{
       position: relative;
       top: 1px;
   }
+
+  .errors{
+      color: red;
+  }

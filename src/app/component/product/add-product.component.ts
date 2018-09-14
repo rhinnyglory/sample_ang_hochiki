@@ -39,13 +39,14 @@ export class AddProductComponent implements OnInit {
   documentPath: string;
   filePath: string;
   urlString: string;
+  isObj: boolean;
+  isMtl: boolean;
   constructor(private router: Router,
     private route: ActivatedRoute,
     private productService: ProductService,
     private formBuilder: FormBuilder) { }
   ngOnInit() {
     this.product = {
-      categoryId: {},
       documentName: {},
       category: {},
       isYoutube: true
@@ -62,6 +63,8 @@ export class AddProductComponent implements OnInit {
       this.urlString = 'supression';
     } else if (this.route.snapshot.url[0].path === 'ves') {
       this.urlString = 'ves';
+    } else if (this.route.snapshot.url[0].path === 'kentec') {
+      this.urlString = 'kentec';
     }
     if (userId) {
       this.showLoader = true;
@@ -78,6 +81,8 @@ export class AddProductComponent implements OnInit {
         this.filePath = users.filePath;
       });
     } else {
+      this.isObj = false;
+      this.isMtl = false;
       this.buttonTitle = 'Save';
     }
     this.onOptionsSelected();
@@ -127,8 +132,41 @@ export class AddProductComponent implements OnInit {
     const fileList: FileList = event.target.files;
     if (fileList.length > 0 && fileList[0].name.split('.')[1] === 'obj') {
       this.product.objFile = event.target.files[0];
+      this.isObj = true;
     } else {
       this.product.objFile = null;
+      this.isObj = false;
+      $('.alert').css('z-index', '9999');
+      $('#error-wrong-file').fadeTo(2000, 500).slideUp(500, function () {
+        $('#error-wrong-file').slideUp(500);
+        $('.alert').css('z-index', '-1000');
+      });
+    }
+  }
+
+  mltChange(event) {
+    const fileList: FileList = event.target.files;
+    if (fileList.length > 0 && fileList[0].name.split('.')[1] === 'mtl') {
+      this.product.mtlFile = event.target.files[0];
+      this.isMtl = true;
+    } else {
+      this.product.mtlFile = null;
+      this.isMtl = false;
+      $('.alert').css('z-index', '9999');
+      $('#error-wrong-file').fadeTo(2000, 500).slideUp(500, function () {
+        $('#error-wrong-file').slideUp(500);
+        $('.alert').css('z-index', '-1000');
+      });
+    }
+  }
+
+  textureChange(event) {
+    const fileList: FileList = event.target.files;
+    if (fileList.length > 0 && (fileList[0].name.split('.')[1] === 'jpg'
+      || fileList[0].name.split('.')[1] === 'jpeg' || fileList[0].name.split('.')[1] === 'png')) {
+      this.product.textureFile = event.target.files[0];
+    } else {
+      this.product.textureFile = null;
       $('.alert').css('z-index', '9999');
       $('#error-wrong-file').fadeTo(2000, 500).slideUp(500, function () {
         $('#error-wrong-file').slideUp(500);
@@ -151,10 +189,22 @@ export class AddProductComponent implements OnInit {
     //   return;
     // }
     this.isValidFormSubmitted = true;
-    this.showLoader = true;
+    // this.showLoader = true;
     const userId = this.route.snapshot.params['id'];
     const info: FormData = new FormData();
     if (!userId) {
+      console.log('hiiii', this.product.objFile);
+      if (this.product.objFile) {
+        if (this.product.mtlFile === null) {
+          alert('plz select MTL file');
+          return false;
+        } else {
+          if (this.product.textureFile === null) {
+            alert('plz select Texture file');
+            return false;
+          }
+        }
+      }
       if (typeof this.product.category === 'object') {
         this.product.categoryId = this.product.category.id;
       }

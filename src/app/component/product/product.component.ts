@@ -61,6 +61,11 @@ export class ProductComponent implements OnInit {
       this.urlString = 'ves';
       this.headerString = 'VES';
       this.addButton = false;
+    } else if (this.route.snapshot.url[0].path === 'kentec') {
+      this.getProduct(4);
+      this.urlString = 'kentec';
+      this.headerString = 'KENTEC';
+      this.addButton = true;
     }
   }
 

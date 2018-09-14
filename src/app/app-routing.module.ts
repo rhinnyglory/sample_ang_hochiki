@@ -96,6 +96,21 @@ const routes: Routes = [
     canActivate: [AuthenticateGuard],
   },
   {
+    path: 'kentec/:action',
+    component: AddProductComponent,
+    canActivate: [AuthenticateGuard],
+  },
+  {
+    path: 'kentec/:action/:id',
+    component: AddProductComponent,
+    canActivate: [AuthenticateGuard],
+  },
+  {
+    path: 'kentec',
+    component: ProductComponent,
+    canActivate: [AuthenticateGuard],
+  },
+  {
     path: 'user/:action',
     component: AddUserComponent,
     canActivate: [AuthenticateGuard],

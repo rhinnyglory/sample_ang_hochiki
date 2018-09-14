@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   countves: number;
   countKent: number;
   showLoader = false;
+  isKentec: boolean;
   constructor(private prodServe: ProductService) { }
 
   ngOnInit() {
@@ -24,6 +25,11 @@ export class DashboardComponent implements OnInit {
     this.getSuppression(2);
     this.getVes(3);
     this.getKentec(4);
+    if (localStorage.getItem('email') === 'admin@kentec.com') {
+      this.isKentec = false;
+    } else {
+      this.isKentec = true;
+    }
   }
 
   getHochiki(cat: number) {

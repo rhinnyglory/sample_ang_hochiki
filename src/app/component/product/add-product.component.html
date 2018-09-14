@@ -14,24 +14,24 @@
       <!-- /.box-header -->
       <!-- form start -->
 
-      <form ngNativeValidate name="form" #form="ngForm" novalidate (ngSubmit)="saveCompanyDetails()">
+      <form ngNativeValidate name="productForm" #productForm="ngForm" novalidate>
         <div class="box-body">
           <div class="form-group row">
             <div class="col-sm-6">
               <label for="exampleInputEmail1">Product Title<span class="astric">*</span></label>
-              <input type="text" id="name" name="productName" [(ngModel)]="product.productName" class="form-control" #productName="ngModel"
+              <input type="text" id="productName" name="productName" [(ngModel)]="product.productName" class="form-control" #productName="ngModel"
                 required/>
-              <div *ngIf="productName.errors && (productName.dirty || productName.touched)">
+              <div class="errors" *ngIf="productName.errors && (productName.dirty || productName.touched)">
                 Product Title required.
               </div>
             </div>
             <div class="col-sm-6">
               <label for="exampleInputEmail1">Category<span class="astric">*</span></label>
-              <select class="form-control" name="id" [(ngModel)]="product.category.id" (change)="selectName();" required #id="ngModel">
+              <select class="form-control" name="id" [(ngModel)]="product.category.id" required #id="ngModel">
                   <option value="">Select Category</option>
                   <option *ngFor="let role of categories" [value]="role.id" [selected]="product.category.id == role.id">{{role.name}}</option>
                 </select>
-              <div *ngIf="id.errors.errors && (id.dirty || id.touched)">
+              <div class="errors" *ngIf="id.errors && (id.dirty || id.touched)">
                 Category required.
               </div>
             </div>
@@ -39,8 +39,7 @@
 
           <div class="form-group">
             <label for="exampleInputFile">Product Image<span class="astric">*</span>(Accept only .png,.jpg)</label>
-            <input type="file" name="image" [(ngModel)]="product.image" (change)="uploadImage($event)" accept=".png,.jpg" #image="ngModel"
-              required />
+            <input type="file" name="image" (change)="uploadImage($event)" accept=".png,.jpg" />
             <img *ngIf="showpreview" style="padding-bottom:10px;" src="{{images}}" />
             <img *ngIf="showpreviewafterEdit" style="padding-bottom:10px;" src="{{filePath}}/{{product.image}}" />
           </div>
@@ -60,14 +59,12 @@
 
           <div class="form-group" [hidden]="product.isYoutube !== true">
             <label for="exampleInputEmail1">YouTube Url<span class="astric">*</span></label>
-            <!-- <input type="text" id="videoUrl" name="videoUrl" [(ngModel)]="product.videoUrl" class="form-control" name="videoUrl" #videoUrl="ngModel"
-              pattern="^((https?|ftp)://)?([a-z]+[.])?[a  -z0-9-]+([.][a-z]{1,4}){1,2}(/.*)?$" required/> -->
             <input class="form-control" type="text" name="video" [(ngModel)]="product.videoUrl" #videoUrl='ngModel' pattern="^((https?|ftp)://)?([a-z]+[.])?[a-z0-9-]+([.][a-z]{1,4}){1,2}(/.*)?$"
               required>
-            <div *ngIf="videoUrl.errors.errors && (videoUrl.dirty || videoUrl.touched)">
+            <div class="errors" *ngIf="videoUrl.errors && (videoUrl.dirty || videoUrl.touched)">
               Video Url required.
             </div>
-            <div *ngIf="videoUrl.errors?.pattern && !videoUrl.errors.required">
+            <div class="errors" *ngIf="videoUrl.errors?.pattern && !videoUrl.errors.required">
               Please give proper url!
             </div>
           </div>
@@ -75,27 +72,40 @@
           <div class="form-group" [hidden]="product.isYoutube !== false">
             <label for="exampleInputFile">Upload Video<span class="astric">*</span>(Accept only .mp4)</label>
             <input type="file" name="mp4Video" [(ngModel)]="file" (change)="videoUpload($event)" placeholder="Upload file" accept=".mp4"
-             required />
+            />
             <a href="javascript:void(0)" *ngIf="showpreviewafterEdit">{{product.mp4Video}}</a>
           </div>
 
           <div class="form-group">
             <label for="exampleInputFile">Document<span class="astric">*</span>(Accept only .pdf,.doc,.docx)</label>
             <input type="file" name="documentName" [(ngModel)]="file" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf,.doc,.docx"
-            required />
+            />
             <a href="{{documentPath}}/{{product.documentName}}" target="_blank">Read Document</a>
           </div>
 
-          <div class="form-group">
-            <label for="exampleInputFile">3D File<span class="astric">*</span>(Accept only .obj)</label>
-            <input type="file" name="documentName" [(ngModel)]="file" (change)="threeDChange($event)" placeholder="Upload file" accept=".obj"/>
+          <div class="form-group row">
+            <div class="col-sm-4">
+              <label for="exampleInputFile">3D File<span class="astric">*</span>(Accept only .obj)</label>
+              <input type="file" name="documentName" [(ngModel)]="file" (change)="threeDChange($event)" placeholder="Upload file" accept=".obj"
+              />
+            </div>
+            <div class="col-sm-4">
+              <label for="exampleInputFile">MTL File<span class="astric">*</span>(Accept only .mtl)</label>
+              <input type="file" name="documentName" [(ngModel)]="file" (change)="mltChange($event)" placeholder="Upload file" accept=".mtl"
+              />
+            </div>
+            <div class="col-sm-4">
+              <label for="exampleInputFile">Texture File<span class="astric">*</span>(Accept only .jpg or .jpeg or .png)</label>
+              <input type="file" name="documentName" [(ngModel)]="file" (change)="textureChange($event)" placeholder="Upload file" accept=".jpg, .jpeg, .png"
+              />
+            </div>
           </div>
         </div>
         <!-- /.box-body -->
 
         <div class="box-footer">
           <a class="btn btn-default" routerLink="/{{urlString}}">Cancel</a>
-          <button class="btn btn-primary" type="submit" [disabled]="!form.form.valid">{{this.buttonTitle}}</button>
+          <button class="btn btn-primary" (click)="saveCompanyDetails()" [disabled]="!productForm.form.valid">{{this.buttonTitle}}</button>
         </div>
       </form>
     </div>

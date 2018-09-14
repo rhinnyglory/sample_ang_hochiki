@@ -57,11 +57,13 @@ export class LoginPageComponent {
             const xToken = token.headers.get('x-access-token');
             const firstName = token.body.result.firstName;
             const lastName = token.body.result.lastName;
-
+            const email = token.body.result.email;
+            const userType = token.body.result.userType;
             localStorage.setItem('auth', xToken);
             localStorage.setItem('firstName', firstName);
             localStorage.setItem('lastName', lastName);
-
+            localStorage.setItem('email', email);
+            localStorage.setItem('userType', userType);
             this.authenticated = true;
             if (token.body.success) {
                 this.router.navigate(['dashboard']);
